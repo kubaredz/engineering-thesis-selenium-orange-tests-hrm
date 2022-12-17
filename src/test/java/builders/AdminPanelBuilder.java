@@ -15,4 +15,13 @@ public class AdminPanelBuilder {
 
     @FindBy(css = "h6[class='oxd-text oxd-text--h6 orangehrm-main-title']")
     public WebElement addUserText;
+
+    @FindBy(xpath = "//div[@class='oxd-grid-2 orangehrm-full-width-grid']//div[1]//div[1]//div[2]//div[1]//div[1]//div[1]")
+    public WebElement userRoleDropdown;
+
+    @FindBy(xpath = "//div[@class='oxd-autocomplete-wrapper']//input[1]")
+    public WebElement employeeNameLabel;
+
+    @FindBy(xpath = "(//div[@class='oxd-grid-2 orangehrm-full-width-grid']//div[3]//div[1]//div[2]//div[1]//div[1]//div[1]")
+    public WebElement statusDropdown;
 }

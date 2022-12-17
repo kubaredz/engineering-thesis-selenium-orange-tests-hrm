@@ -27,4 +27,27 @@ public class AdminPanelSteps extends AdminPanelBuilder {
         return addUserText;
     }
 
+    public WebElement getUserRoleDropdown() {
+        return userRoleDropdown;
+    }
+
+    public void setUserRoleDropdown(WebElement userRoleDropdown) {
+        this.userRoleDropdown = userRoleDropdown;
+    }
+
+    public WebElement getEmployeeNameLabel() {
+        return employeeNameLabel;
+    }
+
+    public void setEmployeeNameLabel(WebElement employeeNameLabel) {
+        this.employeeNameLabel = employeeNameLabel;
+    }
+
+    public WebElement getStatusDropdown() {
+        return statusDropdown;
+    }
+
+    public void setStatusDropdown(WebElement statusDropdown) {
+        this.statusDropdown = statusDropdown;
+    }
 }
