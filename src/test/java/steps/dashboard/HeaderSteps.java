@@ -11,36 +11,26 @@ public class HeaderSteps extends HeaderBuilder {
         PageFactory.initElements(DriverManager.driverSetup(), this);
     }
 
-    public WebElement getDropDownButton() {
+    public WebElement getDropdownButton() {
         return dropDownButton;
     }
 
-    public void setDropDownButton(WebElement dropDownButton) {
-        this.dropDownButton = dropDownButton;
+    public void clickDropdownButton() {
+        dropDownButton.click();
     }
 
     public WebElement getDropdownMenu() {
         return dropdownMenu;
     }
 
-    public void setDropdownMenu(WebElement dropdownMenu) {
-        this.dropdownMenu = dropdownMenu;
-    }
 
     public WebElement getUserDropdown() {
         return userDropdown;
     }
 
-    public void setUserDropdown(WebElement userDropdown) {
-        this.userDropdown = userDropdown;
-    }
 
     public WebElement getAboutSection() {
         return aboutSection;
-    }
-
-    public void setAboutSection(WebElement aboutSection) {
-        this.aboutSection = aboutSection;
     }
 
     public String getPageUrl() {

@@ -2,7 +2,6 @@ package tests;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import setup.DriverManager;
 import steps.options.AdminPanelSteps;
@@ -12,47 +11,36 @@ import static org.testng.Assert.assertTrue;
 public class AdminPanelTests extends TestBase {
 
     @Test
-    public void asAdminUserManagementScreenIsPresent() {
+    public void asAdminUserManagementScreenIsPresentTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
-        loginPageTests.asUserTryToLoginWithCorrectLoginAndPassword();
+        loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
 
         AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
-        adminPanelSteps.getAdminPanelSection().click();
+        adminPanelSteps.clickAdminPanelSection();
 
         assertTrue(adminPanelSteps.getUserManagementSection().isDisplayed());
     }
 
     @Test
-    public void asAdminAddNewUser() {
+    public void asAdminAddNewUserTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
-        loginPageTests.asUserTryToLoginWithCorrectLoginAndPassword();
+        loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
 
         AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
-        adminPanelSteps.getAdminPanelSection().click();
+        adminPanelSteps.clickAdminPanelSection();
+        adminPanelSteps.clickAddButton();
 
-        adminPanelSteps.getAddButton().click();
         assertTrue(adminPanelSteps.getAddUserText().isDisplayed());
 
-        adminPanelSteps.getUserRoleDropdown().click();
-        Actions actions = new Actions(DriverManager.driverSetup());
+        adminPanelSteps.clickUserRoleDropdown();
 
+        Actions actions = new Actions(DriverManager.driverSetup());
         actions.sendKeys(Keys.chord(Keys.DOWN, Keys.ENTER)).perform();
 
-        adminPanelSteps.getEmployeeNameLabel().sendKeys("Jakub");
+        adminPanelSteps.setEmployeeNameLabel("Jakub");
 
         // TODO: 17/12/2022
-        adminPanelSteps.getStatusDropdown().click();
+        adminPanelSteps.clickStatusDropdown();
         actions.sendKeys(Keys.chord(Keys.DOWN, Keys.ENTER)).perform();
-        
-        sleep();
-
-    }
-
-    private void sleep() {
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 }

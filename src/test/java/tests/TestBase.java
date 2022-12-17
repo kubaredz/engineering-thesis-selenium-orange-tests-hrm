@@ -7,8 +7,6 @@ import org.testng.annotations.BeforeMethod;
 import setup.DriverManager;
 import setup.PageSetup;
 
-import java.time.Duration;
-
 public class TestBase {
     private final static String PAGE_URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 

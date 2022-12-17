@@ -3,69 +3,68 @@ package tests;
 import org.testng.annotations.Test;
 import steps.dashboard.DashboardSteps;
 import steps.login_page.LoginPageSteps;
+
 import static org.testng.Assert.assertTrue;
 
 
 public class DashboardTests extends TestBase {
 
     @Test
-    public void loginWithExistingUser() {
+    public void loginWithExistingUserTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
         loginPageSteps.setUserNameField("Admin");
-
         loginPageSteps.setPasswordField("admin123");
-
-        loginPageSteps.loginButton.click();
+        loginPageSteps.clickLoginButton();
 
         DashboardSteps dashboardSteps = new DashboardSteps();
         assertTrue(dashboardSteps.getHrmLogoAfterLogin().isDisplayed());
     }
 
     @Test
-    public void checkThatTimeAtWorkSectionIsPresent() {
-        loginWithExistingUser();
+    public void checkThatTimeAtWorkSectionIsPresentTest() {
+        loginWithExistingUserTest();
         DashboardSteps dashboardSteps = new DashboardSteps();
 
         assertTrue(dashboardSteps.getTimeAtWorkSection().isDisplayed());
     }
 
     @Test
-    public void checkThatMyActionsSectionIsPresent() {
-        loginWithExistingUser();
+    public void checkThatMyActionsSectionIsPresentTest() {
+        loginWithExistingUserTest();
         DashboardSteps dashboardSteps = new DashboardSteps();
 
         assertTrue(dashboardSteps.getMyActionsSection().isDisplayed());
     }
 
     @Test
-    public void checkThatQuickLaunchSectionIsPresent() {
-        loginWithExistingUser();
-
+    public void checkThatQuickLaunchSectionIsPresentTest() {
+        loginWithExistingUserTest();
         DashboardSteps dashboardSteps = new DashboardSteps();
+
         assertTrue(dashboardSteps.getQuickLaunchSection().isDisplayed());
     }
 
     @Test
-    public void checkThatEmployeesOnLeaveTodaySectionIsPresent() {
-        loginWithExistingUser();
-
+    public void checkThatEmployeesOnLeaveTodaySectionIsPresentTest() {
+        loginWithExistingUserTest();
         DashboardSteps dashboardSteps = new DashboardSteps();
+
         assertTrue(dashboardSteps.getEmployeesOnLeaveSection().isDisplayed());
     }
 
     @Test
-    public void checkThatEmployeeDistributionBySubUnitTodaySectionIsPresent() {
-        loginWithExistingUser();
-
+    public void checkThatEmployeeDistributionBySubUnitTodaySectionIsPresentTest() {
+        loginWithExistingUserTest();
         DashboardSteps dashboardSteps = new DashboardSteps();
+
         assertTrue(dashboardSteps.getEmployeeDistributionBySubUnitLeaveSection().isDisplayed());
     }
 
     @Test
-    public void checkThatEmployeeDistributionByLocationTodaySectionIsPresent() {
-        loginWithExistingUser();
-
+    public void checkThatEmployeeDistributionByLocationTodaySectionIsPresentTest() {
+        loginWithExistingUserTest();
         DashboardSteps dashboardSteps = new DashboardSteps();
+
         assertTrue(dashboardSteps.getEmployeeDistributionByLocationSection().isDisplayed());
     }
 }

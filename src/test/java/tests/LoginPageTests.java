@@ -17,18 +17,19 @@ public class LoginPageTests extends TestBase {
     }
 
     @Test
-    public void checkThatLoginIsDisplayedInField() {
+    public void checkThatLoginIsDisplayedInFieldTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
         loginPageSteps.setUserNameField("Admin");
+
         String userNameField = loginPageSteps.getUserNameField();
         assertEquals(userNameField, "Admin");
-
     }
 
     @Test
-    public void checkThatPasswordIsDisplayedInField() {
+    public void checkThatPasswordIsDisplayedInFieldTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
         loginPageSteps.setPasswordField("admin123");
+
         String passwordField = loginPageSteps.getPasswordField();
         assertEquals(passwordField, "admin123");
     }
@@ -46,25 +47,24 @@ public class LoginPageTests extends TestBase {
     }
 
     @Test
-    public void checkThatHyperlinkForgotYourPasswordIsVisible() {
+    public void checkThatHyperlinkForgotYourPasswordIsVisibleTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
         assertEquals(loginPageSteps.getHyperlinkForgotYourPassword(), "Forgot your password?");
     }
 
     @Test
-    public void checkIfHyperlinkForgotYourPasswordTransferToResetPasswordPage() {
+    public void checkIfHyperlinkForgotYourPasswordTransferToResetPasswordPageTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
-        loginPageSteps.forgotYourPasswordHyperlink.click();
+        loginPageSteps.clickForgotYourPasswordHyperlink();
+
         String forgotYourPasswordPageUrl = loginPageSteps.getCurrentPageUrl();
         assertEquals(forgotYourPasswordPageUrl, "https://opensource-demo.orangehrmlive.com/web/index.php/auth/requestPasswordResetCode");
     }
 
     @Test
-    public void checkThatHyperlinkRedirectsToTheOrangeHrmProducerPage() {
+    public void checkThatHyperlinkRedirectsToTheOrangeHrmProducerPageTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
-
-        loginPageSteps.producerPageHyperlink.click();
-
+        loginPageSteps.clickProducerPageHyperlink();
         loginPageSteps.switchHandledTab(1);
 
         String currentPageUrl = loginPageSteps.getCurrentPageUrl();
@@ -72,28 +72,23 @@ public class LoginPageTests extends TestBase {
     }
 
     @Test
-    public void asUserTryToLoginWithCorrectLoginAndPassword() {
+    public void asUserTryToLoginWithCorrectLoginAndPasswordTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
-
         loginPageSteps.setUserNameField("Admin");
-
         loginPageSteps.setPasswordField("admin123");
+        loginPageSteps.clickLoginButton();
 
-        loginPageSteps.loginButton.click();
         DashboardSteps dashboardSteps = new DashboardSteps();
         dashboardSteps.getHrmLogoAfterLogin();
         assertTrue(dashboardSteps.getHrmLogoAfterLogin().isDisplayed());
     }
 
     @Test
-    public void asUserTryToLogInWithIncorrectLoginAndPassword() {
+    public void asUserTryToLogInWithIncorrectLoginAndPasswordTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
-
         loginPageSteps.setUserNameField("IncorrectLogin");
-
         loginPageSteps.setPasswordField("password");
-
-        loginPageSteps.loginButton.click();
+        loginPageSteps.clickLoginButton();
 
         String invalidCredentialsAlert = loginPageSteps.getInvalidCredentialsAlert();
         assertEquals(invalidCredentialsAlert, "Invalid credentials");

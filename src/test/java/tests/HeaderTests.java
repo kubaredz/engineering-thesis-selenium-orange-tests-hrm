@@ -12,12 +12,12 @@ import static org.testng.Assert.assertEquals;
 public class HeaderTests extends TestBase {
 
     @Test
-    public void verifyThatUserDropDownListHasAllNecessaryFields() {
+    public void verifyThatUserDropDownListHasAllNecessaryFieldsTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
-        loginPageTests.asUserTryToLoginWithCorrectLoginAndPassword();
+        loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
 
         HeaderSteps headerSteps = new HeaderSteps();
-        headerSteps.getDropDownButton().click();
+        headerSteps.clickDropdownButton();
 
         List<WebElement> listOfLinksElements = headerSteps.getDropdownMenu().findElements(By.tagName("li"));
         List<String> listOfElementsInUserDropDownList = new ArrayList<>();
@@ -34,12 +34,12 @@ public class HeaderTests extends TestBase {
     }
 
     @Test
-    public void verifyThatAboutOptionHasAllNecessaryInformation() {
+    public void verifyThatAboutOptionHasAllNecessaryInformationTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
-        loginPageTests.asUserTryToLoginWithCorrectLoginAndPassword();
+        loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
 
         HeaderSteps headerSteps = new HeaderSteps();
-        headerSteps.getDropDownButton().click();
+        headerSteps.clickDropdownButton();
 
         List<WebElement> options = headerSteps.getUserDropdown().findElements(By.tagName("li"));
         for (WebElement option : options) {
@@ -51,12 +51,13 @@ public class HeaderTests extends TestBase {
     }
 
     @Test
-    public void verifyThatSupportOptionTransferToSupportPage() {
+    public void verifyThatSupportOptionTransferToSupportPageTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
-        loginPageTests.asUserTryToLoginWithCorrectLoginAndPassword();
+        loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
 
         HeaderSteps headerSteps = new HeaderSteps();
-        headerSteps.getDropDownButton().click();
+        headerSteps.clickDropdownButton();
+
         List<WebElement> options = headerSteps.getUserDropdown().findElements(By.tagName("li"));
         for (WebElement option : options) {
             if (option.getText().equals("Support")) {
@@ -68,12 +69,13 @@ public class HeaderTests extends TestBase {
     }
 
     @Test
-    public void verifyThatChangePasswordOptionRedirectToChangePasswordPage() {
+    public void verifyThatChangePasswordOptionRedirectToChangePasswordPageTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
-        loginPageTests.asUserTryToLoginWithCorrectLoginAndPassword();
+        loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
 
         HeaderSteps headerSteps = new HeaderSteps();
-        headerSteps.getDropDownButton().click();
+        headerSteps.clickDropdownButton();
+
         List<WebElement> options = headerSteps.getUserDropdown().findElements(By.tagName("li"));
         for (WebElement option : options) {
             if (option.getText().equals("Change Password")) {
@@ -85,12 +87,12 @@ public class HeaderTests extends TestBase {
     }
 
     @Test
-    public void verifyThatLogoutOptionLogsOutUser() {
+    public void verifyThatLogoutOptionLogsOutUserTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
-        loginPageTests.asUserTryToLoginWithCorrectLoginAndPassword();
+        loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
 
         HeaderSteps headerSteps = new HeaderSteps();
-        headerSteps.getDropDownButton().click();
+        headerSteps.clickDropdownButton();
         List<WebElement> options = headerSteps.getUserDropdown().findElements(By.tagName("li"));
         for (WebElement option : options) {
             if (option.getText().equals("Change Password")) {

@@ -45,18 +45,29 @@ public class LoginPageSteps extends LoginPageBuilder {
         return forgotYourPasswordHyperlink.getText();
     }
 
+    public void clickForgotYourPasswordHyperlink() {
+        forgotYourPasswordHyperlink.click();
+    }
+
     public String getCurrentPageUrl() {
         String currentPageUrl = DriverManager.driverSetup().getCurrentUrl();
         return currentPageUrl;
     }
 
-    public void switchHandledTab(int tab) {
-        List<String> browserTabs = new ArrayList<>(DriverManager.driverSetup().getWindowHandles());
-        DriverManager.driverSetup().switchTo().window(browserTabs.get(tab));
+    public void clickProducerPageHyperlink() {
+        producerPageHyperlink.click();
     }
 
     public String getInvalidCredentialsAlert() {
         return invalidCredentialsAlert.getText();
     }
 
+    public void clickLoginButton() {
+        loginButton.click();
+    }
+
+    public void switchHandledTab(int tab) {
+        List<String> browserTabs = new ArrayList<>(DriverManager.driverSetup().getWindowHandles());
+        DriverManager.driverSetup().switchTo().window(browserTabs.get(tab));
+    }
 }

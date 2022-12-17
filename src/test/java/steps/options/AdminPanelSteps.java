@@ -15,12 +15,20 @@ public class AdminPanelSteps extends AdminPanelBuilder {
         return adminPanelSection;
     }
 
+    public void clickAdminPanelSection() {
+        adminPanelSection.click();
+    }
+
     public WebElement getUserManagementSection() {
         return userManagementSection;
     }
 
     public WebElement getAddButton() {
         return addButton;
+    }
+
+    public void clickAddButton() {
+        addButton.click();
     }
 
     public WebElement getAddUserText() {
@@ -31,23 +39,23 @@ public class AdminPanelSteps extends AdminPanelBuilder {
         return userRoleDropdown;
     }
 
-    public void setUserRoleDropdown(WebElement userRoleDropdown) {
-        this.userRoleDropdown = userRoleDropdown;
+    public void clickUserRoleDropdown() {
+        userRoleDropdown.click();
     }
 
     public WebElement getEmployeeNameLabel() {
         return employeeNameLabel;
     }
 
-    public void setEmployeeNameLabel(WebElement employeeNameLabel) {
-        this.employeeNameLabel = employeeNameLabel;
+    public void setEmployeeNameLabel(String employeeName) {
+        employeeNameLabel.sendKeys(employeeName);
     }
 
     public WebElement getStatusDropdown() {
         return statusDropdown;
     }
 
-    public void setStatusDropdown(WebElement statusDropdown) {
-        this.statusDropdown = statusDropdown;
+    public void clickStatusDropdown() {
+        statusDropdown.click();
     }
 }
