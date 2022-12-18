@@ -1,7 +1,6 @@
 package steps.dashboard;
 
 import builders.DashboardPageBuilder;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
 
@@ -11,31 +10,32 @@ public class DashboardSteps extends DashboardPageBuilder {
         PageFactory.initElements(DriverManager.driverSetup(), this);
     }
 
-    public WebElement getHrmLogoAfterLogin() {
-        return hrmLogoAfterLogin;
+
+    public boolean isHrmLogoAfterLoginDisplayed() {
+        return hrmLogoAfterLogin.isDisplayed();
     }
 
-    public WebElement getTimeAtWorkSection() {
-        return timeAtWorkSection;
+    public boolean isTimeAtWorkSectionPresent() {
+        return timeAtWorkSection.isDisplayed();
     }
 
-    public WebElement getMyActionsSection() {
-        return myActionsSection;
+    public boolean isMyActionsSectionDisplayed() {
+        return myActionsSection.isDisplayed();
     }
 
-    public WebElement getQuickLaunchSection() {
-        return quickLaunchSection;
+    public boolean isQuickLaunchSectionDisplayed() {
+        return quickLaunchSection.isDisplayed();
     }
 
-    public WebElement getEmployeesOnLeaveSection() {
-        return employeesOnLeaveSection;
+    public boolean isEmployeesOnLeaveSectionDisplayed() {
+        return employeesOnLeaveSection.isDisplayed();
     }
 
-    public WebElement getEmployeeDistributionBySubUnitLeaveSection() {
-        return employeeDistributionBySubUnitLeaveSection;
+    public boolean isEmployeeDistributionBySubUnitLeaveSectionDisplayed() {
+        return employeeDistributionBySubUnitLeaveSection.isDisplayed();
     }
 
-    public WebElement getEmployeeDistributionByLocationSection() {
-        return employeeDistributionByLocationSection;
+    public boolean isEmployeeDistributionByLocationSectionDisplayed() {
+        return employeeDistributionByLocationSection.isDisplayed();
     }
 }

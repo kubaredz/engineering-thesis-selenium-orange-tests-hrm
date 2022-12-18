@@ -11,9 +11,6 @@ public class HeaderSteps extends HeaderBuilder {
         PageFactory.initElements(DriverManager.driverSetup(), this);
     }
 
-    public WebElement getDropdownButton() {
-        return dropDownButton;
-    }
 
     public void clickDropdownButton() {
         dropDownButton.click();
@@ -22,7 +19,6 @@ public class HeaderSteps extends HeaderBuilder {
     public WebElement getDropdownMenu() {
         return dropdownMenu;
     }
-
 
     public WebElement getUserDropdown() {
         return userDropdown;
@@ -34,7 +30,6 @@ public class HeaderSteps extends HeaderBuilder {
     }
 
     public String getPageUrl() {
-        String pageTitle = DriverManager.driverSetup().getCurrentUrl();
-        return pageTitle;
+        return DriverManager.driverSetup().getCurrentUrl();
     }
 }

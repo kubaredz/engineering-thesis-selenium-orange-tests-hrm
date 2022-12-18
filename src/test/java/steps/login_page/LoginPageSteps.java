@@ -13,8 +13,7 @@ public class LoginPageSteps extends LoginPageBuilder {
     }
 
     public String getPageTitle() {
-        String pageTitle = DriverManager.driverSetup().getTitle();
-        return pageTitle;
+        return DriverManager.driverSetup().getTitle();
     }
 
     public String getUserNameField() {
@@ -50,15 +49,14 @@ public class LoginPageSteps extends LoginPageBuilder {
     }
 
     public String getCurrentPageUrl() {
-        String currentPageUrl = DriverManager.driverSetup().getCurrentUrl();
-        return currentPageUrl;
+        return DriverManager.driverSetup().getCurrentUrl();
     }
 
     public void clickProducerPageHyperlink() {
         producerPageHyperlink.click();
     }
 
-    public String getInvalidCredentialsAlert() {
+    public String getInvalidCredentialsAlertText() {
         return invalidCredentialsAlert.getText();
     }
 

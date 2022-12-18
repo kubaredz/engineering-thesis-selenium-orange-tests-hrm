@@ -18,7 +18,7 @@ public class AdminPanelTests extends TestBase {
         AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
         adminPanelSteps.clickAdminPanelSection();
 
-        assertTrue(adminPanelSteps.getUserManagementSection().isDisplayed());
+        assertTrue(adminPanelSteps.isUserManagementSectionDisplayed());
     }
 
     @Test
@@ -30,7 +30,7 @@ public class AdminPanelTests extends TestBase {
         adminPanelSteps.clickAdminPanelSection();
         adminPanelSteps.clickAddButton();
 
-        assertTrue(adminPanelSteps.getAddUserText().isDisplayed());
+        assertTrue(adminPanelSteps.isAddUserTextDisplayed());
 
         adminPanelSteps.clickUserRoleDropdown();
 

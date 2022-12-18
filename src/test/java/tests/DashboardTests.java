@@ -17,7 +17,7 @@ public class DashboardTests extends TestBase {
         loginPageSteps.clickLoginButton();
 
         DashboardSteps dashboardSteps = new DashboardSteps();
-        assertTrue(dashboardSteps.getHrmLogoAfterLogin().isDisplayed());
+        assertTrue(dashboardSteps.isHrmLogoAfterLoginDisplayed());
     }
 
     @Test
@@ -25,7 +25,7 @@ public class DashboardTests extends TestBase {
         loginWithExistingUserTest();
         DashboardSteps dashboardSteps = new DashboardSteps();
 
-        assertTrue(dashboardSteps.getTimeAtWorkSection().isDisplayed());
+        assertTrue(dashboardSteps.isTimeAtWorkSectionPresent());
     }
 
     @Test
@@ -33,7 +33,7 @@ public class DashboardTests extends TestBase {
         loginWithExistingUserTest();
         DashboardSteps dashboardSteps = new DashboardSteps();
 
-        assertTrue(dashboardSteps.getMyActionsSection().isDisplayed());
+        assertTrue(dashboardSteps.isMyActionsSectionDisplayed());
     }
 
     @Test
@@ -41,7 +41,7 @@ public class DashboardTests extends TestBase {
         loginWithExistingUserTest();
         DashboardSteps dashboardSteps = new DashboardSteps();
 
-        assertTrue(dashboardSteps.getQuickLaunchSection().isDisplayed());
+        assertTrue(dashboardSteps.isQuickLaunchSectionDisplayed());
     }
 
     @Test
@@ -49,7 +49,7 @@ public class DashboardTests extends TestBase {
         loginWithExistingUserTest();
         DashboardSteps dashboardSteps = new DashboardSteps();
 
-        assertTrue(dashboardSteps.getEmployeesOnLeaveSection().isDisplayed());
+        assertTrue(dashboardSteps.isEmployeesOnLeaveSectionDisplayed());
     }
 
     @Test
@@ -57,7 +57,7 @@ public class DashboardTests extends TestBase {
         loginWithExistingUserTest();
         DashboardSteps dashboardSteps = new DashboardSteps();
 
-        assertTrue(dashboardSteps.getEmployeeDistributionBySubUnitLeaveSection().isDisplayed());
+        assertTrue(dashboardSteps.isEmployeeDistributionBySubUnitLeaveSectionDisplayed());
     }
 
     @Test
@@ -65,6 +65,6 @@ public class DashboardTests extends TestBase {
         loginWithExistingUserTest();
         DashboardSteps dashboardSteps = new DashboardSteps();
 
-        assertTrue(dashboardSteps.getEmployeeDistributionByLocationSection().isDisplayed());
+        assertTrue(dashboardSteps.isEmployeeDistributionByLocationSectionDisplayed());
     }
 }

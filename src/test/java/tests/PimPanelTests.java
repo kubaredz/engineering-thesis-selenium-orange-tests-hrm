@@ -19,7 +19,7 @@ public class PimPanelTests extends TestBase {
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
         pimPanelSteps.clickPimPanelSection();
 
-        assertTrue(pimPanelSteps.getPimSection().isDisplayed());
+        assertTrue(pimPanelSteps.isPimSectionDisplayed());
     }
 
     @Test
@@ -31,8 +31,8 @@ public class PimPanelTests extends TestBase {
         pimPanelSteps.clickPimPanelSection();
         pimPanelSteps.clickAddButton();
 
-        assertTrue(pimPanelSteps.getAddEmployeeText().isDisplayed());
-        assertEquals(pimPanelSteps.getAddEmployeeText().getText(), "Add Employee");
+        assertTrue(pimPanelSteps.isAddEmployeeTextDisplayed());
+        assertEquals(pimPanelSteps.getAddEmployeeText(), "Add Employee");
     }
 
     @Test
@@ -78,6 +78,6 @@ public class PimPanelTests extends TestBase {
         //click save button
         pimPanelSteps.clickSaveButton();
 
-        assertTrue(pimPanelSteps.getSuccessPopup().isDisplayed());
+        assertTrue(pimPanelSteps.isSuccessPopupDisplayed());
     }
 }

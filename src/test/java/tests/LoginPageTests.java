@@ -79,8 +79,7 @@ public class LoginPageTests extends TestBase {
         loginPageSteps.clickLoginButton();
 
         DashboardSteps dashboardSteps = new DashboardSteps();
-        dashboardSteps.getHrmLogoAfterLogin();
-        assertTrue(dashboardSteps.getHrmLogoAfterLogin().isDisplayed());
+        assertTrue(dashboardSteps.isHrmLogoAfterLoginDisplayed());
     }
 
     @Test
@@ -90,7 +89,7 @@ public class LoginPageTests extends TestBase {
         loginPageSteps.setPasswordField("password");
         loginPageSteps.clickLoginButton();
 
-        String invalidCredentialsAlert = loginPageSteps.getInvalidCredentialsAlert();
+        String invalidCredentialsAlert = loginPageSteps.getInvalidCredentialsAlertText();
         assertEquals(invalidCredentialsAlert, "Invalid credentials");
     }
 }
