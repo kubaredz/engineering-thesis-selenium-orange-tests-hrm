@@ -1,6 +1,5 @@
 package tests;
 
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import steps.dashboard.DashboardSteps;
 import steps.login_page.LoginPageSteps;
@@ -10,23 +9,13 @@ import static org.testng.Assert.assertTrue;
 
 public class DashboardTests extends TestBase {
 
-    private LoginPageSteps loginPageSteps;
-
-    @BeforeSuite
-    public void setUpDashboardTests() {
-        loginPageSteps = new LoginPageSteps();
-    }
-
-    @Test
-    public void loginWithExistingUserTest() {
-        loginPageSteps
-                .setUserNameField("Admin")
-                .setPasswordField("admin123")
-                .clickLoginButton();
-
-        DashboardSteps dashboardSteps = new DashboardSteps();
-        assertTrue(dashboardSteps.isHrmLogoAfterLoginDisplayed());
-    }
+    //TODO
+//    private LoginPageSteps loginPageSteps;
+//
+//    @BeforeSuite
+//    public void setUpDashboardTests() {
+//        loginPageSteps = new LoginPageSteps();
+//    }
 
     @Test
     public void checkThatTimeAtWorkSectionIsPresentTest() {
