@@ -2,8 +2,14 @@ package builders;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import steps.options.PimPanelSteps;
+
+import java.util.logging.Logger;
 
 public class PimPanelBuilder {
+
+    public static final Logger LOGGER = Logger.getLogger(PimPanelSteps.class.getName());
+
     @FindBy(css = "a[href='/web/index.php/pim/viewPimModule']")
     public WebElement pimPanelSection;
 
@@ -17,7 +23,7 @@ public class PimPanelBuilder {
     public WebElement addEmployeeText;
 
     @FindBy(css = "button[class='oxd-icon-button employee-image-action']")
-    public WebElement addEmployeeButton;
+    public WebElement uploadImageButton;
 
     @FindBy(name = "firstName")
     public WebElement firstNameLabel;

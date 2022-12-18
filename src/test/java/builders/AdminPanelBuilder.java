@@ -2,8 +2,13 @@ package builders;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import steps.options.AdminPanelSteps;
+
+import java.util.logging.Logger;
 
 public class AdminPanelBuilder {
+    public static final Logger LOGGER = Logger.getLogger(AdminPanelSteps.class.getName());
+
     @FindBy(css = "a[href='/web/index.php/admin/viewAdminModule']")
     public WebElement adminPanelSection;
 

@@ -2,8 +2,11 @@ package builders;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import steps.dashboard.HeaderSteps;
+import java.util.logging.Logger;
 
 public class HeaderBuilder {
+    public static final Logger LOGGER = Logger.getLogger(HeaderSteps.class.getName());
 
     @FindBy(xpath = "//*[@id='app']/div[1]/div[1]/header/div[1]/div[2]/ul")
     public WebElement dropDownButton;

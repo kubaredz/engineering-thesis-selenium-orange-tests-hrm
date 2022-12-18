@@ -44,11 +44,11 @@ public class PimPanelTests extends TestBase {
         pimPanelSteps.clickPimPanelSection();
         pimPanelSteps.clickAddButton();
 
-        Wait.waitTillElementIsPresent(pimPanelSteps.getAddEmployeeButton());
+        Wait.waitTillElementIsPresent(pimPanelSteps.getUploadImageButton());
 
         //TODO
         //add img
-        pimPanelSteps.setAddEmployeeButton("C:\\Users\\kubar\\avatar.jpg");
+        pimPanelSteps.setUploadImageButton("C:\\Users\\kubar\\avatar.jpg");
 
         //set first name
         pimPanelSteps.setFirstNameLabel(UserDataGenerator.generateFirstName());

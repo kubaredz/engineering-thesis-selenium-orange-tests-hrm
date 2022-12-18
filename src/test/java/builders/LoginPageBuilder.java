@@ -2,8 +2,14 @@ package builders;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import steps.login_page.LoginPageSteps;
+
+import java.util.logging.Logger;
 
 public class LoginPageBuilder {
+
+    public static final Logger LOGGER = Logger.getLogger(LoginPageSteps.class.getName());
+
     @FindBy(name = "username")
     public WebElement usernameField;
 
