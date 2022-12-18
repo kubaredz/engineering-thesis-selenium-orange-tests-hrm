@@ -12,6 +12,7 @@ public class AdminPanelTests extends TestBase {
 
     @Test
     public void asAdminUserManagementScreenIsPresentTest() {
+
         LoginPageTests loginPageTests = new LoginPageTests();
         loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
 
@@ -27,8 +28,9 @@ public class AdminPanelTests extends TestBase {
         loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
 
         AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
-        adminPanelSteps.clickAdminPanelSection();
-        adminPanelSteps.clickAddButton();
+        adminPanelSteps
+                .clickAdminPanelSection()
+                .clickAddButton();
 
         assertTrue(adminPanelSteps.isAddUserTextDisplayed());
 

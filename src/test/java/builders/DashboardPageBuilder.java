@@ -2,12 +2,8 @@ package builders;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import steps.dashboard.DashboardSteps;
-import java.util.logging.Logger;
 
-public class DashboardPageBuilder {
-
-    public static final Logger LOGGER = Logger.getLogger(DashboardSteps.class.getName());
+public class DashboardPageBuilder extends LoggerManager {
 
     @FindBy(css = "img[src*='orangehrm-logo.png']")
     public WebElement hrmLogoAfterLogin;

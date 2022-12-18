@@ -4,6 +4,7 @@ import builders.PimPanelBuilder;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
+
 import java.util.logging.Level;
 
 public class PimPanelSteps extends PimPanelBuilder {
@@ -12,96 +13,107 @@ public class PimPanelSteps extends PimPanelBuilder {
         PageFactory.initElements(DriverManager.driverSetup(), this);
     }
 
-    public void clickPimPanelSection() {
+    public PimPanelSteps clickPimPanelSection() {
         pimPanelSection.click();
-        LOGGER.log(Level.INFO, "Przycisk dla sekcji: \"PIM\" został wciśnięty");
+        logger.log(Level.INFO, "Przycisk dla sekcji: \"PIM\" został wciśnięty");
+        return new PimPanelSteps();
     }
 
     public boolean isPimSectionDisplayed() {
-        LOGGER.log(Level.INFO, "Sekcja: \"PIM\" została wyświetlona");
+        logger.log(Level.INFO, "Sekcja: \"PIM\" została wyświetlona");
         return pimSection.isDisplayed();
     }
 
-    public void clickAddButton() {
+    public PimPanelSteps clickAddButton() {
         addButton.click();
-        LOGGER.log(Level.INFO, "Przycisk: \"Add\" został wciśnięty");
+        logger.log(Level.INFO, "Przycisk: \"Add\" został wciśnięty");
+        return new PimPanelSteps();
     }
 
     public boolean isAddEmployeeTextDisplayed() {
-        LOGGER.log(Level.INFO, "Tekst \"Add employee\" został wyświetlony");
+        logger.log(Level.INFO, "Tekst \"Add employee\" został wyświetlony");
         return addEmployeeText.isDisplayed();
     }
 
     public String getAddEmployeeText() {
-        LOGGER.log(Level.INFO, "Tekst: \"Add Employee\" został wyświetlony");
+        logger.log(Level.INFO, "Tekst: \"Add Employee\" został wyświetlony");
         return addEmployeeText.getText();
     }
 
-    public void setFirstNameLabel(String firstName) {
+    public PimPanelSteps setFirstNameLabel(String firstName) {
         firstNameLabel.sendKeys(firstName);
-        LOGGER.log(Level.INFO, "Wprowadzam imię pracownika: {0}", firstName);
+        logger.log(Level.INFO, "Wprowadzam imię pracownika: {0}", firstName);
+        return new PimPanelSteps();
     }
 
 
     public WebElement getUploadImageButton() {
-        LOGGER.log(Level.INFO, "Przycisk: \"Add image\" został wyświetlony");
+        logger.log(Level.INFO, "Przycisk: \"Add image\" został wyświetlony");
         return uploadImageButton;
     }
 
-    public void setUploadImageButton(String imgPath) {
+    public PimPanelSteps setUploadImageButton(String imgPath) {
         uploadImageButton.sendKeys(imgPath);
-        LOGGER.log(Level.INFO, "Lokalizacja zdjęcia: {0} została przekazana", imgPath);
+        logger.log(Level.INFO, "Lokalizacja zdjęcia: {0} została przekazana", imgPath);
+        return new PimPanelSteps();
     }
 
 
-    public void setMiddleNameLabel(String middleName) {
+    public PimPanelSteps setMiddleNameLabel(String middleName) {
         middleNameLabel.sendKeys(middleName);
-        LOGGER.log(Level.INFO, "Wprowadzam drugię imię pracownika: {0}", middleName);
-
+        logger.log(Level.INFO, "Wprowadzam drugię imię pracownika: {0}", middleName);
+        return new PimPanelSteps();
     }
 
 
-    public void setLastNameLabel(String lastName) {
+    public PimPanelSteps setLastNameLabel(String lastName) {
         lastNameLabel.sendKeys(lastName);
-        LOGGER.log(Level.INFO, "Wprowadzam nazwisko pracownika: {0}", lastName);
+        logger.log(Level.INFO, "Wprowadzam nazwisko pracownika: {0}", lastName);
+        return new PimPanelSteps();
     }
 
-    public void clickLoginDetailsCheckBox() {
+    public PimPanelSteps clickLoginDetailsCheckBox() {
         loginDetailsCheckBox.click();
-        LOGGER.log(Level.INFO, "Checkbox: \"Create Login Details\" został zaznaczony");
+        logger.log(Level.INFO, "Checkbox: \"Create Login Details\" został zaznaczony");
+        return new PimPanelSteps();
     }
 
 
-    public void setUsernameLabel(String username) {
+    public PimPanelSteps setUsernameLabel(String username) {
         usernameLabel.sendKeys(username);
-        LOGGER.log(Level.INFO, "Wprowadzam login pracownika: {0}", username);
+        logger.log(Level.INFO, "Wprowadzam login pracownika: {0}", username);
+        return new PimPanelSteps();
     }
 
 
-    public void clickStatusEnabledRadioButton() {
+    public PimPanelSteps clickStatusEnabledRadioButton() {
         statusEnabledRadioButton.click();
-        LOGGER.log(Level.INFO, "Radio button: \"Status - Enabled\" został zaznaczony");
+        logger.log(Level.INFO, "Radio button: \"Status - Enabled\" został zaznaczony");
+        return new PimPanelSteps();
     }
 
 
-    public void setPasswordLabel(String password) {
+    public PimPanelSteps setPasswordLabel(String password) {
         passwordLabel.sendKeys(password);
-        LOGGER.log(Level.INFO, "Wprowadzam hasło pracownika: {0}", password);
+        logger.log(Level.INFO, "Wprowadzam hasło pracownika: {0}", password);
+        return new PimPanelSteps();
     }
 
 
-    public void setConfirmPasswordLabel(String confirmPassword) {
+    public PimPanelSteps setConfirmPasswordLabel(String confirmPassword) {
         confirmPasswordLabel.sendKeys(confirmPassword);
-        LOGGER.log(Level.INFO, "Wprowadzam hasło ponownie: {0}", confirmPassword);
+        logger.log(Level.INFO, "Wprowadzam hasło ponownie: {0}", confirmPassword);
+        return new PimPanelSteps();
     }
 
-    public void clickSaveButton() {
+    public PimPanelSteps clickSaveButton() {
         saveButton.click();
-        LOGGER.log(Level.INFO, "Wciskam przycisk: \"Save\"");
+        logger.log(Level.INFO, "Wciskam przycisk: \"Save\"");
+        return new PimPanelSteps();
     }
 
     public boolean isSuccessPopupDisplayed() {
-        LOGGER.log(Level.INFO, "Popup \"Success\" został wyświetlony");
+        logger.log(Level.INFO, "Popup \"Success\" został wyświetlony");
         return successPopup.isDisplayed();
     }
 }

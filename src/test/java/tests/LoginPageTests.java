@@ -12,7 +12,6 @@ public class LoginPageTests extends TestBase {
     @Test
     public void checkPageTitleTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
-
         assertEquals(loginPageSteps.getPageTitle(), "OrangeHRM");
     }
 
@@ -64,8 +63,9 @@ public class LoginPageTests extends TestBase {
     @Test
     public void checkThatHyperlinkRedirectsToTheOrangeHrmProducerPageTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
-        loginPageSteps.clickProducerPageHyperlink();
-        loginPageSteps.switchHandledTab(1);
+        loginPageSteps
+                .clickProducerPageHyperlink()
+                .switchHandledTab(1);
 
         String currentPageUrl = loginPageSteps.getCurrentPageUrl();
         assertEquals(currentPageUrl, "https://www.orangehrm.com/");
@@ -74,9 +74,10 @@ public class LoginPageTests extends TestBase {
     @Test
     public void asUserTryToLoginWithCorrectLoginAndPasswordTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
-        loginPageSteps.setUserNameField("Admin");
-        loginPageSteps.setPasswordField("admin123");
-        loginPageSteps.clickLoginButton();
+        loginPageSteps
+                .setUserNameField("Admin")
+                .setPasswordField("admin123")
+                .clickLoginButton();
 
         DashboardSteps dashboardSteps = new DashboardSteps();
         assertTrue(dashboardSteps.isHrmLogoAfterLoginDisplayed());
@@ -85,9 +86,10 @@ public class LoginPageTests extends TestBase {
     @Test
     public void asUserTryToLogInWithIncorrectLoginAndPasswordTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
-        loginPageSteps.setUserNameField("IncorrectLogin");
-        loginPageSteps.setPasswordField("password");
-        loginPageSteps.clickLoginButton();
+        loginPageSteps
+                .setUserNameField("IncorrectLogin")
+                .setPasswordField("password")
+                .clickLoginButton();
 
         String invalidCredentialsAlert = loginPageSteps.getInvalidCredentialsAlertText();
         assertEquals(invalidCredentialsAlert, "Invalid credentials");

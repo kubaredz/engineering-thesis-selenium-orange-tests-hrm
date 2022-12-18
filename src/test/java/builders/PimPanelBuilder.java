@@ -2,13 +2,8 @@ package builders;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import steps.options.PimPanelSteps;
 
-import java.util.logging.Logger;
-
-public class PimPanelBuilder {
-
-    public static final Logger LOGGER = Logger.getLogger(PimPanelSteps.class.getName());
+public class PimPanelBuilder extends LoggerManager {
 
     @FindBy(css = "a[href='/web/index.php/pim/viewPimModule']")
     public WebElement pimPanelSection;

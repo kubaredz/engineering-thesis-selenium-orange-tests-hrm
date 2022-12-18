@@ -3,8 +3,8 @@ package tests;
 import helpers.UserDataGenerator;
 import helpers.PasswordGenerator;
 import org.testng.annotations.Test;
+import steps.login_page.LoginPageSteps;
 import steps.options.PimPanelSteps;
-import waits.Wait;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -13,8 +13,11 @@ public class PimPanelTests extends TestBase {
 
     @Test
     public void asUserICanGoToPimSectionTest() {
-        LoginPageTests loginPageTests = new LoginPageTests();
-        loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
+        LoginPageSteps loginPageSteps = new LoginPageSteps();
+        loginPageSteps
+                .setUserNameField("Admin")
+                .setPasswordField("admin123")
+                .clickLoginButton();
 
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
         pimPanelSteps.clickPimPanelSection();
@@ -24,12 +27,16 @@ public class PimPanelTests extends TestBase {
 
     @Test
     public void asUserICanGoToAddNewUserSectionAndItIsPresentTest() {
-        LoginPageTests loginPageTests = new LoginPageTests();
-        loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
+        LoginPageSteps loginPageSteps = new LoginPageSteps();
+        loginPageSteps
+                .setUserNameField("Admin")
+                .setPasswordField("admin123")
+                .clickLoginButton();
 
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
-        pimPanelSteps.clickPimPanelSection();
-        pimPanelSteps.clickAddButton();
+        pimPanelSteps
+                .clickPimPanelSection()
+                .clickAddButton();
 
         assertTrue(pimPanelSteps.isAddEmployeeTextDisplayed());
         assertEquals(pimPanelSteps.getAddEmployeeText(), "Add Employee");
@@ -39,44 +46,22 @@ public class PimPanelTests extends TestBase {
     public void addNewUserInOrangeHrmApplicationTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
         loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
+        String password = PasswordGenerator.generate(10);
 
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
-        pimPanelSteps.clickPimPanelSection();
-        pimPanelSteps.clickAddButton();
-
-        Wait.waitTillElementIsPresent(pimPanelSteps.getUploadImageButton());
-
-        //TODO
-        //add img
-        pimPanelSteps.setUploadImageButton("C:\\Users\\kubar\\avatar.jpg");
-
-        //set first name
-        pimPanelSteps.setFirstNameLabel(UserDataGenerator.generateFirstName());
-
-        //set middle name
-        pimPanelSteps.setMiddleNameLabel(UserDataGenerator.generateMiddleName());
-
-        //set last name
-        pimPanelSteps.setLastNameLabel(UserDataGenerator.generateLastName());
-
-        //set create login details
-        pimPanelSteps.clickLoginDetailsCheckBox();
-
-        //set username
-        pimPanelSteps.setUsernameLabel(UserDataGenerator.generateUsername());
-
-        //set status
-        pimPanelSteps.clickStatusEnabledRadioButton();
-
-        //set password
-        String password = PasswordGenerator.generatePassword();
-        pimPanelSteps.setPasswordLabel(password);
-
-        //set confirm password
-        pimPanelSteps.setConfirmPasswordLabel(password);
-
-        //click save button
-        pimPanelSteps.clickSaveButton();
+        pimPanelSteps
+                .clickPimPanelSection()
+                .clickAddButton()
+                .setUploadImageButton("C:\\Users\\kubar\\avatar.jpg")
+                .setFirstNameLabel(UserDataGenerator.generateFirstName())
+                .setMiddleNameLabel(UserDataGenerator.generateMiddleName())
+                .setLastNameLabel(UserDataGenerator.generateLastName())
+                .clickLoginDetailsCheckBox()
+                .setUsernameLabel(UserDataGenerator.generateUsername())
+                .clickStatusEnabledRadioButton()
+                .setPasswordLabel(password)
+                .setConfirmPasswordLabel(password)
+                .clickSaveButton();
 
         assertTrue(pimPanelSteps.isSuccessPopupDisplayed());
     }

@@ -12,38 +12,41 @@ public class AdminPanelSteps extends AdminPanelBuilder {
         PageFactory.initElements(DriverManager.driverSetup(), this);
     }
 
-    public void clickAdminPanelSection() {
+    public AdminPanelSteps clickAdminPanelSection() {
         adminPanelSection.click();
-        LOGGER.log(Level.INFO, "Przycisk dla sekcji: \"Admin\" został wciśnięty");
+        logger.log(Level.INFO, "Przycisk dla sekcji: \"Admin\" został wciśnięty");
+        return new AdminPanelSteps();
     }
 
     public boolean isUserManagementSectionDisplayed() {
-        LOGGER.log(Level.INFO, "Sekcja: \"User Management\" została wyświetlona");
+        logger.log(Level.INFO, "Sekcja: \"User Management\" została wyświetlona");
         return userManagementSection.isDisplayed();
     }
 
-    public void clickAddButton() {
+    public AdminPanelSteps clickAddButton() {
         addButton.click();
-        LOGGER.log(Level.INFO, "Przycisk: \"Add\" został wciśnięty");
+        logger.log(Level.INFO, "Przycisk: \"Add\" został wciśnięty");
+        return new AdminPanelSteps();
     }
 
     public boolean isAddUserTextDisplayed() {
-        LOGGER.log(Level.INFO, "Tekst \"Add user\" został wyświetlony");
+        logger.log(Level.INFO, "Tekst \"Add user\" został wyświetlony");
         return addUserText.isDisplayed();
     }
 
-    public void clickUserRoleDropdown() {
+    public AdminPanelSteps clickUserRoleDropdown() {
         userRoleDropdown.click();
-        LOGGER.log(Level.INFO, "Dropdown: \"user role\" został wciśnięty");
+        logger.log(Level.INFO, "Dropdown: \"user role\" został wciśnięty");
+        return new AdminPanelSteps();
     }
 
     public void setEmployeeNameLabel(String employeeName) {
         employeeNameLabel.sendKeys(employeeName);
-        LOGGER.log(Level.INFO, "Wprowadzam imię pracownika: {0}", employeeName);
+        logger.log(Level.INFO, "Wprowadzam imię pracownika: {0}", employeeName);
     }
 
     public void clickStatusDropdown() {
         statusDropdown.click();
-        LOGGER.log(Level.INFO, "Dropdown: \"status\" został wciśnięty");
+        logger.log(Level.INFO, "Dropdown: \"status\" został wciśnięty");
     }
 }
