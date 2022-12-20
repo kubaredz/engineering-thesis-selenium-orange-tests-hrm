@@ -16,4 +16,7 @@ public class HeaderBuilder extends LoggerManager {
 
     @FindBy(css = "//a[contains(text(),'About')]")
     public WebElement aboutSection;
+
+    @FindBy(css = "p[class='oxd-userdropdown-name']")
+    public WebElement loggedUser;
 }

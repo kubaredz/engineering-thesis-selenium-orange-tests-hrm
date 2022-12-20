@@ -29,4 +29,13 @@ public class Wait {
         WebDriverWait webDriverWait = setWaitDuration();
         webDriverWait.until(ExpectedConditions.elementToBeClickable(locator));
     }
+
+    public static void waitSleep() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

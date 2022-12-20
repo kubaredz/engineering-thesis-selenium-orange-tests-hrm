@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class PasswordGenerator {
     private static final String[] charCategories = new String[] {
-            "abcdefghijklmnopqrstuvwxyz",
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-            "0123456789"
+            "abcdefgvwxyz",
+            "ABCDEFUVWXYZ",
+            "0123456789!@#$%^&*"
     };
 
     public static String generate(int length) {

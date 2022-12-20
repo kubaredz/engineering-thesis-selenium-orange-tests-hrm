@@ -39,4 +39,9 @@ public class HeaderSteps extends HeaderBuilder {
         logger.log(Level.INFO, "Adres otworzonej strony to: {0}", DriverManager.driverSetup().getCurrentUrl());
         return DriverManager.driverSetup().getCurrentUrl();
     }
+
+    public String getLoggedUser() {
+        logger.log(Level.INFO, "Zalogowany użytkownik to: {0}", loggedUser.getText());
+        return loggedUser.getText();
+    }
 }

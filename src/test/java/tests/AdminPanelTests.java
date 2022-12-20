@@ -1,9 +1,9 @@
 package tests;
 
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
+import helpers.PasswordGenerator;
+import helpers.UserDataGenerator;
 import org.testng.annotations.Test;
-import setup.DriverManager;
+import steps.dashboard.HeaderSteps;
 import steps.options.AdminPanelSteps;
 
 import static org.testng.Assert.assertTrue;
@@ -12,9 +12,8 @@ public class AdminPanelTests extends TestBase {
 
     @Test
     public void asAdminUserManagementScreenIsPresentTest() {
-
-        LoginPageTests loginPageTests = new LoginPageTests();
-        loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
+        CommonTests commonTests = new CommonTests();
+        commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
         AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
         adminPanelSteps.clickAdminPanelSection();
@@ -24,8 +23,11 @@ public class AdminPanelTests extends TestBase {
 
     @Test
     public void asAdminAddNewUserTest() {
-        LoginPageTests loginPageTests = new LoginPageTests();
-        loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
+        CommonTests commonTests = new CommonTests();
+        commonTests.loginAsAdministratorToOrangeHrmAppTest();
+
+        HeaderSteps headerSteps = new HeaderSteps();
+        String loggedUserData = headerSteps.getLoggedUser();
 
         AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
         adminPanelSteps
@@ -34,15 +36,20 @@ public class AdminPanelTests extends TestBase {
 
         assertTrue(adminPanelSteps.isAddUserTextDisplayed());
 
-        adminPanelSteps.clickUserRoleDropdown();
+        String password = PasswordGenerator.generate(10);
+        adminPanelSteps
+                .setEmployeeNameLabel(loggedUserData)
+                .clickEmployeeNameFromList()
+                .setUsernameLabel(UserDataGenerator.generateUsername())
+                .setEmployeePasswordLabel(password)
+                .setEmployeeConfirmPasswordLabel(password)
+                .clickStatusList()
+                .clickEnabledStatus()
+                .clickUserRoleDropdown()
+                .setAdminUserRole()
+                .clickSaveButton();
 
-        Actions actions = new Actions(DriverManager.driverSetup());
-        actions.sendKeys(Keys.chord(Keys.DOWN, Keys.ENTER)).perform();
-
-        adminPanelSteps.setEmployeeNameLabel("Jakub");
-
-        // TODO: 17/12/2022
-        adminPanelSteps.clickStatusDropdown();
-        actions.sendKeys(Keys.chord(Keys.DOWN, Keys.ENTER)).perform();
+        assertTrue(adminPanelSteps.isPositiveAlertDisplayed());
+        assertTrue(adminPanelSteps.isSystemUsersTextDisplayed());
     }
 }
