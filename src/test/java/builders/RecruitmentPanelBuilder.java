@@ -4,10 +4,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class RecruitmentPanelBuilder extends LoggerManager {
+
     @FindBy(css = "a[href='/web/index.php/recruitment/viewRecruitmentModule']")
     public WebElement recruitmentPanelSection;
 
-    @FindBy(css = "h6[eclass='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module']")
+    @FindBy(css = "h6[class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module']")
     public WebElement recruitmentSection;
 
     @FindBy(css = "button[class='oxd-button oxd-button--medium oxd-button--secondary']")
@@ -36,9 +37,6 @@ public class RecruitmentPanelBuilder extends LoggerManager {
 
     @FindBy(xpath = "(//input[@placeholder='Type here'])[2]")
     public WebElement contactNumberLabel;
-
-    @FindBy(xpath = "//div[@class='oxd-file-button']")
-    public WebElement resumeLabel;
 
     @FindBy(xpath = "//button[normalize-space()='Save']")
     public WebElement saveButton;
