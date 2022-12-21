@@ -100,11 +100,11 @@ public class AdminPanelSteps extends AdminPanelBuilder {
     public boolean isPositiveAlertDisplayed() {
         positiveAlert.isDisplayed();
         logger.log(Level.INFO, "Alert: \"Positive\" został wyświetlony");
-        return systemUsersText.isDisplayed();
+        return positiveAlert.isDisplayed();
+
     }
 
     public boolean isSystemUsersTextDisplayed() {
-        userManagementSection.isDisplayed();
         logger.log(Level.INFO, "Tekst: \"System Users\" został wyświetlony");
         return systemUsersText.isDisplayed();
     }
