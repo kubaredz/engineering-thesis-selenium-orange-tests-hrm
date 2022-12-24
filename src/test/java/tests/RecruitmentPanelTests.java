@@ -2,6 +2,8 @@ package tests;
 
 import helpers.UserDataGenerator;
 import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Test;
 import steps.options.RecruitmentPanelSteps;
 
@@ -23,6 +25,7 @@ public class RecruitmentPanelTests extends TestBase {
 
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja dodania nowego kandydata do systemu rekrutacyjnego")
+    @Severity(SeverityLevel.CRITICAL)
     public void asAdminAddNewCandidate() {
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
