@@ -2,6 +2,8 @@ package tests;
 
 import helpers.DateGenerator;
 import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import steps.dashboard.HeaderSteps;
@@ -25,6 +27,7 @@ public class LeavePanelTests extends TestBase {
 
     @Test
     @Description("Jako zalogowany administrator, dodanie urlopu dla zalogowanego uzytkownika")
+    @Severity(SeverityLevel.CRITICAL)
     public void addVacationLeaveForLoggedEmployee() {
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();

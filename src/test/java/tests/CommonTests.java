@@ -16,8 +16,7 @@ public class CommonTests extends TestBase{
 
     @Test
     @Description("Jako administrator zalogowanie sie na stronie: www.opensource-demo.orangehrmlive.com")
-    @Severity(SeverityLevel.CRITICAL)
-
+    @Severity(SeverityLevel.BLOCKER)
     public void loginAsAdministratorToOrangeHrmAppTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
         loginPageSteps
@@ -31,6 +30,7 @@ public class CommonTests extends TestBase{
 
     @Test
     @Description("Jako administrator weryfikacja dodania nowego uzytkownika do systemu Orange HRM")
+    @Severity(SeverityLevel.BLOCKER)
     public void addNewUserToOrangeHrmAppTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
         loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();

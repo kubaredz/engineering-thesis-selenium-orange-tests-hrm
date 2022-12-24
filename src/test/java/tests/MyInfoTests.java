@@ -3,6 +3,8 @@ package tests;
 import helpers.DateGenerator;
 import helpers.UserDataGenerator;
 import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Test;
 import steps.options.MyInfoSteps;
 
@@ -12,6 +14,7 @@ public class MyInfoTests extends TestBase {
 
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'My info' przekierowuje do strony 'PIM'")
+    @Severity(SeverityLevel.NORMAL)
     public void asAdminMyInfoScreenIsPresentTest() {
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
@@ -24,6 +27,7 @@ public class MyInfoTests extends TestBase {
 
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja czy moge zmodyfikowac swoje dane osobowe")
+    @Severity(SeverityLevel.NORMAL)
     public void asAdminModifyDataOfLoggedUserTest() {
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
@@ -68,6 +72,7 @@ public class MyInfoTests extends TestBase {
 
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja czy moge zmodyfikowac pola w sekcji 'Custom Fields'")
+    @Severity(SeverityLevel.TRIVIAL)
     public void asLoggedUserIWantToChangeCustomFields() {
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();

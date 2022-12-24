@@ -1,6 +1,8 @@
 package tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Test;
 import steps.options.MaintenancePanelSteps;
 
@@ -11,6 +13,7 @@ public class MaintenancePanelTests extends TestBase {
 
     @Test
     @Description("Jako zalogowany administrator, weryfikacja czy panel 'Maintenance' przekierowywuje do strony 'purge employee'")
+    @Severity(SeverityLevel.CRITICAL)
     public void asAdminMaintenanceScreenIsPresentTest() {
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
@@ -23,6 +26,7 @@ public class MaintenancePanelTests extends TestBase {
 
     @Test
     @Description("Jako zalogowany administrator, weryfikacja czy administrator moze zalogowac sie do panelu 'Administrator Access'")
+    @Severity(SeverityLevel.NORMAL)
     public void asAdminLoginToMaintenanceAdministratorAccessPageTest(){
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
