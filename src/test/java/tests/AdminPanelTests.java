@@ -2,6 +2,7 @@ package tests;
 
 import helpers.PasswordGenerator;
 import helpers.UserDataGenerator;
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import steps.dashboard.HeaderSteps;
 import steps.options.AdminPanelSteps;
@@ -11,6 +12,7 @@ import static org.testng.Assert.assertTrue;
 public class AdminPanelTests extends TestBase {
 
     @Test
+    @Description("Jako zalogowany administrator, weryfikacja czy panel 'Admin' dziala prawidlowo oraz czy sekcja 'User Management' jest widoczna")
     public void asAdminUserManagementScreenIsPresentTest() {
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
@@ -22,7 +24,8 @@ public class AdminPanelTests extends TestBase {
     }
 
     @Test
-    public void asAdminAddNewUserTest() {
+    @Description("Jako zalogowany administrator, weryfikacja dodania nowego konta administratora")
+    public void asAdminAddNewAdministratorProfileTest() {
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
@@ -46,7 +49,7 @@ public class AdminPanelTests extends TestBase {
                 .clickStatusList()
                 .clickEnabledStatus()
                 .clickUserRoleDropdown()
-                .setAdminUserRole()
+                .clickAdminUserRoleButton()
                 .clickSaveButton();
 
         assertTrue(adminPanelSteps.isPositiveAlertDisplayed());

@@ -2,10 +2,10 @@ package setup;
 
 import browsers.BrowserPicker;
 import browsers.BrowserType;
+import configuration.LocalWebDriverProperties;
 import org.openqa.selenium.WebDriver;
 
 public class DriverManager {
-    private static final BrowserType BROWSER_TYPE = BrowserType.CHROME;
     private static WebDriver driver;
 
     private DriverManager() {
@@ -13,14 +13,14 @@ public class DriverManager {
 
     public static WebDriver driverSetup() {
         if (driver == null) {
-            driver = BrowserPicker.chooseBrowser(BROWSER_TYPE);
+            driver = BrowserPicker.chooseBrowser(LocalWebDriverProperties.getLocalBrowser());
         }
         return driver;
     }
 
     public static void extinctionDriver() {
         driver.close();
-        if (!BROWSER_TYPE.equals(BrowserType.FIREFOX)) {
+        if (!LocalWebDriverProperties.getLocalBrowser().equals(BrowserType.FIREFOX)){
             driver.quit();
         }
         driver = null;

@@ -1,6 +1,7 @@
 package tests;
 
 import helpers.DateGenerator;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import steps.dashboard.HeaderSteps;
@@ -11,6 +12,7 @@ import static org.testng.Assert.assertTrue;
 public class LeavePanelTests extends TestBase {
 
     @Test
+    @Description("Jako zalogowany administrator, weryfikacja czy panel 'Leave' dziala prawidlowo oraz czy sekcja 'Leave' jest widoczna")
     public void checkThatLeaveListIsPresentTest() {
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
@@ -22,6 +24,7 @@ public class LeavePanelTests extends TestBase {
     }
 
     @Test
+    @Description("Jako zalogowany administrator, dodanie urlopu dla zalogowanego uzytkownika")
     public void addVacationLeaveForLoggedEmployee() {
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();

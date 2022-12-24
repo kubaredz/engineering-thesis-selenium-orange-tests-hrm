@@ -1,6 +1,7 @@
 package steps.options;
 
 import builders.MaintenancePanelBuilder;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
 
@@ -12,46 +13,57 @@ public class MaintenancePanelSteps extends MaintenancePanelBuilder {
         PageFactory.initElements(DriverManager.driverSetup(), this);
     }
 
+    @Step("Sekcja: 'Maintenance' zostala otwarta")
     public MaintenancePanelSteps clickMaintenanceSection() {
         maintenanceSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"Maintenance\" został wciśnięty");
         return new MaintenancePanelSteps();
     }
 
+    @Step("Strona: Maintenance zostala otwarta")
     public String getMaintenancePageUrl() {
-        logger.log(Level.INFO, "Adres otworzonej strony to: {0}", DriverManager.driverSetup().getCurrentUrl());
-        return DriverManager.driverSetup().getCurrentUrl();
+        String pageUrl = DriverManager.driverSetup().getCurrentUrl();
+        logger.log(Level.INFO, "Adres otworzonej strony to: {0}", pageUrl);
+        return pageUrl;
     }
 
+    @Step("Haslo: {password} zostalo wpisane")
     public MaintenancePanelSteps setPasswordLabel(String password) {
         passwordLabel.sendKeys(password);
         logger.log(Level.INFO, "Hasło: {0} zostało ustawione", password);
         return new MaintenancePanelSteps();
     }
 
+    @Step("Przycisk: 'Confirm' zostal wcisniety")
     public MaintenancePanelSteps clickConfirmButton() {
         confirmButton.click();
         logger.log(Level.INFO, "Przycisk: confirm został wciśnięty");
         return new MaintenancePanelSteps();
     }
 
+    @Step("Text: 'Maintenance' zostal wyswietlony")
     public boolean isMaintenanceTextDisplayed() {
         logger.log(Level.INFO, "Text: Maintenance jest widoczny");
         return maintenanceSectionText.isDisplayed();
     }
 
+    @Step("Text: 'Purge Records' zostal wyswietlony")
     public boolean isPurgeRecordsTextDisplayed() {
         logger.log(Level.INFO, "Text: Purge Records jest widoczny");
         return purgeRecordsSectionText.isDisplayed();
     }
 
+    @Step("Text: 'Maintenance' jest widoczny")
     public String getMaintenanceText() {
-        logger.log(Level.INFO, "Text: {0} jest widoczny", maintenanceSectionText.getText());
-        return maintenanceSectionText.getText();
+        String maintenanceText = maintenanceSectionText.getText();
+        logger.log(Level.INFO, "Text: {0} jest widoczny", maintenanceText);
+        return maintenanceText;
     }
 
+    @Step("Text: 'Purge Records' jest widoczny")
     public String getPurgeRecordsText() {
-        logger.log(Level.INFO, "Text: {0} jest widoczny", purgeRecordsSectionText.getText());
-        return purgeRecordsSectionText.getText();
+        String purgeRecordsSection = purgeRecordsSectionText.getText();
+        logger.log(Level.INFO, "Text: {0} jest widoczny", purgeRecordsSection);
+        return purgeRecordsSection;
     }
 }

@@ -2,6 +2,7 @@ package tests;
 
 import helpers.UserDataGenerator;
 import helpers.PasswordGenerator;
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import steps.login_page.LoginPageSteps;
 import steps.options.PimPanelSteps;
@@ -12,6 +13,7 @@ import static org.testng.Assert.assertTrue;
 public class PimPanelTests extends TestBase {
 
     @Test
+    @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'PIM' przekierowuje do strony 'PIM' z lista pracownikow")
     public void asUserICanGoToPimSectionTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
         loginPageSteps
@@ -26,6 +28,7 @@ public class PimPanelTests extends TestBase {
     }
 
     @Test
+    @Description("Jako zalogowany uzytkownik, weryfikacja czy sekcja 'Dodawania nowego uzykownika' jest widoczna")
     public void asUserICanGoToAddNewUserSectionAndItIsPresentTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
         loginPageSteps
@@ -43,6 +46,7 @@ public class PimPanelTests extends TestBase {
     }
 
     @Test
+    @Description("Jako zalogowany uzytkownik, weryfikacja dodania nowego pracownika do systemu 'PIM'")
     public void addNewUserInOrangeHrmApplicationTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
         loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();

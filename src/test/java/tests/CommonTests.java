@@ -2,6 +2,9 @@ package tests;
 
 import helpers.PasswordGenerator;
 import helpers.UserDataGenerator;
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Test;
 import steps.dashboard.DashboardSteps;
 import steps.login_page.LoginPageSteps;
@@ -12,6 +15,9 @@ import static org.testng.Assert.assertTrue;
 public class CommonTests extends TestBase{
 
     @Test
+    @Description("Jako administrator zalogowanie sie na stronie: www.opensource-demo.orangehrmlive.com")
+    @Severity(SeverityLevel.CRITICAL)
+
     public void loginAsAdministratorToOrangeHrmAppTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
         loginPageSteps
@@ -24,6 +30,7 @@ public class CommonTests extends TestBase{
     }
 
     @Test
+    @Description("Jako administrator weryfikacja dodania nowego uzytkownika do systemu Orange HRM")
     public void addNewUserToOrangeHrmAppTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
         loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();

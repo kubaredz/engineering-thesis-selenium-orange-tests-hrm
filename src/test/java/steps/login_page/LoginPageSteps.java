@@ -1,6 +1,7 @@
 package steps.login_page;
 
 import builders.LoginPageBuilder;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
 
@@ -13,75 +14,95 @@ public class LoginPageSteps extends LoginPageBuilder {
         PageFactory.initElements(DriverManager.driverSetup(), this);
     }
 
+    @Step("Adres strony zostaje zaciagniety")
     public String getPageTitle() {
-        logger.log(Level.INFO, "Nazwa strony została zaciągnięta: {0} ", DriverManager.driverSetup().getTitle());
-        return DriverManager.driverSetup().getTitle();
+        String pageTitle = DriverManager.driverSetup().getTitle();
+        logger.log(Level.INFO, "Nazwa strony została zaciągnięta: {0} ", pageTitle);
+        return pageTitle;
     }
 
+    @Step("Pobranie zawartosci pola username")
     public String getUserNameField() {
-        logger.log(Level.INFO, "Atrybut \"user\" został zaciągnięty: {0}", usernameField.getAttribute("value"));
-        return usernameField.getAttribute("value");
+        String userNameField = usernameField.getAttribute("value");
+        logger.log(Level.INFO, "Atrybut \"user\" został zaciągnięty: {0}", userNameField);
+        return userNameField;
     }
 
+    @Step("Wprowadzony login uzytkownika to: {name}")
     public LoginPageSteps setUserNameField(String name) {
-        logger.log(Level.INFO, "Wprowadzam login użytkownika: {0}", name);
         usernameField.sendKeys(name);
+        logger.log(Level.INFO, "Wprowadzam login użytkownika: {0}", name);
         return new LoginPageSteps();
     }
 
+    @Step("Pobranie zawartosci pola password")
     public String getPasswordField() {
-        logger.log(Level.INFO, "Atrybut \"password\" został zaciągnięty: {0}", passwordField.getAttribute("value"));
-        return passwordField.getAttribute("value");
+        String password = passwordField.getAttribute("value");
+        logger.log(Level.INFO, "Atrybut \"password\" został zaciągnięty: {0}", password);
+        return password;
     }
 
+    @Step("Wprowadzony login uzytkownika to: {password}")
     public LoginPageSteps setPasswordField(String password) {
-        logger.log(Level.INFO, "Wprowadzam hasło użytkownika: {0}", password);
         passwordField.sendKeys(password);
+        logger.log(Level.INFO, "Wprowadzam hasło użytkownika: {0}", password);
         return new LoginPageSteps();
     }
 
+    @Step("Baner strony Orange HRM zostal wyswietlony")
     public boolean isHrmBannerDisplayed() {
-        logger.log(Level.INFO, "Banner: strony OrangeHRM został wyświetlony");
+        logger.log(Level.INFO, "Baner: strony OrangeHRM został wyświetlony");
         return hrmBanner.isDisplayed();
     }
 
+    @Step("Logo strony Orange HRM zostalo wyswietlone")
     public boolean isHrmLogoDisplayed() {
         logger.log(Level.INFO, "Logo: strony OrangeHRM zostało wyświetlone");
         return hrmLogo.isDisplayed();
     }
 
+    @Step("Hyperlink: 'Forgot your password'")
     public String getHyperlinkForgotYourPassword() {
-        logger.log(Level.INFO, "Hyperlink: \"forgot your password\" został wyświetlony");
-        return forgotYourPasswordHyperlink.getText();
+        String hyperlinkText = forgotYourPasswordHyperlink.getText();
+        logger.log(Level.INFO, "Hyperlink: \"{0}\" został wyświetlony", hyperlinkText);
+        return hyperlinkText;
     }
 
+    @Step("Przycisk: 'Forgot your password' zostal wcisniety")
     public void clickForgotYourPasswordHyperlink() {
         forgotYourPasswordHyperlink.click();
         logger.log(Level.INFO, "Hyperlink: \"forgot your password\" został wciśnięty");
     }
 
+    @Step("Zaciagniecie aktualnego adresu strony")
     public String getCurrentPageUrl() {
-        logger.log(Level.INFO, "Strona o nazwie: {0} została załadowana", DriverManager.driverSetup().getCurrentUrl());
-        return DriverManager.driverSetup().getCurrentUrl();
+        String currentPageUrl = DriverManager.driverSetup().getCurrentUrl();
+        logger.log(Level.INFO, "Strona o nazwie: {0} została załadowana", currentPageUrl);
+        return currentPageUrl;
     }
 
+    @Step("Hyperlink: 'Producer page' zostal wcisniety")
     public LoginPageSteps clickProducerPageHyperlink() {
         producerPageHyperlink.click();
         logger.log(Level.INFO, "Hyperlink: \"producer page\" został wciśnięty");
         return new LoginPageSteps();
     }
 
+    @Step("Alert: 'Invalid Credentials' zostal wyswietlony")
     public String getInvalidCredentialsAlertText() {
-        logger.log(Level.INFO, "Tekst został wyświetlony: {0}", invalidCredentialsAlert.getText());
-        return invalidCredentialsAlert.getText();
+        String invalidCredentials = invalidCredentialsAlert.getText();
+        logger.log(Level.INFO, "Tekst został wyświetlony: {0}", invalidCredentials);
+        return invalidCredentials;
     }
 
+    @Step("Przycisk: 'Login' zostal wcisniety")
     public LoginPageSteps clickLoginButton() {
         loginButton.click();
         logger.log(Level.INFO, "Przycisk: \"login button\" został wciśnięty");
         return new LoginPageSteps();
     }
 
+    @Step("Nowa karta przegladarki o numerze: {tab} zostala otwarta")
     public LoginPageSteps switchHandledTab(int tab) {
         List<String> browserTabs = new ArrayList<>(DriverManager.driverSetup().getWindowHandles());
         DriverManager.driverSetup().switchTo().window(browserTabs.get(tab));

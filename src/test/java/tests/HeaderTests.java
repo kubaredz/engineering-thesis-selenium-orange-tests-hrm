@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -12,6 +13,7 @@ import static org.testng.Assert.assertEquals;
 public class HeaderTests extends TestBase {
 
     @Test
+    @Description("Jako zalogowany administrator, weryfikacja czy na rozwijanym panelu uzytkownika wszystkie pola sa widoczne")
     public void verifyThatUserDropDownListHasAllNecessaryFieldsTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
         loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
@@ -34,6 +36,7 @@ public class HeaderTests extends TestBase {
     }
 
     @Test
+    @Description("Jako zalogowany administrator, weryfikacja czy po kliknieciu opcji 'About' przenosi ona do sekcji 'About")
     public void verifyThatAboutOptionHasAllNecessaryInformationTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
         loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
@@ -51,6 +54,7 @@ public class HeaderTests extends TestBase {
     }
 
     @Test
+    @Description("Jako zalogowany administrator, weryfikacja czy po kliknieciu opcji 'Support' przenosi ona do do strony 'Support'")
     public void verifyThatSupportOptionTransferToSupportPageTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
         loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
@@ -69,6 +73,7 @@ public class HeaderTests extends TestBase {
     }
 
     @Test
+    @Description("Jako zalogowany administrator, weryfikacja czy po kliknieciu opcji 'Change Password' przenosi ona do do strony zmiany hasla")
     public void verifyThatChangePasswordOptionRedirectToChangePasswordPageTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
         loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
@@ -87,6 +92,7 @@ public class HeaderTests extends TestBase {
     }
 
     @Test
+    @Description("Jako zalogowany administrator, weryfikacja czy po kliknieciu opcji 'Logout' wylogowywuje uzytkownika oraz przechodzi do strony logowania")
     public void verifyThatLogoutOptionLogsOutUserTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
         loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();

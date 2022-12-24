@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import steps.dashboard.DashboardSteps;
 import steps.login_page.LoginPageSteps;
@@ -18,6 +19,7 @@ public class DashboardTests extends TestBase {
 //    }
 
     @Test
+    @Description("Jako zalogowany administrator, weryfikacja czy panel 'Time at Work' dziala prawidlowo")
     public void checkThatTimeAtWorkSectionIsPresentTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
         loginPageSteps
@@ -30,6 +32,7 @@ public class DashboardTests extends TestBase {
     }
 
     @Test
+    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'My Actions' jest widoczna")
     public void checkThatMyActionsSectionIsPresentTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
         loginPageSteps
@@ -42,6 +45,7 @@ public class DashboardTests extends TestBase {
     }
 
     @Test
+    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Quick Launch' jest widoczna")
     public void checkThatQuickLaunchSectionIsPresentTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
         loginPageSteps
@@ -54,6 +58,7 @@ public class DashboardTests extends TestBase {
     }
 
     @Test
+    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Employees On Leave Today' jest widoczna")
     public void checkThatEmployeesOnLeaveTodaySectionIsPresentTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
         loginPageSteps
@@ -66,6 +71,7 @@ public class DashboardTests extends TestBase {
     }
 
     @Test
+    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Distribution By Sub Unit Today' jest widoczna")
     public void checkThatEmployeeDistributionBySubUnitTodaySectionIsPresentTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
         loginPageSteps
@@ -78,6 +84,7 @@ public class DashboardTests extends TestBase {
     }
 
     @Test
+    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Distribution By Location Today' jest widoczna")
     public void checkThatEmployeeDistributionByLocationTodaySectionIsPresentTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
         loginPageSteps

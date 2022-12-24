@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import steps.options.MaintenancePanelSteps;
 
@@ -9,7 +10,8 @@ import static org.testng.Assert.assertTrue;
 public class MaintenancePanelTests extends TestBase {
 
     @Test
-    public void asAdminDirectoryScreenIsPresentTest() {
+    @Description("Jako zalogowany administrator, weryfikacja czy panel 'Maintenance' przekierowywuje do strony 'purge employee'")
+    public void asAdminMaintenanceScreenIsPresentTest() {
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
@@ -20,6 +22,7 @@ public class MaintenancePanelTests extends TestBase {
     }
 
     @Test
+    @Description("Jako zalogowany administrator, weryfikacja czy administrator moze zalogowac sie do panelu 'Administrator Access'")
     public void asAdminLoginToMaintenanceAdministratorAccessPageTest(){
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();

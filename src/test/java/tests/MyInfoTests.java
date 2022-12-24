@@ -2,16 +2,16 @@ package tests;
 
 import helpers.DateGenerator;
 import helpers.UserDataGenerator;
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
-import steps.dashboard.HeaderSteps;
 import steps.options.MyInfoSteps;
-import steps.options.TimePanelSteps;
 
 import static org.testng.Assert.assertTrue;
 
 public class MyInfoTests extends TestBase {
 
     @Test
+    @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'My info' przekierowuje do strony 'PIM'")
     public void asAdminMyInfoScreenIsPresentTest() {
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
@@ -23,6 +23,7 @@ public class MyInfoTests extends TestBase {
     }
 
     @Test
+    @Description("Jako zalogowany uzytkownik, weryfikacja czy moge zmodyfikowac swoje dane osobowe")
     public void asAdminModifyDataOfLoggedUserTest() {
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
@@ -66,6 +67,7 @@ public class MyInfoTests extends TestBase {
     }
 
     @Test
+    @Description("Jako zalogowany uzytkownik, weryfikacja czy moge zmodyfikowac pola w sekcji 'Custom Fields'")
     public void asLoggedUserIWantToChangeCustomFields() {
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();

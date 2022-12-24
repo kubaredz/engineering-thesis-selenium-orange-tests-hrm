@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import steps.dashboard.HeaderSteps;
 import steps.options.TimePanelSteps;
@@ -9,6 +10,7 @@ import static org.testng.Assert.assertTrue;
 public class TimePanelTests extends TestBase {
 
     @Test
+    @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'Time' przekierowuje do strony 'Timesheets' z lista obecnosci")
     public void asAdminUserTimesheetScreenIsPresentTest() {
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
@@ -20,6 +22,7 @@ public class TimePanelTests extends TestBase {
     }
 
     @Test
+    @Description("Jako zalogowany uzytkownik, weryfikacja dodania nowego timesheetu zalogowanemu uzytkownikowi")
     public void asAdminCreateNewTimesheetTest() {
         CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
