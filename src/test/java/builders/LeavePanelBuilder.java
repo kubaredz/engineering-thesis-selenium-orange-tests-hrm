@@ -3,12 +3,9 @@ package builders;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LeavePanelBuilder extends LoggerManager {
+public class LeavePanelBuilder extends CommonBuilder {
     @FindBy(css = "a[href='/web/index.php/leave/viewLeaveModule']")
     public WebElement leavePanelSection;
-
-    @FindBy(css = "h6[class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module']")
-    public WebElement userManagementSection;
 
     @FindBy(xpath = "//a[normalize-space()='Assign Leave']")
     public WebElement assignLeaveButton;

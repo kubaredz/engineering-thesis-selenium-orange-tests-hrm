@@ -22,7 +22,7 @@ public class LeavePanelSteps extends LeavePanelBuilder {
     @Step("Sekcja 'Leave' zostala wyswietlona")
     public boolean isLeaveSectionDisplayed() {
         logger.log(Level.INFO, "Sekcja: \"Leave\" została wyświetlona");
-        return userManagementSection.isDisplayed();
+        return headerTextPrefix.isDisplayed();
     }
 
     @Step("Przycisk 'Assign' zostal wcisniety")

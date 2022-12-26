@@ -25,7 +25,7 @@ public class AdminPanelSteps extends AdminPanelBuilder {
     @Step("Sekcja: 'User Management' zostala wyswietlona")
     public boolean isUserManagementSectionDisplayed() {
         logger.log(Level.INFO, "Sekcja: \"User Management\" została wyświetlona");
-        return userManagementSection.isDisplayed();
+        return headerTextAddition.isDisplayed();
     }
 
     @Step("Przycisk: 'Add' zostal wcisniety")

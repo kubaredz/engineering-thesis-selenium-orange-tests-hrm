@@ -23,7 +23,7 @@ public class RecruitmentPanelSteps extends RecruitmentPanelBuilder {
     @Step("Sekcja 'Recruitment' zostala wyswietlona")
     public boolean isRecruitmentSectionDisplayed() {
         logger.log(Level.INFO, "Sekcja: \"Recruitment\" została wyświetlona");
-        return recruitmentSection.isDisplayed();
+        return headerTextPrefix.isDisplayed();
     }
 
     @Step("Przycisk: 'Add' zostal wcisniety")

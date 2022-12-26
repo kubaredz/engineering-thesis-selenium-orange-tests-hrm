@@ -3,7 +3,7 @@ package tests;
 import configuration.AppProperties;
 import configuration.ConfigurationProperties;
 import configuration.PropertiesLoader;
-import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -15,7 +15,7 @@ import java.util.Properties;
 public class TestBase {
 
     @BeforeClass
-    @Description("Metoda odpowiedzialna za zalodowanie konfiguracji z pliku configuration.properties")
+    @Step("Metoda odpowiedzialna za zalodowanie konfiguracji z pliku configuration.properties")
     public void beforeClass() {
         PropertiesLoader propertiesLoader = new PropertiesLoader();
         Properties propertiesFromFile = propertiesLoader.getPropertiesFromFile("configuration.properties");
@@ -23,7 +23,7 @@ public class TestBase {
     }
 
     @BeforeMethod
-    @Description("Metoda odpowiedzialna za utworzenie drivera, ustawienie opoznienia oraz uruchomienia strony Orange HRM")
+    @Step("Metoda odpowiedzialna za utworzenie drivera, ustawienie opoznienia oraz uruchomienia strony Orange HRM")
     public void beforeTest() {
         DriverManager.driverSetup();
         PageSetup.setMaximizeOfWindow();
@@ -32,7 +32,7 @@ public class TestBase {
     }
 
     @AfterMethod
-    @Description("Metoda odpowiedzialna za zamkniecie przegladarki oraz wylaczenie drivera")
+    @Step("Metoda odpowiedzialna za zamkniecie przegladarki oraz wylaczenie drivera")
     public void afterTest() {
         DriverManager.extinctionDriver();
     }

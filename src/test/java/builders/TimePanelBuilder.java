@@ -3,13 +3,10 @@ package builders;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class TimePanelBuilder extends LoggerManager {
+public class TimePanelBuilder extends CommonBuilder {
 
     @FindBy(css = "a[href='/web/index.php/time/viewTimeModule']")
     public WebElement timePanelSection;
-
-    @FindBy(css = "h6[class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-level']")
-    public WebElement timesheetSection;
 
     @FindBy(xpath = "//input[@placeholder='Type for hints...']")
     public WebElement employeeNameLabel;
@@ -22,7 +19,4 @@ public class TimePanelBuilder extends LoggerManager {
 
     @FindBy(css = "div[class='oxd-toast-icon-container']")
     public WebElement infoAlert;
-
-    @FindBy(css = "h6[class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module']")
-    public WebElement timeSection;
 }

@@ -23,7 +23,7 @@ public class PimPanelSteps extends PimPanelBuilder {
     @Step("Sekcja 'PIM' zostala wyswietlona")
     public boolean isPimSectionDisplayed() {
         logger.log(Level.INFO, "Sekcja: \"PIM\" została wyświetlona");
-        return pimSection.isDisplayed();
+        return headerTextPrefix.isDisplayed();
     }
 
     @Step("Przycisk: 'Add' zostal wcisniety")

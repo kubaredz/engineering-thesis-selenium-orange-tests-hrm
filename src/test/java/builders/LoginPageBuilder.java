@@ -3,7 +3,7 @@ package builders;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPageBuilder extends LoggerManager {
+public class LoginPageBuilder extends CommonBuilder {
 
     @FindBy(name = "username")
     public WebElement usernameField;

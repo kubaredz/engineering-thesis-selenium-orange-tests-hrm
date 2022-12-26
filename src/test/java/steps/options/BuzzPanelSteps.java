@@ -23,13 +23,13 @@ public class BuzzPanelSteps extends BuzzPanelBuilder {
     @Step("Text: 'Buzz' zostal wyswietlony")
     public boolean isBuzzTextDisplayed() {
         logger.log(Level.INFO, "Tekst: \"Buzz\" został wyświetlony");
-        return buzzText.isDisplayed();
+        return headerTextPrefix.isDisplayed();
     }
 
     @Step("Text: 'Launching Soon' zostal wyswietlony")
     public boolean isLaunchingSoonTextDisplayed() {
         logger.log(Level.INFO, "Tekst: \"Launching Soon\" został wyświetlony");
-        return buzzText.isDisplayed();
+        return headerTextPrefix.isDisplayed();
     }
 
     @Step("Text: 'Launching Soon' zostal wyswietlony")

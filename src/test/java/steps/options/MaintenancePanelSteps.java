@@ -44,25 +44,25 @@ public class MaintenancePanelSteps extends MaintenancePanelBuilder {
     @Step("Text: 'Maintenance' zostal wyswietlony")
     public boolean isMaintenanceTextDisplayed() {
         logger.log(Level.INFO, "Text: Maintenance jest widoczny");
-        return maintenanceSectionText.isDisplayed();
+        return headerTextPrefix.isDisplayed();
     }
 
     @Step("Text: 'Purge Records' zostal wyswietlony")
     public boolean isPurgeRecordsTextDisplayed() {
         logger.log(Level.INFO, "Text: Purge Records jest widoczny");
-        return purgeRecordsSectionText.isDisplayed();
+        return headerTextAddition.isDisplayed();
     }
 
     @Step("Text: 'Maintenance' jest widoczny")
     public String getMaintenanceText() {
-        String maintenanceText = maintenanceSectionText.getText();
+        String maintenanceText = headerTextPrefix.getText();
         logger.log(Level.INFO, "Text: {0} jest widoczny", maintenanceText);
         return maintenanceText;
     }
 
     @Step("Text: 'Purge Records' jest widoczny")
     public String getPurgeRecordsText() {
-        String purgeRecordsSection = purgeRecordsSectionText.getText();
+        String purgeRecordsSection = headerTextAddition.getText();
         logger.log(Level.INFO, "Text: {0} jest widoczny", purgeRecordsSection);
         return purgeRecordsSection;
     }

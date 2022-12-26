@@ -29,6 +29,6 @@ public class PerformancePanelSteps extends PerformancePanelBuilder {
     @Step("Sekcja: 'Manage Reviews' zostala wyswietlona")
     public boolean isManageReviewsSectionDisplayed() {
         logger.log(Level.INFO, "Sekcja: \"Manage Reviews\" została wyświetlona");
-        return manageReviewsLabel.isDisplayed();
+        return headerTextAddition.isDisplayed();
     }
 }

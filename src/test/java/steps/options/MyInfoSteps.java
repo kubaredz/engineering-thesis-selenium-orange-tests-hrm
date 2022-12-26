@@ -25,7 +25,7 @@ public class MyInfoSteps extends MyInfoPanelBuilder {
     @Step("Sekcja 'PIM' zostala wyswietlona")
     public boolean isUserManagementSectionDisplayed() {
         logger.log(Level.INFO, "Sekcja: \"PIM\" została wyświetlona");
-        return pimSection.isDisplayed();
+        return headerTextPrefix.isDisplayed();
     }
 
     @Step("Przycisk dla wewnętrznej sekcji: 'Personal Details' został wciśnięty")

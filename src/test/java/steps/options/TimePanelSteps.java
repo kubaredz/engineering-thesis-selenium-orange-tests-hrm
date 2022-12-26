@@ -23,7 +23,7 @@ public class TimePanelSteps extends TimePanelBuilder {
     @Step("Sekcja 'Timesheet' zostala wyswietlona")
     public boolean isTimesheetSectionDisplayed() {
         logger.log(Level.INFO, "Sekcja: \"Timesheet\" została wyświetlona");
-        return timesheetSection.isDisplayed();
+        return headerTextAddition.isDisplayed();
     }
 
     @Step("Imie pracownika: {name} zostalo wpisane")
@@ -50,7 +50,7 @@ public class TimePanelSteps extends TimePanelBuilder {
     @Step("Sekcja: 'Time' zostala wyswietlona")
     public boolean isTimeSectionDisplayed() {
         logger.log(Level.INFO, "Sekcja: \"Time\" jest widoczna");
-        return timeSection.isDisplayed();
+        return headerTextPrefix.isDisplayed();
     }
 
     @Step("Alert: 'Info' zostal wyswietlony")

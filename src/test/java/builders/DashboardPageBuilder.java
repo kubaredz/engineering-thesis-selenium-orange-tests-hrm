@@ -3,7 +3,7 @@ package builders;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class DashboardPageBuilder extends LoggerManager {
+public class DashboardPageBuilder extends CommonBuilder {
 
     @FindBy(css = "img[src*='orangehrm-logo.png']")
     public WebElement hrmLogoAfterLogin;

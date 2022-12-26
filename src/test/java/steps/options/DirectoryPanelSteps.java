@@ -23,6 +23,6 @@ public class DirectoryPanelSteps extends DirectoryPanelBuilder {
     @Step("Sekcja 'Directory' zostala wyswietlona")
     public boolean isDirectoryDisplayed() {
         logger.log(Level.INFO, "Sekcja: \"Directory\" została wyświetlona");
-        return directorySectionLabel.isDisplayed();
+        return headerTextPrefix.isDisplayed();
     }
 }

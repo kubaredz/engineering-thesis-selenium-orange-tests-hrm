@@ -3,13 +3,10 @@ package builders;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class MyInfoPanelBuilder extends LoggerManager {
+public class MyInfoPanelBuilder extends CommonBuilder {
 
     @FindBy(css = "a[href='/web/index.php/pim/viewMyDetails']")
     public WebElement myInfoSection;
-
-    @FindBy(css = "h6[class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module']")
-    public WebElement pimSection;
 
     @FindBy(css = "a[href='/web/index.php/pim/viewPersonalDetails/empNumber/7']")
     public WebElement personalDetailsSection;
