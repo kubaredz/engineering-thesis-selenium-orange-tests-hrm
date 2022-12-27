@@ -32,6 +32,11 @@ public class LeavePanelSteps extends LeavePanelBuilder implements CommonSteps, C
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public <T> CommonGenericSteps clickSaveButton() {
+        throw new UnsupportedOperationException();
+    }
+
     @Step("Przycisk 'Assign' zostal wcisniety")
     public LeavePanelSteps clickAssignLeaveButton() {
         assignLeaveButton.click();

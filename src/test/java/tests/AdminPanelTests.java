@@ -43,7 +43,7 @@ public class AdminPanelTests extends TestBase {
 
         assertTrue(adminPanelSteps.isAddUserTextDisplayed());
 
-        String password = PasswordGenerator.generate(10);
+        String password = PasswordGenerator.generate(15);
         adminPanelSteps
                 .setEmployeeNameLabel(loggedUserData)
                 .clickEmployeeNameFromList()

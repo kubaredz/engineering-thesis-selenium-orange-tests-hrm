@@ -34,7 +34,7 @@ public class CommonTests extends TestBase{
     public void addNewUserToOrangeHrmAppTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
         loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
-        String password = PasswordGenerator.generate(10);
+        String password = PasswordGenerator.generate(15);
 
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
         pimPanelSteps

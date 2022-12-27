@@ -26,6 +26,11 @@ public class PerformancePanelSteps extends PerformancePanelBuilder implements Co
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public <T> CommonGenericSteps clickSaveButton() {
+        throw new UnsupportedOperationException();
+    }
+
     @Step("Sekcja 'Performance' zostala wyswietlona")
     public boolean isPerformanceSectionDisplayed() {
         logger.log(Level.INFO, "Sekcja: \"Manage Reviews\" została wyświetlona");

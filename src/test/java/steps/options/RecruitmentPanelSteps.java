@@ -36,6 +36,14 @@ public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements Co
         return new RecruitmentPanelSteps();
     }
 
+    @Override
+    @Step("Przycisk: 'save' zostal wcisniety")
+    public RecruitmentPanelSteps clickSaveButton() {
+        saveButton.click();
+        logger.log(Level.INFO, "Przycisk save: \"{0}\" został wciśnięty");
+        return new RecruitmentPanelSteps();
+    }
+
     @Step("Sekcja: 'Add Candidate' zostala wyswietlona")
     public boolean isAddCandidateSectionDisplayed() {
         logger.log(Level.INFO, "Sekcja: \"Add Candidate\" została wyświetlona");
@@ -88,13 +96,6 @@ public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements Co
     public RecruitmentPanelSteps setContactNumberLabel(String number) {
         contactNumberLabel.sendKeys(number);
         logger.log(Level.INFO, "Numer telefonu: \"{0}\" został wpisany", number);
-        return new RecruitmentPanelSteps();
-    }
-
-    @Step("Przycisk: 'save' zostal wcisniety")
-    public RecruitmentPanelSteps clickSaveButton() {
-        saveButton.click();
-        logger.log(Level.INFO, "Przycisk save: \"{0}\" został wciśnięty");
         return new RecruitmentPanelSteps();
     }
 

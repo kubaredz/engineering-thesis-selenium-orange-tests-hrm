@@ -35,6 +35,14 @@ public class MyInfoSteps extends MyInfoPanelBuilder implements CommonSteps, Comm
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    @Step("Wcisniecie przycisku 'Save'")
+    public MyInfoSteps clickSaveButton() {
+        saveButton.click();
+        logger.log(Level.INFO, "Przycisk save został wciśnięty");
+        return new MyInfoSteps();
+    }
+
     @Step("Przycisk dla wewnętrznej sekcji: 'Personal Details' został wciśnięty")
     public MyInfoSteps clickPersonalDetailsSection() {
         personalDetailsSection.click();
@@ -167,13 +175,6 @@ public class MyInfoSteps extends MyInfoPanelBuilder implements CommonSteps, Comm
     public MyInfoSteps isSmokerCheckBox() {
         smokerCheckBox.click();
         logger.log(Level.INFO, "Ustawienie statusu: palacz");
-        return new MyInfoSteps();
-    }
-
-    @Step("Wcisniecie przycisku 'Save'")
-    public MyInfoSteps clickSaveButton() {
-        saveButton.click();
-        logger.log(Level.INFO, "Przycisk save został wciśnięty");
         return new MyInfoSteps();
     }
 

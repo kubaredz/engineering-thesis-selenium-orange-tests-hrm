@@ -33,6 +33,11 @@ public class TimePanelSteps extends TimePanelBuilder implements CommonSteps, Com
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public <T> CommonGenericSteps clickSaveButton() {
+        throw new UnsupportedOperationException();
+    }
+
     @Step("Imie pracownika: {name} zostalo wpisane")
     public TimePanelSteps setEmployeeName(String name) {
         employeeNameLabel.sendKeys(name);

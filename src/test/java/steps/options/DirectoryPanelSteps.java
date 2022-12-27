@@ -32,4 +32,9 @@ public class DirectoryPanelSteps extends DirectoryPanelBuilder implements Common
     public <T> CommonGenericSteps clickAddButton() {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public <T> CommonGenericSteps clickSaveButton() {
+        throw new UnsupportedOperationException();
+    }
 }

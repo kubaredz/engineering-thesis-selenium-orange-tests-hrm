@@ -1,24 +1,19 @@
 package helpers;
 
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class PasswordGenerator {
-    private static final String[] charCategories = new String[] {
-            "abcdefgvwxyz",
-            "ABCDEFUVWXYZ",
-            "0123456789!@#$%^&*"
-    };
 
     public static String generate(int length) {
-        StringBuilder password = new StringBuilder(length);
-        Random random = new Random(System.nanoTime());
-
+        String smallAlphabet = "abcdefghijklmnopqrstuvwxyz";
+        String upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String numeric = "0123456789";
+        String chars = "!@#%^&!@#$%^&!";
+        String password = smallAlphabet + upperAlphabet + chars + numeric;
+        StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < length; i++) {
-            String charCategory = charCategories[random.nextInt(charCategories.length)];
-            int position = random.nextInt(charCategory.length());
-            password.append(charCategory.charAt(position));
+            stringBuilder.append(password.charAt(ThreadLocalRandom.current().nextInt(password.length())));
         }
-
-        return new String(password);
+        return stringBuilder.toString();
     }
 }

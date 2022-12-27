@@ -36,6 +36,14 @@ public class PimPanelSteps extends PimPanelBuilder implements CommonSteps, Commo
         return new PimPanelSteps();
     }
 
+    @Override
+    @Step("Przycisk 'save' zostal nacisniety")
+    public PimPanelSteps clickSaveButton() {
+        saveButton.click();
+        logger.log(Level.INFO, "Wciskam przycisk: \"Save\"");
+        return new PimPanelSteps();
+    }
+
     @Step("Tekst: 'Add employee' zostal wyswietlony")
     public boolean isAddEmployeeTextDisplayed() {
         logger.log(Level.INFO, "Tekst \"Add employee\" został wyświetlony");
@@ -108,13 +116,6 @@ public class PimPanelSteps extends PimPanelBuilder implements CommonSteps, Commo
     public PimPanelSteps setConfirmPasswordLabel(String confirmPassword) {
         confirmPasswordLabel.sendKeys(confirmPassword);
         logger.log(Level.INFO, "Wprowadzam hasło ponownie: {0}", confirmPassword);
-        return new PimPanelSteps();
-    }
-
-    @Step("Przycisk 'save' zostal nacisniety")
-    public PimPanelSteps clickSaveButton() {
-        saveButton.click();
-        logger.log(Level.INFO, "Wciskam przycisk: \"Save\"");
         return new PimPanelSteps();
     }
 

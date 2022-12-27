@@ -30,10 +30,21 @@ public class AdminPanelSteps extends AdminPanelBuilder implements CommonSteps, C
         return new AdminPanelSteps();
     }
 
+    @Override
     @Step("Przycisk: 'Add' zostal wcisniety")
     public AdminPanelSteps clickAddButton() {
         addButton.click();
         logger.log(Level.INFO, "Przycisk: \"Add\" został wciśnięty");
+        return new AdminPanelSteps();
+    }
+
+    @Override
+    @Step("Przycisk: 'Save' zostal wcisniety")
+    public AdminPanelSteps clickSaveButton() {
+        Wait.waitSleep();
+        Actions action = new Actions(DriverManager.driverSetup());
+        action.moveToElement(saveButton).doubleClick().build().perform();
+        logger.log(Level.INFO, "Wciskam przycisk: \"Save\"");
         return new AdminPanelSteps();
     }
 
@@ -102,15 +113,6 @@ public class AdminPanelSteps extends AdminPanelBuilder implements CommonSteps, C
     public AdminPanelSteps setUsernameLabel(String username) {
         usernameLabel.sendKeys(username);
         logger.log(Level.INFO, "Nazwa użytkownika to: \"{0}\"", username);
-        return new AdminPanelSteps();
-    }
-
-    @Step("Przycisk: 'Save' zostal wcisniety")
-    public AdminPanelSteps clickSaveButton() {
-        Wait.waitSleep();
-        Actions action = new Actions(DriverManager.driverSetup());
-        action.moveToElement(saveButton).doubleClick().build().perform();
-        logger.log(Level.INFO, "Wciskam przycisk: \"Save\"");
         return new AdminPanelSteps();
     }
 

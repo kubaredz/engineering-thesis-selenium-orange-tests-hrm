@@ -5,4 +5,6 @@ public interface CommonGenericSteps<T> {
     public <T> CommonGenericSteps clickPanelSection();
 
     public <T> CommonGenericSteps clickAddButton();
+
+    public <T> CommonGenericSteps clickSaveButton();
 }
