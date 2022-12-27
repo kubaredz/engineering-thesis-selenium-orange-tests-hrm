@@ -1,6 +1,6 @@
 package steps.options;
 
-import builders.MyInfoPanelBuilder;
+import builders.options.MyInfoPanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
@@ -9,23 +9,25 @@ import waits.Wait;
 
 import java.util.logging.Level;
 
-public class MyInfoSteps extends MyInfoPanelBuilder {
+public class MyInfoSteps extends MyInfoPanelBuilder implements CommonSteps, CommonGenericSteps<MyInfoSteps> {
 
     public MyInfoSteps() {
         PageFactory.initElements(DriverManager.driverSetup(), this);
     }
 
+    @Override
+    @Step("Sekcja 'PIM' zostala wyswietlona")
+    public boolean isHeaderTextDisplayed() {
+        logger.log(Level.INFO, "Sekcja: \"PIM\" została wyświetlona");
+        return headerTextPrefix.isDisplayed();
+    }
+
+    @Override
     @Step("Sekcja: 'My Info' zostala otwarta")
-    public MyInfoSteps clickMyInfoSection() {
+    public <T> MyInfoSteps clickPanelSection() {
         myInfoSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"My Info\" został wciśnięty");
         return new MyInfoSteps();
-    }
-
-    @Step("Sekcja 'PIM' zostala wyswietlona")
-    public boolean isUserManagementSectionDisplayed() {
-        logger.log(Level.INFO, "Sekcja: \"PIM\" została wyświetlona");
-        return headerTextPrefix.isDisplayed();
     }
 
     @Step("Przycisk dla wewnętrznej sekcji: 'Personal Details' został wciśnięty")

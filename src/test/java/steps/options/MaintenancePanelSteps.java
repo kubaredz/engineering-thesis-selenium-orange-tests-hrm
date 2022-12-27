@@ -1,20 +1,28 @@
 package steps.options;
 
-import builders.MaintenancePanelBuilder;
+import builders.options.MaintenancePanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
 
 import java.util.logging.Level;
 
-public class MaintenancePanelSteps extends MaintenancePanelBuilder {
+public class MaintenancePanelSteps extends MaintenancePanelBuilder implements CommonSteps, CommonGenericSteps<MaintenancePanelSteps> {
 
     public MaintenancePanelSteps() {
         PageFactory.initElements(DriverManager.driverSetup(), this);
     }
 
+    @Override
+    @Step("Text: 'Maintenance' zostal wyswietlony")
+    public boolean isHeaderTextDisplayed() {
+        logger.log(Level.INFO, "Text: Maintenance jest widoczny");
+        return headerTextPrefix.isDisplayed();
+    }
+
+    @Override
     @Step("Sekcja: 'Maintenance' zostala otwarta")
-    public MaintenancePanelSteps clickMaintenanceSection() {
+    public <T> MaintenancePanelSteps clickPanelSection() {
         maintenanceSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"Maintenance\" został wciśnięty");
         return new MaintenancePanelSteps();
@@ -39,12 +47,6 @@ public class MaintenancePanelSteps extends MaintenancePanelBuilder {
         confirmButton.click();
         logger.log(Level.INFO, "Przycisk: confirm został wciśnięty");
         return new MaintenancePanelSteps();
-    }
-
-    @Step("Text: 'Maintenance' zostal wyswietlony")
-    public boolean isMaintenanceTextDisplayed() {
-        logger.log(Level.INFO, "Text: Maintenance jest widoczny");
-        return headerTextPrefix.isDisplayed();
     }
 
     @Step("Text: 'Purge Records' zostal wyswietlony")

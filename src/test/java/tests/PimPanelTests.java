@@ -25,9 +25,9 @@ public class PimPanelTests extends TestBase {
                 .clickLoginButton();
 
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
-        pimPanelSteps.clickPimPanelSection();
+        pimPanelSteps.clickPanelSection();
 
-        assertTrue(pimPanelSteps.isPimSectionDisplayed());
+        assertTrue(pimPanelSteps.isHeaderTextDisplayed());
     }
 
     @Test
@@ -42,7 +42,7 @@ public class PimPanelTests extends TestBase {
 
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
         pimPanelSteps
-                .clickPimPanelSection()
+                .clickPanelSection()
                 .clickAddButton();
 
         assertTrue(pimPanelSteps.isAddEmployeeTextDisplayed());
@@ -59,7 +59,7 @@ public class PimPanelTests extends TestBase {
 
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
         pimPanelSteps
-                .clickPimPanelSection()
+                .clickPanelSection()
                 .clickAddButton()
                 .setUploadImageButton("C:\\Users\\kubar\\avatar.jpg")
                 .setFirstNameLabel(UserDataGenerator.generateFirstName())

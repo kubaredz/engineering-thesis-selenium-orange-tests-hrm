@@ -1,29 +1,31 @@
 package steps.options;
 
-import builders.BuzzPanelBuilder;
+import builders.options.BuzzPanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
 
 import java.util.logging.Level;
 
-public class BuzzPanelSteps extends BuzzPanelBuilder {
+public class BuzzPanelSteps extends BuzzPanelBuilder implements CommonSteps, CommonGenericSteps<BuzzPanelSteps> {
 
     public BuzzPanelSteps() {
         PageFactory.initElements(DriverManager.driverSetup(), this);
     }
 
+    @Override
+    @Step("Text: 'Buzz' zostal wyswietlony")
+    public boolean isHeaderTextDisplayed() {
+        logger.log(Level.INFO, "Tekst: \"Buzz\" został wyświetlony");
+        return headerTextPrefix.isDisplayed();
+    }
+
+    @Override
     @Step("Sekcja: 'Buzz' zostala otwarta")
-    public BuzzPanelSteps clickBuzzPanelSection() {
+    public <T> BuzzPanelSteps clickPanelSection() {
         buzzPanelSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"Buzz\" został wciśnięty");
         return new BuzzPanelSteps();
-    }
-
-    @Step("Text: 'Buzz' zostal wyswietlony")
-    public boolean isBuzzTextDisplayed() {
-        logger.log(Level.INFO, "Tekst: \"Buzz\" został wyświetlony");
-        return headerTextPrefix.isDisplayed();
     }
 
     @Step("Text: 'Launching Soon' zostal wyswietlony")

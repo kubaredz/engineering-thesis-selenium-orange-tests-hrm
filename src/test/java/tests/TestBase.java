@@ -1,6 +1,6 @@
 package tests;
 
-import properties_loader.ConfigurationProperties;
+import properties.ConfigurationProperties;
 import io.qameta.allure.Step;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;

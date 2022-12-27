@@ -1,28 +1,30 @@
 package steps.options;
 
-import builders.LeavePanelBuilder;
+import builders.options.LeavePanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
 
 import java.util.logging.Level;
 
-public class LeavePanelSteps extends LeavePanelBuilder {
+public class LeavePanelSteps extends LeavePanelBuilder implements CommonSteps, CommonGenericSteps<LeavePanelBuilder> {
     public LeavePanelSteps() {
         PageFactory.initElements(DriverManager.driverSetup(), this);
     }
 
+    @Override
+    @Step("Sekcja 'Leave' zostala wyswietlona")
+    public boolean isHeaderTextDisplayed() {
+        logger.log(Level.INFO, "Sekcja: \"Leave\" została wyświetlona");
+        return headerTextPrefix.isDisplayed();
+    }
+
+    @Override
     @Step("Sekcja: 'Leave' zostala otwarta")
-    public LeavePanelSteps clickLeavePanelSection() {
+    public <T> LeavePanelSteps clickPanelSection() {
         leavePanelSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"Leave\" został wciśnięty");
         return new LeavePanelSteps();
-    }
-
-    @Step("Sekcja 'Leave' zostala wyswietlona")
-    public boolean isLeaveSectionDisplayed() {
-        logger.log(Level.INFO, "Sekcja: \"Leave\" została wyświetlona");
-        return headerTextPrefix.isDisplayed();
     }
 
     @Step("Przycisk 'Assign' zostal wcisniety")

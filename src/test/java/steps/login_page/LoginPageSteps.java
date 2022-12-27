@@ -1,6 +1,6 @@
 package steps.login_page;
 
-import builders.LoginPageBuilder;
+import builders.login_page.LoginPageBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;

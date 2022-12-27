@@ -1,6 +1,6 @@
 package setup;
 
-import properties_loader.ConfigurationProperties;
+import properties.ConfigurationProperties;
 
 import java.time.Duration;
 

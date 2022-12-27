@@ -19,7 +19,7 @@ public class MaintenancePanelTests extends TestBase {
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
         MaintenancePanelSteps maintenancePanelSteps = new MaintenancePanelSteps();
-        maintenancePanelSteps.clickMaintenanceSection();
+        maintenancePanelSteps.clickPanelSection();
 
         assertEquals(maintenancePanelSteps.getMaintenancePageUrl(), "https://opensource-demo.orangehrmlive.com/web/index.php/maintenance/purgeEmployee");
     }
@@ -33,11 +33,11 @@ public class MaintenancePanelTests extends TestBase {
 
         MaintenancePanelSteps maintenancePanelSteps = new MaintenancePanelSteps();
             maintenancePanelSteps
-                    .clickMaintenanceSection()
+                    .clickPanelSection()
                     .setPasswordLabel("admin123")
                     .clickConfirmButton();
 
-        assertTrue(maintenancePanelSteps.isMaintenanceTextDisplayed());
+        assertTrue(maintenancePanelSteps.isHeaderTextDisplayed());
         assertEquals(maintenancePanelSteps.getMaintenanceText(), "Maintenance");
 
         assertTrue(maintenancePanelSteps.isPurgeRecordsTextDisplayed());

@@ -21,9 +21,9 @@ public class AdminPanelTests extends TestBase {
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
         AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
-        adminPanelSteps.clickAdminPanelSection();
+        adminPanelSteps.clickPanelSection();
 
-        assertTrue(adminPanelSteps.isUserManagementSectionDisplayed());
+        assertTrue(adminPanelSteps.isHeaderTextDisplayed());
     }
 
     @Test
@@ -38,7 +38,7 @@ public class AdminPanelTests extends TestBase {
 
         AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
         adminPanelSteps
-                .clickAdminPanelSection()
+                .clickPanelSection()
                 .clickAddButton();
 
         assertTrue(adminPanelSteps.isAddUserTextDisplayed());

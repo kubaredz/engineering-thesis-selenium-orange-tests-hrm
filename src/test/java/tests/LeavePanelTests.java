@@ -20,9 +20,9 @@ public class LeavePanelTests extends TestBase {
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
         LeavePanelSteps leavePanelSteps = new LeavePanelSteps();
-        leavePanelSteps.clickLeavePanelSection();
+        leavePanelSteps.clickPanelSection();
 
-        assertTrue(leavePanelSteps.isLeaveSectionDisplayed());
+        assertTrue(leavePanelSteps.isHeaderTextDisplayed());
     }
 
     @Test
@@ -37,7 +37,7 @@ public class LeavePanelTests extends TestBase {
 
         LeavePanelSteps leavePanelSteps = new LeavePanelSteps();
         leavePanelSteps
-                .clickLeavePanelSection()
+                .clickPanelSection()
                 .clickAssignLeaveButton()
                 .setEmployeeName(loggedUserData)
                 .pickPromptedEmployee()

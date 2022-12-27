@@ -1,6 +1,6 @@
 package steps.dashboard;
 
-import builders.DashboardPageBuilder;
+import builders.dashboard.DashboardPageBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;

@@ -2,7 +2,7 @@ package setup;
 
 import browsers.BrowserPicker;
 import browsers.BrowserType;
-import properties_loader.ConfigurationProperties;
+import properties.ConfigurationProperties;
 import org.openqa.selenium.WebDriver;
 
 public class DriverManager {

@@ -1,6 +1,6 @@
 package steps.options;
 
-import builders.AdminPanelBuilder;
+import builders.options.AdminPanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -9,23 +9,25 @@ import waits.Wait;
 
 import java.util.logging.Level;
 
-public class AdminPanelSteps extends AdminPanelBuilder {
+public class AdminPanelSteps extends AdminPanelBuilder implements CommonSteps, CommonGenericSteps<AdminPanelSteps> {
 
     public AdminPanelSteps() {
         PageFactory.initElements(DriverManager.driverSetup(), this);
     }
 
+    @Override
+    @Step("Sekcja: 'User Management' zostala wyswietlona")
+    public boolean isHeaderTextDisplayed() {
+        logger.log(Level.INFO, "Sekcja: \"User Management\" została wyświetlona");
+        return headerTextAddition.isDisplayed();
+    }
+
+    @Override
     @Step("Przycisk dla panelu: 'Admin' zostal wcisniety")
-    public AdminPanelSteps clickAdminPanelSection() {
+    public <T> AdminPanelSteps clickPanelSection() {
         adminPanelSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"Admin\" został wciśnięty");
         return new AdminPanelSteps();
-    }
-
-    @Step("Sekcja: 'User Management' zostala wyswietlona")
-    public boolean isUserManagementSectionDisplayed() {
-        logger.log(Level.INFO, "Sekcja: \"User Management\" została wyświetlona");
-        return headerTextAddition.isDisplayed();
     }
 
     @Step("Przycisk: 'Add' zostal wcisniety")

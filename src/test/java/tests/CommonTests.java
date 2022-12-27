@@ -38,7 +38,7 @@ public class CommonTests extends TestBase{
 
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
         pimPanelSteps
-                .clickPimPanelSection()
+                .clickPanelSection()
                 .clickAddButton()
                 .setUploadImageButton("C:\\Users\\kubar\\avatar.jpg")
                 .setFirstNameLabel(UserDataGenerator.generateFirstName())

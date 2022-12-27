@@ -19,9 +19,9 @@ public class BuzzPanelTests extends TestBase {
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
         BuzzPanelSteps buzzPanelSteps = new BuzzPanelSteps();
-        buzzPanelSteps.clickBuzzPanelSection();
+        buzzPanelSteps.clickPanelSection();
 
-        assertTrue(buzzPanelSteps.isBuzzTextDisplayed());
+        assertTrue(buzzPanelSteps.isHeaderTextDisplayed());
     }
 
     @Test
@@ -32,7 +32,7 @@ public class BuzzPanelTests extends TestBase {
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
         BuzzPanelSteps buzzPanelSteps = new BuzzPanelSteps();
-        buzzPanelSteps.clickBuzzPanelSection();
+        buzzPanelSteps.clickPanelSection();
 
         assertTrue(buzzPanelSteps.isLaunchingSoonTextDisplayed());
         assertEquals(buzzPanelSteps.getLaunchingSoonText(), "Launching Soon");

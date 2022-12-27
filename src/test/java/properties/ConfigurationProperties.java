@@ -1,4 +1,4 @@
-package properties_loader;
+package properties;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -36,7 +36,7 @@ public class ConfigurationProperties {
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            throw new RuntimeException("Configuration.properties not found at " + PROPERTY_FILE);
+            throw new RuntimeException("Plik configuration.properties nie zostal znaleziony pod lokalizacja: " + PROPERTY_FILE);
         }
         return properties;
     }

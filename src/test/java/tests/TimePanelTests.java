@@ -19,9 +19,9 @@ public class TimePanelTests extends TestBase {
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
         TimePanelSteps timePanelSteps = new TimePanelSteps();
-        timePanelSteps.clickTimePanelSection();
+        timePanelSteps.clickPanelSection();
 
-        assertTrue(timePanelSteps.isTimesheetSectionDisplayed());
+        assertTrue(timePanelSteps.isHeaderTextDisplayed());
     }
 
     @Test
@@ -36,7 +36,7 @@ public class TimePanelTests extends TestBase {
 
         TimePanelSteps timePanelSteps = new TimePanelSteps();
         timePanelSteps
-                .clickTimePanelSection()
+                .clickPanelSection()
                 .setEmployeeName(loggedUserData)
                 .pickPromptedEmployeeName()
                 .clickViewButton();

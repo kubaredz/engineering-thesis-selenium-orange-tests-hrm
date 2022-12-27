@@ -19,8 +19,8 @@ public class DirectoryPanelTests extends TestBase{
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
         DirectoryPanelSteps directoryPanelSteps = new DirectoryPanelSteps();
-        directoryPanelSteps.clickDirectorySection();
+        directoryPanelSteps.clickPanelSection();
 
-        assertTrue(directoryPanelSteps.isDirectoryDisplayed());
+        assertTrue(directoryPanelSteps.isHeaderTextDisplayed());
     }
 }

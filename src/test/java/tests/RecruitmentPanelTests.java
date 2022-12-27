@@ -18,9 +18,9 @@ public class RecruitmentPanelTests extends TestBase {
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
         RecruitmentPanelSteps recruitmentPanelSteps = new RecruitmentPanelSteps();
-        recruitmentPanelSteps.clickRecruitmentPanelSection();
+        recruitmentPanelSteps.clickPanelSection();
 
-        assertTrue(recruitmentPanelSteps.isRecruitmentSectionDisplayed());
+        assertTrue(recruitmentPanelSteps.isHeaderTextDisplayed());
     }
 
     @Test
@@ -32,7 +32,7 @@ public class RecruitmentPanelTests extends TestBase {
 
         RecruitmentPanelSteps recruitmentPanelSteps = new RecruitmentPanelSteps();
         recruitmentPanelSteps
-                .clickRecruitmentPanelSection()
+                .clickPanelSection()
                 .clickAddButton();
 
         assertTrue(recruitmentPanelSteps.isAddCandidateSectionDisplayed());
@@ -55,6 +55,6 @@ public class RecruitmentPanelTests extends TestBase {
 //                .setResumeLabel("C:\\Users\\kubar\\OneDrive\\Pulpit\\praca-inzynierska\\resources\\pdf\\resume-cv.pdf");
 
         assertTrue(recruitmentPanelSteps.isPositiveAlertVisible());
-        assertTrue(recruitmentPanelSteps.isRecruitmentSectionDisplayed());
+        assertTrue(recruitmentPanelSteps.isHeaderTextDisplayed());
     }
 }

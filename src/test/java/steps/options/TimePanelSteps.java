@@ -1,29 +1,31 @@
 package steps.options;
 
-import builders.TimePanelBuilder;
+import builders.options.TimePanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
 
 import java.util.logging.Level;
 
-public class TimePanelSteps extends TimePanelBuilder {
+public class TimePanelSteps extends TimePanelBuilder implements CommonSteps, CommonGenericSteps<TimePanelSteps> {
 
     public TimePanelSteps() {
         PageFactory.initElements(DriverManager.driverSetup(), this);
     }
 
+    @Override
+    @Step("Sekcja 'Timesheet' zostala wyswietlona")
+    public boolean isHeaderTextDisplayed() {
+        logger.log(Level.INFO, "Sekcja: \"Timesheet\" została wyświetlona");
+        return headerTextAddition.isDisplayed();
+    }
+
+    @Override
     @Step("Sekcja: 'Time' zostala otwarta")
-    public TimePanelSteps clickTimePanelSection() {
+    public <T> TimePanelSteps clickPanelSection() {
         timePanelSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"Time\" został wciśnięty");
         return new TimePanelSteps();
-    }
-
-    @Step("Sekcja 'Timesheet' zostala wyswietlona")
-    public boolean isTimesheetSectionDisplayed() {
-        logger.log(Level.INFO, "Sekcja: \"Timesheet\" została wyświetlona");
-        return headerTextAddition.isDisplayed();
     }
 
     @Step("Imie pracownika: {name} zostalo wpisane")

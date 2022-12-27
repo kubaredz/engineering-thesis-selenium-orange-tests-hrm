@@ -20,9 +20,9 @@ public class MyInfoTests extends TestBase {
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
         MyInfoSteps myInfoSteps = new MyInfoSteps();
-        myInfoSteps.clickMyInfoSection();
+        myInfoSteps.clickPanelSection();
 
-        assertTrue(myInfoSteps.isUserManagementSectionDisplayed());
+        assertTrue(myInfoSteps.isHeaderTextDisplayed());
     }
 
     @Test
@@ -45,7 +45,7 @@ public class MyInfoTests extends TestBase {
 
         MyInfoSteps myInfoSteps = new MyInfoSteps();
         myInfoSteps
-                .clickMyInfoSection()
+                .clickPanelSection()
                 .clickPersonalDetailsSection()
                 .setFirstName(firstName)
                 .setMiddleName(secondName)
@@ -79,7 +79,7 @@ public class MyInfoTests extends TestBase {
 
         MyInfoSteps myInfoSteps = new MyInfoSteps();
         myInfoSteps
-                .clickMyInfoSection()
+                .clickPanelSection()
                 .clickPersonalDetailsSection()
                 .clickBloodTypeSection()
                 .clickBloodTypeBPlusLabel()

@@ -1,29 +1,31 @@
 package steps.options;
 
-import builders.RecruitmentPanelBuilder;
+import builders.options.RecruitmentPanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
 
 import java.util.logging.Level;
 
-public class RecruitmentPanelSteps extends RecruitmentPanelBuilder {
+public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements CommonSteps, CommonGenericSteps<RecruitmentPanelSteps> {
 
     public RecruitmentPanelSteps() {
         PageFactory.initElements(DriverManager.driverSetup(), this);
     }
 
+    @Override
+    @Step("Sekcja 'Recruitment' zostala wyswietlona")
+    public boolean isHeaderTextDisplayed() {
+        logger.log(Level.INFO, "Sekcja: \"Recruitment\" została wyświetlona");
+        return headerTextPrefix.isDisplayed();
+    }
+
+    @Override
     @Step("Sekcja: 'Recruitment' zostala otwarta")
-    public RecruitmentPanelSteps clickRecruitmentPanelSection() {
+    public <T> RecruitmentPanelSteps clickPanelSection() {
         recruitmentPanelSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"Recruitment\" został wciśnięty");
         return new RecruitmentPanelSteps();
-    }
-
-    @Step("Sekcja 'Recruitment' zostala wyswietlona")
-    public boolean isRecruitmentSectionDisplayed() {
-        logger.log(Level.INFO, "Sekcja: \"Recruitment\" została wyświetlona");
-        return headerTextPrefix.isDisplayed();
     }
 
     @Step("Przycisk: 'Add' zostal wcisniety")

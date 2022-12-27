@@ -1,29 +1,31 @@
 package steps.options;
 
-import builders.PimPanelBuilder;
+import builders.options.PimPanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
 
 import java.util.logging.Level;
 
-public class PimPanelSteps extends PimPanelBuilder {
+public class PimPanelSteps extends PimPanelBuilder implements CommonSteps, CommonGenericSteps<PimPanelSteps>{
 
     public PimPanelSteps() {
         PageFactory.initElements(DriverManager.driverSetup(), this);
     }
 
+    @Override
+    @Step("Sekcja 'PIM' zostala wyswietlona")
+    public boolean isHeaderTextDisplayed() {
+        logger.log(Level.INFO, "Sekcja: \"PIM\" została wyświetlona");
+        return headerTextPrefix.isDisplayed();
+    }
+
+    @Override
     @Step("Sekcja: 'PIM' zostala otwarta")
-    public PimPanelSteps clickPimPanelSection() {
+    public <T> PimPanelSteps clickPanelSection() {
         pimPanelSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"PIM\" został wciśnięty");
         return new PimPanelSteps();
-    }
-
-    @Step("Sekcja 'PIM' zostala wyswietlona")
-    public boolean isPimSectionDisplayed() {
-        logger.log(Level.INFO, "Sekcja: \"PIM\" została wyświetlona");
-        return headerTextPrefix.isDisplayed();
     }
 
     @Step("Przycisk: 'Add' zostal wcisniety")
