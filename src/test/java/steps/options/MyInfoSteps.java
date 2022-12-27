@@ -30,6 +30,11 @@ public class MyInfoSteps extends MyInfoPanelBuilder implements CommonSteps, Comm
         return new MyInfoSteps();
     }
 
+    @Override
+    public <T> CommonGenericSteps clickAddButton() {
+        throw new UnsupportedOperationException();
+    }
+
     @Step("Przycisk dla wewnętrznej sekcji: 'Personal Details' został wciśnięty")
     public MyInfoSteps clickPersonalDetailsSection() {
         personalDetailsSection.click();

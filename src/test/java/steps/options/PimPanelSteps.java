@@ -28,6 +28,7 @@ public class PimPanelSteps extends PimPanelBuilder implements CommonSteps, Commo
         return new PimPanelSteps();
     }
 
+    @Override
     @Step("Przycisk: 'Add' zostal wcisniety")
     public PimPanelSteps clickAddButton() {
         addButton.click();

@@ -28,6 +28,11 @@ public class BuzzPanelSteps extends BuzzPanelBuilder implements CommonSteps, Com
         return new BuzzPanelSteps();
     }
 
+    @Override
+    public <T> CommonGenericSteps clickAddButton() {
+        throw new UnsupportedOperationException();
+    }
+
     @Step("Text: 'Launching Soon' zostal wyswietlony")
     public boolean isLaunchingSoonTextDisplayed() {
         logger.log(Level.INFO, "Tekst: \"Launching Soon\" został wyświetlony");

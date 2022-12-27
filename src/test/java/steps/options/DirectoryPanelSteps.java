@@ -27,4 +27,9 @@ public class DirectoryPanelSteps extends DirectoryPanelBuilder implements Common
         logger.log(Level.INFO, "Przycisk dla sekcji: \"Directory\" został wciśnięty");
         return new DirectoryPanelSteps();
     }
+
+    @Override
+    public <T> CommonGenericSteps clickAddButton() {
+        throw new UnsupportedOperationException();
+    }
 }

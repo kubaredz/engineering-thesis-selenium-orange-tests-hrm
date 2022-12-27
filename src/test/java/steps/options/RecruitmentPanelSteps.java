@@ -28,6 +28,7 @@ public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements Co
         return new RecruitmentPanelSteps();
     }
 
+    @Override
     @Step("Przycisk: 'Add' zostal wcisniety")
     public RecruitmentPanelSteps clickAddButton() {
         addButton.click();

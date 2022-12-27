@@ -28,6 +28,11 @@ public class MaintenancePanelSteps extends MaintenancePanelBuilder implements Co
         return new MaintenancePanelSteps();
     }
 
+    @Override
+    public <T> CommonGenericSteps clickAddButton() {
+        throw new UnsupportedOperationException();
+    }
+
     @Step("Strona: Maintenance zostala otwarta")
     public String getMaintenancePageUrl() {
         String pageUrl = DriverManager.driverSetup().getCurrentUrl();

@@ -21,6 +21,11 @@ public class PerformancePanelSteps extends PerformancePanelBuilder implements Co
         return new PerformancePanelSteps();
     }
 
+    @Override
+    public <T> CommonGenericSteps clickAddButton() {
+        throw new UnsupportedOperationException();
+    }
+
     @Step("Sekcja 'Performance' zostala wyswietlona")
     public boolean isPerformanceSectionDisplayed() {
         logger.log(Level.INFO, "Sekcja: \"Manage Reviews\" została wyświetlona");
