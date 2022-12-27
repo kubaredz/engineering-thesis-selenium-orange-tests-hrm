@@ -1,8 +1,6 @@
 package tests;
 
-import configuration.AppProperties;
-import configuration.ConfigurationProperties;
-import configuration.PropertiesLoader;
+import properties_loader.ConfigurationProperties;
 import io.qameta.allure.Step;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -17,9 +15,9 @@ public class TestBase {
     @BeforeClass
     @Step("Metoda odpowiedzialna za zalodowanie konfiguracji z pliku configuration.properties")
     public void beforeClass() {
-        PropertiesLoader propertiesLoader = new PropertiesLoader();
-        Properties propertiesFromFile = propertiesLoader.getPropertiesFromFile("configuration.properties");
-        ConfigurationProperties.setProperties(propertiesFromFile);
+        ConfigurationProperties configurationProperties = new ConfigurationProperties();
+        Properties propertiesFromFile = configurationProperties.configurationFileReader();
+        configurationProperties.setProperties(propertiesFromFile);
     }
 
     @BeforeMethod
@@ -28,7 +26,7 @@ public class TestBase {
         DriverManager.driverSetup();
         PageSetup.setMaximizeOfWindow();
         PageSetup.setImplicitWait();
-        PageSetup.setPageUrl(AppProperties.getAllUrl());
+        PageSetup.setPageUrl();
     }
 
     @AfterMethod

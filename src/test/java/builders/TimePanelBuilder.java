@@ -16,7 +16,4 @@ public class TimePanelBuilder extends CommonBuilder {
 
     @FindBy(css = "div[role='option'] span")
     public WebElement promptedEmployeeName;
-
-    @FindBy(css = "div[class='oxd-toast-icon-container']")
-    public WebElement infoAlert;
 }

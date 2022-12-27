@@ -8,12 +8,6 @@ public class AdminPanelBuilder extends CommonBuilder {
     @FindBy(css = "a[href='/web/index.php/admin/viewAdminModule']")
     public WebElement adminPanelSection;
 
-    @FindBy(css = "button[class='oxd-button oxd-button--medium oxd-button--secondary']")
-    public WebElement addButton;
-
-    @FindBy(css = "h6[class='oxd-text oxd-text--h6 orangehrm-main-title']")
-    public WebElement addUserText;
-
     @FindBy(xpath = "//div[@class='oxd-grid-2 orangehrm-full-width-grid']//div[1]//div[1]//div[2]//div[1]//div[1]//div[1]")
     public WebElement userRoleDropdown;
 
@@ -46,7 +40,4 @@ public class AdminPanelBuilder extends CommonBuilder {
 
     @FindBy(css = "h5[class='oxd-text oxd-text--h5 oxd-table-filter-title']")
     public WebElement systemUsersText;
-
-    @FindBy(css = "div[class='oxd-toast-icon-container']")
-    public WebElement positiveAlert;
 }

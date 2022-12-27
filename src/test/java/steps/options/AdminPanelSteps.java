@@ -38,7 +38,7 @@ public class AdminPanelSteps extends AdminPanelBuilder {
     @Step("Tekst: 'Add user' zostal wyswietlony")
     public boolean isAddUserTextDisplayed() {
         logger.log(Level.INFO, "Tekst \"Add user\" został wyświetlony");
-        return addUserText.isDisplayed();
+        return addText.isDisplayed();
     }
 
     @Step("Dropdown: 'User Role' zostal wcisniety")

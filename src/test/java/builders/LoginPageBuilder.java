@@ -25,7 +25,4 @@ public class LoginPageBuilder extends CommonBuilder {
 
     @FindBy(css = "button[type='submit']")
     public WebElement loginButton;
-
-    @FindBy(css = "p[class*='oxd-text oxd-text--p oxd-alert-content-text']")
-    public WebElement invalidCredentialsAlert;
 }

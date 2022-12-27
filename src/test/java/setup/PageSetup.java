@@ -1,11 +1,13 @@
 package setup;
 
+import properties_loader.ConfigurationProperties;
+
 import java.time.Duration;
 
 public class PageSetup {
 
-    public static void setPageUrl(String pageUrl) {
-        DriverManager.driverSetup().navigate().to(pageUrl);
+    public static void setPageUrl() {
+        DriverManager.driverSetup().navigate().to(ConfigurationProperties.orangeHrmUrl());
     }
 
     public static void setMaximizeOfWindow() {

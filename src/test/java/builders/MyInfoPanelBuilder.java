@@ -68,9 +68,6 @@ public class MyInfoPanelBuilder extends CommonBuilder {
     @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[5]/button[1]")
     public WebElement saveButton;
 
-    @FindBy(css = "div[class='oxd-toast oxd-toast--success oxd-toast-container--toast oxd-toast-list-leave-active oxd-toast-list-leave-to']")
-    public WebElement positiveAlert;
-
     @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]")
     public WebElement bloodTypeSection;
 

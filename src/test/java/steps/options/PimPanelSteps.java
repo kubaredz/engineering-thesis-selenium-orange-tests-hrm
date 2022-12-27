@@ -36,13 +36,13 @@ public class PimPanelSteps extends PimPanelBuilder {
     @Step("Tekst: 'Add employee' zostal wyswietlony")
     public boolean isAddEmployeeTextDisplayed() {
         logger.log(Level.INFO, "Tekst \"Add employee\" został wyświetlony");
-        return addEmployeeText.isDisplayed();
+        return addText.isDisplayed();
     }
 
     @Step("Tekst: 'Add employee' zostal pobrany")
     public String getAddEmployeeText() {
         logger.log(Level.INFO, "Tekst: \"Add Employee\" został pobrany");
-        return addEmployeeText.getText();
+        return addText.getText();
     }
 
     @Step("Lokalizacja zdjecia: {imgPath} zostala przekazana")

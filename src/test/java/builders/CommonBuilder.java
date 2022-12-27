@@ -13,4 +13,19 @@ public class CommonBuilder {
 
     @FindBy(css = "h6[class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-level']")
     public WebElement headerTextAddition;
+
+    @FindBy(css = "button[class='oxd-button oxd-button--medium oxd-button--secondary']")
+    public WebElement addButton;
+
+    @FindBy(css = "h6[class='oxd-text oxd-text--h6 orangehrm-main-title']")
+    public WebElement addText;
+
+    @FindBy(css = "div[class='oxd-toast-icon-container']")
+    public WebElement infoAlert;
+
+    @FindBy(css = "div[class='oxd-toast-icon-container']")
+    public WebElement positiveAlert;
+
+    @FindBy(css = "p[class*='oxd-text oxd-text--p oxd-alert-content-text']")
+    public WebElement invalidCredentialsAlert;
 }

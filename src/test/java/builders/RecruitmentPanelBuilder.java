@@ -8,12 +8,6 @@ public class RecruitmentPanelBuilder extends CommonBuilder {
     @FindBy(css = "a[href='/web/index.php/recruitment/viewRecruitmentModule']")
     public WebElement recruitmentPanelSection;
 
-    @FindBy(css = "button[class='oxd-button oxd-button--medium oxd-button--secondary']")
-    public WebElement addButton;
-
-    @FindBy(css = "h6[class='oxd-text oxd-text--h6 orangehrm-main-title']")
-    public WebElement addCandidateSectionText;
-
     @FindBy(css = "input[class='oxd-input oxd-input--active orangehrm-firstname']")
     public WebElement firstNameLabel;
 
@@ -37,7 +31,4 @@ public class RecruitmentPanelBuilder extends CommonBuilder {
 
     @FindBy(xpath = "//button[normalize-space()='Save']")
     public WebElement saveButton;
-
-    @FindBy(css = "div[class='oxd-toast-icon-container']")
-    public WebElement positiveAlert;
 }
