@@ -5,9 +5,9 @@ import java.util.concurrent.ThreadLocalRandom;
 public class PasswordGenerator {
 
     public static String generate(int length) {
-        String smallAlphabet = "abcdefghijklmnopqrstuvwxyz";
-        String upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String numeric = "0123456789";
+        String smallAlphabet = "klmnopqrstuvwxyz";
+        String upperAlphabet = "ABCDEFGHIJ";
+        String numeric = "012345";
         String chars = "!@#%^&!@#$%^&!";
         String password = smallAlphabet + upperAlphabet + chars + numeric;
         StringBuilder stringBuilder = new StringBuilder();

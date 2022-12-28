@@ -4,20 +4,27 @@ import helpers.UserDataGenerator;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import steps.options.RecruitmentPanelSteps;
 
 import static org.testng.Assert.assertTrue;
 
 public class RecruitmentPanelTests extends TestBase {
+    private CommonTests commonTests;
+    private RecruitmentPanelSteps recruitmentPanelSteps;
+
+    @BeforeMethod
+    public void recruitmentPanelTestsSetup() {
+        commonTests = new CommonTests();
+        recruitmentPanelSteps = new RecruitmentPanelSteps();
+    }
 
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'Recruitment' przekierowuje do strony 'Recrutiment' z lista osob w trakcie rekrutacji")
     public void asAdminRecruitmentScreenIsPresentTest() {
-        CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
-        RecruitmentPanelSteps recruitmentPanelSteps = new RecruitmentPanelSteps();
         recruitmentPanelSteps.clickPanelSection();
 
         assertTrue(recruitmentPanelSteps.isHeaderTextDisplayed());
@@ -27,10 +34,8 @@ public class RecruitmentPanelTests extends TestBase {
     @Description("Jako zalogowany uzytkownik, weryfikacja dodania nowego kandydata do systemu rekrutacyjnego")
     @Severity(SeverityLevel.CRITICAL)
     public void asAdminAddNewCandidate() {
-        CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
-        RecruitmentPanelSteps recruitmentPanelSteps = new RecruitmentPanelSteps();
         recruitmentPanelSteps
                 .clickPanelSection()
                 .clickAddButton();

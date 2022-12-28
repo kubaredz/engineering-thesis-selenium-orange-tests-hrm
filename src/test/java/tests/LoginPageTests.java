@@ -11,12 +11,14 @@ import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class LoginPageTests extends TestBase {
+    private LoginPageSteps loginPageSteps;
+    private DashboardSteps dashboardSteps;
 
     @Test
     @Description("Weryfikacja ze tytul strony zawiera: OrangeHRM ")
     @Severity(SeverityLevel.NORMAL)
     public void checkPageTitleTest() {
-        LoginPageSteps loginPageSteps = new LoginPageSteps();
+        loginPageSteps = new LoginPageSteps();
         assertEquals(loginPageSteps.getPageTitle(), "OrangeHRM");
     }
 
@@ -24,7 +26,8 @@ public class LoginPageTests extends TestBase {
     @Description("Weryfikacja ze po wpisaniu loginu jest on widoczny w polu username")
     @Severity(SeverityLevel.NORMAL)
     public void checkThatLoginIsDisplayedInFieldTest() {
-        LoginPageSteps loginPageSteps = new LoginPageSteps();
+        loginPageSteps = new LoginPageSteps();
+
         loginPageSteps.setUserNameField("Admin");
 
         String userNameField = loginPageSteps.getUserNameField();
@@ -35,7 +38,8 @@ public class LoginPageTests extends TestBase {
     @Description("Weryfikacja ze po wpisaniu hasla jest on widoczny w polu password")
     @Severity(SeverityLevel.NORMAL)
     public void checkThatPasswordIsDisplayedInFieldTest() {
-        LoginPageSteps loginPageSteps = new LoginPageSteps();
+        loginPageSteps = new LoginPageSteps();
+
         loginPageSteps.setPasswordField("admin123");
 
         String passwordField = loginPageSteps.getPasswordField();
@@ -46,7 +50,8 @@ public class LoginPageTests extends TestBase {
     @Description("Weryfikacja ze po wejsciu na strone Orange HRM baner jest widoczny")
     @Severity(SeverityLevel.NORMAL)
     public void checkThatBannerOfOrangeHrmIsPresentTest() {
-        LoginPageSteps loginPageSteps = new LoginPageSteps();
+        loginPageSteps = new LoginPageSteps();
+
         assertTrue(loginPageSteps.isHrmBannerDisplayed());
     }
 
@@ -54,7 +59,8 @@ public class LoginPageTests extends TestBase {
     @Description("Weryfikacja ze po wejsciu na strone Orange HRM logo jest widoczne")
     @Severity(SeverityLevel.NORMAL)
     public void checkThatLogoOfOrangeHrmIsPresentTest() {
-        LoginPageSteps loginPageSteps = new LoginPageSteps();
+        loginPageSteps = new LoginPageSteps();
+
         assertTrue(loginPageSteps.isHrmLogoDisplayed());
     }
 
@@ -62,7 +68,8 @@ public class LoginPageTests extends TestBase {
     @Description("Weryfikacja ze po wejsciu na strone Orange HRM hyperlink 'Forgot your password?' jest widoczny")
     @Severity(SeverityLevel.NORMAL)
     public void checkThatHyperlinkForgotYourPasswordIsVisibleTest() {
-        LoginPageSteps loginPageSteps = new LoginPageSteps();
+        loginPageSteps = new LoginPageSteps();
+
         assertEquals(loginPageSteps.getHyperlinkForgotYourPassword(), "Forgot your password?");
     }
 
@@ -70,7 +77,8 @@ public class LoginPageTests extends TestBase {
     @Description("Weryfikacja ze po wcisnieciu hyperlinku 'Forgot your password?' zostajemy przeniesieni na strone z resetowaniem hasla")
     @Severity(SeverityLevel.NORMAL)
     public void checkIfHyperlinkForgotYourPasswordTransferToResetPasswordPageTest() {
-        LoginPageSteps loginPageSteps = new LoginPageSteps();
+        loginPageSteps = new LoginPageSteps();
+
         loginPageSteps.clickForgotYourPasswordHyperlink();
 
         String forgotYourPasswordPageUrl = loginPageSteps.getCurrentPageUrl();
@@ -81,7 +89,8 @@ public class LoginPageTests extends TestBase {
     @Description("Weryfikacja ze po wcisnieciu hyperlinku 'Redirects To The Orange HRM' zostajemy przeniesieni na strone producenta")
     @Severity(SeverityLevel.MINOR)
     public void checkThatHyperlinkRedirectsToTheOrangeHrmProducerPageTest() {
-        LoginPageSteps loginPageSteps = new LoginPageSteps();
+        loginPageSteps = new LoginPageSteps();
+
         loginPageSteps
                 .clickProducerPageHyperlink()
                 .switchHandledTab(1);
@@ -95,13 +104,14 @@ public class LoginPageTests extends TestBase {
             "oraz wcisnieciu przycisku 'login' strona przekieruje nas na ekran glowny aplikacji")
     @Severity(SeverityLevel.BLOCKER)
     public void asUserTryToLoginWithCorrectLoginAndPasswordTest() {
-        LoginPageSteps loginPageSteps = new LoginPageSteps();
+        loginPageSteps = new LoginPageSteps();
+
         loginPageSteps
                 .setUserNameField("Admin")
                 .setPasswordField("admin123")
                 .clickLoginButton();
+        dashboardSteps = new DashboardSteps();
 
-        DashboardSteps dashboardSteps = new DashboardSteps();
         assertTrue(dashboardSteps.isHrmLogoAfterLoginDisplayed());
     }
 
@@ -110,7 +120,8 @@ public class LoginPageTests extends TestBase {
             " a nastepnie wcisnieciu przycisku 'login; strona wyswietli informacje o podaniu nieprawidlowych danych")
     @Severity(SeverityLevel.NORMAL)
     public void asUserTryToLogInWithIncorrectLoginAndPasswordTest() {
-        LoginPageSteps loginPageSteps = new LoginPageSteps();
+        loginPageSteps = new LoginPageSteps();
+
         loginPageSteps
                 .setUserNameField("IncorrectLogin")
                 .setPasswordField("password")

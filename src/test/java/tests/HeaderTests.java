@@ -106,6 +106,7 @@ public class HeaderTests extends TestBase {
 
         HeaderSteps headerSteps = new HeaderSteps();
         headerSteps.clickDropdownButton();
+
         List<WebElement> options = headerSteps.getUserDropdown().findElements(By.tagName("li"));
         for (WebElement option : options) {
             if (option.getText().equals("Change Password")) {

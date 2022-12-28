@@ -5,21 +5,28 @@ import helpers.UserDataGenerator;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import steps.options.MyInfoSteps;
 
 import static org.testng.Assert.assertTrue;
-
+//work
 public class MyInfoTests extends TestBase {
+    private CommonTests commonTests;
+    private MyInfoSteps myInfoSteps;
+
+    @BeforeMethod
+    public void myInfoTestsSetup() {
+        commonTests = new CommonTests();
+        myInfoSteps = new MyInfoSteps();
+    }
 
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'My info' przekierowuje do strony 'PIM'")
     @Severity(SeverityLevel.NORMAL)
     public void asAdminMyInfoScreenIsPresentTest() {
-        CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
-        MyInfoSteps myInfoSteps = new MyInfoSteps();
         myInfoSteps.clickPanelSection();
 
         assertTrue(myInfoSteps.isHeaderTextDisplayed());
@@ -29,7 +36,6 @@ public class MyInfoTests extends TestBase {
     @Description("Jako zalogowany uzytkownik, weryfikacja czy moge zmodyfikowac swoje dane osobowe")
     @Severity(SeverityLevel.NORMAL)
     public void asAdminModifyDataOfLoggedUserTest() {
-        CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
         String firstName = UserDataGenerator.generateFirstName();
@@ -43,7 +49,6 @@ public class MyInfoTests extends TestBase {
         String ssn = UserDataGenerator.generateId();
         String sin = UserDataGenerator.generateId();
 
-        MyInfoSteps myInfoSteps = new MyInfoSteps();
         myInfoSteps
                 .clickPanelSection()
                 .clickPersonalDetailsSection()
@@ -74,10 +79,8 @@ public class MyInfoTests extends TestBase {
     @Description("Jako zalogowany uzytkownik, weryfikacja czy moge zmodyfikowac pola w sekcji 'Custom Fields'")
     @Severity(SeverityLevel.TRIVIAL)
     public void asLoggedUserIWantToChangeCustomFields() {
-        CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
-        MyInfoSteps myInfoSteps = new MyInfoSteps();
         myInfoSteps
                 .clickPanelSection()
                 .clickPersonalDetailsSection()

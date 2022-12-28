@@ -5,24 +5,32 @@ import helpers.UserDataGenerator;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import steps.dashboard.HeaderSteps;
 import steps.options.AdminPanelSteps;
 
-import static org.testng.Assert.assertTrue;
+import static org.junit.Assert.assertTrue;
 
 public class AdminPanelTests extends TestBase {
+    private CommonTests commonTests;
+    private AdminPanelSteps adminPanelSteps;
+    private HeaderSteps headerSteps;
+
+    @BeforeMethod
+    public void adminPanelTestsSetup() {
+        commonTests = new CommonTests();
+        adminPanelSteps = new AdminPanelSteps();
+        headerSteps = new HeaderSteps();
+    }
 
     @Test
     @Description("Jako zalogowany administrator, weryfikacja czy panel 'Admin' dziala prawidlowo oraz czy sekcja 'User Management' jest widoczna")
     @Severity(SeverityLevel.CRITICAL)
     public void asAdminUserManagementScreenIsPresentTest() {
-        CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
-        AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
         adminPanelSteps.clickPanelSection();
-
         assertTrue(adminPanelSteps.isHeaderTextDisplayed());
     }
 
@@ -30,13 +38,10 @@ public class AdminPanelTests extends TestBase {
     @Severity(SeverityLevel.CRITICAL)
     @Description("Jako zalogowany administrator, weryfikacja dodania nowego konta administratora")
     public void asAdminAddNewAdministratorProfileTest() {
-        CommonTests commonTests = new CommonTests();
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
-        HeaderSteps headerSteps = new HeaderSteps();
         String loggedUserData = headerSteps.getLoggedUser();
 
-        AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
         adminPanelSteps
                 .clickPanelSection()
                 .clickAddButton();
@@ -44,6 +49,7 @@ public class AdminPanelTests extends TestBase {
         assertTrue(adminPanelSteps.isAddUserTextDisplayed());
 
         String password = PasswordGenerator.generate(15);
+
         adminPanelSteps
                 .setEmployeeNameLabel(loggedUserData)
                 .clickEmployeeNameFromList()

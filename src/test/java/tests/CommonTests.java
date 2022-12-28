@@ -12,19 +12,20 @@ import steps.options.PimPanelSteps;
 
 import static org.testng.Assert.assertTrue;
 
-public class CommonTests extends TestBase{
+public class CommonTests extends TestBase {
 
     @Test
     @Description("Jako administrator zalogowanie sie na stronie: www.opensource-demo.orangehrmlive.com")
     @Severity(SeverityLevel.BLOCKER)
     public void loginAsAdministratorToOrangeHrmAppTest() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
+        DashboardSteps dashboardSteps = new DashboardSteps();
+
         loginPageSteps
                 .setUserNameField("Admin")
                 .setPasswordField("admin123")
                 .clickLoginButton();
 
-        DashboardSteps dashboardSteps = new DashboardSteps();
         assertTrue(dashboardSteps.isHrmLogoAfterLoginDisplayed());
     }
 
@@ -32,11 +33,12 @@ public class CommonTests extends TestBase{
     @Description("Jako administrator weryfikacja dodania nowego uzytkownika do systemu Orange HRM")
     @Severity(SeverityLevel.BLOCKER)
     public void addNewUserToOrangeHrmAppTest() {
+        PimPanelSteps pimPanelSteps = new PimPanelSteps();
         LoginPageTests loginPageTests = new LoginPageTests();
+
         loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
         String password = PasswordGenerator.generate(15);
 
-        PimPanelSteps pimPanelSteps = new PimPanelSteps();
         pimPanelSteps
                 .clickPanelSection()
                 .clickAddButton()
