@@ -4,6 +4,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import steps.dashboard.DashboardSteps;
 import steps.login_page.LoginPageSteps;
@@ -24,10 +25,11 @@ public class DashboardTests extends TestBase {
     @Test
     @Description("Jako zalogowany administrator, weryfikacja czy panel 'Time at Work' dziala prawidlowo")
     @Severity(SeverityLevel.CRITICAL)
-    public void checkThatTimeAtWorkSectionIsPresentTest() {
+    @Parameters({"Admin", "admin123"})
+    public void checkThatTimeAtWorkSectionIsPresentTest(String login, String password) {
         loginPageSteps
-                .setUserNameField("Admin")
-                .setPasswordField("admin123")
+                .setUserNameField(login)
+                .setPasswordField(password)
                 .clickLoginButton();
 
         assertTrue(dashboardSteps.isTimeAtWorkSectionPresent());

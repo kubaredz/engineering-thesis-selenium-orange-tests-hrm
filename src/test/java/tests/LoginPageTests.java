@@ -103,7 +103,7 @@ public class LoginPageTests extends TestBase {
     @Description("Weryfikacja ze po wejsciu na strone Orange HRM a nastepnie podaniu: 'loginu', 'hasla' " +
             "oraz wcisnieciu przycisku 'login' strona przekieruje nas na ekran glowny aplikacji")
     @Severity(SeverityLevel.BLOCKER)
-    public void asUserTryToLoginWithCorrectLoginAndPasswordTest() {
+    public void asAdministratorTryToLoginWithCorrectLoginAndPasswordTest() {
         loginPageSteps = new LoginPageSteps();
 
         loginPageSteps

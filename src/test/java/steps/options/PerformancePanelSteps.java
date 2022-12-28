@@ -15,7 +15,7 @@ public class PerformancePanelSteps extends PerformancePanelBuilder implements Co
 
     @Override
     @Step("Sekcja: 'Performance' zostala otwarta")
-    public <T> PerformancePanelSteps clickPanelSection() {
+    public <T> PerformancePanelSteps clickPimPanelSection() {
         performanceSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"Performance\" został wciśnięty");
         return new PerformancePanelSteps();

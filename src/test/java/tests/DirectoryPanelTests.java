@@ -26,7 +26,7 @@ public class DirectoryPanelTests extends TestBase {
     public void asAdminDirectoryScreenIsPresentTest() {
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
-        directoryPanelSteps.clickPanelSection();
+        directoryPanelSteps.clickPimPanelSection();
         assertTrue(directoryPanelSteps.isHeaderTextDisplayed());
     }
 }

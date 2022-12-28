@@ -17,7 +17,7 @@ public class TestBase {
     public void beforeClass() {
         ConfigurationProperties configurationProperties = new ConfigurationProperties();
         Properties propertiesFromFile = configurationProperties.configurationFileReader();
-        configurationProperties.setProperties(propertiesFromFile);
+        ConfigurationProperties.setProperties(propertiesFromFile);
     }
 
     @BeforeMethod

@@ -26,7 +26,8 @@ public class BuzzPanelTests extends TestBase {
     public void asAdminBuzzScreenIsPresentTest() {
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
-        buzzPanelSteps.clickPanelSection();
+        buzzPanelSteps.clickPimPanelSection();
+
         assertTrue(buzzPanelSteps.isHeaderTextDisplayed());
     }
 
@@ -36,7 +37,8 @@ public class BuzzPanelTests extends TestBase {
     public void asAdminOnBuzzScreenIsInformationThatPageLaunchingSoonTest() {
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
-        buzzPanelSteps.clickPanelSection();
+        buzzPanelSteps.clickPimPanelSection();
+
         assertTrue(buzzPanelSteps.isLaunchingSoonTextDisplayed());
         assertEquals(buzzPanelSteps.getLaunchingSoonText(), "Launching Soon");
     }

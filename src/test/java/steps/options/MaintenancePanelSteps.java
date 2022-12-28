@@ -4,6 +4,7 @@ import builders.options.MaintenancePanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
+import utils.RepeatedActions;
 
 import java.util.logging.Level;
 
@@ -22,7 +23,7 @@ public class MaintenancePanelSteps extends MaintenancePanelBuilder implements Co
 
     @Override
     @Step("Sekcja: 'Maintenance' zostala otwarta")
-    public <T> MaintenancePanelSteps clickPanelSection() {
+    public <T> MaintenancePanelSteps clickPimPanelSection() {
         maintenanceSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"Maintenance\" został wciśnięty");
         return new MaintenancePanelSteps();
@@ -47,7 +48,7 @@ public class MaintenancePanelSteps extends MaintenancePanelBuilder implements Co
 
     @Step("Haslo: {password} zostalo wpisane")
     public MaintenancePanelSteps setPasswordLabel(String password) {
-        passwordLabel.sendKeys(password);
+        RepeatedActions.deletingAndAddingContentToLabel(passwordLabel, password);
         logger.log(Level.INFO, "Hasło: {0} zostało ustawione", password);
         return new MaintenancePanelSteps();
     }

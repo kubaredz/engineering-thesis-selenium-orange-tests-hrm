@@ -4,6 +4,7 @@ import builders.options.LeavePanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
+import utils.RepeatedActions;
 
 import java.util.logging.Level;
 
@@ -21,7 +22,7 @@ public class LeavePanelSteps extends LeavePanelBuilder implements CommonSteps, C
 
     @Override
     @Step("Sekcja: 'Leave' zostala otwarta")
-    public <T> LeavePanelSteps clickPanelSection() {
+    public <T> LeavePanelSteps clickPimPanelSection() {
         leavePanelSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"Leave\" został wciśnięty");
         return new LeavePanelSteps();
@@ -46,7 +47,7 @@ public class LeavePanelSteps extends LeavePanelBuilder implements CommonSteps, C
 
     @Step("Imie pracownika: {name} zostalo wpisane")
     public LeavePanelSteps setEmployeeName(String name) {
-        employeeNameLabel.sendKeys(name);
+        RepeatedActions.deletingAndAddingContentToLabel(employeeNameLabel, name);
         logger.log(Level.INFO, "Imię i nazwisko pracownika: \"{0}\" zostało wpisane", name);
         return new LeavePanelSteps();
     }
@@ -74,7 +75,7 @@ public class LeavePanelSteps extends LeavePanelBuilder implements CommonSteps, C
 
     @Step("Data urlopu od: {dateFrom} zostala wybrana")
     public LeavePanelSteps pickFromDate(String dateFrom) {
-        fromDateLabel.sendKeys(dateFrom);
+        RepeatedActions.deletingAndAddingContentToLabel(fromDateLabel, dateFrom);
         logger.log(Level.INFO, "Data od: \"{0}\" została wybrana", dateFrom);
         return new LeavePanelSteps();
     }
@@ -88,7 +89,7 @@ public class LeavePanelSteps extends LeavePanelBuilder implements CommonSteps, C
 
     @Step("Komentarz do urlopu: {comment} zostal wpisany ")
     public LeavePanelSteps writeComment(String comment) {
-        commentsTextArea.sendKeys(comment);
+        RepeatedActions.deletingAndAddingContentToLabel(commentsTextArea, comment);
         logger.log(Level.INFO, "Komentarz został napisany: {0}", comment);
         return new LeavePanelSteps();
     }

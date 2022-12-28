@@ -39,6 +39,6 @@ public class PimPanelBuilder extends CommonBuilder {
     @FindBy(css = "button[class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space']")
     public WebElement saveButton;
 
-    @FindBy(css = "p[class='oxd-text oxd-text--p oxd-text--toast-title oxd-toast-content-text']")
+    @FindBy(css = "div[class='oxd-toast oxd-toast--success oxd-toast-container--toast']")
     public WebElement successPopup;
 }

@@ -19,9 +19,9 @@ public class DriverManager {
     }
 
     public static void extinctionDriver() {
-        driver.close();
+        DriverManager.driver.close();
         if (!ConfigurationProperties.getProperties().getProperty("browser.type").equals(BrowserType.FIREFOX)){
-            driver.quit();
+            DriverManager.driver.quit();
         }
         driver = null;
     }

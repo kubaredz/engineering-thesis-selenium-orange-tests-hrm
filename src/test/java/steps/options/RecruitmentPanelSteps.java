@@ -4,6 +4,7 @@ import builders.options.RecruitmentPanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
+import utils.RepeatedActions;
 
 import java.util.logging.Level;
 
@@ -22,7 +23,7 @@ public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements Co
 
     @Override
     @Step("Sekcja: 'Recruitment' zostala otwarta")
-    public <T> RecruitmentPanelSteps clickPanelSection() {
+    public <T> RecruitmentPanelSteps clickPimPanelSection() {
         recruitmentPanelSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"Recruitment\" został wciśnięty");
         return new RecruitmentPanelSteps();
@@ -52,21 +53,21 @@ public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements Co
 
     @Step("Imie kandydata: {name} zostalo wpisane")
     public RecruitmentPanelSteps setFirstNameLabel(String name) {
-        firstNameLabel.sendKeys(name);
+        RepeatedActions.deletingAndAddingContentToLabel(firstNameLabel, name);
         logger.log(Level.INFO, "First name: \"{0}\" zostało wpisane", name);
         return new RecruitmentPanelSteps();
     }
 
     @Step("Drugie imie kandydata: {secondName} zostalo wpisane")
     public RecruitmentPanelSteps setSecondNameLabel(String secondName) {
-        secondNameLabel.sendKeys(secondName);
+        RepeatedActions.deletingAndAddingContentToLabel(secondNameLabel, secondName);
         logger.log(Level.INFO, "Second name: \"{0}\" zostało wpisane", secondName);
         return new RecruitmentPanelSteps();
     }
 
     @Step("Nazwisko kandydata: {lastName} zostalo wpisane")
     public RecruitmentPanelSteps setLastNameLabel(String lastName) {
-        lastNameLabel.sendKeys(lastName);
+        RepeatedActions.deletingAndAddingContentToLabel(lastNameLabel, lastName);
         logger.log(Level.INFO, "Last name: \"{0}\" zostało wpisane", lastName);
         return new RecruitmentPanelSteps();
     }
@@ -87,14 +88,14 @@ public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements Co
 
     @Step("Email kandydata: {email} zostal wpisany")
     public RecruitmentPanelSteps setEmailLabel(String email) {
-        emailLabel.sendKeys(email);
+        RepeatedActions.deletingAndAddingContentToLabel(emailLabel, email);
         logger.log(Level.INFO, "Email: \"{0}\" został wpisany", email);
         return new RecruitmentPanelSteps();
     }
 
     @Step("Numer kontraktu kandydata: {number} zostal wpisany")
     public RecruitmentPanelSteps setContactNumberLabel(String number) {
-        contactNumberLabel.sendKeys(number);
+        RepeatedActions.deletingAndAddingContentToLabel(contactNumberLabel, number);
         logger.log(Level.INFO, "Numer telefonu: \"{0}\" został wpisany", number);
         return new RecruitmentPanelSteps();
     }

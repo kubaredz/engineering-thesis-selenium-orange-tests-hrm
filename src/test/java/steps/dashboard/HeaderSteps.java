@@ -16,26 +16,27 @@ public class HeaderSteps extends HeaderBuilder {
 
 
     @Step("'Dropdown' zostal wcisniety")
-    public void clickDropdownButton() {
+    public HeaderSteps clickDropdownButton() {
         dropDownButton.click();
-        logger.log(Level.INFO, "Dropdown: \"Header\" został wciśnięty");
+        logger.log(Level.INFO, "Dropdown: \"Header\" zostal wcisniety");
+        return new HeaderSteps();
     }
 
     @Step("Pobranie zawartosci dropdown 'menu'")
     public WebElement getDropdownMenu() {
-        logger.log(Level.INFO, "Dropdown: \"Menu\" został wyświetlony");
+        logger.log(Level.INFO, "Dropdown: \"Menu\" zostal wyswietlony");
         return dropdownMenu;
     }
 
     @Step("Pobranie aktualnego uzytkownika")
     public WebElement getUserDropdown() {
-        logger.log(Level.INFO, "Dropdown: \"User\" został wyświetlony");
+        logger.log(Level.INFO, "Dropdown: \"User\" zostal wyswietlony");
         return userDropdown;
     }
 
     @Step("Pobranie sekcji 'About'")
     public WebElement getAboutSection() {
-        logger.log(Level.INFO, "Sekcja: \"About\" została wyświetlona");
+        logger.log(Level.INFO, "Sekcja: \"About\" zostala wyswietlona");
         return aboutSection;
     }
 
@@ -49,7 +50,14 @@ public class HeaderSteps extends HeaderBuilder {
     @Step("Pobranie aktualnego uzytkownika")
     public String getLoggedUser() {
         String user = loggedUser.getText();
-        logger.log(Level.INFO, "Zalogowany użytkownik to: {0}", user);
+        logger.log(Level.INFO, "Zalogowany uzytkownik to: {0}", user);
         return user;
+    }
+
+    @Step("Przycisk 'Logout' zostal wcisniety")
+    public HeaderSteps clickLogoutButton() {
+        logoutButton.click();
+        logger.log(Level.INFO, "Przycisk: \"Logout\" zostal wcisniety");
+        return new HeaderSteps();
     }
 }

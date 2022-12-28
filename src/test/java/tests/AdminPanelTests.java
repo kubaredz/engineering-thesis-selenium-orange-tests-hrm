@@ -30,7 +30,7 @@ public class AdminPanelTests extends TestBase {
     public void asAdminUserManagementScreenIsPresentTest() {
         commonTests.loginAsAdministratorToOrangeHrmAppTest();
 
-        adminPanelSteps.clickPanelSection();
+        adminPanelSteps.clickPimPanelSection();
         assertTrue(adminPanelSteps.isHeaderTextDisplayed());
     }
 
@@ -43,7 +43,7 @@ public class AdminPanelTests extends TestBase {
         String loggedUserData = headerSteps.getLoggedUser();
 
         adminPanelSteps
-                .clickPanelSection()
+                .clickPimPanelSection()
                 .clickAddButton();
 
         assertTrue(adminPanelSteps.isAddUserTextDisplayed());

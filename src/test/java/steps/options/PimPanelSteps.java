@@ -4,6 +4,7 @@ import builders.options.PimPanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
+import utils.RepeatedActions;
 
 import java.util.logging.Level;
 
@@ -22,7 +23,7 @@ public class PimPanelSteps extends PimPanelBuilder implements CommonSteps, Commo
 
     @Override
     @Step("Sekcja: 'PIM' zostala otwarta")
-    public <T> PimPanelSteps clickPanelSection() {
+    public <T> PimPanelSteps clickPimPanelSection() {
         pimPanelSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"PIM\" został wciśnięty");
         return new PimPanelSteps();
@@ -93,7 +94,7 @@ public class PimPanelSteps extends PimPanelBuilder implements CommonSteps, Commo
 
     @Step("Login pracownika: {username} zostal wpisany")
     public PimPanelSteps setUsernameLabel(String username) {
-        usernameLabel.sendKeys(username);
+        RepeatedActions.deletingAndAddingContentToLabel(usernameLabel, username);
         logger.log(Level.INFO, "Wprowadzam login pracownika: {0}", username);
         return new PimPanelSteps();
     }
@@ -107,14 +108,14 @@ public class PimPanelSteps extends PimPanelBuilder implements CommonSteps, Commo
 
     @Step("Haslo pracownika: {password} zostalo wpisane")
     public PimPanelSteps setPasswordLabel(String password) {
-        passwordLabel.sendKeys(password);
+        RepeatedActions.deletingAndAddingContentToLabel(passwordLabel, password);
         logger.log(Level.INFO, "Wprowadzam hasło pracownika: {0}", password);
         return new PimPanelSteps();
     }
 
     @Step("Potwierdzenie hasla: {confirmPassword} zostalo wpisane")
     public PimPanelSteps setConfirmPasswordLabel(String confirmPassword) {
-        confirmPasswordLabel.sendKeys(confirmPassword);
+        RepeatedActions.deletingAndAddingContentToLabel(confirmPasswordLabel, confirmPassword);
         logger.log(Level.INFO, "Wprowadzam hasło ponownie: {0}", confirmPassword);
         return new PimPanelSteps();
     }

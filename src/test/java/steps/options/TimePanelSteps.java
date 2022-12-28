@@ -4,6 +4,7 @@ import builders.options.TimePanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
+import utils.RepeatedActions;
 
 import java.util.logging.Level;
 
@@ -22,7 +23,7 @@ public class TimePanelSteps extends TimePanelBuilder implements CommonSteps, Com
 
     @Override
     @Step("Sekcja: 'Time' zostala otwarta")
-    public <T> TimePanelSteps clickPanelSection() {
+    public <T> TimePanelSteps clickPimPanelSection() {
         timePanelSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"Time\" został wciśnięty");
         return new TimePanelSteps();
@@ -40,7 +41,7 @@ public class TimePanelSteps extends TimePanelBuilder implements CommonSteps, Com
 
     @Step("Imie pracownika: {name} zostalo wpisane")
     public TimePanelSteps setEmployeeName(String name) {
-        employeeNameLabel.sendKeys(name);
+        RepeatedActions.deletingAndAddingContentToLabel(employeeNameLabel, name);
         logger.log(Level.INFO, "Imię: \"{0}\" zostało wpisane", name);
         return new TimePanelSteps();
     }

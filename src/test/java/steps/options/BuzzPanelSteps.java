@@ -22,7 +22,7 @@ public class BuzzPanelSteps extends BuzzPanelBuilder implements CommonSteps, Com
 
     @Override
     @Step("Sekcja: 'Buzz' zostala otwarta")
-    public <T> BuzzPanelSteps clickPanelSection() {
+    public <T> BuzzPanelSteps clickPimPanelSection() {
         buzzPanelSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"Buzz\" został wciśnięty");
         return new BuzzPanelSteps();

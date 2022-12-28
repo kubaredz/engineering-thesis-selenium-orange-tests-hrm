@@ -19,7 +19,7 @@ public class HeaderTests extends TestBase {
     @Severity(SeverityLevel.NORMAL)
     public void verifyThatUserDropDownListHasAllNecessaryFieldsTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
-        loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
+        loginPageTests.asAdministratorTryToLoginWithCorrectLoginAndPasswordTest();
 
         HeaderSteps headerSteps = new HeaderSteps();
         headerSteps.clickDropdownButton();
@@ -43,7 +43,7 @@ public class HeaderTests extends TestBase {
     @Severity(SeverityLevel.TRIVIAL)
     public void verifyThatAboutOptionHasAllNecessaryInformationTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
-        loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
+        loginPageTests.asAdministratorTryToLoginWithCorrectLoginAndPasswordTest();
 
         HeaderSteps headerSteps = new HeaderSteps();
         headerSteps.clickDropdownButton();
@@ -62,7 +62,7 @@ public class HeaderTests extends TestBase {
     @Severity(SeverityLevel.MINOR)
     public void verifyThatSupportOptionTransferToSupportPageTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
-        loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
+        loginPageTests.asAdministratorTryToLoginWithCorrectLoginAndPasswordTest();
 
         HeaderSteps headerSteps = new HeaderSteps();
         headerSteps.clickDropdownButton();
@@ -82,7 +82,7 @@ public class HeaderTests extends TestBase {
     @Severity(SeverityLevel.NORMAL)
     public void verifyThatChangePasswordOptionRedirectToChangePasswordPageTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
-        loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
+        loginPageTests.asAdministratorTryToLoginWithCorrectLoginAndPasswordTest();
 
         HeaderSteps headerSteps = new HeaderSteps();
         headerSteps.clickDropdownButton();
@@ -102,7 +102,7 @@ public class HeaderTests extends TestBase {
     @Severity(SeverityLevel.CRITICAL)
     public void verifyThatLogoutOptionLogsOutUserTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
-        loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
+        loginPageTests.asAdministratorTryToLoginWithCorrectLoginAndPasswordTest();
 
         HeaderSteps headerSteps = new HeaderSteps();
         headerSteps.clickDropdownButton();

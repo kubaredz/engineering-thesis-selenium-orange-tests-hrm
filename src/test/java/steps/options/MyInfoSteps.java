@@ -24,7 +24,7 @@ public class MyInfoSteps extends MyInfoPanelBuilder implements CommonSteps, Comm
 
     @Override
     @Step("Sekcja: 'My Info' zostala otwarta")
-    public <T> MyInfoSteps clickPanelSection() {
+    public <T> MyInfoSteps clickPimPanelSection() {
         myInfoSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"My Info\" został wciśnięty");
         return new MyInfoSteps();

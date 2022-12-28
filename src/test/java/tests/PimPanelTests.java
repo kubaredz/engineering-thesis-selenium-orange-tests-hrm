@@ -34,7 +34,7 @@ public class PimPanelTests extends TestBase {
                 .setPasswordField("admin123")
                 .clickLoginButton();
 
-        pimPanelSteps.clickPanelSection();
+        pimPanelSteps.clickPimPanelSection();
 
         assertTrue(pimPanelSteps.isHeaderTextDisplayed());
     }
@@ -49,7 +49,7 @@ public class PimPanelTests extends TestBase {
                 .clickLoginButton();
 
         pimPanelSteps
-                .clickPanelSection()
+                .clickPimPanelSection()
                 .clickAddButton();
 
         assertTrue(pimPanelSteps.isAddEmployeeTextDisplayed());
@@ -60,11 +60,11 @@ public class PimPanelTests extends TestBase {
     @Description("Jako zalogowany uzytkownik, weryfikacja dodania nowego pracownika do systemu 'PIM'")
     @Severity(SeverityLevel.CRITICAL)
     public void addNewUserInOrangeHrmApplicationTest() {
-        loginPageTests.asUserTryToLoginWithCorrectLoginAndPasswordTest();
+        loginPageTests.asAdministratorTryToLoginWithCorrectLoginAndPasswordTest();
         String password = PasswordGenerator.generate(15);
 
         pimPanelSteps
-                .clickPanelSection()
+                .clickPimPanelSection()
                 .clickAddButton()
                 .setUploadImageButton("C:\\Users\\kubar\\avatar.jpg")
                 .setFirstNameLabel(UserDataGenerator.generateFirstName())

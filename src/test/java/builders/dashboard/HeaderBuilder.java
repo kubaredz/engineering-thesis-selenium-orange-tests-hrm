@@ -20,4 +20,7 @@ public class HeaderBuilder extends CommonBuilder {
 
     @FindBy(css = "p[class='oxd-userdropdown-name']")
     public WebElement loggedUser;
+
+    @FindBy(css = "a[href='/web/index.php/auth/logout']")
+    public WebElement logoutButton;
 }

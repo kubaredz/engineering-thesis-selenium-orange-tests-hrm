@@ -22,7 +22,7 @@ public class DirectoryPanelSteps extends DirectoryPanelBuilder implements Common
 
     @Override
     @Step("Sekcja: 'Directory' zostala otwarta")
-    public <T> DirectoryPanelSteps clickPanelSection() {
+    public <T> DirectoryPanelSteps clickPimPanelSection() {
         directorySection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"Directory\" został wciśnięty");
         return new DirectoryPanelSteps();

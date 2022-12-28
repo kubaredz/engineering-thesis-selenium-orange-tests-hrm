@@ -4,6 +4,7 @@ import builders.login_page.LoginPageBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
+import utils.RepeatedActions;
 
 import java.util.*;
 import java.util.logging.Level;
@@ -30,7 +31,7 @@ public class LoginPageSteps extends LoginPageBuilder {
 
     @Step("Wprowadzony login uzytkownika to: {name}")
     public LoginPageSteps setUserNameField(String name) {
-        usernameField.sendKeys(name);
+        RepeatedActions.deletingAndAddingContentToLabel(usernameField, name);
         logger.log(Level.INFO, "Wprowadzam login użytkownika: {0}", name);
         return new LoginPageSteps();
     }
@@ -44,7 +45,7 @@ public class LoginPageSteps extends LoginPageBuilder {
 
     @Step("Wprowadzony login uzytkownika to: {password}")
     public LoginPageSteps setPasswordField(String password) {
-        passwordField.sendKeys(password);
+        RepeatedActions.deletingAndAddingContentToLabel(passwordField, password);
         logger.log(Level.INFO, "Wprowadzam hasło użytkownika: {0}", password);
         return new LoginPageSteps();
     }
