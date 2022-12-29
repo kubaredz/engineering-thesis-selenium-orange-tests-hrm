@@ -1,9 +1,6 @@
 package tests;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -27,6 +24,7 @@ public class MaintenancePanelTests extends TestBase {
     @Description("Jako zalogowany administrator, weryfikacja czy panel 'Maintenance' przekierowywuje do strony 'purge employee'")
     @Severity(SeverityLevel.CRITICAL)
     @Story("PI-38")
+    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-38")
     @Parameters({"login", "password"})
     public void asAdminMaintenanceScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
@@ -40,6 +38,7 @@ public class MaintenancePanelTests extends TestBase {
     @Description("Jako zalogowany administrator, weryfikacja czy administrator moze zalogowac sie do panelu 'Administrator Access'")
     @Severity(SeverityLevel.NORMAL)
     @Story("PI-38")
+    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-38")
     @Parameters({"login", "password"})
     public void asAdminLoginToMaintenanceAdministratorAccessPageTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);

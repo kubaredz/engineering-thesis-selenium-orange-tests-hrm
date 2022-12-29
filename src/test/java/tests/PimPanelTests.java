@@ -2,10 +2,7 @@ package tests;
 
 import helpers.UserDataGenerator;
 import helpers.PasswordGenerator;
-import io.qameta.allure.Description;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import steps.login_page.LoginPageSteps;
@@ -29,6 +26,7 @@ public class PimPanelTests extends TestBase {
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'PIM' przekierowuje do strony 'PIM' z lista pracownikow")
     @Severity(SeverityLevel.NORMAL)
+    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-41")
     @Story("PI-41")
     public void asUserICanGoToPimSectionTest() {
         loginPageSteps
@@ -44,6 +42,7 @@ public class PimPanelTests extends TestBase {
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja czy sekcja 'Dodawania nowego uzykownika' jest widoczna")
     @Severity(SeverityLevel.CRITICAL)
+    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-41")
     @Story("PI-41")
     public void asUserICanGoToAddNewUserSectionAndItIsPresentTest() {
         loginPageSteps
@@ -63,6 +62,7 @@ public class PimPanelTests extends TestBase {
     @Description("Jako zalogowany uzytkownik, weryfikacja dodania nowego pracownika do systemu 'PIM'")
     @Severity(SeverityLevel.CRITICAL)
     @Story("PI-41")
+    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-41")
     public void addNewUserInOrangeHrmApplicationTest() {
         loginPageTests.asAdministratorTryToLoginWithCorrectLoginAndPasswordTest();
         String password = PasswordGenerator.generate(15);

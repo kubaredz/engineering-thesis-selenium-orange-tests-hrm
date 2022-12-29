@@ -28,6 +28,7 @@ public class AdminPanelTests extends TestBase {
     @Description("Jako zalogowany administrator, weryfikacja czy panel 'Admin' dziala prawidlowo oraz czy sekcja 'User Management' jest widoczna")
     @Severity(SeverityLevel.CRITICAL)
     @Story("PI-30")
+    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-30")
     @Parameters({"login", "password"})
     public void asAdminUserManagementScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
@@ -40,6 +41,7 @@ public class AdminPanelTests extends TestBase {
     @Severity(SeverityLevel.CRITICAL)
     @Description("Jako zalogowany administrator, weryfikacja dodania nowego konta administratora")
     @Story("PI-30")
+    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-30")
     @Parameters({"login", "password"})
     public void asAdminAddNewAdministratorProfileTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
