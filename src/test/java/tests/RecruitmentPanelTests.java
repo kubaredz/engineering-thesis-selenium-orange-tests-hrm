@@ -4,6 +4,7 @@ import helpers.UserDataGenerator;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -24,6 +25,7 @@ public class RecruitmentPanelTests extends TestBase {
 
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'Recruitment' przekierowuje do strony 'Recrutiment' z lista osob w trakcie rekrutacji")
+    @Story("PI-42")
     @Parameters({"login", "password"})
     public void asAdminRecruitmentScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
@@ -36,6 +38,7 @@ public class RecruitmentPanelTests extends TestBase {
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja dodania nowego kandydata do systemu rekrutacyjnego")
     @Severity(SeverityLevel.CRITICAL)
+    @Story("PI-42")
     @Parameters({"login", "password"})
     public void asAdminAddNewCandidate(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);

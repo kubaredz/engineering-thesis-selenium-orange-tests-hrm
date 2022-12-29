@@ -5,6 +5,7 @@ import helpers.PasswordGenerator;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import steps.login_page.LoginPageSteps;
@@ -28,6 +29,7 @@ public class PimPanelTests extends TestBase {
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'PIM' przekierowuje do strony 'PIM' z lista pracownikow")
     @Severity(SeverityLevel.NORMAL)
+    @Story("PI-41")
     public void asUserICanGoToPimSectionTest() {
         loginPageSteps
                 .setUserNameField("Admin")
@@ -42,6 +44,7 @@ public class PimPanelTests extends TestBase {
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja czy sekcja 'Dodawania nowego uzykownika' jest widoczna")
     @Severity(SeverityLevel.CRITICAL)
+    @Story("PI-41")
     public void asUserICanGoToAddNewUserSectionAndItIsPresentTest() {
         loginPageSteps
                 .setUserNameField("Admin")
@@ -59,6 +62,7 @@ public class PimPanelTests extends TestBase {
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja dodania nowego pracownika do systemu 'PIM'")
     @Severity(SeverityLevel.CRITICAL)
+    @Story("PI-41")
     public void addNewUserInOrangeHrmApplicationTest() {
         loginPageTests.asAdministratorTryToLoginWithCorrectLoginAndPasswordTest();
         String password = PasswordGenerator.generate(15);

@@ -3,6 +3,7 @@ package tests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -25,6 +26,7 @@ public class DashboardTests extends TestBase {
     @Test
     @Description("Jako zalogowany administrator, weryfikacja czy panel 'Time at Work' dziala prawidlowo")
     @Severity(SeverityLevel.CRITICAL)
+    @Story("PI-33")
     @Parameters({"Admin", "admin123"})
     public void checkThatTimeAtWorkSectionIsPresentTest(String login, String password) {
         loginPageSteps
@@ -37,6 +39,7 @@ public class DashboardTests extends TestBase {
 
     @Test
     @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'My Actions' jest widoczna")
+    @Story("PI-33")
     @Severity(SeverityLevel.TRIVIAL)
     public void checkThatMyActionsSectionIsPresentTest() {
         loginPageSteps
@@ -49,6 +52,7 @@ public class DashboardTests extends TestBase {
 
     @Test
     @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Quick Launch' jest widoczna")
+    @Story("PI-33")
     @Severity(SeverityLevel.TRIVIAL)
     public void checkThatQuickLaunchSectionIsPresentTest() {
         loginPageSteps
@@ -61,6 +65,7 @@ public class DashboardTests extends TestBase {
 
     @Test
     @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Employees On Leave Today' jest widoczna")
+    @Story("PI-33")
     @Severity(SeverityLevel.TRIVIAL)
     public void checkThatEmployeesOnLeaveTodaySectionIsPresentTest() {
         loginPageSteps
@@ -73,6 +78,7 @@ public class DashboardTests extends TestBase {
 
     @Test
     @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Distribution By Sub Unit Today' jest widoczna")
+    @Story("PI-33")
     @Severity(SeverityLevel.TRIVIAL)
     public void checkThatEmployeeDistributionBySubUnitTodaySectionIsPresentTest() {
         loginPageSteps
@@ -85,6 +91,7 @@ public class DashboardTests extends TestBase {
 
     @Test
     @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Distribution By Location Today' jest widoczna")
+    @Story("PI-33")
     @Severity(SeverityLevel.TRIVIAL)
     public void checkThatEmployeeDistributionByLocationTodaySectionIsPresentTest() {
         loginPageSteps

@@ -3,6 +3,7 @@ package tests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -27,6 +28,7 @@ public class TimePanelTests extends TestBase {
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'Time' przekierowuje do strony 'Timesheets' z lista obecnosci")
     @Severity(SeverityLevel.NORMAL)
+    @Story("PI-43")
     public void asAdminUserTimesheetScreenIsPresentTest() {
         commonTests.loginAsAdministratorToOrangeHrmAppTest("Admin", "admin123");
 
@@ -38,6 +40,7 @@ public class TimePanelTests extends TestBase {
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja dodania nowego timesheetu zalogowanemu uzytkownikowi")
     @Severity(SeverityLevel.NORMAL)
+    @Story("PI-43")
     @Parameters({"login", "password"})
     public void asAdminCreateNewTimesheetTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);

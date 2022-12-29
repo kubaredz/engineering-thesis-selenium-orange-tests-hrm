@@ -4,6 +4,7 @@ import helpers.DateGenerator;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
@@ -29,6 +30,7 @@ public class LeavePanelTests extends TestBase {
     @Test
     @Description("Jako zalogowany administrator, weryfikacja czy panel 'Leave' dziala prawidlowo oraz czy sekcja 'Leave' jest widoczna")
     @Severity(SeverityLevel.CRITICAL)
+    @Story("PI-36")
     @Parameters({"login", "password"})
     public void checkThatLeaveListIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
@@ -41,6 +43,7 @@ public class LeavePanelTests extends TestBase {
     @Test
     @Description("Jako zalogowany administrator, dodanie urlopu dla zalogowanego uzytkownika")
     @Severity(SeverityLevel.CRITICAL)
+    @Story("PI-36")
     @Parameters({"login", "password"})
     public void addVacationLeaveForLoggedEmployee(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
