@@ -5,6 +5,7 @@ import helpers.UserDataGenerator;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import steps.dashboard.DashboardSteps;
@@ -20,30 +21,14 @@ public class CommonTests extends TestBase {
     @Test
     @Description("Jako administrator zalogowanie sie na stronie: www.opensource-demo.orangehrmlive.com")
     @Severity(SeverityLevel.BLOCKER)
-    @Parameters({"login"})
-    public void loginAsAdministratorToOrangeHrmAppTest1(String login) {
+    @Parameters({"login", "password"})
+    public void loginAsAdministratorToOrangeHrmAppTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
         DashboardSteps dashboardSteps = new DashboardSteps();
 
         loginPageSteps
                 .setUserNameField(login)
-                .setPasswordField("admin123")
-                .clickLoginButton();
-
-        assertTrue(dashboardSteps.isHrmLogoAfterLoginDisplayed());
-    }
-
-    @Test
-    @Description("Jako administrator zalogowanie sie na stronie: www.opensource-demo.orangehrmlive.com")
-    @Severity(SeverityLevel.BLOCKER)
-    @Parameters({"login"})
-    public void loginAsAdministratorToOrangeHrmAppTest() {
-        LoginPageSteps loginPageSteps = new LoginPageSteps();
-        DashboardSteps dashboardSteps = new DashboardSteps();
-
-        loginPageSteps
-                .setUserNameField("Admin")
-                .setPasswordField("admin123")
+                .setPasswordField(password)
                 .clickLoginButton();
 
         assertTrue(dashboardSteps.isHrmLogoAfterLoginDisplayed());

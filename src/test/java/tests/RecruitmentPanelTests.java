@@ -5,6 +5,8 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import steps.options.RecruitmentPanelSteps;
 
@@ -22,8 +24,9 @@ public class RecruitmentPanelTests extends TestBase {
 
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'Recruitment' przekierowuje do strony 'Recrutiment' z lista osob w trakcie rekrutacji")
-    public void asAdminRecruitmentScreenIsPresentTest() {
-        commonTests.loginAsAdministratorToOrangeHrmAppTest();
+    @Parameters({"login", "password"})
+    public void asAdminRecruitmentScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
+        commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         recruitmentPanelSteps.clickPimPanelSection();
 
@@ -33,8 +36,9 @@ public class RecruitmentPanelTests extends TestBase {
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja dodania nowego kandydata do systemu rekrutacyjnego")
     @Severity(SeverityLevel.CRITICAL)
-    public void asAdminAddNewCandidate() {
-        commonTests.loginAsAdministratorToOrangeHrmAppTest();
+    @Parameters({"login", "password"})
+    public void asAdminAddNewCandidate(@Optional("Admin") String login, @Optional("admin123") String password) {
+        commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         recruitmentPanelSteps
                 .clickPimPanelSection()

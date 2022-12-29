@@ -4,6 +4,8 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import steps.options.MaintenancePanelSteps;
 
@@ -23,8 +25,9 @@ public class MaintenancePanelTests extends TestBase {
     @Test
     @Description("Jako zalogowany administrator, weryfikacja czy panel 'Maintenance' przekierowywuje do strony 'purge employee'")
     @Severity(SeverityLevel.CRITICAL)
-    public void asAdminMaintenanceScreenIsPresentTest() {
-        commonTests.loginAsAdministratorToOrangeHrmAppTest();
+    @Parameters({"login", "password"})
+    public void asAdminMaintenanceScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
+        commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         maintenancePanelSteps.clickPimPanelSection();
 
@@ -34,9 +37,9 @@ public class MaintenancePanelTests extends TestBase {
     @Test
     @Description("Jako zalogowany administrator, weryfikacja czy administrator moze zalogowac sie do panelu 'Administrator Access'")
     @Severity(SeverityLevel.NORMAL)
-    public void asAdminLoginToMaintenanceAdministratorAccessPageTest() {
-        commonTests.loginAsAdministratorToOrangeHrmAppTest();
-
+    @Parameters({"login", "password"})
+    public void asAdminLoginToMaintenanceAdministratorAccessPageTest(@Optional("Admin") String login, @Optional("admin123") String password) {
+        commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
         maintenancePanelSteps
                 .clickPimPanelSection()
                 .setPasswordLabel("admin123")

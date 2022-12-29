@@ -6,11 +6,13 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import steps.options.MyInfoSteps;
 
 import static org.testng.Assert.assertTrue;
-//work
+
 public class MyInfoTests extends TestBase {
     private CommonTests commonTests;
     private MyInfoSteps myInfoSteps;
@@ -24,8 +26,9 @@ public class MyInfoTests extends TestBase {
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'My info' przekierowuje do strony 'PIM'")
     @Severity(SeverityLevel.NORMAL)
-    public void asAdminMyInfoScreenIsPresentTest() {
-        commonTests.loginAsAdministratorToOrangeHrmAppTest();
+    @Parameters({"login", "password"})
+    public void asAdminMyInfoScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
+        commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         myInfoSteps.clickPimPanelSection();
 
@@ -35,8 +38,9 @@ public class MyInfoTests extends TestBase {
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja czy moge zmodyfikowac swoje dane osobowe")
     @Severity(SeverityLevel.NORMAL)
-    public void asAdminModifyDataOfLoggedUserTest() {
-        commonTests.loginAsAdministratorToOrangeHrmAppTest();
+    @Parameters({"login", "password"})
+    public void asAdminModifyDataOfLoggedUserTest(@Optional("Admin") String login, @Optional("admin123") String password) {
+        commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         String firstName = UserDataGenerator.generateFirstName();
         String secondName = UserDataGenerator.generateMiddleName();
@@ -78,8 +82,9 @@ public class MyInfoTests extends TestBase {
     @Test
     @Description("Jako zalogowany uzytkownik, weryfikacja czy moge zmodyfikowac pola w sekcji 'Custom Fields'")
     @Severity(SeverityLevel.TRIVIAL)
-    public void asLoggedUserIWantToChangeCustomFields() {
-        commonTests.loginAsAdministratorToOrangeHrmAppTest();
+    @Parameters({"login", "password"})
+    public void asLoggedUserIWantToChangeCustomFields(@Optional("Admin") String login, @Optional("admin123") String password) {
+        commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         myInfoSteps
                 .clickPimPanelSection()
@@ -90,5 +95,4 @@ public class MyInfoTests extends TestBase {
 
         assertTrue(myInfoSteps.isPositiveAlertDisplayed());
     }
-
 }

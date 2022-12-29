@@ -6,6 +6,8 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import steps.dashboard.HeaderSteps;
 import steps.options.AdminPanelSteps;
@@ -27,8 +29,9 @@ public class AdminPanelTests extends TestBase {
     @Test
     @Description("Jako zalogowany administrator, weryfikacja czy panel 'Admin' dziala prawidlowo oraz czy sekcja 'User Management' jest widoczna")
     @Severity(SeverityLevel.CRITICAL)
-    public void asAdminUserManagementScreenIsPresentTest() {
-        commonTests.loginAsAdministratorToOrangeHrmAppTest();
+    @Parameters({"login", "password"})
+    public void asAdminUserManagementScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
+        commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         adminPanelSteps.clickPimPanelSection();
         assertTrue(adminPanelSteps.isHeaderTextDisplayed());
@@ -37,8 +40,9 @@ public class AdminPanelTests extends TestBase {
     @Test
     @Severity(SeverityLevel.CRITICAL)
     @Description("Jako zalogowany administrator, weryfikacja dodania nowego konta administratora")
-    public void asAdminAddNewAdministratorProfileTest() {
-        commonTests.loginAsAdministratorToOrangeHrmAppTest();
+    @Parameters({"login", "password"})
+    public void asAdminAddNewAdministratorProfileTest(@Optional("Admin") String login, @Optional("admin123") String password) {
+        commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         String loggedUserData = headerSteps.getLoggedUser();
 
@@ -48,14 +52,14 @@ public class AdminPanelTests extends TestBase {
 
         assertTrue(adminPanelSteps.isAddUserTextDisplayed());
 
-        String password = PasswordGenerator.generate(15);
+        String generatedPassword = PasswordGenerator.generate(15);
 
         adminPanelSteps
                 .setEmployeeNameLabel(loggedUserData)
                 .clickEmployeeNameFromList()
                 .setUsernameLabel(UserDataGenerator.generateUsername())
-                .setEmployeePasswordLabel(password)
-                .setEmployeeConfirmPasswordLabel(password)
+                .setEmployeePasswordLabel(generatedPassword)
+                .setEmployeeConfirmPasswordLabel(generatedPassword)
                 .clickStatusList()
                 .clickEnabledStatus()
                 .clickUserRoleDropdown()

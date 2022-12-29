@@ -4,6 +4,8 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import steps.options.BuzzPanelSteps;
 
@@ -23,8 +25,9 @@ public class BuzzPanelTests extends TestBase {
     @Test
     @Description("Jako zalogowany administrator, weryfikacja czy panel 'Buzz' dziala prawidlowo oraz czy sekcja 'Buzz' jest widoczna")
     @Severity(SeverityLevel.CRITICAL)
-    public void asAdminBuzzScreenIsPresentTest() {
-        commonTests.loginAsAdministratorToOrangeHrmAppTest();
+    @Parameters({"login", "password"})
+    public void asAdminBuzzScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
+        commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         buzzPanelSteps.clickPimPanelSection();
 
@@ -34,8 +37,9 @@ public class BuzzPanelTests extends TestBase {
     @Test
     @Description("Jako zalogowany administrator, po przejsciu do panelu 'Buzz' weryfikacja czy widoczny jest tekst 'Lanuching Soon'")
     @Severity(SeverityLevel.NORMAL)
-    public void asAdminOnBuzzScreenIsInformationThatPageLaunchingSoonTest() {
-        commonTests.loginAsAdministratorToOrangeHrmAppTest();
+    @Parameters({"login", "password"})
+    public void asAdminOnBuzzScreenIsInformationThatPageLaunchingSoonTest(@Optional("Admin") String login, @Optional("admin123") String password) {
+        commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         buzzPanelSteps.clickPimPanelSection();
 
