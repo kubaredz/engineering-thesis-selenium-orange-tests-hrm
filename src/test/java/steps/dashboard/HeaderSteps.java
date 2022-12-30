@@ -2,6 +2,7 @@ package steps.dashboard;
 
 import builders.dashboard.HeaderBuilder;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
@@ -59,5 +60,12 @@ public class HeaderSteps extends HeaderBuilder {
         logoutButton.click();
         logger.log(Level.INFO, "Przycisk: \"Logout\" zostal wcisniety");
         return new HeaderSteps();
+    }
+
+    @Step("Pobranie nazwy sekcji")
+    public String getSectionHeaderText() {
+        WebElement element = DriverManager.driverSetup().findElement(By.cssSelector("h6[class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module']"));
+        String visibleSectionText = element.getText();
+        return visibleSectionText;
     }
 }

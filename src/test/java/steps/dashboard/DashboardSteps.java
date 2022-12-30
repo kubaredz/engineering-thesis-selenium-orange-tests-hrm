@@ -2,6 +2,8 @@ package steps.dashboard;
 
 import builders.dashboard.DashboardPageBuilder;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverManager;
 
@@ -53,5 +55,28 @@ public class DashboardSteps extends DashboardPageBuilder {
     public boolean isEmployeeDistributionByLocationSectionDisplayed() {
         logger.log(Level.INFO, "Sekcja: \"Employee Distribution By Location\" została wyświetlona");
         return employeeDistributionByLocationSection.isDisplayed();
+    }
+
+    @Step("Utworzenie selektora dla dowolnej sekcji")
+    public DashboardSteps generateAndClickSelectorForAllSections(String header) {
+        String cssSelector = "a[href='/web/index.php/" + header.toLowerCase() + "/view" + header + "Module']";
+        WebElement generatedSection = DriverManager.driverSetup().findElement(By.cssSelector(cssSelector));
+        generatedSection.click();
+        return new DashboardSteps();
+    }
+
+    @Step("Pobranie urlu dla danej sekcji: {section}")
+    public DashboardSteps quickLaunchSectionOptionClick(String section) {
+        String cssSelector = "button[title='" + section + "']";
+        WebElement quickLaunchButton = DriverManager.driverSetup().findElement(By.cssSelector(cssSelector));
+        System.out.println(cssSelector);
+        quickLaunchButton.click();
+        return new DashboardSteps();
+    }
+
+    @Step("Strona z adresem: {url} zostala zaladowana")
+    public String getSectionUrlAddress(String url) {
+        String sectionUrlAddress = DriverManager.driverSetup().getCurrentUrl();
+        return sectionUrlAddress;
     }
 }

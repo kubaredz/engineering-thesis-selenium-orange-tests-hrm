@@ -23,4 +23,7 @@ public class HeaderBuilder extends CommonBuilder {
 
     @FindBy(css = "a[href='/web/index.php/auth/logout']")
     public WebElement logoutButton;
+
+    @FindBy(css = "h6[class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module']")
+    public WebElement sectionText;
 }

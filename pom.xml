@@ -10,51 +10,48 @@
 
     <properties>
         <aspectj.version>1.9.5</aspectj.version>
+        <selenium.version>4.7.2</selenium.version>
+        <cucumber.version>7.9.0</cucumber.version>
+        <junit.version>4.13.2</junit.version>
+        <faker.version>1.0.2</faker.version>
+        <testng.version>7.1.0</testng.version>
+        <alluretestng.version>2.13.9</alluretestng.version>
+        <qametaallure.version>2.10.0</qametaallure.version>
+        <mavensurefireplugin.version>3.0.0-M5</mavensurefireplugin.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.7.2</version>
+            <version>${selenium.version}</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>7.9.0</version>
+            <version>${cucumber.version}</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>7.9.0</version>
-            <scope>test</scope>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.2</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
-            <version>1.0.2</version>
+            <version>${faker.version}</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.1.0</version>
+            <version>${testng.version}</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.25</version>
         </dependency>
         <dependency>
             <groupId>org.aspectj</groupId>
@@ -64,7 +61,7 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>2.13.9</version>
+            <version>${alluretestng.version}</version>
         </dependency>
     </dependencies>
 
@@ -73,15 +70,15 @@
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>2.10.0</version>
+                <version>${qametaallure.version}</version>
                 <configuration>
-                    <reportVersion>2.10.0</reportVersion>
+                    <reportVersion>${qametaallure.version}</reportVersion>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
+                <version>${mavensurefireplugin.version}</version>
                 <configuration>
                     <systemPropertyVariables>
                         <allure.results.directory>${basedir}/target/allure-results</allure.results.directory>

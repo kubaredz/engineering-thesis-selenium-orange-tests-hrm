@@ -16,7 +16,7 @@ public class LoginPageTests extends TestBase {
     @Test
     @Description("Weryfikacja ze tytul strony zawiera: OrangeHRM ")
     @Story("PI-37")
-    @Tag(name = "REGRESSION")
+    @Tag(name = "FUNCTIONAL")
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-37")
     @Severity(SeverityLevel.NORMAL)
     public void checkPageTitleTest() {
@@ -27,6 +27,7 @@ public class LoginPageTests extends TestBase {
     @Test
     @Description("Weryfikacja ze po wpisaniu loginu jest on widoczny w polu username")
     @Story("PI-37")
+    @Tag(name = "FUNCTIONAL")
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-37")
     @Severity(SeverityLevel.NORMAL)
     public void checkThatLoginIsDisplayedInFieldTest() {
@@ -41,6 +42,7 @@ public class LoginPageTests extends TestBase {
     @Test
     @Description("Weryfikacja ze po wpisaniu hasla jest on widoczny w polu password")
     @Story("PI-37")
+    @Tag(name = "FUNCTIONAL")
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-37")
     @Severity(SeverityLevel.NORMAL)
     public void checkThatPasswordIsDisplayedInFieldTest() {
@@ -55,6 +57,7 @@ public class LoginPageTests extends TestBase {
     @Test
     @Description("Weryfikacja ze po wejsciu na strone Orange HRM baner jest widoczny")
     @Story("PI-37")
+    @Tag(name = "FUNCTIONAL")
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-37")
     @Severity(SeverityLevel.NORMAL)
     public void checkThatBannerOfOrangeHrmIsPresentTest() {
@@ -66,6 +69,7 @@ public class LoginPageTests extends TestBase {
     @Test
     @Description("Weryfikacja ze po wejsciu na strone Orange HRM logo jest widoczne")
     @Story("PI-37")
+    @Tag(name = "FUNCTIONAL")
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-37")
     @Severity(SeverityLevel.NORMAL)
     public void checkThatLogoOfOrangeHrmIsPresentTest() {
@@ -77,6 +81,7 @@ public class LoginPageTests extends TestBase {
     @Test
     @Description("Weryfikacja ze po wejsciu na strone Orange HRM hyperlink 'Forgot your password?' jest widoczny")
     @Story("PI-37")
+    @Tag(name = "FUNCTIONAL")
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-37")
     @Severity(SeverityLevel.NORMAL)
     public void checkThatHyperlinkForgotYourPasswordIsVisibleTest() {
@@ -88,6 +93,7 @@ public class LoginPageTests extends TestBase {
     @Test
     @Description("Weryfikacja ze po wcisnieciu hyperlinku 'Forgot your password?' zostajemy przeniesieni na strone z resetowaniem hasla")
     @Story("PI-37")
+    @Tag(name = "FUNCTIONAL")
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-37")
     @Severity(SeverityLevel.NORMAL)
     public void checkIfHyperlinkForgotYourPasswordTransferToResetPasswordPageTest() {
@@ -102,6 +108,7 @@ public class LoginPageTests extends TestBase {
     @Test
     @Description("Weryfikacja ze po wcisnieciu hyperlinku 'Redirects To The Orange HRM' zostajemy przeniesieni na strone producenta")
     @Story("PI-37")
+    @Tag(name = "FUNCTIONAL")
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-37")
     @Severity(SeverityLevel.MINOR)
     public void checkThatHyperlinkRedirectsToTheOrangeHrmProducerPageTest() {
@@ -119,6 +126,7 @@ public class LoginPageTests extends TestBase {
     @Description("Weryfikacja ze po wejsciu na strone Orange HRM a nastepnie podaniu: 'loginu', 'hasla' " +
             "oraz wcisnieciu przycisku 'login' strona przekieruje nas na ekran glowny aplikacji")
     @Story("PI-37")
+    @Tag(name = "FUNCTIONAL & INTEGRATION")
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-37")
     @Severity(SeverityLevel.BLOCKER)
     public void asAdministratorTryToLoginWithCorrectLoginAndPasswordTest() {
@@ -137,6 +145,7 @@ public class LoginPageTests extends TestBase {
     @Description("Weryfikacja ze po wejsciu na strone Orange HRM a nastepnie podaniu nieprawidlowego: 'loginu' i 'hasla'" +
             " a nastepnie wcisnieciu przycisku 'login; strona wyswietli informacje o podaniu nieprawidlowych danych")
     @Story("PI-37")
+    @Tag(name = "FUNCTIONAL & INTEGRATION")
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-37")
     @Severity(SeverityLevel.NORMAL)
     public void asUserTryToLogInWithIncorrectLoginAndPasswordTest() {
