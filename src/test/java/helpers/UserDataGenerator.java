@@ -37,10 +37,10 @@ public class UserDataGenerator {
     }
 
     public static String generatePhoneNumber() {
-        return String.format("(%03d) %03d-%04d",
+        return String.format("%03d-%03d-%03d",
                 (int) Math.floor(999 * Math.random()),
                 (int) Math.floor(999 * Math.random()),
-                (int) Math.floor(9999 * Math.random()));
+                (int) Math.floor(999 * Math.random()));
     }
 
     public static String generateId() {
