@@ -6,7 +6,7 @@ Feature: Testy weryfikujace dashboard zalogowanego uzytkownika
   @test
   Scenario Outline: Weryfikacja czy wszystkie wymagane sekcje w aplikacji sa wyswietlone
     Given Zalogowanie uzytkownika do strony OrangeHRM
-    When Przejscie do wcisnietej sekcji: <sekcja>
+    When Przejscie do sekcji: <sekcja>
     Then Sekcja z naglowkiem <naglowek> zostala wyswietlona
     And Zamkniecie przegladarki
 

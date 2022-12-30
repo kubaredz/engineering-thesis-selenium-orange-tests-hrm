@@ -22,7 +22,7 @@ public class TestBase {
 
     @BeforeMethod
     @Step("Metoda odpowiedzialna za utworzenie drivera, ustawienie opoznienia oraz uruchomienia strony Orange HRM")
-    public void beforeTest() {
+    public void beforeMethod() {
         DriverManager.driverSetup();
         PageSetup.setMaximizeOfWindow();
         PageSetup.setImplicitWait();
@@ -31,7 +31,7 @@ public class TestBase {
 
     @AfterMethod
     @Step("Metoda odpowiedzialna za zamkniecie przegladarki oraz wylaczenie drivera")
-    public void afterTest() {
+    public void afterMethod() {
         DriverManager.extinctionDriver();
     }
 }

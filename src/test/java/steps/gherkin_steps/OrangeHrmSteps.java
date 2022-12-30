@@ -9,6 +9,7 @@ import setup.PageSetup;
 import steps.dashboard.DashboardSteps;
 import steps.dashboard.HeaderSteps;
 import steps.login_page.LoginPageSteps;
+import steps.options.AdminPanelSteps;
 import tests.CommonTests;
 
 import java.util.Properties;
@@ -36,6 +37,12 @@ public class OrangeHrmSteps {
         commonTests.loginAsAdministratorToOrangeHrmAppTest("Admin", "admin123");
     }
 
+    @Given("Wcisniecie przycisku Add")
+    public void step_click_add_button() {
+        AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
+        adminPanelSteps.clickAddButton();
+    }
+
     @When("Podanie loginu uzytkownika: \"([^\"]*)\"$")
     public void setting_user_name_field(String login) {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
@@ -54,16 +61,21 @@ public class OrangeHrmSteps {
         loginPageSteps.clickLoginButton();
     }
 
-    @When("Przejscie do wcisnietej sekcji: ([^\"]*)$")
-    public void enter_to_the_section(String section) {
-        DashboardSteps dashboardSteps = new DashboardSteps();
-        dashboardSteps.generateAndClickSelectorForAllSections(section);
+    @When("Wybranie User Role: ([^\"]*)$")
+    public void pick_user_role(String role) {
+       AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
     }
 
     @When("Wciskam przycisk z sekcji quick launch przekierowywujacy do ([^\"]*)$")
     public void step_clicking_button_from_section_quick_launch_redirect_to(String section) {
         DashboardSteps dashboardSteps = new DashboardSteps();
         dashboardSteps.quickLaunchSectionOptionClick(section);
+    }
+
+    @When("Przejscie do sekcji: ([^\"]*)$")
+    public void enter_to_the_section(String section) {
+        DashboardSteps dashboardSteps = new DashboardSteps();
+        dashboardSteps.generateAndClickSelectorForAllSections(section);
     }
 
     @Then("Sekcja z naglowkiem ([^\"]*) zostala wyswietlona$")
