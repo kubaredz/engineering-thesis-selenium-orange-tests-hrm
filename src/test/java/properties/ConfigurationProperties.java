@@ -23,7 +23,6 @@ public class ConfigurationProperties {
     }
 
     public Properties configurationFileReader() {
-
         BufferedReader reader;
         try {
             reader = new BufferedReader(new FileReader(PROPERTY_FILE));
@@ -40,5 +39,4 @@ public class ConfigurationProperties {
         }
         return properties;
     }
-
 }
