@@ -3,15 +3,15 @@ package steps.options;
 import builders.options.MaintenancePanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverManager;
+import setup.DriverPicker;
 import utils.RepeatedActions;
 
 import java.util.logging.Level;
 
-public class MaintenancePanelSteps extends MaintenancePanelBuilder implements CommonSteps, CommonGenericSteps<MaintenancePanelSteps> {
+public class MaintenancePanelSteps extends MaintenancePanelBuilder implements DefaultSteps, CommonGenericSteps<MaintenancePanelSteps> {
 
     public MaintenancePanelSteps() {
-        PageFactory.initElements(DriverManager.driverSetup(), this);
+        PageFactory.initElements(DriverPicker.driverSetup(), this);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class MaintenancePanelSteps extends MaintenancePanelBuilder implements Co
 
     @Step("Strona: Maintenance zostala otwarta")
     public String getMaintenancePageUrl() {
-        String pageUrl = DriverManager.driverSetup().getCurrentUrl();
+        String pageUrl = DriverPicker.driverSetup().getCurrentUrl();
         logger.log(Level.INFO, "Adres otworzonej strony to: {0}", pageUrl);
         return pageUrl;
     }

@@ -1,6 +1,6 @@
 package steps.options;
 
-public interface CommonSteps {
+public interface DefaultSteps {
 
     boolean isHeaderTextDisplayed();
 }

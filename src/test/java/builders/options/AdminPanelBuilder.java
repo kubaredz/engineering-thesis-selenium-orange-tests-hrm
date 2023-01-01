@@ -15,8 +15,14 @@ public class AdminPanelBuilder extends CommonBuilder {
     @FindBy(css = "div[role='listbox'] div:nth-child(2) span:nth-child(1)")
     public WebElement adminUserRole;
 
+    @FindBy(css = "div[role='listbox'] div:nth-child(3) span:nth-child(1)")
+    public WebElement essUserRole;
+
     @FindBy(xpath = "//div[@class='oxd-autocomplete-wrapper']//input[1]")
     public WebElement employeeNameLabel;
+
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[1]/div[1]/div[4]/div[1]/div[2]/input[1]")
+    public WebElement usernameLabel;
 
     @FindBy(css = "div[role='option'] span")
     public WebElement employeeNameFromList;
@@ -33,8 +39,8 @@ public class AdminPanelBuilder extends CommonBuilder {
     @FindBy(xpath = "//span[contains(text(),'Enabled')]")
     public WebElement statusEnabled;
 
-    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[1]/div[1]/div[4]/div[1]/div[2]/input[1]")
-    public WebElement usernameLabel;
+    @FindBy(xpath = "//span[contains(text(),'Disabled')]")
+    public WebElement statusDisabled;
 
     @FindBy(css = "button[class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space']")
     public WebElement saveButton;

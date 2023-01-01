@@ -3,14 +3,14 @@ package steps.options;
 import builders.options.LeavePanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverManager;
+import setup.DriverPicker;
 import utils.RepeatedActions;
 
 import java.util.logging.Level;
 
-public class LeavePanelSteps extends LeavePanelBuilder implements CommonSteps, CommonGenericSteps<LeavePanelBuilder> {
+public class LeavePanelSteps extends LeavePanelBuilder implements DefaultSteps, CommonGenericSteps<LeavePanelBuilder> {
     public LeavePanelSteps() {
-        PageFactory.initElements(DriverManager.driverSetup(), this);
+        PageFactory.initElements(DriverPicker.driverSetup(), this);
     }
 
     @Override
@@ -81,8 +81,8 @@ public class LeavePanelSteps extends LeavePanelBuilder implements CommonSteps, C
     }
 
     @Step("Data urlopu do zostala wybrana")
-    public LeavePanelSteps pickToDate() {
-        toDateLabel.click();
+    public LeavePanelSteps pickToDate(String dateTo) {
+        RepeatedActions.deletingAndAddingContentToLabel(toDateLabel, dateTo);
         logger.log(Level.INFO, "Data do została dodana automatycznie");
         return new LeavePanelSteps();
     }

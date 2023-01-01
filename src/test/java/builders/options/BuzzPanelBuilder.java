@@ -11,6 +11,4 @@ public class BuzzPanelBuilder extends CommonBuilder {
 
     @FindBy(css = "h4[class='oxd-text oxd-text--h4 orangehrm-module-under-development-heading']")
     public WebElement launchingSoonText;
-
-
 }

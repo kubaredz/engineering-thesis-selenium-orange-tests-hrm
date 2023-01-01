@@ -2,16 +2,18 @@ package steps.options;
 
 import builders.options.PimPanelBuilder;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverManager;
+import setup.DriverPicker;
 import utils.RepeatedActions;
 
 import java.util.logging.Level;
 
-public class PimPanelSteps extends PimPanelBuilder implements CommonSteps, CommonGenericSteps<PimPanelSteps>{
+public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, CommonGenericSteps<PimPanelSteps> {
 
     public PimPanelSteps() {
-        PageFactory.initElements(DriverManager.driverSetup(), this);
+        PageFactory.initElements(DriverPicker.driverSetup(), this);
     }
 
     @Override
@@ -124,5 +126,103 @@ public class PimPanelSteps extends PimPanelBuilder implements CommonSteps, Commo
     public boolean isSuccessPopupDisplayed() {
         logger.log(Level.INFO, "Popup \"Success\" został wyświetlony");
         return successPopup.isDisplayed();
+    }
+
+    @Step("Wcisniecie przycisku 'reports'")
+    public PimPanelSteps clickReportsButton() {
+        logger.log(Level.INFO, "Wcisniecie przycisku \"reports\"");
+        reportsButton.click();
+        return new PimPanelSteps();
+    }
+
+    @Step("Wpisanie report name")
+    public PimPanelSteps setReportName(String reportName) {
+        reportNameLabel.click();
+        logger.log(Level.INFO, "Wcisniecie pola nazwy raportu: {0}", reportName);
+        reportNameLabel.sendKeys(reportName);
+        logger.log(Level.INFO, "Dodanie nazwy raportu: {0}", reportName);
+        return new PimPanelSteps();
+    }
+
+    @Step("Wcisniecie selecta: 'Selection Criteria'")
+    public PimPanelSteps setSelectionCriteria() {
+        selectionCriteriaSelect.click();
+        logger.log(Level.INFO, "Wcisniecie selecta criteria");
+        return new PimPanelSteps();
+    }
+
+    @Step("Wybranie kryterium raportu {criteria}")
+    public PimPanelSteps pickSelectionCriteria(String criteria) {
+        String selector = "//span[normalize-space()='";
+        selector = selector + criteria + "']";
+        WebElement element = DriverPicker.driverSetup().findElement(By.xpath(selector));
+        element.click();
+        logger.log(Level.INFO, "Wybranie kryterium raportu: {0}", criteria);
+        return new PimPanelSteps();
+    }
+
+    @Step("Wcisniecie przycisku plus dla kryterii")
+    public PimPanelSteps clickPlusButtonForCriteria() {
+        criteriaButton.click();
+        logger.log(Level.INFO, "Wcisniecie przycisku 'plus' dla kryterii");
+        return new PimPanelSteps();
+    }
+
+    @Step("Wcisniecie przycisku plus dla wyswietlonego pola")
+    public PimPanelSteps clickPlusButtonForDisplayFields() {
+        displayFieldsButton.click();
+        logger.log(Level.INFO, "Wcisniecie przycisku 'plus' dla wyswietlonego pola");
+        return new PimPanelSteps();
+    }
+
+    @Step("Wcisniecie selecta dla typu edukacji")
+    public PimPanelSteps clickEducationTypeSelect() {
+        educationTypeSelect.click();
+        logger.log(Level.INFO, "Wcisniecie selecta 'education'");
+        return new PimPanelSteps();
+    }
+
+    @Step("Wybranie stopnia naukowego {educationDegree}")
+    public PimPanelSteps selectEducationDegree(String degree) {
+        String degreeSelector = "//span[contains(text(),\"" + degree + "\")]";
+        WebElement degreeLabel = DriverPicker.driverSetup().findElement(By.xpath(degreeSelector));
+        logger.log(Level.INFO, "Wybranie rodzaju stopnia naukowego: {0} ", degree);
+        degreeLabel.click();
+        logger.log(Level.INFO, "Wcisniecie stopnia naukowego: {0} ", degree);
+        return new PimPanelSteps();
+    }
+
+    @Step("Wybranie z selecta typu pol ktore zostana wyswietlone")
+    public PimPanelSteps clickDisplayFieldsLabel() {
+        displayedFieldGroupSelect.click();
+        logger.log(Level.INFO, "Wcisniecie selecta 'display fields'");
+        return new PimPanelSteps();
+    }
+
+    @Step("Wybranie danych ktore maja zostac wyswietlone")
+    public PimPanelSteps selectPersonalDataGroup(String fieldGroup) {
+        String fieldGroupSelector = "//span[contains(text(),'" + fieldGroup + "')]";
+        WebElement fieldGroupSelect = DriverPicker.driverSetup().findElement(By.xpath(fieldGroupSelector));
+        logger.log(Level.INFO, "Wybranie danych ktore maja zostac wyswietlone: {0} ", fieldGroup);
+        fieldGroupSelect.click();
+        logger.log(Level.INFO, "Wcisniecie selecta: {0} ", fieldGroup);
+        return new PimPanelSteps();
+    }
+
+    @Step("Wybranie pola ktore zostanie wyswietlone")
+    public PimPanelSteps clickDisplayField() {
+        displayFieldSelect.click();
+        logger.log(Level.INFO, "Wybranie pola ktore zostanie wyswietlone");
+        return new PimPanelSteps();
+    }
+
+    @Step("Wybranie danych ktore maja zostac wyswietlone")
+    public PimPanelSteps selectDisplayField(String displayField) {
+        String fieldGroupSelector = "//span[contains(text(),'" + displayField + "')]";
+        WebElement displayFieldLabel = DriverPicker.driverSetup().findElement(By.xpath(fieldGroupSelector));
+        logger.log(Level.INFO, "Wybranie danych ktore maja zostac wyswietlone: {0} ", displayField);
+        displayFieldLabel.click();
+        logger.log(Level.INFO, "Wcisniecie selecta: {0} ", displayField);
+        return new PimPanelSteps();
     }
 }

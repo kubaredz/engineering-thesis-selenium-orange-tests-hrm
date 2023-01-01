@@ -25,5 +25,5 @@ public class HeaderBuilder extends CommonBuilder {
     public WebElement logoutButton;
 
     @FindBy(css = "h6[class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module']")
-    public WebElement sectionText;
+    public WebElement headerSectionText;
 }

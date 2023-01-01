@@ -6,24 +6,35 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
-public class ConfigurationProperties {
+public class PropertiesReader {
     private final static String PROPERTY_FILE = "src/main/resources/configuration.properties";
     private static Properties properties;
+    private static BufferedReader reader;
 
     public static void setProperties(Properties properties) {
-        ConfigurationProperties.properties = properties;
+        PropertiesReader.properties = properties;
     }
 
     public static Properties getProperties() {
         return properties;
     }
 
-    public static String orangeHrmUrl() {
-        return getProperties().getProperty("app.url");
+    public static String getPageUrl() {
+        String pageUrl = properties.getProperty("url");
+        return pageUrl;
+    }
+
+    public static String getBrowserType() {
+        String browserType = properties.getProperty("browserType");
+        return browserType;
+    }
+
+    public static long getImplicitlyWait() {
+        String path = properties.getProperty("implicitlyWaitTime");
+        return Long.parseLong(path);
     }
 
     public Properties configurationFileReader() {
-        BufferedReader reader;
         try {
             reader = new BufferedReader(new FileReader(PROPERTY_FILE));
             properties = new Properties();

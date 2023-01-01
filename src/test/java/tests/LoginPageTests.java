@@ -99,7 +99,8 @@ public class LoginPageTests extends TestBase {
     public void checkIfHyperlinkForgotYourPasswordTransferToResetPasswordPageTest() {
         loginPageSteps = new LoginPageSteps();
 
-        loginPageSteps.clickForgotYourPasswordHyperlink();
+        loginPageSteps.
+                clickForgotYourPasswordHyperlink();
 
         String forgotYourPasswordPageUrl = loginPageSteps.getCurrentPageUrl();
         assertEquals(forgotYourPasswordPageUrl, "https://opensource-demo.orangehrmlive.com/web/index.php/auth/requestPasswordResetCode");

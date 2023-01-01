@@ -1,6 +1,5 @@
 package browsers;
 
 public enum BrowserType {
-    CHROME, FIREFOX;
-
+    CHROME, FIREFOX
 }

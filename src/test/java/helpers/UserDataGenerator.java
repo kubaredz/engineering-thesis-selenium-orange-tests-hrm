@@ -3,55 +3,50 @@ package helpers;
 import com.github.javafaker.Faker;
 import org.apache.commons.lang3.RandomStringUtils;
 
-import java.util.concurrent.atomic.AtomicLong;
-
 public class UserDataGenerator {
+    private static final Faker faker = new Faker();
 
     public static String generateFirstName() {
-        Faker faker = new Faker();
-        String firstName = faker.name().firstName();
-        return firstName;
+        String generatedFirstName = faker.name().firstName();
+        return generatedFirstName;
     }
 
     public static String generateMiddleName() {
-        Faker faker = new Faker();
-        String middleName = faker.name().name();
-        return middleName;
+        String generatedMiddleName = faker.name().name();
+        return generatedMiddleName;
     }
 
     public static String generateLastName() {
-        Faker faker = new Faker();
-        String lastName = faker.name().lastName();
-        return lastName;
+        String generatedLastName = faker.name().lastName();
+        return generatedLastName;
     }
 
     public static String generateUsername() {
-        Faker faker = new Faker();
-        String username = faker.superhero().prefix() + faker.name().firstName() + faker.address().buildingNumber();
-        return username;
+        String generatedUsername = faker.superhero().prefix() + faker.name().firstName() + faker.address().buildingNumber();
+        return generatedUsername;
     }
 
     public static String generateEmailAddress() {
-        Faker faker = new Faker();
-        return faker.internet().emailAddress();
+        String generatedEmailAddress = faker.internet().emailAddress();
+        return generatedEmailAddress;
     }
 
     public static String generatePhoneNumber() {
-        return String.format("%03d-%03d-%03d",
+        String generatedPhoneNumber = String.format("%03d-%03d-%03d",
                 (int) Math.floor(999 * Math.random()),
                 (int) Math.floor(999 * Math.random()),
                 (int) Math.floor(999 * Math.random()));
+        return generatedPhoneNumber;
     }
 
     public static String generateId() {
-        String shortId = RandomStringUtils.randomNumeric(8);
-        return shortId;
+        String generatedId = RandomStringUtils.randomNumeric(8);
+        return generatedId;
     }
 
-    public static String generateDriversLicenseNumber(){
-        String drivingString = RandomStringUtils.randomNumeric(3);
-        String drivingNumber = RandomStringUtils.randomAlphabetic(8);
-
-        return drivingString + drivingNumber;
+    public static String generateDriversLicenseNumber() {
+        String generatedString = RandomStringUtils.randomNumeric(3);
+        String generatedNumber = RandomStringUtils.randomAlphabetic(8);
+        return generatedString + generatedNumber;
     }
 }

@@ -4,16 +4,19 @@ import builders.options.AdminPanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverManager;
+import setup.DriverPicker;
 import utils.RepeatedActions;
 import waits.Wait;
 
 import java.util.logging.Level;
 
-public class AdminPanelSteps extends AdminPanelBuilder implements CommonSteps, CommonGenericSteps<AdminPanelSteps> {
+import static waits.Wait.waitTillElementIsClickableByWebElement;
+import static waits.Wait.waitTillElementIsPresent;
+
+public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, CommonGenericSteps<AdminPanelSteps> {
 
     public AdminPanelSteps() {
-        PageFactory.initElements(DriverManager.driverSetup(), this);
+        PageFactory.initElements(DriverPicker.driverSetup(), this);
     }
 
     @Override
@@ -43,7 +46,7 @@ public class AdminPanelSteps extends AdminPanelBuilder implements CommonSteps, C
     @Step("Przycisk: 'Save' zostal wcisniety")
     public AdminPanelSteps clickSaveButton() {
         Wait.waitSleep();
-        Actions action = new Actions(DriverManager.driverSetup());
+        Actions action = new Actions(DriverPicker.driverSetup());
         action.moveToElement(saveButton).doubleClick().build().perform();
         logger.log(Level.INFO, "Wciskam przycisk: \"Save\"");
         return new AdminPanelSteps();
@@ -52,6 +55,7 @@ public class AdminPanelSteps extends AdminPanelBuilder implements CommonSteps, C
     @Step("Tekst: 'Add user' zostal wyswietlony")
     public boolean isAddUserTextDisplayed() {
         logger.log(Level.INFO, "Tekst \"Add user\" został wyświetlony");
+        waitTillElementIsPresent(addText);
         return addText.isDisplayed();
     }
 
@@ -62,9 +66,16 @@ public class AdminPanelSteps extends AdminPanelBuilder implements CommonSteps, C
         return new AdminPanelSteps();
     }
 
-    @Step("Przycisk: 'User Role' zostal wcisniety")
+    @Step("Rola 'Admin' zostala wybrana")
     public AdminPanelSteps clickAdminUserRoleButton() {
         adminUserRole.click();
+        return new AdminPanelSteps();
+    }
+
+    @Step("Rola 'Admin' zostala wybrana")
+    public AdminPanelSteps clickEssUserRoleButton() {
+        waitTillElementIsClickableByWebElement(essUserRole);
+        essUserRole.click();
         return new AdminPanelSteps();
     }
 
@@ -110,6 +121,13 @@ public class AdminPanelSteps extends AdminPanelBuilder implements CommonSteps, C
         return new AdminPanelSteps();
     }
 
+    @Step("Status: 'Enabled' zostal wybrany")
+    public AdminPanelSteps clickDisabledStatus() {
+        statusDisabled.click();
+        logger.log(Level.INFO, "Status: \"Disabled\" został wybrany");
+        return new AdminPanelSteps();
+    }
+
     @Step("Nazwa uzytkownika: {username} zostala wpisana")
     public AdminPanelSteps setUsernameLabel(String username) {
         RepeatedActions.deletingAndAddingContentToLabel(usernameLabel, username);
@@ -129,5 +147,28 @@ public class AdminPanelSteps extends AdminPanelBuilder implements CommonSteps, C
     public boolean isSystemUsersTextDisplayed() {
         logger.log(Level.INFO, "Tekst: \"System Users\" został wyświetlony");
         return systemUsersText.isDisplayed();
+    }
+
+    @Step("Wybranie roli dla nowego uzytkownika")
+    public AdminPanelSteps chooseUserRole(String role) {
+        if (role.equals("Admin")) {
+            clickAdminUserRoleButton();
+        }
+        if (role.equals("ESS")) {
+            clickEssUserRoleButton();
+        }
+
+        return new AdminPanelSteps();
+    }
+
+    @Step("Wybranie statusu dla nowego uzytkownika")
+    public AdminPanelSteps choseStatus(String status) {
+        if (status.equals("Enabled")) {
+            clickEnabledStatus();
+        }
+        if (status.equals("Disabled")) {
+            clickDisabledStatus();
+        }
+        return new AdminPanelSteps();
     }
 }

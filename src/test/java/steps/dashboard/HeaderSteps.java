@@ -2,19 +2,17 @@ package steps.dashboard;
 
 import builders.dashboard.HeaderBuilder;
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverManager;
+import setup.DriverPicker;
 
 import java.util.logging.Level;
 
 public class HeaderSteps extends HeaderBuilder {
 
     public HeaderSteps() {
-        PageFactory.initElements(DriverManager.driverSetup(), this);
+        PageFactory.initElements(DriverPicker.driverSetup(), this);
     }
-
 
     @Step("'Dropdown' zostal wcisniety")
     public HeaderSteps clickDropdownButton() {
@@ -43,7 +41,7 @@ public class HeaderSteps extends HeaderBuilder {
 
     @Step("Pobranie adresu url strony")
     public String getPageUrl() {
-        String pageUrl = DriverManager.driverSetup().getCurrentUrl();
+        String pageUrl = DriverPicker.driverSetup().getCurrentUrl();
         logger.log(Level.INFO, "Adres otworzonej strony to: {0}", pageUrl);
         return pageUrl;
     }
@@ -64,8 +62,8 @@ public class HeaderSteps extends HeaderBuilder {
 
     @Step("Pobranie nazwy sekcji")
     public String getSectionHeaderText() {
-        WebElement element = DriverManager.driverSetup().findElement(By.cssSelector("h6[class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module']"));
-        String visibleSectionText = element.getText();
+        String visibleSectionText = headerSectionText.getText();
+        logger.log(Level.INFO, "Pobranie nazwy sekcji: {0}", visibleSectionText);
         return visibleSectionText;
     }
 }

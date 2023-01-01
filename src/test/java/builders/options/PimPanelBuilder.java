@@ -41,4 +41,31 @@ public class PimPanelBuilder extends CommonBuilder {
 
     @FindBy(css = "div[class='oxd-toast oxd-toast--success oxd-toast-container--toast']")
     public WebElement successPopup;
+
+    @FindBy(xpath = "(//a[normalize-space()='Reports'])[1]")
+    public WebElement reportsButton;
+
+    @FindBy(css = "button[class='oxd-button oxd-button--medium oxd-button--secondary']")
+    public WebElement addButton;
+
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/input[1]")
+    public WebElement reportNameLabel;
+
+    @FindBy(xpath = "//body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]")
+    public WebElement selectionCriteriaSelect;
+
+    @FindBy(xpath = "//body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[2]/div[2]/button[1]")
+    public WebElement criteriaButton;
+
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[2]/div[2]/div[2]/button[1]")
+    public WebElement displayFieldsButton;
+
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]")
+    public WebElement educationTypeSelect;
+
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]")
+    public WebElement displayedFieldGroupSelect;
+
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]")
+    public WebElement displayFieldSelect;
 }

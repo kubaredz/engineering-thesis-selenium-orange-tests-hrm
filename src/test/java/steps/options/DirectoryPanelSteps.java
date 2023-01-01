@@ -3,14 +3,14 @@ package steps.options;
 import builders.options.DirectoryPanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverManager;
+import setup.DriverPicker;
 
 import java.util.logging.Level;
 
-public class DirectoryPanelSteps extends DirectoryPanelBuilder implements CommonSteps, CommonGenericSteps<DirectoryPanelSteps> {
+public class DirectoryPanelSteps extends DirectoryPanelBuilder implements DefaultSteps, CommonGenericSteps<DirectoryPanelSteps> {
 
     public DirectoryPanelSteps() {
-        PageFactory.initElements(DriverManager.driverSetup(), this);
+        PageFactory.initElements(DriverPicker.driverSetup(), this);
     }
 
     @Override

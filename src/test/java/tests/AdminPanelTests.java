@@ -54,7 +54,7 @@ public class AdminPanelTests extends TestBase {
 
         assertTrue(adminPanelSteps.isAddUserTextDisplayed());
 
-        String generatedPassword = PasswordGenerator.generate(15);
+        String generatedPassword = PasswordGenerator.generatePassword(15);
 
         adminPanelSteps
                 .setEmployeeNameLabel(loggedUserData)

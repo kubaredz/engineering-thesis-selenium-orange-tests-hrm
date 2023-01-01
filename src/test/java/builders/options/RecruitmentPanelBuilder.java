@@ -32,4 +32,22 @@ public class RecruitmentPanelBuilder extends CommonBuilder {
 
     @FindBy(xpath = "//button[normalize-space()='Save']")
     public WebElement saveButton;
+
+    @FindBy(xpath = "//body/div[@id='app']/div[@class='oxd-layout']/div[@class='oxd-layout-container']/div[@class='oxd-layout-context']/div[@class='orangehrm-background-container']/div[@class='orangehrm-card-container']/form[@class='oxd-form']/div[@class='oxd-grid-3 orangehrm-full-width-grid']/div[@class='oxd-grid-item oxd-grid-item--gutters']/div[@class='oxd-input-group oxd-input-field-bottom-space']/div/input[1]")
+    public WebElement vacancyNameLabel;
+
+    @FindBy(xpath = "//div[@class='oxd-select-text-input']")
+    public WebElement jobTitleSelect;
+
+    @FindBy(xpath = "//textarea[@placeholder='Type description here']")
+    public WebElement jobDescriptionLabel;
+
+    @FindBy(xpath = "//input[@placeholder='Type for hints...']")
+    public WebElement hiringManagerLabel;
+
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[1]")
+    public WebElement promptedHiringManager;
+
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/input[1]")
+    public WebElement numberOfPositionLabel;
 }

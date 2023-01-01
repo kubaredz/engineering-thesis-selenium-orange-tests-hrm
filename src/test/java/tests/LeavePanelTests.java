@@ -2,7 +2,6 @@ package tests;
 
 import helpers.DateGenerator;
 import io.qameta.allure.*;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -57,11 +56,11 @@ public class LeavePanelTests extends TestBase {
                 .clickLeaveTypeSection()
                 .pickVacationLeave()
                 .pickFromDate(DateGenerator.getTodayData())
-                .pickToDate()
+                .pickToDate(DateGenerator.getTodayData())
                 .writeComment("Dzień urlopu zaakceptowany przez przełożonego")
                 .clickAssignButton();
 
-        Assert.assertTrue(leavePanelSteps.isConfirmLeaveAssignmentPopupDisplayed());
+        assertTrue(leavePanelSteps.isConfirmLeaveAssignmentPopupDisplayed());
         leavePanelSteps.clickConfirmLeaveAssignmentButton();
     }
 }

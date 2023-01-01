@@ -17,4 +17,16 @@ public class TimePanelBuilder extends CommonBuilder {
 
     @FindBy(css = "div[role='option'] span")
     public WebElement promptedEmployeeName;
+
+    @FindBy(xpath = "//input[@placeholder='Type for hints...']")
+    public WebElement projectNameLabel;
+
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[1]")
+    public WebElement pickedProject;
+
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/div[1]/div[1]")
+    public WebElement activitySelect;
+
+    @FindBy(xpath = "//i[@class='oxd-icon bi-trash']")
+    public WebElement deleteReportButton;
 }

@@ -4,14 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import setup.DriverManager;
+import setup.DriverPicker;
 
 import java.time.Duration;
 
 public class Wait {
 
     private static WebDriverWait setWaitDuration() {
-        WebDriverWait wait = new WebDriverWait(DriverManager.driverSetup(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(DriverPicker.driverSetup(), Duration.ofSeconds(10));
         return wait;
     }
 

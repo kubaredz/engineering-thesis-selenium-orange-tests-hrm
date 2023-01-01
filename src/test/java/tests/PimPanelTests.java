@@ -65,7 +65,7 @@ public class PimPanelTests extends TestBase {
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-41")
     public void addNewUserInOrangeHrmApplicationTest() {
         loginPageTests.asAdministratorTryToLoginWithCorrectLoginAndPasswordTest();
-        String password = PasswordGenerator.generate(15);
+        String password = PasswordGenerator.generatePassword(15);
 
         pimPanelSteps
                 .clickPimPanelSection()

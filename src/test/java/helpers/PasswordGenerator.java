@@ -3,17 +3,19 @@ package helpers;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class PasswordGenerator {
+    private static final StringBuffer stringBuffer = new StringBuffer();
 
-    public static String generate(int length) {
-        String smallAlphabet = "qrstuvwxyz";
-        String upperAlphabet = "ABCDEFGHIJ";
-        String numeric = "012345";
-        String chars = "!@#%^&!@#$%^&!";
-        String password = smallAlphabet + upperAlphabet + chars + numeric + chars;
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            stringBuilder.append(password.charAt(ThreadLocalRandom.current().nextInt(password.length())));
+
+    public static String generatePassword(int passwordLength) {
+        String smallLetter = "abcdefghij";
+        String upperLetter = "ABCDEFGHIJ";
+        String digit = "0123456789";
+        String chars = "!@#%^&!@#$";
+        String password = smallLetter + upperLetter + digit + chars;
+
+        for (int i = 0; i < passwordLength; i++) {
+            stringBuffer.append(password.charAt(ThreadLocalRandom.current().nextInt(password.length())));
         }
-        return stringBuilder.toString();
+        return stringBuffer.toString();
     }
 }

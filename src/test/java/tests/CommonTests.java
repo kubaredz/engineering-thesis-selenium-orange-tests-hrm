@@ -42,7 +42,7 @@ public class CommonTests extends TestBase {
         LoginPageTests loginPageTests = new LoginPageTests();
 
         loginPageTests.asAdministratorTryToLoginWithCorrectLoginAndPasswordTest();
-        String password = PasswordGenerator.generate(15);
+        String password = PasswordGenerator.generatePassword(15);
 
         pimPanelSteps
                 .clickPimPanelSection()
@@ -73,7 +73,7 @@ public class CommonTests extends TestBase {
         String generatedFirstName = UserDataGenerator.generateFirstName();
         String generatedLastName = UserDataGenerator.generateLastName();
         String generatedUsername = UserDataGenerator.generateUsername();
-        String generatedPassword = PasswordGenerator.generate(15);
+        String generatedPassword = PasswordGenerator.generatePassword(15);
         pimPanelSteps
                 .clickPimPanelSection()
                 .clickAddButton()

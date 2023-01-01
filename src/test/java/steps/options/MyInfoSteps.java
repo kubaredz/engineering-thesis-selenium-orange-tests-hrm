@@ -3,16 +3,16 @@ package steps.options;
 import builders.options.MyInfoPanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverManager;
+import setup.DriverPicker;
 import utils.RepeatedActions;
 import waits.Wait;
 
 import java.util.logging.Level;
 
-public class MyInfoSteps extends MyInfoPanelBuilder implements CommonSteps, CommonGenericSteps<MyInfoSteps> {
+public class MyInfoSteps extends MyInfoPanelBuilder implements DefaultSteps, CommonGenericSteps<MyInfoSteps> {
 
     public MyInfoSteps() {
-        PageFactory.initElements(DriverManager.driverSetup(), this);
+        PageFactory.initElements(DriverPicker.driverSetup(), this);
     }
 
     @Override

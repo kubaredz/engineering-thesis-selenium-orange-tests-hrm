@@ -1,20 +1,20 @@
 package setup;
 
-import properties.ConfigurationProperties;
+import properties.PropertiesReader;
 
 import java.time.Duration;
 
 public class PageSetup {
 
     public static void setPageUrl() {
-        DriverManager.driverSetup().navigate().to(ConfigurationProperties.orangeHrmUrl());
+        DriverPicker.driverSetup().navigate().to(PropertiesReader.getPageUrl());
     }
 
     public static void setMaximizeOfWindow() {
-        DriverManager.driverSetup().manage().window().maximize();
+        DriverPicker.driverSetup().manage().window().maximize();
     }
 
     public static void setImplicitWait() {
-        DriverManager.driverSetup().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        DriverPicker.driverSetup().manage().timeouts().implicitlyWait(Duration.ofSeconds(PropertiesReader.getImplicitlyWait()));
     }
 }
