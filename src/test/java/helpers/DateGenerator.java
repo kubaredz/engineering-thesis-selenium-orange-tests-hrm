@@ -10,14 +10,12 @@ public class DateGenerator {
     public static String getTodayData() {
         localDate = LocalDate.now();
         dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String todayDate = localDate.format(dateTimeFormatter);
-        return todayDate;
+        return localDate.format(dateTimeFormatter);
     }
 
     public static String setFutureDate(int daysToAdd) {
         localDate = LocalDate.now().plusDays(daysToAdd);
         dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String futureDate = localDate.format(dateTimeFormatter);
-        return futureDate;
+        return localDate.format(dateTimeFormatter);
     }
 }

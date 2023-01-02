@@ -7,28 +7,23 @@ public class UserDataGenerator {
     private static final Faker faker = new Faker();
 
     public static String generateFirstName() {
-        String generatedFirstName = faker.name().firstName();
-        return generatedFirstName;
+        return faker.name().firstName();
     }
 
     public static String generateMiddleName() {
-        String generatedMiddleName = faker.name().name();
-        return generatedMiddleName;
+        return faker.name().name();
     }
 
     public static String generateLastName() {
-        String generatedLastName = faker.name().lastName();
-        return generatedLastName;
+        return faker.name().lastName();
     }
 
     public static String generateUsername() {
-        String generatedUsername = faker.superhero().prefix() + faker.name().firstName() + faker.address().buildingNumber();
-        return generatedUsername;
+        return faker.superhero().prefix() + faker.name().firstName() + faker.address().buildingNumber();
     }
 
     public static String generateEmailAddress() {
-        String generatedEmailAddress = faker.internet().emailAddress();
-        return generatedEmailAddress;
+        return faker.internet().emailAddress();
     }
 
     public static String generatePhoneNumber() {
@@ -40,8 +35,7 @@ public class UserDataGenerator {
     }
 
     public static String generateId() {
-        String generatedId = RandomStringUtils.randomNumeric(8);
-        return generatedId;
+        return RandomStringUtils.randomNumeric(8);
     }
 
     public static String generateDriversLicenseNumber() {

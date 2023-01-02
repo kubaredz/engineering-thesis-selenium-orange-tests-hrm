@@ -1,6 +1,5 @@
 package steps.gherkin_steps;
 
-import browsers.BrowserType;
 import helpers.UserDataGenerator;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -315,10 +314,6 @@ public class OrangeHrmSteps {
     @Then("Zamkniecie przegladarki")
     public void close_browser() {
         DriverPicker.getDriver().close();
-        if (getProperties().getProperty("browserType").equals(BrowserType.FIREFOX)){
-            DriverPicker.getDriver().quit();
-        }
         DriverPicker.setDriver(null);
     }
-
 }

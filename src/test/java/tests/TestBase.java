@@ -1,6 +1,5 @@
 package tests;
 
-import browsers.BrowserType;
 import org.openqa.selenium.support.PageFactory;
 import properties.PropertiesReader;
 import io.qameta.allure.Step;
@@ -36,9 +35,6 @@ public class TestBase {
     @Step("Metoda odpowiedzialna za zamkniecie przegladarki oraz wylaczenie drivera")
     public void afterMethod() {
         DriverPicker.getDriver().close();
-        if (PropertiesReader.getProperties().getProperty("browserType").equals(BrowserType.FIREFOX)){
-            DriverPicker.getDriver().quit();
-        }
         DriverPicker.setDriver(null);
     }
 }

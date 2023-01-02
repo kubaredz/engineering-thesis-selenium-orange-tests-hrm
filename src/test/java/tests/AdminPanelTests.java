@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import setup.PageSetup;
 import steps.dashboard.HeaderSteps;
 import steps.options.AdminPanelSteps;
 
@@ -16,6 +17,7 @@ public class AdminPanelTests extends TestBase {
     private CommonTests commonTests;
     private AdminPanelSteps adminPanelSteps;
     private HeaderSteps headerSteps;
+    private PageSetup pageSetup;
 
     @BeforeMethod
     public void adminPanelTestsSetup() {
@@ -29,9 +31,8 @@ public class AdminPanelTests extends TestBase {
     @Severity(SeverityLevel.CRITICAL)
     @Story("PI-30")
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-30")
-    @Parameters({"login", "password"})
-    public void asAdminUserManagementScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
-        commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
+    public void asAdminUserManagementScreenIsPresentTest() {
+        commonTests.loginAsAdministratorToOrangeHrmAppTest(pageSetup.setLogin(), pageSetup.setPassword());
 
         adminPanelSteps.clickPimPanelSection();
         assertTrue(adminPanelSteps.isHeaderTextDisplayed());

@@ -5,9 +5,10 @@ import properties.PropertiesReader;
 import java.time.Duration;
 
 public class PageSetup {
+    private static PropertiesReader propertiesReader;
 
     public static void setPageUrl() {
-        DriverPicker.driverSetup().navigate().to(PropertiesReader.getPageUrl());
+        DriverPicker.driverSetup().navigate().to(propertiesReader.getPageUrl());
     }
 
     public static void setMaximizeOfWindow() {
@@ -15,6 +16,14 @@ public class PageSetup {
     }
 
     public static void setImplicitWait() {
-        DriverPicker.driverSetup().manage().timeouts().implicitlyWait(Duration.ofSeconds(PropertiesReader.getImplicitlyWait()));
+        DriverPicker.driverSetup().manage().timeouts().implicitlyWait(Duration.ofSeconds(propertiesReader.getImplicitlyWait()));
+    }
+
+    public static String setLogin() {
+        return propertiesReader.getLogin();
+    }
+
+    public static String setPassword() {
+        return propertiesReader.getPassword();
     }
 }

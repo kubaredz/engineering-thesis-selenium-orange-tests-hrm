@@ -1,5 +1,9 @@
 package properties;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -9,38 +13,47 @@ import java.util.Properties;
 public class PropertiesReader {
     private final static String PROPERTY_FILE = "src/main/resources/configuration.properties";
     private static Properties properties;
-    private static BufferedReader reader;
+    private static BufferedReader bufferedReader;
 
     public static void setProperties(Properties properties) {
         PropertiesReader.properties = properties;
     }
 
-    public static Properties getProperties() {
-        return properties;
-    }
-
     public static String getPageUrl() {
-        String pageUrl = properties.getProperty("url");
-        return pageUrl;
+        return properties.getProperty("url");
     }
 
     public static String getBrowserType() {
-        String browserType = properties.getProperty("browserType");
-        return browserType;
+        return properties.getProperty("browserType");
     }
 
     public static long getImplicitlyWait() {
-        String path = properties.getProperty("implicitlyWaitTime");
-        return Long.parseLong(path);
+        return Long.parseLong(properties.getProperty("implicitlyWaitTime"));
+    }
+
+    public static String getLogin() {
+        return properties.getProperty("login");
+    }
+
+    public static String getPassword() {
+        return properties.getProperty("password");
+    }
+
+    private static String getChromeDriver() {
+        return properties.getProperty("chromePath");
+    }
+
+    private static String getFirefoxDriver() {
+        return properties.getProperty("firefoxPath");
     }
 
     public Properties configurationFileReader() {
         try {
-            reader = new BufferedReader(new FileReader(PROPERTY_FILE));
+            bufferedReader = new BufferedReader(new FileReader(PROPERTY_FILE));
             properties = new Properties();
             try {
-                properties.load(reader);
-                reader.close();
+                properties.load(bufferedReader);
+                bufferedReader.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -49,5 +62,21 @@ public class PropertiesReader {
             throw new RuntimeException("Plik configuration.properties nie zostal znaleziony pod lokalizacja: " + PROPERTY_FILE);
         }
         return properties;
+    }
+
+    public static WebDriver chooseBrowser(String browserType) {
+        if (browserType.equalsIgnoreCase("CHROME")) {
+            setPropertyOfSystem(getChromeDriver(), properties.getProperty("chromeDriver"));
+            return new ChromeDriver();
+        }
+        if (browserType.equalsIgnoreCase("FIREFOX")) {
+            setPropertyOfSystem(getFirefoxDriver(), properties.getProperty("firefoxDriver"));
+            return new FirefoxDriver();
+        } else
+            throw new IllegalStateException("Przegladarka ktora zostala wybrana, nie jest obslugiwana");
+    }
+
+    private static void setPropertyOfSystem(String driverType, String driverPath) {
+        System.setProperty(driverType, driverPath);
     }
 }

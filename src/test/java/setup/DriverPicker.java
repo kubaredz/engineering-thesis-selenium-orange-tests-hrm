@@ -1,7 +1,5 @@
 package setup;
 
-import browsers.BrowserPicker;
-import browsers.BrowserType;
 import properties.PropertiesReader;
 import org.openqa.selenium.WebDriver;
 
@@ -18,7 +16,7 @@ public class DriverPicker {
 
     public static WebDriver driverSetup() {
         if (driver == null) {
-            driver = BrowserPicker.chooseBrowser(BrowserType.valueOf(PropertiesReader.getBrowserType()));
+            driver = PropertiesReader.chooseBrowser(PropertiesReader.getBrowserType());
         }
         return driver;
     }
