@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class PropertiesReader {
-    private final static String PROPERTY_FILE = "src/main/resources/configuration.properties";
+    private final static String PROPERTY_FILE = "src/test/resources/configuration.properties";
     private static Properties properties;
     private static BufferedReader bufferedReader;
 
