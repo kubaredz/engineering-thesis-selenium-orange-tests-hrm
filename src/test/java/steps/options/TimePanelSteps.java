@@ -11,7 +11,7 @@ import waits.Wait;
 
 import java.util.logging.Level;
 
-public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, CommonGenericSteps<TimePanelSteps> {
+public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, CommonSteps {
 
     public TimePanelSteps() {
         PageFactory.initElements(DriverPicker.driverSetup(), this);
@@ -33,12 +33,12 @@ public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, Co
     }
 
     @Override
-    public CommonGenericSteps clickAddButton() {
+    public CommonSteps clickAddButton() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public CommonGenericSteps clickSaveButton() {
+    public CommonSteps clickSaveButton() {
         throw new UnsupportedOperationException();
     }
 

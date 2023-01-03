@@ -8,7 +8,7 @@ import utils.RepeatedActions;
 
 import java.util.logging.Level;
 
-public class MaintenancePanelSteps extends MaintenancePanelBuilder implements DefaultSteps, CommonGenericSteps<MaintenancePanelSteps> {
+public class MaintenancePanelSteps extends MaintenancePanelBuilder implements DefaultSteps, CommonSteps {
 
     public MaintenancePanelSteps() {
         PageFactory.initElements(DriverPicker.driverSetup(), this);
@@ -30,12 +30,12 @@ public class MaintenancePanelSteps extends MaintenancePanelBuilder implements De
     }
 
     @Override
-    public CommonGenericSteps clickAddButton() {
+    public CommonSteps clickAddButton() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public CommonGenericSteps clickSaveButton() {
+    public CommonSteps clickSaveButton() {
         throw new UnsupportedOperationException();
     }
 

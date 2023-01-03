@@ -7,7 +7,7 @@ import setup.DriverPicker;
 
 import java.util.logging.Level;
 
-public class DirectoryPanelSteps extends DirectoryPanelBuilder implements DefaultSteps, CommonGenericSteps<DirectoryPanelSteps> {
+public class DirectoryPanelSteps extends DirectoryPanelBuilder implements DefaultSteps, CommonSteps {
 
     public DirectoryPanelSteps() {
         PageFactory.initElements(DriverPicker.driverSetup(), this);
@@ -29,12 +29,12 @@ public class DirectoryPanelSteps extends DirectoryPanelBuilder implements Defaul
     }
 
     @Override
-    public CommonGenericSteps clickAddButton() {
+    public CommonSteps clickAddButton() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public CommonGenericSteps clickSaveButton() {
+    public CommonSteps clickSaveButton() {
         throw new UnsupportedOperationException();
     }
 }

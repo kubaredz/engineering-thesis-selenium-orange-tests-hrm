@@ -7,7 +7,7 @@ import setup.DriverPicker;
 
 import java.util.logging.Level;
 
-public class BuzzPanelSteps extends BuzzPanelBuilder implements DefaultSteps, CommonGenericSteps<BuzzPanelSteps> {
+public class BuzzPanelSteps extends BuzzPanelBuilder implements DefaultSteps, CommonSteps {
 
     public BuzzPanelSteps() {
         PageFactory.initElements(DriverPicker.driverSetup(), this);
@@ -29,12 +29,12 @@ public class BuzzPanelSteps extends BuzzPanelBuilder implements DefaultSteps, Co
     }
 
     @Override
-    public CommonGenericSteps clickAddButton() {
+    public CommonSteps clickAddButton() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public CommonGenericSteps clickSaveButton() {
+    public CommonSteps clickSaveButton() {
         throw new UnsupportedOperationException();
     }
 

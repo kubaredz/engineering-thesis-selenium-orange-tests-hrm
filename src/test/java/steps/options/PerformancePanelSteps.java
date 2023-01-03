@@ -7,7 +7,7 @@ import setup.DriverPicker;
 
 import java.util.logging.Level;
 
-public class PerformancePanelSteps extends PerformancePanelBuilder implements CommonGenericSteps<PerformancePanelSteps> {
+public class PerformancePanelSteps extends PerformancePanelBuilder implements CommonSteps {
 
     public PerformancePanelSteps() {
         PageFactory.initElements(DriverPicker.driverSetup(), this);
@@ -22,12 +22,12 @@ public class PerformancePanelSteps extends PerformancePanelBuilder implements Co
     }
 
     @Override
-    public CommonGenericSteps clickAddButton() {
+    public CommonSteps clickAddButton() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public CommonGenericSteps clickSaveButton() {
+    public CommonSteps clickSaveButton() {
         throw new UnsupportedOperationException();
     }
 

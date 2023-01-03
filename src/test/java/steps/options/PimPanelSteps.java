@@ -1,6 +1,7 @@
 package steps.options;
 
 import builders.options.PimPanelBuilder;
+
 import helpers.UserDataGenerator;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -11,7 +12,7 @@ import utils.RepeatedActions;
 
 import java.util.logging.Level;
 
-public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, CommonGenericSteps<PimPanelSteps> {
+public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, CommonSteps {
 
     public PimPanelSteps() {
         PageFactory.initElements(DriverPicker.driverSetup(), this);

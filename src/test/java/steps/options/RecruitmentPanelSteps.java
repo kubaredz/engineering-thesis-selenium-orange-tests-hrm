@@ -14,7 +14,7 @@ import waits.Wait;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.logging.Level;
 
-public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements DefaultSteps, CommonGenericSteps<RecruitmentPanelSteps> {
+public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements DefaultSteps, CommonSteps {
     private int int_random = ThreadLocalRandom.current().nextInt();
 
     public RecruitmentPanelSteps() {

@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import static waits.Wait.waitTillElementIsClickableByWebElement;
 import static waits.Wait.waitTillElementIsPresent;
 
-public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, CommonGenericSteps<AdminPanelSteps> {
+public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, CommonSteps {
 
     public AdminPanelSteps() {
         PageFactory.initElements(DriverPicker.driverSetup(), this);

@@ -16,7 +16,7 @@ public class DriverPicker {
 
     public static WebDriver driverSetup() {
         if (driver == null) {
-            driver = PropertiesReader.chooseBrowser(PropertiesReader.getBrowserType());
+            driver = PropertiesReader.selectTypeOfStartup(PropertiesReader.getBrowserType());
         }
         return driver;
     }

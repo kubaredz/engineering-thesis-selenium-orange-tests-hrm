@@ -9,7 +9,7 @@ import waits.Wait;
 
 import java.util.logging.Level;
 
-public class MyInfoSteps extends MyInfoPanelBuilder implements DefaultSteps, CommonGenericSteps<MyInfoSteps> {
+public class MyInfoSteps extends MyInfoPanelBuilder implements DefaultSteps, CommonSteps {
 
     public MyInfoSteps() {
         PageFactory.initElements(DriverPicker.driverSetup(), this);
@@ -31,7 +31,7 @@ public class MyInfoSteps extends MyInfoPanelBuilder implements DefaultSteps, Com
     }
 
     @Override
-    public CommonGenericSteps clickAddButton() {
+    public CommonSteps clickAddButton() {
         throw new UnsupportedOperationException();
     }
 

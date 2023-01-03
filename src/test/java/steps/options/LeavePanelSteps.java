@@ -8,7 +8,7 @@ import utils.RepeatedActions;
 
 import java.util.logging.Level;
 
-public class LeavePanelSteps extends LeavePanelBuilder implements DefaultSteps, CommonGenericSteps<LeavePanelBuilder> {
+public class LeavePanelSteps extends LeavePanelBuilder implements DefaultSteps, CommonSteps {
     public LeavePanelSteps() {
         PageFactory.initElements(DriverPicker.driverSetup(), this);
     }
@@ -29,12 +29,12 @@ public class LeavePanelSteps extends LeavePanelBuilder implements DefaultSteps, 
     }
 
     @Override
-    public CommonGenericSteps clickAddButton() {
+    public CommonSteps clickAddButton() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public CommonGenericSteps clickSaveButton() {
+    public CommonSteps clickSaveButton() {
         throw new UnsupportedOperationException();
     }
 

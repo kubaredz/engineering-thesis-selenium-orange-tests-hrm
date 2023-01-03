@@ -14,6 +14,7 @@ Feature: Testy weryfikujace panel logowania uzytkownika
   @test
   Scenario: Niepoprawne podanie danych przy logowaniu uzytkownika zwraca inofrmacje "Invalid credentials"
     Given Podanie loginu uzytkownika: "InvalidUsername123"
-    When Podanie hasla uzytkownika: "InvalidPassword123"
+    And Podanie hasla uzytkownika: "InvalidPassword123"
+    When Wcisniecie przycisku logowania
     Then Strona po przeladowaniu wyswietla informacje "Invalid credentials"
     And Zamkniecie przegladarki
