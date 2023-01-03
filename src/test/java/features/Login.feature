@@ -6,7 +6,7 @@ Feature: Testy weryfikujace panel logowania uzytkownika
   @test
   Scenario: Logowanie administratora na stronie Orange HRM
     Given Podanie loginu uzytkownika: "Admin"
-    And Podanie hasla uzytkownika: "admin123"
+    * Podanie hasla uzytkownika: "admin123"
     When Wcisniecie przycisku logowania
     Then Ekran glowny aplikacji z logo OrangeHRM zostal wyswietlony
     And Zamkniecie przegladarki

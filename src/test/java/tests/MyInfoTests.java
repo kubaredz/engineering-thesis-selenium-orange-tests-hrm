@@ -30,7 +30,7 @@ public class MyInfoTests extends TestBase {
     public void asAdminMyInfoScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
-        myInfoSteps.clickPimPanelSection();
+        myInfoSteps.clickPanelSection();
 
         assertTrue(myInfoSteps.isHeaderTextDisplayed());
     }
@@ -56,7 +56,7 @@ public class MyInfoTests extends TestBase {
         String sin = UserDataGenerator.generateId();
 
         myInfoSteps
-                .clickPimPanelSection()
+                .clickPanelSection()
                 .clickPersonalDetailsSection()
                 .setFirstName(firstName)
                 .setMiddleName(secondName)
@@ -91,7 +91,7 @@ public class MyInfoTests extends TestBase {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         myInfoSteps
-                .clickPimPanelSection()
+                .clickPanelSection()
                 .clickPersonalDetailsSection()
                 .clickBloodTypeSection()
                 .clickBloodTypeBPlusLabel()

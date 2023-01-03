@@ -1,6 +1,7 @@
 package steps.options;
 
 import builders.options.PimPanelBuilder;
+import helpers.UserDataGenerator;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -19,15 +20,15 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
     @Override
     @Step("Sekcja 'PIM' zostala wyswietlona")
     public boolean isHeaderTextDisplayed() {
-        logger.log(Level.INFO, "Sekcja: \"PIM\" została wyświetlona");
+        logger.log(Level.INFO, "Sekcja: \"PIM\" zostala wyswietlona");
         return headerTextPrefix.isDisplayed();
     }
 
     @Override
     @Step("Sekcja: 'PIM' zostala otwarta")
-    public <T> PimPanelSteps clickPimPanelSection() {
+    public PimPanelSteps clickPanelSection() {
         pimPanelSection.click();
-        logger.log(Level.INFO, "Przycisk dla sekcji: \"PIM\" został wciśnięty");
+        logger.log(Level.INFO, "Przycisk dla sekcji: \"PIM\" zostal wcisniety");
         return new PimPanelSteps();
     }
 
@@ -35,119 +36,119 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
     @Step("Przycisk: 'Add' zostal wcisniety")
     public PimPanelSteps clickAddButton() {
         addButton.click();
-        logger.log(Level.INFO, "Przycisk: \"Add\" został wciśnięty");
+        logger.log(Level.INFO, "Przycisk: \"Add\" zostal wcisniety");
         return new PimPanelSteps();
     }
 
     @Override
-    @Step("Przycisk 'save' zostal nacisniety")
+    @Step("Przycisk 'save' zostal wcisniety")
     public PimPanelSteps clickSaveButton() {
         saveButton.click();
-        logger.log(Level.INFO, "Wciskam przycisk: \"Save\"");
+        logger.log(Level.INFO, "Przycisk: \"Save\" zostal wcisniety");
         return new PimPanelSteps();
     }
 
     @Step("Tekst: 'Add employee' zostal wyswietlony")
     public boolean isAddEmployeeTextDisplayed() {
-        logger.log(Level.INFO, "Tekst \"Add employee\" został wyświetlony");
+        logger.log(Level.INFO, "Tekst \"Add employee\" zostal wyswietlony");
         return addText.isDisplayed();
     }
 
     @Step("Tekst: 'Add employee' zostal pobrany")
     public String getAddEmployeeText() {
-        logger.log(Level.INFO, "Tekst: \"Add Employee\" został pobrany");
+        logger.log(Level.INFO, "Tekst: \"Add Employee\" zostal pobrany");
         return addText.getText();
     }
 
     @Step("Lokalizacja zdjecia: {imgPath} zostala przekazana")
     public PimPanelSteps setUploadImageButton(String imgPath) {
         uploadImageButton.sendKeys(imgPath);
-        logger.log(Level.INFO, "Lokalizacja zdjęcia: {0} została przekazana", imgPath);
+        logger.log(Level.INFO, "Lokalizacja zdjecia: {0} zostala przekazana", imgPath);
         return new PimPanelSteps();
     }
 
     @Step("Imie pracownika: {firstName} zostalo wpisane")
     public PimPanelSteps setFirstNameLabel(String firstName) {
         firstNameLabel.sendKeys(firstName);
-        logger.log(Level.INFO, "Wprowadzam imię pracownika: {0}", firstName);
+        logger.log(Level.INFO, "Imie pracownika: {0} zostalo wpisane", firstName);
         return new PimPanelSteps();
     }
 
-    @Step("Drugie imie: {middleName} zostalo wpisane")
+    @Step("Drugie imie pracownika: {middleName} zostalo wpisane")
     public PimPanelSteps setMiddleNameLabel(String middleName) {
         middleNameLabel.sendKeys(middleName);
-        logger.log(Level.INFO, "Wprowadzam drugię imię pracownika: {0}", middleName);
+        logger.log(Level.INFO, "Drugie imie pracownika: {0} zostalo wpisane", middleName);
         return new PimPanelSteps();
     }
 
-    @Step("Nazwisko: {lastName} zostala przekazana")
+    @Step("Nazwisko: {lastName} zostalo wpisane")
     public PimPanelSteps setLastNameLabel(String lastName) {
         lastNameLabel.sendKeys(lastName);
-        logger.log(Level.INFO, "Wprowadzam nazwisko pracownika: {0}", lastName);
+        logger.log(Level.INFO, "Nazwisko pracownika: {0} zostalo wpisane", lastName);
         return new PimPanelSteps();
     }
 
     @Step("Checkbox: 'Create Login Details' zostal zaznaczony")
     public PimPanelSteps clickLoginDetailsCheckBox() {
         loginDetailsCheckBox.click();
-        logger.log(Level.INFO, "Checkbox: \"Create Login Details\" został zaznaczony");
+        logger.log(Level.INFO, "Checkbox: \"Create Login Details\" zostal zaznaczony");
         return new PimPanelSteps();
     }
 
     @Step("Login pracownika: {username} zostal wpisany")
     public PimPanelSteps setUsernameLabel(String username) {
         RepeatedActions.deletingAndAddingContentToLabel(usernameLabel, username);
-        logger.log(Level.INFO, "Wprowadzam login pracownika: {0}", username);
+        logger.log(Level.INFO, "Login pracownika: {0} zostal wpisany", username);
         return new PimPanelSteps();
     }
 
     @Step("Radio button: 'Status - Enabled' zostal zaznaczony")
     public PimPanelSteps clickStatusEnabledRadioButton() {
         statusEnabledRadioButton.click();
-        logger.log(Level.INFO, "Radio button: \"Status - Enabled\" został zaznaczony");
+        logger.log(Level.INFO, "Radio button: \"Status - Enabled\" zostal zaznaczony");
         return new PimPanelSteps();
     }
 
     @Step("Haslo pracownika: {password} zostalo wpisane")
     public PimPanelSteps setPasswordLabel(String password) {
         RepeatedActions.deletingAndAddingContentToLabel(passwordLabel, password);
-        logger.log(Level.INFO, "Wprowadzam hasło pracownika: {0}", password);
+        logger.log(Level.INFO, "Haslo pracownika: {0} zostalo wpisane", password);
         return new PimPanelSteps();
     }
 
     @Step("Potwierdzenie hasla: {confirmPassword} zostalo wpisane")
     public PimPanelSteps setConfirmPasswordLabel(String confirmPassword) {
         RepeatedActions.deletingAndAddingContentToLabel(confirmPasswordLabel, confirmPassword);
-        logger.log(Level.INFO, "Wprowadzam hasło ponownie: {0}", confirmPassword);
+        logger.log(Level.INFO, "Haslo pracownika zostalo wpisane ponownie: {0}", confirmPassword);
         return new PimPanelSteps();
     }
 
     @Step("Popup 'Success' zostal wyswietlony")
     public boolean isSuccessPopupDisplayed() {
-        logger.log(Level.INFO, "Popup \"Success\" został wyświetlony");
+        logger.log(Level.INFO, "Popup \"Success\" zostal wyswietlony");
         return successPopup.isDisplayed();
     }
 
     @Step("Wcisniecie przycisku 'reports'")
-    public PimPanelSteps clickReportsButton() {
-        logger.log(Level.INFO, "Wcisniecie przycisku \"reports\"");
+    public PimPanelSteps clickReportButton() {
         reportsButton.click();
+        logger.log(Level.INFO, "Wcisniecie przycisku \"reports\"");
         return new PimPanelSteps();
     }
 
-    @Step("Wpisanie report name")
-    public PimPanelSteps setReportName(String reportName) {
+    @Step("Wpisanie nazwy raportu")
+    public PimPanelSteps generateReportName(String reportName) {
         reportNameLabel.click();
-        logger.log(Level.INFO, "Wcisniecie pola nazwy raportu: {0}", reportName);
-        reportNameLabel.sendKeys(reportName);
-        logger.log(Level.INFO, "Dodanie nazwy raportu: {0}", reportName);
+        logger.log(Level.INFO, "Wcisniecie pola \"nazwa raportu\": {0}", reportName);
+        reportNameLabel.sendKeys(UserDataGenerator.generateReportName(reportName));
+        logger.log(Level.INFO, "Wygenerowanie raportu o nazwie: {0} oraz wpisanie w polu report name", reportName);
         return new PimPanelSteps();
     }
 
-    @Step("Wcisniecie selecta: 'Selection Criteria'")
+    @Step("Wcisniecie listy select: 'Selection Criteria'")
     public PimPanelSteps setSelectionCriteria() {
         selectionCriteriaSelect.click();
-        logger.log(Level.INFO, "Wcisniecie selecta criteria");
+        logger.log(Level.INFO, "Wcisniecie listy select: \"Criteria Criteria\"");
         return new PimPanelSteps();
     }
 
@@ -155,13 +156,13 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
     public PimPanelSteps pickSelectionCriteria(String criteria) {
         String selector = "//span[normalize-space()='";
         selector = selector + criteria + "']";
-        WebElement element = DriverPicker.driverSetup().findElement(By.xpath(selector));
-        element.click();
+        WebElement selectionCriteriaWebElement = DriverPicker.driverSetup().findElement(By.xpath(selector));
+        selectionCriteriaWebElement.click();
         logger.log(Level.INFO, "Wybranie kryterium raportu: {0}", criteria);
         return new PimPanelSteps();
     }
 
-    @Step("Wcisniecie przycisku plus dla kryterii")
+    @Step("Wcisniecie przycisku plus dla 'kryterii'")
     public PimPanelSteps clickPlusButtonForCriteria() {
         criteriaButton.click();
         logger.log(Level.INFO, "Wcisniecie przycisku 'plus' dla kryterii");
@@ -175,37 +176,37 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
         return new PimPanelSteps();
     }
 
-    @Step("Wcisniecie selecta dla typu edukacji")
+    @Step("Wcisniecie listy select dla typu edukacji")
     public PimPanelSteps clickEducationTypeSelect() {
         educationTypeSelect.click();
-        logger.log(Level.INFO, "Wcisniecie selecta 'education'");
+        logger.log(Level.INFO, "Wybranie opcji: 'Education'");
         return new PimPanelSteps();
     }
 
-    @Step("Wybranie stopnia naukowego {educationDegree}")
+    @Step("Wybranie stopnia naukowego: {educationDegree}")
     public PimPanelSteps selectEducationDegree(String degree) {
         String degreeSelector = "//span[contains(text(),\"" + degree + "\")]";
         WebElement degreeLabel = DriverPicker.driverSetup().findElement(By.xpath(degreeSelector));
-        logger.log(Level.INFO, "Wybranie rodzaju stopnia naukowego: {0} ", degree);
+        logger.log(Level.INFO, "Wybranie stopnia naukowego: {0} ", degree);
         degreeLabel.click();
         logger.log(Level.INFO, "Wcisniecie stopnia naukowego: {0} ", degree);
         return new PimPanelSteps();
     }
 
-    @Step("Wybranie z selecta typu pol ktore zostana wyswietlone")
+    @Step("Wybranie z listy select typu pol ktore zostana wyswietlone")
     public PimPanelSteps clickDisplayFieldsLabel() {
         displayedFieldGroupSelect.click();
-        logger.log(Level.INFO, "Wcisniecie selecta 'display fields'");
+        logger.log(Level.INFO, "Wcisniecie listy select: 'Display fields'");
         return new PimPanelSteps();
     }
 
-    @Step("Wybranie danych ktore maja zostac wyswietlone")
+    @Step("Wybranie danych ktore maja zostac wyswietlone w raporcie")
     public PimPanelSteps selectPersonalDataGroup(String fieldGroup) {
         String fieldGroupSelector = "//span[contains(text(),'" + fieldGroup + "')]";
         WebElement fieldGroupSelect = DriverPicker.driverSetup().findElement(By.xpath(fieldGroupSelector));
         logger.log(Level.INFO, "Wybranie danych ktore maja zostac wyswietlone: {0} ", fieldGroup);
         fieldGroupSelect.click();
-        logger.log(Level.INFO, "Wcisniecie selecta: {0} ", fieldGroup);
+        logger.log(Level.INFO, "Wcisniecie listy select: {0} ", fieldGroup);
         return new PimPanelSteps();
     }
 
@@ -213,16 +214,6 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
     public PimPanelSteps clickDisplayField() {
         displayFieldSelect.click();
         logger.log(Level.INFO, "Wybranie pola ktore zostanie wyswietlone");
-        return new PimPanelSteps();
-    }
-
-    @Step("Wybranie danych ktore maja zostac wyswietlone")
-    public PimPanelSteps selectDisplayField(String displayField) {
-        String fieldGroupSelector = "//span[contains(text(),'" + displayField + "')]";
-        WebElement displayFieldLabel = DriverPicker.driverSetup().findElement(By.xpath(fieldGroupSelector));
-        logger.log(Level.INFO, "Wybranie danych ktore maja zostac wyswietlone: {0} ", displayField);
-        displayFieldLabel.click();
-        logger.log(Level.INFO, "Wcisniecie selecta: {0} ", displayField);
         return new PimPanelSteps();
     }
 }

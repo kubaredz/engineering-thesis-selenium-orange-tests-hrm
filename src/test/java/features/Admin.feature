@@ -13,7 +13,7 @@ Feature: Testy weryfikujace panel administratora
     And Login pracownika zostanie wygenerowany
     And Haslo pracownika to: Pa$$word123!
     And Wpisanie ponownie hasla: Pa$$word123!
-    * Status pracownika to: Enabled
+    And Status pracownika to: Enabled
     When Przycisk save zostaje wcisniety
     Then Alert sukces zostal wyswietlony
     And Strona User Management zostala zaladowana

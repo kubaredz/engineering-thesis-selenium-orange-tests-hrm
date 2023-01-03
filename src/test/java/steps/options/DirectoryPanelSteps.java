@@ -16,25 +16,25 @@ public class DirectoryPanelSteps extends DirectoryPanelBuilder implements Defaul
     @Override
     @Step("Sekcja 'Directory' zostala wyswietlona")
     public boolean isHeaderTextDisplayed() {
-        logger.log(Level.INFO, "Sekcja: \"Directory\" została wyświetlona");
+        logger.log(Level.INFO, "Sekcja: \"Directory\" zostala wyswietlona");
         return headerTextPrefix.isDisplayed();
     }
 
     @Override
     @Step("Sekcja: 'Directory' zostala otwarta")
-    public <T> DirectoryPanelSteps clickPimPanelSection() {
+    public DirectoryPanelSteps clickPanelSection() {
         directorySection.click();
-        logger.log(Level.INFO, "Przycisk dla sekcji: \"Directory\" został wciśnięty");
+        logger.log(Level.INFO, "Przycisk dla sekcji: \"Directory\" zostal wcisniety");
         return new DirectoryPanelSteps();
     }
 
     @Override
-    public <T> CommonGenericSteps clickAddButton() {
+    public CommonGenericSteps clickAddButton() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public <T> CommonGenericSteps clickSaveButton() {
+    public CommonGenericSteps clickSaveButton() {
         throw new UnsupportedOperationException();
     }
 }

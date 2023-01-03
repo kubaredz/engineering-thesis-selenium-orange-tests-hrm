@@ -8,5 +8,4 @@ import io.cucumber.testng.CucumberOptions;
         glue= {"steps/gherkin_steps"}
 )
 public class TimeBddTests extends AbstractTestNGCucumberTests {
-
 }

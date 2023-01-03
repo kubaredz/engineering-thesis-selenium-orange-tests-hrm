@@ -2,9 +2,9 @@ package steps.options;
 
 public interface CommonGenericSteps<T> {
 
-    public <T> CommonGenericSteps clickPimPanelSection();
+     CommonGenericSteps clickPanelSection();
 
-    public <T> CommonGenericSteps clickAddButton();
+     CommonGenericSteps clickAddButton();
 
-    public <T> CommonGenericSteps clickSaveButton();
+     CommonGenericSteps clickSaveButton();
 }

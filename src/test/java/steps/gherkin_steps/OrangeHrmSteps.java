@@ -5,7 +5,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import properties.PropertiesReader;
 import setup.DriverPicker;
 import setup.PageSetup;
 import steps.CommonSteps;
@@ -18,8 +17,6 @@ import steps.options.RecruitmentPanelSteps;
 import steps.options.TimePanelSteps;
 import tests.CommonTests;
 
-import java.util.Properties;
-
 import static org.junit.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static properties.PropertiesReader.*;
@@ -28,10 +25,8 @@ import static properties.PropertiesReader.*;
 public class OrangeHrmSteps {
 
     @Given("Wejscie na strone OrangeHRM")
-    public void enter_orange_hrm_page() {
-        PropertiesReader configurationProperties = new PropertiesReader();
-        Properties propertiesFromFile = configurationProperties.configurationFileReader();
-        setProperties(propertiesFromFile);
+    public void step_enter_orange_hrm_page() {
+        setPropertiesFromFileInSystem();
         DriverPicker.driverSetup();
         PageSetup.setMaximizeOfWindow();
         PageSetup.setImplicitWait();
@@ -39,19 +34,21 @@ public class OrangeHrmSteps {
     }
 
     @Given("Zalogowanie uzytkownika do strony OrangeHRM")
-    public void login_registered_user_to_orange_hrm() {
+    public void step_login_registered_user_to_orange_hrm() {
         CommonTests commonTests = new CommonTests();
-        commonTests.loginAsAdministratorToOrangeHrmAppTest("Admin", "admin123");
+        commonTests
+                .loginAsAdministratorToOrangeHrmAppTest("Admin", "admin123");
     }
 
     @Given("Wcisniecie przycisku Add")
     public void step_click_add_button() {
         AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
-        adminPanelSteps.clickAddButton();
+        adminPanelSteps
+                .clickAddButton();
     }
 
     @Given("Wybranie User Role: ([^\"]*)$")
-    public void pick_user_role(String role) {
+    public void step_set_user_role(String role) {
         AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
         adminPanelSteps
                 .clickUserRoleDropdown()
@@ -59,7 +56,7 @@ public class OrangeHrmSteps {
     }
 
     @Given("Imie zalogowanego uzytkownika zostaje zaladowane")
-    public void set_username_label() {
+    public void step_set_username_label() {
         HeaderSteps headerSteps = new HeaderSteps();
         String loggedUserData = headerSteps.getLoggedUser();
 
@@ -70,7 +67,7 @@ public class OrangeHrmSteps {
     }
 
     @Given("Login pracownika zostanie wygenerowany")
-    public void set_username_login_label() {
+    public void step_set_username_label_with_generated_data() {
         String generatedUsername = UserDataGenerator.generateUsername();
         AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
         adminPanelSteps
@@ -78,21 +75,21 @@ public class OrangeHrmSteps {
     }
 
     @Given("Haslo pracownika to: ([^\"]*)$")
-    public void set_password_label(String password) {
+    public void step_set_password_label(String password) {
         AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
         adminPanelSteps
                 .setEmployeePasswordLabel(password);
     }
 
     @Given("Wpisanie ponownie hasla: ([^\"]*)$")
-    public void set_confirm_password_label(String password) {
+    public void step_set_repeated_password_label(String repeatedPassword) {
         AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
         adminPanelSteps
-                .setEmployeeConfirmPasswordLabel(password);
+                .setRepeatedPasswordLabel(repeatedPassword);
     }
 
     @Given("Status pracownika to: ([^\"]*)$")
-    public void set_status_of_employee(String status) {
+    public void step_set_employee_status(String status) {
         AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
         adminPanelSteps
                 .clickStatusList()
@@ -100,51 +97,57 @@ public class OrangeHrmSteps {
     }
 
     @Given("Podanie loginu uzytkownika: \"([^\"]*)\"$")
-    public void setting_user_name_field(String login) {
+    public void step_set_user_name_field(String username) {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
-        loginPageSteps.setUserNameField(login);
+        loginPageSteps
+                .setUserNameField(username);
     }
 
     @Given("Podanie hasla uzytkownika: \"([^\"]*)\"$")
-    public void setting_user_password_field(String password) {
+    public void step_set_user_password_field(String password) {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
-        loginPageSteps.setPasswordField(password);
+        loginPageSteps
+                .setPasswordField(password);
     }
 
-    @Given("Wcisniecie przycisku dla Reports")
-    public void click_reports_button() {
+    @Given("Wcisniecie przycisku przechodzacego do sekcji PIM-Reports")
+    public void step_click_report_button() {
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
-        pimPanelSteps.clickReportsButton();
+        pimPanelSteps
+                .clickReportButton();
     }
 
     @Given("Podanie nazwy raportu: ([^\"]*)$")
-    public void entering_name_for_report(String reportName) {
+    public void step_set_report_name(String reportName) {
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
-        String generatedReportName = reportName + UserDataGenerator.generateId();
-        pimPanelSteps.setReportName(reportName + generatedReportName);
+        pimPanelSteps
+                .generateReportName(reportName);
     }
 
     @Given("Wybranie kryterium raportu: ([^\"]*)$")
-    public void pay_grade_rating_set(String reportName) {
+    public void step_select_report_criterion(String selectedCriteria) {
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
-        pimPanelSteps.setSelectionCriteria();
-        pimPanelSteps.pickSelectionCriteria(reportName);
+        pimPanelSteps
+                .setSelectionCriteria()
+                .pickSelectionCriteria(selectedCriteria);
     }
 
     @Given("Przycisk plus dla selection criteria zostal wcisniety")
-    public void click_plus_button_for_criteria() {
+    public void step_click_plus_button_for_criterion() {
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
-        pimPanelSteps.clickPlusButtonForCriteria();
+        pimPanelSteps
+                .clickPlusButtonForCriteria();
     }
 
     @Given("Przycisk plus dla display fields zostal wcisniety")
-    public void click_plus_button_for_display_fields() {
+    public void step_click_plus_button_for_display_fields() {
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
-        pimPanelSteps.clickPlusButtonForDisplayFields();
+        pimPanelSteps
+                .clickPlusButtonForDisplayFields();
     }
 
     @Given("Wybranie stopnia naukowego: ([^\"]*)$")
-    public void pick_education_degree(String degree) {
+    public void step_set_education_degree(String degree) {
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
         pimPanelSteps
                 .clickEducationTypeSelect()
@@ -152,41 +155,43 @@ public class OrangeHrmSteps {
     }
 
     @Given("Pola z sekcji które mają zostać wyświetlone w raporcie to: ([^\"]*)$")
-    public void pick_select_option_data_group(String fieldGroup) {
+    public void step_set_option_data_group(String dataGroup) {
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
         pimPanelSteps
                 .clickDisplayFieldsLabel()
-                .selectPersonalDataGroup(fieldGroup);
+                .selectPersonalDataGroup(dataGroup);
     }
 
     @Given("Wybranie dokladnych danych jakie maja zostac wyswietlone: ([^\"]*)$")
-    public void pick_displayed_field(String displayedField) {
+    public void step_set_displayed_field(String displayedField) {
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
         pimPanelSteps
                 .clickDisplayField()
-                .selectDisplayField(displayedField);
+                .selectPersonalDataGroup(displayedField);
     }
 
     @Given("Wcisniecie rozwijanej listy: ([^\"]*)$")
-    public void click_list_from_time_section(String listButton) {
+    public void step_click_list_from_time_section(String timeSectionList) {
         TimePanelSteps timePanelSteps = new TimePanelSteps();
-        timePanelSteps.selectButtonFromListInTimeAndClick(listButton);
+        timePanelSteps
+                .selectButtonFromListInTimeAndClick(timeSectionList);
     }
 
     @Given("Wybranie opcji z listy: ([^\"]*)$")
-    public void click_picked_option_from_list(String option) {
+    public void step_click_picked_option_from_list(String pickedOption) {
         TimePanelSteps timePanelSteps = new TimePanelSteps();
-        timePanelSteps.pickOptionFromList(option);
+        timePanelSteps.pickOptionFromList(pickedOption);
     }
 
     @Given("Wcisniecie przycisku: ([^\"]*)$")
-    public void click_button_on_my_timesheet_section(String button) {
-        TimePanelSteps timePanelSteps = new TimePanelSteps();
-        timePanelSteps.clickButtonWithNormalizeSpace(button);
+    public void step_click_decision_button(String button) {
+        CommonSteps commonSteps = new CommonSteps();
+        commonSteps
+                .clickButtonWithNormalizeSpace(button);
     }
 
     @Given("Wybranie projektu: ([^\"]*)$")
-    public void set_project_name(String projectName) {
+    public void step_set_project_name(String projectName) {
         TimePanelSteps timePanelSteps = new TimePanelSteps();
         timePanelSteps
                 .setProjectName(projectName)
@@ -194,80 +199,88 @@ public class OrangeHrmSteps {
     }
 
     @Given("Wybranie rodzaju pracy: ([^\"]*)$")
-    public void set_activity(String activityType) {
+    public void step_set_activity_type(String activityType) {
         TimePanelSteps timePanelSteps = new TimePanelSteps();
-        timePanelSteps.choseActivity(activityType);
+        timePanelSteps
+                .choseActivity(activityType);
     }
 
     @Given("Dodanie ([^\"]*) godzin pracy dla ([^\"]*) dni roboczych$")
-    public void set_worked_hours(String hours, int days) {
+    public void step_set_worked_hours_and_days(String hours, int days) {
         TimePanelSteps timePanelSteps = new TimePanelSteps();
-        timePanelSteps.setWorkedHours(hours, days);
+        timePanelSteps
+                .setWorkedHours(hours, days);
     }
 
     @Given("Zresetowanie raportu")
-    public void click_delete_report_button() {
+    public void step_reset_time_report() {
         TimePanelSteps timePanelSteps = new TimePanelSteps();
-        timePanelSteps.clickDeleteReportButton();
+        timePanelSteps
+                .resetHoursReport();
     }
 
     @Given("Wygenerowanie nazwy wakatu")
-    public void set_vacancy_name() {
+    public void step_generate_vacancy_name() {
         RecruitmentPanelSteps recruitmentPanelSteps = new RecruitmentPanelSteps();
-        recruitmentPanelSteps.setVacancyNameLabel();
+        recruitmentPanelSteps
+                .setVacancyNameLabel();
     }
 
     @Given("Podanie typu pracy: ([^\"]*)$")
-    public void set_job_title(String jobTitle) {
+    public void step_set_job_type(String jobType) {
         RecruitmentPanelSteps recruitmentPanelSteps = new RecruitmentPanelSteps();
         recruitmentPanelSteps
                 .clickJobTitleSelect()
-                .pickJobTitle(jobTitle);
+                .setJobType(jobType);
     }
 
     @Given("Dodanie opisu: ([^\"]*)$")
-    public void set_description(String description) {
+    public void step_set_description(String description) {
         RecruitmentPanelSteps recruitmentPanelSteps = new RecruitmentPanelSteps();
         recruitmentPanelSteps
                 .setDescription(description);
     }
 
     @Given("Polecajacy uzytkownik to aktualnie zalogowany uzytkownik")
-    public void set_hiring_manager() {
+    public void step_set_hiring_manager_recommendation() {
         RecruitmentPanelSteps recruitmentPanelSteps = new RecruitmentPanelSteps();
         recruitmentPanelSteps
                 .setHiringManager();
     }
 
     @Given("Ustawienie ilosci ogloszen: ([^\"]*)$")
-    public void set_number_of_position(String positionNumber) {
+    public void step_set_position_number(String positionNumber) {
         RecruitmentPanelSteps recruitmentPanelSteps = new RecruitmentPanelSteps();
         recruitmentPanelSteps
-                .setNumberOfPosition(positionNumber);
+                .setPositionNumber(positionNumber);
     }
 
     @When("Wcisniecie przycisku logowania")
-    public void click_login_button() {
+    public void when_click_login_button() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
-        loginPageSteps.clickLoginButton();
+        loginPageSteps
+                .clickLoginButton();
     }
 
     @When("Wciskam przycisk z sekcji quick launch przekierowywujacy do ([^\"]*)$")
-    public void step_clicking_button_from_section_quick_launch_redirect_to(String section) {
+    public void when_clicking_button_from_section_quick_launch_redirect_to(String section) {
         DashboardSteps dashboardSteps = new DashboardSteps();
-        dashboardSteps.quickLaunchSectionOptionClick(section);
+        dashboardSteps
+                .quickLaunchSectionOptionClick(section);
     }
 
     @When("Przejscie do sekcji: ([^\"]*)$")
-    public void enter_to_the_section(String section) {
+    public void when_enter_to_the_section(String section) {
         CommonSteps commonSteps = new CommonSteps();
-        commonSteps.generateAndClickSelectorForAllSections(section);
+        commonSteps
+                .generateAndClickSelectorForAllSections(section);
     }
 
     @When("Przycisk save zostaje wcisniety")
-    public void click_save_button() {
+    public void when_click_save_button() {
         AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
-        adminPanelSteps.clickSaveButton();
+        adminPanelSteps
+                .clickSaveButton();
     }
 
     @Then("Sekcja z naglowkiem ([^\"]*) zostala wyswietlona$")
@@ -279,7 +292,6 @@ public class OrangeHrmSteps {
     @Then("Ekran glowny aplikacji z logo OrangeHRM zostal wyswietlony")
     public void assert_that_orange_hrm_logo_is_present() {
         DashboardSteps dashboardSteps = new DashboardSteps();
-        dashboardSteps.isHrmLogoAfterLoginDisplayed();
         assertTrue(dashboardSteps.isHrmLogoAfterLoginDisplayed());
     }
 
@@ -307,7 +319,6 @@ public class OrangeHrmSteps {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
 
         String invalidCredentialsAlert = loginPageSteps.getInvalidCredentialsAlertText();
-
         assertEquals(invalidCredentialsAlert, "Invalid credentials");
     }
 

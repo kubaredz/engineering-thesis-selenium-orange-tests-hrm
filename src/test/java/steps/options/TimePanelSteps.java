@@ -20,62 +20,62 @@ public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, Co
     @Override
     @Step("Sekcja 'Timesheet' zostala wyswietlona")
     public boolean isHeaderTextDisplayed() {
-        logger.log(Level.INFO, "Sekcja: \"Timesheet\" została wyświetlona");
+        logger.log(Level.INFO, "Sekcja: \"Timesheet\" zostala wyswietlona");
         return headerTextAddition.isDisplayed();
     }
 
     @Override
     @Step("Sekcja: 'Time' zostala otwarta")
-    public <T> TimePanelSteps clickPimPanelSection() {
+    public TimePanelSteps clickPanelSection() {
         timePanelSection.click();
-        logger.log(Level.INFO, "Przycisk dla sekcji: \"Time\" został wciśnięty");
+        logger.log(Level.INFO, "Przycisk dla sekcji: \"Time\" zostal wcisniety");
         return new TimePanelSteps();
     }
 
     @Override
-    public <T> CommonGenericSteps clickAddButton() {
+    public CommonGenericSteps clickAddButton() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public <T> CommonGenericSteps clickSaveButton() {
+    public CommonGenericSteps clickSaveButton() {
         throw new UnsupportedOperationException();
     }
 
     @Step("Imie pracownika: {name} zostalo wpisane")
     public TimePanelSteps setEmployeeName(String name) {
         RepeatedActions.deletingAndAddingContentToLabel(employeeNameLabel, name);
-        logger.log(Level.INFO, "Imię: \"{0}\" zostało wpisane", name);
+        logger.log(Level.INFO, "Imie pracownika: \"{0}\" zostalo wpisane", name);
         return new TimePanelSteps();
     }
 
     @Step("Wybranie wyswietlonego pracownika")
     public TimePanelSteps pickPromptedEmployeeName() {
         promptedEmployeeName.click();
-        logger.log(Level.INFO, "Wybranie wyświetlonego imienia");
+        logger.log(Level.INFO, "Wybranie wyswietlonego imienia");
         return new TimePanelSteps();
     }
 
     @Step("Przycisk: 'view' zostal wcisniety")
     public TimePanelSteps clickViewButton() {
         viewButton.click();
-        logger.log(Level.INFO, "kliknięcie przycisku: \"view\"");
+        logger.log(Level.INFO, "Wcisniecie przycisku: \"View\"");
         return new TimePanelSteps();
     }
 
     @Step("Sekcja: 'Time' zostala wyswietlona")
     public boolean isTimeSectionDisplayed() {
-        logger.log(Level.INFO, "Sekcja: \"Time\" jest widoczna");
+        logger.log(Level.INFO, "Sekcja: \"Time\" zostala wyswietlona");
         return headerTextPrefix.isDisplayed();
     }
 
     @Step("Alert: 'Info' zostal wyswietlony")
     public boolean isAlertInfoDisplayed() {
-        logger.log(Level.INFO, "Alert: \"Info\" jest widoczny");
+        logger.log(Level.INFO, "Alert: \"Info\" zostal wyswietlony");
         return infoAlert.isDisplayed();
     }
 
-    @Step("Wcisniecie przycisku z listy w sekcji Time: {listButton}")
+    @Step("Wybranie oraz wcisniecie przycisku z listy w sekcji Time: {listButton}")
     public TimePanelSteps selectButtonFromListInTimeAndClick(String listButton) {
         String fieldGroupSelector = "//span[normalize-space()='" + listButton + "']";
         WebElement buttonFromList = DriverPicker.driverSetup().findElement(By.xpath(fieldGroupSelector));
@@ -95,39 +95,29 @@ public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, Co
         return new TimePanelSteps();
     }
 
-    @Step("Wcisniecie przycisku: {button}'")
-    public TimePanelSteps clickButtonWithNormalizeSpace(String button) {
-        String fieldGroupSelector = "//button[normalize-space()='" + button + "']";
-        System.out.println(fieldGroupSelector);
-        WebElement pickedButton = DriverPicker.driverSetup().findElement(By.xpath(fieldGroupSelector));
-        pickedButton.click();
-        logger.log(Level.INFO, "Wcisniecie przycisku: {0} ", button);
-        return new TimePanelSteps();
-    }
-
-    @Step("Wpisany projekt to: {projectName}")
+    @Step("Wpisany projekt pracownika to: {projectName}")
     public TimePanelSteps setProjectName(String projectName) {
         RepeatedActions.deletingAndAddingContentToLabel(projectNameLabel, projectName);
-        logger.log(Level.INFO, "Wpisany projekt to: {0}", projectName);
+        logger.log(Level.INFO, "Wpisany projekt pracownika to: {0}", projectName);
         return new TimePanelSteps();
     }
 
-    @Step("Wybranie podpowiedzianego projektu'")
+    @Step("Wcisniecie wyswietlonego projektu")
     public TimePanelSteps chosePromptedProject() {
         pickedProject.click();
-        logger.log(Level.INFO, "Wybranie projektu");
+        logger.log(Level.INFO, "Wcisniecie wyswietlonego projektu");
         return new TimePanelSteps();
     }
 
-    @Step("Wybranie rodzaju pracy")
+    @Step("Wybranie stanowiska pracy pracownika: {activityType}")
     public TimePanelSteps choseActivity(String activityType) {
         activitySelect.click();
         String fieldGroupSelector = "//span[contains(text(),'" + activityType + "')]";
         WebElement chosenActivity = DriverPicker.driverSetup().findElement(By.xpath(fieldGroupSelector));
         Wait.waitTillElementIsPresent(chosenActivity);
-        logger.log(Level.INFO, "Wybranie rodzaju pracy: {0} ", activityType);
+        logger.log(Level.INFO, "Wybranie stanowiska pracy pracownika: {0} ", activityType);
         chosenActivity.click();
-        logger.log(Level.INFO, "Wcisniecie pracy: {0} ", activityType);
+        logger.log(Level.INFO, "Wcisniecie stanowiska pracy pracownika: {0} ", activityType);
         return new TimePanelSteps();
     }
 
@@ -135,18 +125,18 @@ public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, Co
     public TimePanelSteps setWorkedHours(String hours, int days) {
         for (int i = 3; i < 3 + days; i++) {
             String dayLabelSelector = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[2]/table[1]/tbody[1]/tr[1]/td[" + i + "]/div[1]/div[2]/input[1]";
-            logger.log(Level.INFO, "Dodanie godzin pracy: {0} ", hours);
-            logger.log(Level.INFO, "Dodanie godzin pracy dla: {0} dni roboczych", days);
             WebElement dayLabel = DriverPicker.driverSetup().findElement(By.xpath(dayLabelSelector));
             RepeatedActions.deletingAndAddingContentToLabel(dayLabel, hours);
+            logger.log(Level.INFO, "Dodanie godzin pracy: {0} ", hours);
+            logger.log(Level.INFO, "Dodanie godzin pracy dla: {0} dni roboczych", days);
         }
         return new TimePanelSteps();
     }
 
-    @Step("Zresetowanie raportu")
-    public TimePanelSteps clickDeleteReportButton() {
-        logger.log(Level.INFO, "Zresetowanie raportu godzin");
+    @Step("Zresetowanie raportu godzin")
+    public TimePanelSteps resetHoursReport() {
         deleteReportButton.click();
+        logger.log(Level.INFO, "Zresetowanie raportu godzin");
         return new TimePanelSteps();
     }
 }

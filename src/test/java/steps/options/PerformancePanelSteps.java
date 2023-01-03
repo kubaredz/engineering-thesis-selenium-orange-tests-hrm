@@ -7,7 +7,7 @@ import setup.DriverPicker;
 
 import java.util.logging.Level;
 
-public class PerformancePanelSteps extends PerformancePanelBuilder implements CommonGenericSteps<PerformancePanelSteps>{
+public class PerformancePanelSteps extends PerformancePanelBuilder implements CommonGenericSteps<PerformancePanelSteps> {
 
     public PerformancePanelSteps() {
         PageFactory.initElements(DriverPicker.driverSetup(), this);
@@ -15,31 +15,31 @@ public class PerformancePanelSteps extends PerformancePanelBuilder implements Co
 
     @Override
     @Step("Sekcja: 'Performance' zostala otwarta")
-    public <T> PerformancePanelSteps clickPimPanelSection() {
+    public PerformancePanelSteps clickPanelSection() {
         performanceSection.click();
-        logger.log(Level.INFO, "Przycisk dla sekcji: \"Performance\" został wciśnięty");
+        logger.log(Level.INFO, "Przycisk dla sekcji: \"Performance\" zostal wcisniety");
         return new PerformancePanelSteps();
     }
 
     @Override
-    public <T> CommonGenericSteps clickAddButton() {
+    public CommonGenericSteps clickAddButton() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public <T> CommonGenericSteps clickSaveButton() {
+    public CommonGenericSteps clickSaveButton() {
         throw new UnsupportedOperationException();
     }
 
     @Step("Sekcja 'Performance' zostala wyswietlona")
     public boolean isPerformanceSectionDisplayed() {
-        logger.log(Level.INFO, "Sekcja: \"Manage Reviews\" została wyświetlona");
+        logger.log(Level.INFO, "Sekcja: \"Manage Reviews\" zostala wyswietlona");
         return performanceSection.isDisplayed();
     }
 
     @Step("Sekcja: 'Manage Reviews' zostala wyswietlona")
     public boolean isManageReviewsSectionDisplayed() {
-        logger.log(Level.INFO, "Sekcja: \"Manage Reviews\" została wyświetlona");
+        logger.log(Level.INFO, "Sekcja: \"Manage Reviews\" zostala wyswietlona");
         return headerTextAddition.isDisplayed();
     }
 }

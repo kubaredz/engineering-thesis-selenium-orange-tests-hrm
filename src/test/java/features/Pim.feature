@@ -9,7 +9,7 @@ Feature: Testy weryfikujace panel PIM (Personeels Informatie Manager)
   @test
   Scenario Outline: Dodanie nowego raportu jako zalogowany uzytkownik z informacja na temat stopnia naukowego pracownika
     Given Przejscie do sekcji: Pim
-    And Wcisniecie przycisku dla Reports
+    And Wcisniecie przycisku przechodzacego do sekcji PIM-Reports
     And Wcisniecie przycisku Add
     And Podanie nazwy raportu: Raport
     And Wybranie kryterium raportu: Education

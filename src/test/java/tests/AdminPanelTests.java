@@ -34,7 +34,7 @@ public class AdminPanelTests extends TestBase {
     public void asAdminUserManagementScreenIsPresentTest() {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(pageSetup.setLogin(), pageSetup.setPassword());
 
-        adminPanelSteps.clickPimPanelSection();
+        adminPanelSteps.clickPanelSection();
         assertTrue(adminPanelSteps.isHeaderTextDisplayed());
     }
 
@@ -50,7 +50,7 @@ public class AdminPanelTests extends TestBase {
         String loggedUserData = headerSteps.getLoggedUser();
 
         adminPanelSteps
-                .clickPimPanelSection()
+                .clickPanelSection()
                 .clickAddButton();
 
         assertTrue(adminPanelSteps.isAddUserTextDisplayed());
@@ -62,7 +62,7 @@ public class AdminPanelTests extends TestBase {
                 .clickEmployeeNameFromList()
                 .setUsernameLabel(UserDataGenerator.generateUsername())
                 .setEmployeePasswordLabel(generatedPassword)
-                .setEmployeeConfirmPasswordLabel(generatedPassword)
+                .setRepeatedPasswordLabel(generatedPassword)
                 .clickStatusList()
                 .clickEnabledStatus()
                 .clickUserRoleDropdown()

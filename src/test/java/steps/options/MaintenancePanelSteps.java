@@ -23,19 +23,19 @@ public class MaintenancePanelSteps extends MaintenancePanelBuilder implements De
 
     @Override
     @Step("Sekcja: 'Maintenance' zostala otwarta")
-    public <T> MaintenancePanelSteps clickPimPanelSection() {
+    public MaintenancePanelSteps clickPanelSection() {
         maintenanceSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"Maintenance\" został wciśnięty");
         return new MaintenancePanelSteps();
     }
 
     @Override
-    public <T> CommonGenericSteps clickAddButton() {
+    public CommonGenericSteps clickAddButton() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public <T> CommonGenericSteps clickSaveButton() {
+    public CommonGenericSteps clickSaveButton() {
         throw new UnsupportedOperationException();
     }
 

@@ -28,7 +28,7 @@ public class RecruitmentPanelTests extends TestBase {
     public void asAdminRecruitmentScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
-        recruitmentPanelSteps.clickPimPanelSection();
+        recruitmentPanelSteps.clickPanelSection();
 
         assertTrue(recruitmentPanelSteps.isHeaderTextDisplayed());
     }
@@ -43,7 +43,7 @@ public class RecruitmentPanelTests extends TestBase {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         recruitmentPanelSteps
-                .clickPimPanelSection()
+                .clickPanelSection()
                 .clickAddButton();
 
         assertTrue(recruitmentPanelSteps.isAddCandidateSectionDisplayed());

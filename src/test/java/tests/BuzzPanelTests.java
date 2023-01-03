@@ -29,7 +29,7 @@ public class BuzzPanelTests extends TestBase {
     public void asAdminBuzzScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
-        buzzPanelSteps.clickPimPanelSection();
+        buzzPanelSteps.clickPanelSection();
 
         assertTrue(buzzPanelSteps.isHeaderTextDisplayed());
     }
@@ -43,7 +43,7 @@ public class BuzzPanelTests extends TestBase {
     public void asAdminOnBuzzScreenIsInformationThatPageLaunchingSoonTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
-        buzzPanelSteps.clickPimPanelSection();
+        buzzPanelSteps.clickPanelSection();
 
         assertTrue(buzzPanelSteps.isLaunchingSoonTextDisplayed());
         assertEquals(buzzPanelSteps.getLaunchingSoonText(), "Launching Soon");

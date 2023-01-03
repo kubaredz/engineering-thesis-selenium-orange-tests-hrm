@@ -34,7 +34,7 @@ public class PimPanelTests extends TestBase {
                 .setPasswordField("admin123")
                 .clickLoginButton();
 
-        pimPanelSteps.clickPimPanelSection();
+        pimPanelSteps.clickPanelSection();
 
         assertTrue(pimPanelSteps.isHeaderTextDisplayed());
     }
@@ -51,7 +51,7 @@ public class PimPanelTests extends TestBase {
                 .clickLoginButton();
 
         pimPanelSteps
-                .clickPimPanelSection()
+                .clickPanelSection()
                 .clickAddButton();
 
         assertTrue(pimPanelSteps.isAddEmployeeTextDisplayed());
@@ -68,7 +68,7 @@ public class PimPanelTests extends TestBase {
         String password = PasswordGenerator.generatePassword(15);
 
         pimPanelSteps
-                .clickPimPanelSection()
+                .clickPanelSection()
                 .clickAddButton()
                 .setUploadImageButton("C:\\Users\\kubar\\avatar.jpg")
                 .setFirstNameLabel(UserDataGenerator.generateFirstName())

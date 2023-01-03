@@ -43,4 +43,8 @@ public class UserDataGenerator {
         String generatedNumber = RandomStringUtils.randomAlphabetic(8);
         return generatedString + generatedNumber;
     }
+
+    public static String generateReportName(String reportName) {
+        return reportName + generateId();
+    }
 }

@@ -32,7 +32,7 @@ public class LeavePanelTests extends TestBase {
     public void checkThatLeaveListIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
-        leavePanelSteps.clickPimPanelSection();
+        leavePanelSteps.clickPanelSection();
 
         assertTrue(leavePanelSteps.isHeaderTextDisplayed());
     }
@@ -49,7 +49,7 @@ public class LeavePanelTests extends TestBase {
         String loggedUserData = headerSteps.getLoggedUser();
 
         leavePanelSteps
-                .clickPimPanelSection()
+                .clickPanelSection()
                 .clickAssignLeaveButton()
                 .setEmployeeName(loggedUserData)
                 .pickPromptedEmployee()

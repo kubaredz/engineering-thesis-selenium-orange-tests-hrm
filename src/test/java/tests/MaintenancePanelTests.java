@@ -29,7 +29,7 @@ public class MaintenancePanelTests extends TestBase {
     public void asAdminMaintenanceScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
-        maintenancePanelSteps.clickPimPanelSection();
+        maintenancePanelSteps.clickPanelSection();
 
         assertEquals(maintenancePanelSteps.getMaintenancePageUrl(), "https://opensource-demo.orangehrmlive.com/web/index.php/maintenance/purgeEmployee");
     }
@@ -43,7 +43,7 @@ public class MaintenancePanelTests extends TestBase {
     public void asAdminLoginToMaintenanceAdministratorAccessPageTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
         maintenancePanelSteps
-                .clickPimPanelSection()
+                .clickPanelSection()
                 .setPasswordLabel("admin123")
                 .clickConfirmButton();
 

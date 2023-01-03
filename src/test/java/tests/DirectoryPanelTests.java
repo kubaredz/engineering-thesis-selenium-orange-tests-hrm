@@ -29,7 +29,7 @@ public class DirectoryPanelTests extends TestBase {
     public void asAdminDirectoryScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
-        directoryPanelSteps.clickPimPanelSection();
+        directoryPanelSteps.clickPanelSection();
         assertTrue(directoryPanelSteps.isHeaderTextDisplayed());
     }
 }

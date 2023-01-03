@@ -30,7 +30,7 @@ public class TimePanelTests extends TestBase {
     public void asAdminUserTimesheetScreenIsPresentTest() {
         commonTests.loginAsAdministratorToOrangeHrmAppTest("Admin", "admin123");
 
-        timePanelSteps.clickPimPanelSection();
+        timePanelSteps.clickPanelSection();
 
         assertTrue(timePanelSteps.isHeaderTextDisplayed());
     }
@@ -47,7 +47,7 @@ public class TimePanelTests extends TestBase {
         String loggedUserData = headerSteps.getLoggedUser();
 
         timePanelSteps
-                .clickPimPanelSection()
+                .clickPanelSection()
                 .setEmployeeName(loggedUserData)
                 .pickPromptedEmployeeName()
                 .clickViewButton();

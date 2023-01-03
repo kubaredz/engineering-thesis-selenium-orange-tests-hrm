@@ -16,38 +16,38 @@ public class BuzzPanelSteps extends BuzzPanelBuilder implements DefaultSteps, Co
     @Override
     @Step("Text: 'Buzz' zostal wyswietlony")
     public boolean isHeaderTextDisplayed() {
-        logger.log(Level.INFO, "Tekst: \"Buzz\" został wyświetlony");
+        logger.log(Level.INFO, "Tekst: \"Buzz\" zostal wyswietlony");
         return headerTextPrefix.isDisplayed();
     }
 
     @Override
     @Step("Sekcja: 'Buzz' zostala otwarta")
-    public <T> BuzzPanelSteps clickPimPanelSection() {
+    public BuzzPanelSteps clickPanelSection() {
         buzzPanelSection.click();
-        logger.log(Level.INFO, "Przycisk dla sekcji: \"Buzz\" został wciśnięty");
+        logger.log(Level.INFO, "Przycisk dla sekcji: \"Buzz\" zostal wcisniety");
         return new BuzzPanelSteps();
     }
 
     @Override
-    public <T> CommonGenericSteps clickAddButton() {
+    public CommonGenericSteps clickAddButton() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public <T> CommonGenericSteps clickSaveButton() {
+    public CommonGenericSteps clickSaveButton() {
         throw new UnsupportedOperationException();
     }
 
     @Step("Text: 'Launching Soon' zostal wyswietlony")
     public boolean isLaunchingSoonTextDisplayed() {
-        logger.log(Level.INFO, "Tekst: \"Launching Soon\" został wyświetlony");
+        logger.log(Level.INFO, "Tekst: \"Launching Soon\" zostal wyswietlony");
         return headerTextPrefix.isDisplayed();
     }
 
     @Step("Text: 'Launching Soon' zostal wyswietlony")
     public String getLaunchingSoonText() {
         String launchingSoon = launchingSoonText.getText();
-        logger.log(Level.INFO, "Tekst: {0} został wyświetlony", launchingSoon);
+        logger.log(Level.INFO, "Tekst: {0} zostal wyswietlony", launchingSoon);
         return launchingSoon;
     }
 }

@@ -5,6 +5,7 @@ import properties.PropertiesReader;
 import java.time.Duration;
 
 public class PageSetup {
+    //TODO Fluent interface
     private static PropertiesReader propertiesReader;
 
     public static void setPageUrl() {

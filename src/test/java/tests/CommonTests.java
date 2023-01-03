@@ -45,7 +45,7 @@ public class CommonTests extends TestBase {
         String password = PasswordGenerator.generatePassword(15);
 
         pimPanelSteps
-                .clickPimPanelSection()
+                .clickPanelSection()
                 .clickAddButton()
                 .setUploadImageButton("C:\\Users\\kubar\\avatar.jpg")
                 .setFirstNameLabel(UserDataGenerator.generateFirstName())
@@ -75,7 +75,7 @@ public class CommonTests extends TestBase {
         String generatedUsername = UserDataGenerator.generateUsername();
         String generatedPassword = PasswordGenerator.generatePassword(15);
         pimPanelSteps
-                .clickPimPanelSection()
+                .clickPanelSection()
                 .clickAddButton()
                 .setUploadImageButton("C:\\Users\\kubar\\avatar.jpg")
                 .setFirstNameLabel(generatedFirstName)

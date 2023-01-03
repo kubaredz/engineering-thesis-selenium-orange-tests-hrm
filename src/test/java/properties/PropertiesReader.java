@@ -79,4 +79,10 @@ public class PropertiesReader {
     private static void setPropertyOfSystem(String driverType, String driverPath) {
         System.setProperty(driverType, driverPath);
     }
+
+    public static void setPropertiesFromFileInSystem() {
+        PropertiesReader propertiesReader = new PropertiesReader();
+        Properties propertiesFromFile = propertiesReader.configurationFileReader();
+        setProperties(propertiesFromFile);
+    }
 }

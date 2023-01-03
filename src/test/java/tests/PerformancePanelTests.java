@@ -28,7 +28,7 @@ public class PerformancePanelTests extends TestBase {
     public void asAdminPerformanceScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
-        performancePanelSteps.clickPimPanelSection();
+        performancePanelSteps.clickPanelSection();
 
         assertTrue(performancePanelSteps.isPerformanceSectionDisplayed());
         assertTrue(performancePanelSteps.isManageReviewsSectionDisplayed());

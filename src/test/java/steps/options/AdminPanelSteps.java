@@ -28,7 +28,7 @@ public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, 
 
     @Override
     @Step("Przycisk dla panelu: 'Admin' zostal wcisniety")
-    public <T> AdminPanelSteps clickPimPanelSection() {
+    public AdminPanelSteps clickPanelSection() {
         adminPanelSection.click();
         logger.log(Level.INFO, "Przycisk dla sekcji: \"Admin\" zostal wcisniety");
         return new AdminPanelSteps();
@@ -103,9 +103,9 @@ public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, 
     }
 
     @Step("Potwierdzenie hasla: {confirmPassword} zostalo wpisane")
-    public AdminPanelSteps setEmployeeConfirmPasswordLabel(String confirmPassword) {
-        RepeatedActions.deletingAndAddingContentToLabel(confirmPasswordLabel, confirmPassword);
-        logger.log(Level.INFO, "Wprowadzam potwierdzenie hasla pracownika: {0}", confirmPassword);
+    public AdminPanelSteps setRepeatedPasswordLabel(String repeatedPassword) {
+        RepeatedActions.deletingAndAddingContentToLabel(confirmPasswordLabel, repeatedPassword);
+        logger.log(Level.INFO, "Wprowadzam potwierdzenie hasla pracownika: {0}", repeatedPassword);
         return new AdminPanelSteps();
     }
 
