@@ -22,7 +22,7 @@ public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, 
     @Override
     @Step("Sekcja: 'User Management' zostala wyswietlona")
     public boolean isHeaderTextDisplayed() {
-        logger.log(Level.INFO, "Sekcja: \"User Management\" została wyświetlona");
+        logger.log(Level.INFO, "Sekcja: \"User Management\" zostala wyswietlona");
         return headerTextAddition.isDisplayed();
     }
 
@@ -30,7 +30,7 @@ public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, 
     @Step("Przycisk dla panelu: 'Admin' zostal wcisniety")
     public <T> AdminPanelSteps clickPimPanelSection() {
         adminPanelSection.click();
-        logger.log(Level.INFO, "Przycisk dla sekcji: \"Admin\" został wciśnięty");
+        logger.log(Level.INFO, "Przycisk dla sekcji: \"Admin\" zostal wcisniety");
         return new AdminPanelSteps();
     }
 
@@ -38,7 +38,7 @@ public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, 
     @Step("Przycisk: 'Add' zostal wcisniety")
     public AdminPanelSteps clickAddButton() {
         addButton.click();
-        logger.log(Level.INFO, "Przycisk: \"Add\" został wciśnięty");
+        logger.log(Level.INFO, "Przycisk: \"Add\" zostal wcisniety");
         return new AdminPanelSteps();
     }
 
@@ -54,56 +54,58 @@ public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, 
 
     @Step("Tekst: 'Add user' zostal wyswietlony")
     public boolean isAddUserTextDisplayed() {
-        logger.log(Level.INFO, "Tekst \"Add user\" został wyświetlony");
         waitTillElementIsPresent(addText);
+        logger.log(Level.INFO, "Tekst \"Add user\" zostal wyswietlony");
         return addText.isDisplayed();
     }
 
     @Step("Dropdown: 'User Role' zostal wcisniety")
     public AdminPanelSteps clickUserRoleDropdown() {
         userRoleDropdown.click();
-        logger.log(Level.INFO, "Dropdown: \"user role\" został wciśnięty");
+        logger.log(Level.INFO, "Dropdown: \"User Role\" zostal wcisniety");
         return new AdminPanelSteps();
     }
 
     @Step("Rola 'Admin' zostala wybrana")
     public AdminPanelSteps clickAdminUserRoleButton() {
         adminUserRole.click();
+        logger.log(Level.INFO, "Wybranie roli: \"Admin\"");
         return new AdminPanelSteps();
     }
 
-    @Step("Rola 'Admin' zostala wybrana")
+    @Step("Rola 'Ess' zostala wybrana")
     public AdminPanelSteps clickEssUserRoleButton() {
         waitTillElementIsClickableByWebElement(essUserRole);
         essUserRole.click();
+        logger.log(Level.INFO, "Wybranie roli: \"Ess\"");
         return new AdminPanelSteps();
     }
 
     @Step("Imie pracownika: {employeeName} zostalo wpisane")
     public AdminPanelSteps setEmployeeNameLabel(String employeeName) {
         RepeatedActions.deletingAndAddingContentToLabel(employeeNameLabel, employeeName);
-        logger.log(Level.INFO, "Wprowadzam imię pracownika: {0}", employeeName);
+        logger.log(Level.INFO, "Wprowadzam imie pracownika: {0}", employeeName);
         return new AdminPanelSteps();
     }
 
     @Step("Imie pracownika: zostalo wybrane z listy")
     public AdminPanelSteps clickEmployeeNameFromList() {
         employeeNameFromList.click();
-        logger.log(Level.INFO, "Dane pracownika zostały wybrane");
+        logger.log(Level.INFO, "Imie pracownika: zostalo wybrane z listy");
         return new AdminPanelSteps();
     }
 
     @Step("Haslo pracownika: {password} zostalo wpisane")
     public AdminPanelSteps setEmployeePasswordLabel(String password) {
         RepeatedActions.deletingAndAddingContentToLabel(passwordLabel, password);
-        logger.log(Level.INFO, "Wprowadzam hasło pracownika: {0}", password);
+        logger.log(Level.INFO, "Wprowadzam haslo pracownika: {0}", password);
         return new AdminPanelSteps();
     }
 
     @Step("Potwierdzenie hasla: {confirmPassword} zostalo wpisane")
     public AdminPanelSteps setEmployeeConfirmPasswordLabel(String confirmPassword) {
         RepeatedActions.deletingAndAddingContentToLabel(confirmPasswordLabel, confirmPassword);
-        logger.log(Level.INFO, "Wprowadzam potwierdzenie hasła pracownika: {0}", confirmPassword);
+        logger.log(Level.INFO, "Wprowadzam potwierdzenie hasla pracownika: {0}", confirmPassword);
         return new AdminPanelSteps();
     }
 
@@ -117,35 +119,35 @@ public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, 
     @Step("Status: 'Enabled' zostal wybrany")
     public AdminPanelSteps clickEnabledStatus() {
         statusEnabled.click();
-        logger.log(Level.INFO, "Status: \"Enabled\" został wybrany");
+        logger.log(Level.INFO, "Status: \"Enabled\" zostal wybrany");
         return new AdminPanelSteps();
     }
 
     @Step("Status: 'Enabled' zostal wybrany")
     public AdminPanelSteps clickDisabledStatus() {
         statusDisabled.click();
-        logger.log(Level.INFO, "Status: \"Disabled\" został wybrany");
+        logger.log(Level.INFO, "Status: \"Disabled\" zostal wybrany");
         return new AdminPanelSteps();
     }
 
     @Step("Nazwa uzytkownika: {username} zostala wpisana")
     public AdminPanelSteps setUsernameLabel(String username) {
         RepeatedActions.deletingAndAddingContentToLabel(usernameLabel, username);
-        logger.log(Level.INFO, "Nazwa użytkownika to: \"{0}\"", username);
+        logger.log(Level.INFO, "Nazwa uzytkownika to: \"{0}\"", username);
         return new AdminPanelSteps();
     }
 
     @Step("Alert: 'Positive Alert' zostal wyswietlony")
     public boolean isPositiveAlertDisplayed() {
         positiveAlert.isDisplayed();
-        logger.log(Level.INFO, "Alert: \"Positive\" został wyświetlony");
+        logger.log(Level.INFO, "Alert: \"Positive\" zostal wyswietlony");
         return positiveAlert.isDisplayed();
 
     }
 
     @Step("Text: 'System Users' zostal wyswietlony")
     public boolean isSystemUsersTextDisplayed() {
-        logger.log(Level.INFO, "Tekst: \"System Users\" został wyświetlony");
+        logger.log(Level.INFO, "Tekst: \"System Users\" zostal wyswietlony");
         return systemUsersText.isDisplayed();
     }
 
@@ -157,7 +159,6 @@ public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, 
         if (role.equals("ESS")) {
             clickEssUserRoleButton();
         }
-
         return new AdminPanelSteps();
     }
 

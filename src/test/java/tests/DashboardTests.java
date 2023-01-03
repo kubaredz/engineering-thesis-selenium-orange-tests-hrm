@@ -21,7 +21,7 @@ public class DashboardTests extends TestBase {
 
 
     @Test
-    @Description("Jako zalogowany administrator, weryfikacja czy panel 'Time at Work' dziala prawidlowo")
+    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Time at Work' jest widoczny")
     @Severity(SeverityLevel.CRITICAL)
     @Story("PI-33")
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-33")

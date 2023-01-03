@@ -1,6 +1,5 @@
 package tests;
 
-import org.openqa.selenium.support.PageFactory;
 import properties.PropertiesReader;
 import io.qameta.allure.Step;
 import org.testng.annotations.AfterMethod;
@@ -19,7 +18,6 @@ public class TestBase {
         PropertiesReader configurationProperties = new PropertiesReader();
         Properties propertiesFromFile = configurationProperties.configurationFileReader();
         PropertiesReader.setProperties(propertiesFromFile);
-        PageFactory.initElements(DriverPicker.driverSetup(), this);
     }
 
     @BeforeMethod
