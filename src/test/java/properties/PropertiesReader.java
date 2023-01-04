@@ -85,23 +85,28 @@ public class PropertiesReader {
 //            }
 
     public static WebDriver selectTypeOfStartup(String browser) {
-        if (System.getProperty("browser") != null && System.getProperty("browser").equals("chrome")) {
-            setPropertyOfSystem(getChromeDriver(), properties.getProperty("chromeDriver"));
-            return new ChromeDriver();
+        if (System.getProperty("browser") != null) {
+            if (System.getProperty("browser").equals("chrome")) {
+                setPropertyOfSystem(getChromeDriver(), properties.getProperty("chromeDriver"));
+                return new ChromeDriver();
+            }
+            if (System.getProperty("browser").equals("firefox")) {
+                setPropertyOfSystem(getFirefoxDriver(), properties.getProperty("firefoxDriver"));
+                return new FirefoxDriver();
+            }else {
+                throw new IllegalStateException("Przegladarka ktora zostala wybrana za pomoca get property (Jenkins), nie jest obslugiwana: " + System.getProperty("browser"));
+            }
+        } else {
+            if (browser.equalsIgnoreCase("CHROME")) {
+                setPropertyOfSystem(getChromeDriver(), properties.getProperty("chromeDriver"));
+                return new ChromeDriver();
+            }
+            if (browser.equalsIgnoreCase("FIREFOX")) {
+                setPropertyOfSystem(getFirefoxDriver(), properties.getProperty("firefoxDriver"));
+                return new FirefoxDriver();
+            } else
+                throw new IllegalStateException("Przegladarka ktora zostala wybrana, nie jest obslugiwana" + System.getProperty("typeOfBrowser"));
         }
-        if (System.getProperty("browser") != null && System.getProperty("browser").equals("firefox")) {
-            setPropertyOfSystem(getFirefoxDriver(), properties.getProperty("firefoxDriver"));
-            return new FirefoxDriver();
-        }
-        if (browser.equalsIgnoreCase("CHROME")) {
-            setPropertyOfSystem(getChromeDriver(), properties.getProperty("chromeDriver"));
-            return new ChromeDriver();
-        }
-        if (browser.equalsIgnoreCase("FIREFOX")) {
-            setPropertyOfSystem(getFirefoxDriver(), properties.getProperty("firefoxDriver"));
-            return new FirefoxDriver();
-        } else
-            throw new IllegalStateException("Przegladarka ktora zostala wybrana, nie jest obslugiwana" + System.getProperty("browser"));
     }
 
     private static void setPropertyOfSystem(String driverType, String driverPath) {
