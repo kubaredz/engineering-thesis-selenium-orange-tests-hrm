@@ -86,11 +86,14 @@ public class PropertiesReader {
 
     public static WebDriver selectTypeOfStartup(String browser) {
         if (System.getProperty("browser") != null) {
+            System.out.println("test");
             if (System.getProperty("browser").equals("chrome")) {
+                System.out.println("test1");
                 setPropertyOfSystem(getChromeDriver(), properties.getProperty("chromeDriver"));
                 return new ChromeDriver();
             }
             if (System.getProperty("browser").equals("firefox")) {
+                System.out.println("test2");
                 setPropertyOfSystem(getFirefoxDriver(), properties.getProperty("firefoxDriver"));
                 return new FirefoxDriver();
             }else {
