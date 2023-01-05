@@ -24,4 +24,3 @@ Feature: Testy weryfikujace panel Recruitment
       | ilosc_ogloszen |
       | 1              |
       | 9              |
-

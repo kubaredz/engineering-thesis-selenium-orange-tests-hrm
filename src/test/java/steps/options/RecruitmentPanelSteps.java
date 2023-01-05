@@ -9,10 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 import setup.DriverPicker;
 import steps.dashboard.HeaderSteps;
 import utils.RepeatedActions;
-import waits.Wait;
 
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.logging.Level;
+
+import static waits.Wait.waitTillElementIsPresent;
 
 public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements DefaultSteps, CommonSteps {
     private int int_random = ThreadLocalRandom.current().nextInt();
@@ -153,7 +154,7 @@ public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements De
         String loggedUserData = headerSteps.getLoggedUser();
         hiringManagerLabel.sendKeys(loggedUserData);
         logger.log(Level.INFO, "Wybranie polecajacego uzytkownika jako aktualnie zalogowany uzytkownik");
-        Wait.waitTillElementIsPresent(promptedHiringManager);
+        waitTillElementIsPresent(promptedHiringManager);
         promptedHiringManager.click();
         return new RecruitmentPanelSteps();
     }

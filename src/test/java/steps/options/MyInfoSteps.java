@@ -5,9 +5,10 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverPicker;
 import utils.RepeatedActions;
-import waits.Wait;
 
 import java.util.logging.Level;
+
+import static waits.Wait.waitSleep;
 
 public class MyInfoSteps extends MyInfoPanelBuilder implements DefaultSteps, CommonSteps {
 
@@ -52,7 +53,7 @@ public class MyInfoSteps extends MyInfoPanelBuilder implements DefaultSteps, Com
 
     @Step("Imie: {firstName} zostalo wpisane")
     public MyInfoSteps setFirstName(String firstName) {
-        Wait.waitSleep();
+        waitSleep();
         RepeatedActions.deletingAndAddingContentToLabel(employeeFirstNameLabel, firstName);
         logger.log(Level.INFO, "Imie: \"{0}\" zostalo wpisane", firstName);
         return new MyInfoSteps();

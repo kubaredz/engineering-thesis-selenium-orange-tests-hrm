@@ -7,9 +7,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverPicker;
 import utils.RepeatedActions;
-import waits.Wait;
 
 import java.util.logging.Level;
+
+import static waits.Wait.waitTillElementIsPresent;
 
 public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, CommonSteps {
 
@@ -114,7 +115,7 @@ public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, Co
         activitySelect.click();
         String fieldGroupSelector = "//span[contains(text(),'" + activityType + "')]";
         WebElement chosenActivity = DriverPicker.driverSetup().findElement(By.xpath(fieldGroupSelector));
-        Wait.waitTillElementIsPresent(chosenActivity);
+        waitTillElementIsPresent(chosenActivity);
         logger.log(Level.INFO, "Wybranie stanowiska pracy pracownika: {0} ", activityType);
         chosenActivity.click();
         logger.log(Level.INFO, "Wcisniecie stanowiska pracy pracownika: {0} ", activityType);

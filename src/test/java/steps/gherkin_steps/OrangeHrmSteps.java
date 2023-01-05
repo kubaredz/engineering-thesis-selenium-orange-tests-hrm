@@ -121,7 +121,8 @@ public class OrangeHrmSteps {
     public void step_set_report_name(String reportName) {
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
         pimPanelSteps
-                .generateReportName(reportName);
+                .clickGeneratedReportName()
+                .setReportName(reportName);
     }
 
     @Given("Wybranie kryterium raportu: ([^\"]*)$")
@@ -324,6 +325,7 @@ public class OrangeHrmSteps {
 
     @Then("Zamkniecie przegladarki")
     public void close_browser() {
+        //TODO Tear down (np. after class?)
         DriverPicker.getDriver().close();
         DriverPicker.setDriver(null);
     }

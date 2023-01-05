@@ -11,6 +11,7 @@ import java.time.Duration;
 public class Wait {
 
     private static WebDriverWait setWaitDuration() {
+        //to do parametr zaciagnac z configu
         WebDriverWait wait = new WebDriverWait(DriverPicker.driverSetup(), Duration.ofSeconds(10));
         return wait;
     }

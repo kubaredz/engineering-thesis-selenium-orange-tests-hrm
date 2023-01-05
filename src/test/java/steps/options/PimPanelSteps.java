@@ -137,10 +137,13 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
         return new PimPanelSteps();
     }
 
-    @Step("Wpisanie nazwy raportu")
-    public PimPanelSteps generateReportName(String reportName) {
+    public PimPanelSteps clickGeneratedReportName() {
         reportNameLabel.click();
-        logger.log(Level.INFO, "Wcisniecie pola \"nazwa raportu\": {0}", reportName);
+        logger.log(Level.INFO, "Wcisniecie pola: \"Report name\"");
+        return new PimPanelSteps();
+    }
+
+    public PimPanelSteps setReportName(String reportName){
         reportNameLabel.sendKeys(UserDataGenerator.generateReportName(reportName));
         logger.log(Level.INFO, "Wygenerowanie raportu o nazwie: {0} oraz wpisanie w polu report name", reportName);
         return new PimPanelSteps();
@@ -155,11 +158,10 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
 
     @Step("Wybranie kryterium raportu {criteria}")
     public PimPanelSteps pickSelectionCriteria(String criteria) {
-        String selector = "//span[normalize-space()='";
-        selector = selector + criteria + "']";
-        WebElement selectionCriteriaWebElement = DriverPicker.driverSetup().findElement(By.xpath(selector));
-        selectionCriteriaWebElement.click();
-        logger.log(Level.INFO, "Wybranie kryterium raportu: {0}", criteria);
+        //TODO
+        WebElement element = RepeatedActions.prepareWebElementWithDynamicXpath(criteriaSelect, criteria);
+        element.click();
+        logger.log(Level.INFO, "Wybranie kryterium raportu: {0}", element);
         return new PimPanelSteps();
     }
 

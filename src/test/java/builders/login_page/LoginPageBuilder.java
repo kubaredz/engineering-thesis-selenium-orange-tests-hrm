@@ -12,10 +12,10 @@ public class LoginPageBuilder extends CommonBuilder {
     @FindBy(name = "password")
     public WebElement passwordField;
 
-    @FindBy(css = "img[src*='ohrm_branding']")
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[1]")
     public WebElement hrmBanner;
 
-    @FindBy(xpath = "//div[@class='orangehrm-login-logo']/img[1]")
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[1]/div[2]/img[1]")
     public WebElement hrmLogo;
 
     @FindBy(css = "p[class='oxd-text oxd-text--p orangehrm-login-forgot-header']")

@@ -64,26 +64,6 @@ public class PropertiesReader {
         return properties;
     }
 
-//    public static WebDriver chooseBrowser(String browserType) {
-//        if (System.getProperty("browser").equals("CHROME")) {
-//            if (browserType.equalsIgnoreCase("CHROME")) {
-//                System.out.println("praca inzzzzzz: " + System.getProperty("browser"));
-//                setPropertyOfSystem(getChromeDriver(), properties.getProperty("chromeDriver"));
-//                return new ChromeDriver();
-//            }
-//            if (System.getProperty("browser").equals("FIREFOX")) {
-//
-//                if (browserType.equalsIgnoreCase("FIREFOX")) {
-//                    setPropertyOfSystem(getFirefoxDriver(), properties.getProperty("firefoxDriver"));
-//                    return new FirefoxDriver();
-//                }
-//                if (browserType.equalsIgnoreCase("CHROME")) {
-//                    setPropertyOfSystem(getChromeDriver(), properties.getProperty("chromeDriver"));
-//                    return new ChromeDriver();
-//                } else
-//                    throw new IllegalStateException("Przegladarka ktora zostala wybrana, nie jest obslugiwana" + System.getProperty("browser"));
-//            }
-
     public static WebDriver selectTypeOfStartup(String browser) {
         if (System.getProperty("browser") != null) {
             System.out.println("best");

@@ -25,7 +25,7 @@ public class MaintenancePanelSteps extends MaintenancePanelBuilder implements De
     @Step("Sekcja: 'Maintenance' zostala otwarta")
     public MaintenancePanelSteps clickPanelSection() {
         maintenanceSection.click();
-        logger.log(Level.INFO, "Przycisk dla sekcji: \"Maintenance\" został wciśnięty");
+        logger.log(Level.INFO, "Przycisk dla sekcji: \"Maintenance\" zostal wciśnięty");
         return new MaintenancePanelSteps();
     }
 
@@ -49,14 +49,14 @@ public class MaintenancePanelSteps extends MaintenancePanelBuilder implements De
     @Step("Haslo: {password} zostalo wpisane")
     public MaintenancePanelSteps setPasswordLabel(String password) {
         RepeatedActions.deletingAndAddingContentToLabel(passwordLabel, password);
-        logger.log(Level.INFO, "Hasło: {0} zostało ustawione", password);
+        logger.log(Level.INFO, "Haslo: {0} zostalo ustawione", password);
         return new MaintenancePanelSteps();
     }
 
     @Step("Przycisk: 'Confirm' zostal wcisniety")
     public MaintenancePanelSteps clickConfirmButton() {
         confirmButton.click();
-        logger.log(Level.INFO, "Przycisk: confirm został wciśnięty");
+        logger.log(Level.INFO, "Przycisk: confirm zostal wciśnięty");
         return new MaintenancePanelSteps();
     }
 

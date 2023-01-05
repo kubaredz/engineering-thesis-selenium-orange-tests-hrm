@@ -6,12 +6,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverPicker;
 import utils.RepeatedActions;
-import waits.Wait;
 
 import java.util.logging.Level;
 
 import static waits.Wait.waitTillElementIsClickableByWebElement;
 import static waits.Wait.waitTillElementIsPresent;
+import static waits.Wait.waitSleep;
 
 public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, CommonSteps {
 
@@ -45,7 +45,7 @@ public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, 
     @Override
     @Step("Przycisk: 'Save' zostal wcisniety")
     public AdminPanelSteps clickSaveButton() {
-        Wait.waitSleep();
+        waitSleep();
         Actions action = new Actions(DriverPicker.driverSetup());
         action.moveToElement(saveButton).doubleClick().build().perform();
         logger.log(Level.INFO, "Wciskam przycisk: \"Save\"");

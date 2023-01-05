@@ -68,4 +68,9 @@ public class PimPanelBuilder extends CommonBuilder {
 
     @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]")
     public WebElement displayFieldSelect;
+
+    //TODO with regex "%s"
+    String tmp;
+    @FindBy(xpath = "//span[normalize-space()='criteria']")
+    public String criteriaSelect;
 }

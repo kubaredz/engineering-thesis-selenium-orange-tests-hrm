@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class DashboardPageBuilder extends CommonBuilder {
 
-    @FindBy(css = "img[src*='orangehrm-logo.png']")
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[1]/aside[1]/nav[1]/div[1]/a[1]/div[2]/img[1]")
     public WebElement hrmLogoAfterLogin;
 
     @FindBy(xpath = "//p[normalize-space()='Time at Work']")
