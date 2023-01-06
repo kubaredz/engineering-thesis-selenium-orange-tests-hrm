@@ -4,30 +4,28 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import properties.PropertiesReader;
 import setup.DriverPicker;
 
 import java.time.Duration;
 
 public class Wait {
+    private static WebDriverWait webDriverWait;
+    private static PropertiesReader propertiesReader;
 
-    private static WebDriverWait setWaitDuration() {
-        //to do parametr zaciagnac z configu
-        WebDriverWait wait = new WebDriverWait(DriverPicker.driverSetup(), Duration.ofSeconds(10));
-        return wait;
+    public Wait() {
+        webDriverWait = new WebDriverWait(DriverPicker.driverSetup(), Duration.ofSeconds(propertiesReader.getImplicitlyWait()));
     }
 
     public static void waitTillElementIsPresent(WebElement element) {
-        WebDriverWait webDriverWait = setWaitDuration();
         webDriverWait.until(ExpectedConditions.visibilityOf(element));
     }
 
     public static void waitTillElementIsClickableByWebElement(WebElement element) {
-        WebDriverWait webDriverWait = setWaitDuration();
         webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public static void waitTillElementIsClickableByLocator(By locator) {
-        WebDriverWait webDriverWait = setWaitDuration();
         webDriverWait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
@@ -38,5 +36,4 @@ public class Wait {
             e.printStackTrace();
         }
     }
-
 }
