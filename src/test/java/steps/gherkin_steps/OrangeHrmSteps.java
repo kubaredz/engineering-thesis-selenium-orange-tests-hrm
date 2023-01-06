@@ -21,7 +21,6 @@ import static org.junit.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static properties.PropertiesReader.*;
 
-
 public class OrangeHrmSteps {
 
     @Given("Wejscie na strone OrangeHRM")
