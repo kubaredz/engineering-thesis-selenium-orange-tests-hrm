@@ -13,19 +13,23 @@ public class Wait {
     private static WebDriverWait webDriverWait;
     private static PropertiesReader propertiesReader;
 
-    public Wait() {
+    private static WebDriverWait setWaitDuration() {
         webDriverWait = new WebDriverWait(DriverPicker.driverSetup(), Duration.ofSeconds(propertiesReader.getImplicitlyWait()));
+        return webDriverWait;
     }
 
-    public static void waitTillElementIsPresent(WebElement element) {
-        webDriverWait.until(ExpectedConditions.visibilityOf(element));
+    public static void waitTillElementIsPresent(WebElement webElement) {
+        webDriverWait = setWaitDuration();
+        webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
-    public static void waitTillElementIsClickableByWebElement(WebElement element) {
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
+    public static void waitTillElementIsClickableByWebElement(WebElement webElement) {
+        webDriverWait = setWaitDuration();
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
     public static void waitTillElementIsClickableByLocator(By locator) {
+        webDriverWait = setWaitDuration();
         webDriverWait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
