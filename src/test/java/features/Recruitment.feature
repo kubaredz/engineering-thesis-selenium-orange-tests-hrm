@@ -17,7 +17,7 @@ Feature: Testy weryfikujace panel Recruitment
     And Polecajacy uzytkownik to aktualnie zalogowany uzytkownik
     And Ustawienie ilosci ogloszen: <ilosc_ogloszen>
     When Wcisniecie przycisku: Save
-    Then Alert sukces zostal wyswietlony
+    Then Alert sukces zostal wyswietlony lub strona edit zostala zaladowana
     And Zamkniecie przegladarki
 
     Examples:

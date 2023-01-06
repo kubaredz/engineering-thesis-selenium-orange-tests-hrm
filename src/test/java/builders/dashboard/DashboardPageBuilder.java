@@ -3,6 +3,7 @@ package builders.dashboard;
 import builders.CommonBuilder;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 public class DashboardPageBuilder extends CommonBuilder {
 
@@ -26,4 +27,7 @@ public class DashboardPageBuilder extends CommonBuilder {
 
     @FindBy(xpath = "//p[normalize-space()='Employee Distribution by Location']")
     public WebElement employeeDistributionByLocationSection;
+
+    @FindBy(how = How.CSS)
+    public WebElement quickLaunchButton;
 }

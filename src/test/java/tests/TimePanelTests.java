@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import steps.dashboard.HeaderSteps;
 import steps.options.TimePanelSteps;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class TimePanelTests extends TestBase {
@@ -36,7 +37,7 @@ public class TimePanelTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany uzytkownik, weryfikacja dodania nowego timesheetu zalogowanemu uzytkownikowi")
+    @Description("Jako zalogowany uzytkownik, weryfikacja czy timesheet dla aktualnie zalogowanego uzytkownika jest widoczny")
     @Severity(SeverityLevel.NORMAL)
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-43")
     @Story("PI-43")
@@ -53,6 +54,7 @@ public class TimePanelTests extends TestBase {
                 .clickViewButton();
 
         assertTrue(timePanelSteps.isTimeSectionDisplayed());
-        assertTrue(timePanelSteps.isAlertInfoDisplayed());
+        assertTrue(timePanelSteps.isTimesheetForLoggedUserDisplayed());
+        assertEquals(timePanelSteps.getTimesheetSectionText(), "Timesheet for " + loggedUserData);
     }
 }

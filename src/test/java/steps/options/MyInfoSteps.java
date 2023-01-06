@@ -4,10 +4,10 @@ import builders.options.MyInfoPanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverPicker;
-import utils.RepeatedActions;
 
 import java.util.logging.Level;
 
+import static utils.RepeatedActions.deletingAndAddingContentToLabel;
 import static waits.Wait.waitSleep;
 
 public class MyInfoSteps extends MyInfoPanelBuilder implements DefaultSteps, CommonSteps {
@@ -54,70 +54,70 @@ public class MyInfoSteps extends MyInfoPanelBuilder implements DefaultSteps, Com
     @Step("Imie: {firstName} zostalo wpisane")
     public MyInfoSteps setFirstName(String firstName) {
         waitSleep();
-        RepeatedActions.deletingAndAddingContentToLabel(employeeFirstNameLabel, firstName);
+        deletingAndAddingContentToLabel(employeeFirstNameLabel, firstName);
         logger.log(Level.INFO, "Imie: \"{0}\" zostalo wpisane", firstName);
         return new MyInfoSteps();
     }
 
     @Step("Drugie imie: {middleName} zostalo wpisane")
     public MyInfoSteps setMiddleName(String middleName) {
-        RepeatedActions.deletingAndAddingContentToLabel(employeeMiddleNameLabel, middleName);
+        deletingAndAddingContentToLabel(employeeMiddleNameLabel, middleName);
         logger.log(Level.INFO, "Drugie imie: \"{0}\" zostalo wpisane", middleName);
         return new MyInfoSteps();
     }
 
     @Step("Nazwisko: {lastName} zostalo wpisane")
     public MyInfoSteps setLastName(String lastName) {
-        RepeatedActions.deletingAndAddingContentToLabel(employeeLastNameLabel, lastName);
+        deletingAndAddingContentToLabel(employeeLastNameLabel, lastName);
         logger.log(Level.INFO, "Nazwisko: \"{0}\" zostalo wpisane", lastName);
         return new MyInfoSteps();
     }
 
     @Step("Nazwisko: {lastName} zostalo wpisane")
     public MyInfoSteps setNicknameLabel(String nickname) {
-        RepeatedActions.deletingAndAddingContentToLabel(nicknameLabel, nickname);
+        deletingAndAddingContentToLabel(nicknameLabel, nickname);
         logger.log(Level.INFO, "Nickname: \"{0}\" zostal wpisany", nickname);
         return new MyInfoSteps();
     }
 
     @Step("Id pracownika: {employeeId} zostalo wpisane")
     public MyInfoSteps setEmployeeIdLabel(String employeeId) {
-        RepeatedActions.deletingAndAddingContentToLabel(employeeIdLabel, employeeId);
+        deletingAndAddingContentToLabel(employeeIdLabel, employeeId);
         logger.log(Level.INFO, "Employee Id: \"{0}\" zostal wpisany", employeeId);
         return new MyInfoSteps();
     }
 
     @Step("Dodatkowe id pracownika: {employeeOtherId} zostalo wpisane")
     public MyInfoSteps setEmployeeOtherIdLabel(String employeeOtherId) {
-        RepeatedActions.deletingAndAddingContentToLabel(otherIdLabel, employeeOtherId);
+        deletingAndAddingContentToLabel(otherIdLabel, employeeOtherId);
         logger.log(Level.INFO, "Employee other Id: \"{0}\" zostal wpisany", employeeOtherId);
         return new MyInfoSteps();
     }
 
     @Step("Numer prawo jazdy pracownika: {driversLicenseNumber} zostal wpisany")
     public MyInfoSteps setDriversLicenseNumberLabel(String driversLicenseNumber) {
-        RepeatedActions.deletingAndAddingContentToLabel(driversLicenseNumberLabel, driversLicenseNumber);
+        deletingAndAddingContentToLabel(driversLicenseNumberLabel, driversLicenseNumber);
         logger.log(Level.INFO, "Driver's License Number: \"{0}\" zostal wpisany", driversLicenseNumber);
         return new MyInfoSteps();
     }
 
     @Step("Data konca waznosci prawo jazdy pracownika: {date} zostal wpisany")
     public MyInfoSteps setLicenseExpiryDateLabel(String date) {
-        RepeatedActions.deletingAndAddingContentToLabel(licenseExpiryDateLabel, date);
+        deletingAndAddingContentToLabel(licenseExpiryDateLabel, date);
         logger.log(Level.INFO, "Data przeterminowania prawo jazdy to: \"{0}\"", date);
         return new MyInfoSteps();
     }
 
     @Step("Ssn pracownika: {date} zostal wpisany")
     public MyInfoSteps setSsnNumberLabel(String ssn) {
-        RepeatedActions.deletingAndAddingContentToLabel(ssnNumberLabel, ssn);
+        deletingAndAddingContentToLabel(ssnNumberLabel, ssn);
         logger.log(Level.INFO, "Podany SSN to: \"{0}\"", ssn);
         return new MyInfoSteps();
     }
 
     @Step("Sin pracownika: {sinNumber} zostal wpisany")
     public MyInfoSteps setSinNumberLabel(String sinNumber) {
-        RepeatedActions.deletingAndAddingContentToLabel(sinNumberLabel, sinNumber);
+        deletingAndAddingContentToLabel(sinNumberLabel, sinNumber);
         logger.log(Level.INFO, "Podany sin to: \"{0}\"", sinNumber);
         return new MyInfoSteps();
     }
@@ -153,7 +153,7 @@ public class MyInfoSteps extends MyInfoPanelBuilder implements DefaultSteps, Com
     @Step("Data urodzenia: {date} zostala wybrana")
     public MyInfoSteps setDateOfBirthLabel(String date) {
         dateOfBirthLabel.click();
-        RepeatedActions.deletingAndAddingContentToLabel(dateOfBirthLabel, date);
+        deletingAndAddingContentToLabel(dateOfBirthLabel, date);
         logger.log(Level.INFO, "Data urodzenia to: \"{0}\"", dateOfBirthLabel.getText());
         return new MyInfoSteps();
     }
@@ -167,7 +167,7 @@ public class MyInfoSteps extends MyInfoPanelBuilder implements DefaultSteps, Com
 
     @Step("Pracownik byl w sluzbie wojskowej: {militaryService}")
     public MyInfoSteps setMilitaryServiceLabel(String militaryService) {
-        RepeatedActions.deletingAndAddingContentToLabel(militaryServiceLabel, militaryService);
+        deletingAndAddingContentToLabel(militaryServiceLabel, militaryService);
         logger.log(Level.INFO, "Status służby wojskowej to: \"{0}\"", militaryService);
         return new MyInfoSteps();
     }

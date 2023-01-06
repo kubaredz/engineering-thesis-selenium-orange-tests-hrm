@@ -4,10 +4,11 @@ import builders.login_page.LoginPageBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverPicker;
-import utils.RepeatedActions;
 
 import java.util.*;
 import java.util.logging.Level;
+
+import static utils.RepeatedActions.deletingAndAddingContentToLabel;
 
 public class LoginPageSteps extends LoginPageBuilder {
 
@@ -31,14 +32,14 @@ public class LoginPageSteps extends LoginPageBuilder {
 
     @Step("Wprowadzony login uzytkownika to: {username}")
     public LoginPageSteps setUserNameField(String username) {
-        RepeatedActions.deletingAndAddingContentToLabel(usernameField, username);
+        deletingAndAddingContentToLabel(usernameField, username);
         logger.log(Level.INFO, "Wprowadzam login użytkownika: {0}", username);
         return new LoginPageSteps();
     }
 
     @Step("Wprowadzony login uzytkownika to: {password}")
     public LoginPageSteps setPasswordField(String password) {
-        RepeatedActions.deletingAndAddingContentToLabel(passwordField, password);
+        deletingAndAddingContentToLabel(passwordField, password);
         logger.log(Level.INFO, "Wprowadzam haslo użytkownika: {0}", password);
         return new LoginPageSteps();
     }

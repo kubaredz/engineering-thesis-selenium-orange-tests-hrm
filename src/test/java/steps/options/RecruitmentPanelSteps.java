@@ -3,16 +3,15 @@ package steps.options;
 import builders.options.RecruitmentPanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverPicker;
 import steps.dashboard.HeaderSteps;
-import utils.RepeatedActions;
 
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.logging.Level;
 
+import static utils.RepeatedActions.deletingAndAddingContentToLabel;
+import static utils.RepeatedActions.scrollToElement;
 import static waits.Wait.waitTillElementIsPresent;
 
 public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements DefaultSteps, CommonSteps {
@@ -61,21 +60,21 @@ public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements De
 
     @Step("Imie kandydata: {name} zostalo wpisane")
     public RecruitmentPanelSteps setFirstNameLabel(String name) {
-        RepeatedActions.deletingAndAddingContentToLabel(firstNameLabel, name);
+        deletingAndAddingContentToLabel(firstNameLabel, name);
         logger.log(Level.INFO, "Imie kandydata: \"{0}\" zostalo wpisane", name);
         return new RecruitmentPanelSteps();
     }
 
     @Step("Drugie imie kandydata: {secondName} zostalo wpisane")
     public RecruitmentPanelSteps setSecondNameLabel(String secondName) {
-        RepeatedActions.deletingAndAddingContentToLabel(secondNameLabel, secondName);
+        deletingAndAddingContentToLabel(secondNameLabel, secondName);
         logger.log(Level.INFO, "Drugie imie kandydata: \"{0}\" zostalo wpisane", secondName);
         return new RecruitmentPanelSteps();
     }
 
     @Step("Nazwisko kandydata: {lastName} zostalo wpisane")
     public RecruitmentPanelSteps setLastNameLabel(String lastName) {
-        RepeatedActions.deletingAndAddingContentToLabel(lastNameLabel, lastName);
+        deletingAndAddingContentToLabel(lastNameLabel, lastName);
         logger.log(Level.INFO, "Nazwisko kandydata: \"{0}\" zostalo wpisane", lastName);
         return new RecruitmentPanelSteps();
     }
@@ -96,14 +95,14 @@ public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements De
 
     @Step("Email kandydata: {email} zostal wpisany")
     public RecruitmentPanelSteps setEmailLabel(String email) {
-        RepeatedActions.deletingAndAddingContentToLabel(emailLabel, email);
+        deletingAndAddingContentToLabel(emailLabel, email);
         logger.log(Level.INFO, "Email kandydata: \"{0}\" zostal wpisany", email);
         return new RecruitmentPanelSteps();
     }
 
     @Step("Numer kontraktu kandydata: {number} zostal wpisany")
     public RecruitmentPanelSteps setContactNumberLabel(String number) {
-        RepeatedActions.deletingAndAddingContentToLabel(contactNumberLabel, number);
+        deletingAndAddingContentToLabel(contactNumberLabel, number);
         logger.log(Level.INFO, "Numer kontraktu kandydata: \"{0}\" zostal wpisany", number);
         return new RecruitmentPanelSteps();
     }
@@ -131,11 +130,9 @@ public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements De
 
     @Step("Wybranie opisu stanowiska pracy: {jobTitle}")
     public RecruitmentPanelSteps setJobType(String jobTitle) {
-        String jobTitleSelector = "//span[normalize-space()='" + jobTitle + "']";
-        System.out.println(jobTitleSelector);
-        WebElement pickedJob = DriverPicker.driverSetup().findElement(By.xpath(jobTitleSelector));
-        Actions actions = new Actions(DriverPicker.driverSetup());
-        actions.scrollToElement(pickedJob).perform();
+        String selector = "//span[normalize-space()='jobTitle']";
+        pickedJob = DriverPicker.driverSetup().findElement(By.xpath(selector.replace("jobTitle", jobTitle)));
+        scrollToElement(pickedJob);
         pickedJob.click();
         logger.log(Level.INFO, "Wybranie opisu stanowiska pracy: {0}", jobTitle);
         return new RecruitmentPanelSteps();
@@ -164,5 +161,11 @@ public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements De
         numberOfPositionLabel.sendKeys(positionNumber);
         logger.log(Level.INFO, "Numer ogloszenia to: {0}", positionNumber);
         return new RecruitmentPanelSteps();
+    }
+
+    @Step("Sekcja 'Edit Vacancy' jest widoczna")
+    public boolean isEditVacancyTextVisible() {
+        logger.log(Level.INFO, "Sekcja \"Edit Vacancy\" jest widoczna");
+        return editVacancyText.isDisplayed();
     }
 }

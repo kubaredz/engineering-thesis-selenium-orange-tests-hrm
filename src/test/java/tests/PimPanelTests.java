@@ -5,6 +5,7 @@ import helpers.PasswordGenerator;
 import io.qameta.allure.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import setup.PageSetup;
 import steps.login_page.LoginPageSteps;
 import steps.options.PimPanelSteps;
 
@@ -15,6 +16,7 @@ public class PimPanelTests extends TestBase {
     private LoginPageSteps loginPageSteps;
     private PimPanelSteps pimPanelSteps;
     private LoginPageTests loginPageTests;
+    private PageSetup pageSetup;
 
     @BeforeMethod
     public void pimPanelTestsSetup() {
@@ -70,7 +72,7 @@ public class PimPanelTests extends TestBase {
         pimPanelSteps
                 .clickPanelSection()
                 .clickAddButton()
-                .setUploadImageButton("C:\\Users\\kubar\\avatar.jpg")
+                .setUploadImageButton(pageSetup.getAvatarPath())
                 .setFirstNameLabel(UserDataGenerator.generateFirstName())
                 .setMiddleNameLabel(UserDataGenerator.generateMiddleName())
                 .setLastNameLabel(UserDataGenerator.generateLastName())

@@ -3,6 +3,7 @@ package builders.options;
 import builders.CommonBuilder;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 public class PimPanelBuilder extends CommonBuilder {
 
@@ -69,8 +70,12 @@ public class PimPanelBuilder extends CommonBuilder {
     @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]")
     public WebElement displayFieldSelect;
 
-    //TODO with regex "%s"
-    String tmp;
-    @FindBy(xpath = "//span[normalize-space()='criteria']")
-    public String criteriaSelect;
+    @FindBy(how = How.XPATH)
+    public WebElement selectionCriteria;
+
+    @FindBy(how = How.XPATH)
+    public WebElement fieldGroupSelect;
+
+    @FindBy(how = How.XPATH)
+    public WebElement degreeLabel;
 }

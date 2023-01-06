@@ -5,7 +5,7 @@ import properties.PropertiesReader;
 import java.time.Duration;
 
 public class PageSetup {
-    //TODO Fluent interface
+    private static String avatarPath = "resources/img/avatar.jpg";
     private static PropertiesReader propertiesReader;
 
     public static void setPageUrl() {
@@ -26,5 +26,9 @@ public class PageSetup {
 
     public static String setPassword() {
         return propertiesReader.getPassword();
+    }
+
+    public static String getAvatarPath() {
+        return avatarPath;
     }
 }

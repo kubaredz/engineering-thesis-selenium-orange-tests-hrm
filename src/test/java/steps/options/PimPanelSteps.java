@@ -5,12 +5,12 @@ import builders.options.PimPanelBuilder;
 import helpers.UserDataGenerator;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverPicker;
-import utils.RepeatedActions;
 
 import java.util.logging.Level;
+
+import static utils.RepeatedActions.deletingAndAddingContentToLabel;
 
 public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, CommonSteps {
 
@@ -98,7 +98,7 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
 
     @Step("Login pracownika: {username} zostal wpisany")
     public PimPanelSteps setUsernameLabel(String username) {
-        RepeatedActions.deletingAndAddingContentToLabel(usernameLabel, username);
+        deletingAndAddingContentToLabel(usernameLabel, username);
         logger.log(Level.INFO, "Login pracownika: {0} zostal wpisany", username);
         return new PimPanelSteps();
     }
@@ -112,14 +112,14 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
 
     @Step("Haslo pracownika: {password} zostalo wpisane")
     public PimPanelSteps setPasswordLabel(String password) {
-        RepeatedActions.deletingAndAddingContentToLabel(passwordLabel, password);
+        deletingAndAddingContentToLabel(passwordLabel, password);
         logger.log(Level.INFO, "Haslo pracownika: {0} zostalo wpisane", password);
         return new PimPanelSteps();
     }
 
     @Step("Potwierdzenie hasla: {confirmPassword} zostalo wpisane")
     public PimPanelSteps setConfirmPasswordLabel(String confirmPassword) {
-        RepeatedActions.deletingAndAddingContentToLabel(confirmPasswordLabel, confirmPassword);
+        deletingAndAddingContentToLabel(confirmPasswordLabel, confirmPassword);
         logger.log(Level.INFO, "Haslo pracownika zostalo wpisane ponownie: {0}", confirmPassword);
         return new PimPanelSteps();
     }
@@ -143,7 +143,7 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
         return new PimPanelSteps();
     }
 
-    public PimPanelSteps setReportName(String reportName){
+    public PimPanelSteps setReportName(String reportName) {
         reportNameLabel.sendKeys(UserDataGenerator.generateReportName(reportName));
         logger.log(Level.INFO, "Wygenerowanie raportu o nazwie: {0} oraz wpisanie w polu report name", reportName);
         return new PimPanelSteps();
@@ -158,10 +158,10 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
 
     @Step("Wybranie kryterium raportu {criteria}")
     public PimPanelSteps pickSelectionCriteria(String criteria) {
-        //TODO
-        WebElement element = RepeatedActions.prepareWebElementWithDynamicXpath(criteriaSelect, criteria);
-        element.click();
-        logger.log(Level.INFO, "Wybranie kryterium raportu: {0}", element);
+        String selector = "//span[contains(text(),'criteria')]";
+        selectionCriteria = DriverPicker.driverSetup().findElement(By.xpath(selector.replace("criteria", criteria)));
+        selectionCriteria.click();
+        logger.log(Level.INFO, "Wybranie kryterium raportu: {0}", criteria);
         return new PimPanelSteps();
     }
 
@@ -188,8 +188,8 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
 
     @Step("Wybranie stopnia naukowego: {educationDegree}")
     public PimPanelSteps selectEducationDegree(String degree) {
-        String degreeSelector = "//span[contains(text(),\"" + degree + "\")]";
-        WebElement degreeLabel = DriverPicker.driverSetup().findElement(By.xpath(degreeSelector));
+        String selector = "//span[contains(text(),\"degree\")]";
+        degreeLabel = DriverPicker.driverSetup().findElement(By.xpath(selector.replace("degree", degree)));
         logger.log(Level.INFO, "Wybranie stopnia naukowego: {0} ", degree);
         degreeLabel.click();
         logger.log(Level.INFO, "Wcisniecie stopnia naukowego: {0} ", degree);
@@ -205,11 +205,10 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
 
     @Step("Wybranie danych ktore maja zostac wyswietlone w raporcie")
     public PimPanelSteps selectPersonalDataGroup(String fieldGroup) {
-        String fieldGroupSelector = "//span[contains(text(),'" + fieldGroup + "')]";
-        WebElement fieldGroupSelect = DriverPicker.driverSetup().findElement(By.xpath(fieldGroupSelector));
-        logger.log(Level.INFO, "Wybranie danych ktore maja zostac wyswietlone: {0} ", fieldGroup);
+        String selector = "//span[contains(text(),'fieldGroup')]";
+        fieldGroupSelect = DriverPicker.driverSetup().findElement(By.xpath(selector.replace("fieldGroup", fieldGroup)));
         fieldGroupSelect.click();
-        logger.log(Level.INFO, "Wcisniecie listy select: {0} ", fieldGroup);
+        logger.log(Level.INFO, "Wybranie danych ktore maja zostac wyswietlone: {0} ", fieldGroup);
         return new PimPanelSteps();
     }
 

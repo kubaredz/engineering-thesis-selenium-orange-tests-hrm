@@ -4,9 +4,10 @@ import builders.options.LeavePanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverPicker;
-import utils.RepeatedActions;
 
 import java.util.logging.Level;
+
+import static utils.RepeatedActions.deletingAndAddingContentToLabel;
 
 public class LeavePanelSteps extends LeavePanelBuilder implements DefaultSteps, CommonSteps {
     public LeavePanelSteps() {
@@ -47,7 +48,7 @@ public class LeavePanelSteps extends LeavePanelBuilder implements DefaultSteps, 
 
     @Step("Imie pracownika: {name} zostalo wpisane")
     public LeavePanelSteps setEmployeeName(String name) {
-        RepeatedActions.deletingAndAddingContentToLabel(employeeNameLabel, name);
+        deletingAndAddingContentToLabel(employeeNameLabel, name);
         logger.log(Level.INFO, "Imie i nazwisko pracownika: \"{0}\" zostalo wpisane", name);
         return new LeavePanelSteps();
     }
@@ -75,21 +76,21 @@ public class LeavePanelSteps extends LeavePanelBuilder implements DefaultSteps, 
 
     @Step("Data urlopu od: {dateFrom} zostala wybrana")
     public LeavePanelSteps pickFromDate(String dateFrom) {
-        RepeatedActions.deletingAndAddingContentToLabel(fromDateLabel, dateFrom);
+        deletingAndAddingContentToLabel(fromDateLabel, dateFrom);
         logger.log(Level.INFO, "Data od: \"{0}\" zostala wybrana", dateFrom);
         return new LeavePanelSteps();
     }
 
     @Step("Data urlopu do zostala wybrana")
     public LeavePanelSteps pickToDate(String dateTo) {
-        RepeatedActions.deletingAndAddingContentToLabel(toDateLabel, dateTo);
+        deletingAndAddingContentToLabel(toDateLabel, dateTo);
         logger.log(Level.INFO, "Data do zostala dodana automatycznie");
         return new LeavePanelSteps();
     }
 
     @Step("Komentarz do urlopu: {comment} zostal wpisany ")
     public LeavePanelSteps writeComment(String comment) {
-        RepeatedActions.deletingAndAddingContentToLabel(commentsTextArea, comment);
+        deletingAndAddingContentToLabel(commentsTextArea, comment);
         logger.log(Level.INFO, "Komentarz zostal napisany: {0}", comment);
         return new LeavePanelSteps();
     }

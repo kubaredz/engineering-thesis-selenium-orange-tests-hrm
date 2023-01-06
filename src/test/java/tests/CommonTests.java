@@ -8,6 +8,7 @@ import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import setup.PageSetup;
 import steps.dashboard.DashboardSteps;
 import steps.dashboard.HeaderSteps;
 import steps.login_page.LoginPageSteps;
@@ -17,6 +18,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class CommonTests extends TestBase {
+    private PageSetup pageSetup;
 
     @Test
     @Description("Jako administrator zalogowanie sie na stronie: www.opensource-demo.orangehrmlive.com")
@@ -47,7 +49,7 @@ public class CommonTests extends TestBase {
         pimPanelSteps
                 .clickPanelSection()
                 .clickAddButton()
-                .setUploadImageButton("C:\\Users\\kubar\\avatar.jpg")
+                .setUploadImageButton(pageSetup.getAvatarPath())
                 .setFirstNameLabel(UserDataGenerator.generateFirstName())
                 .setMiddleNameLabel(UserDataGenerator.generateMiddleName())
                 .setLastNameLabel(UserDataGenerator.generateLastName())
@@ -74,10 +76,11 @@ public class CommonTests extends TestBase {
         String generatedLastName = UserDataGenerator.generateLastName();
         String generatedUsername = UserDataGenerator.generateUsername();
         String generatedPassword = PasswordGenerator.generatePassword(15);
+
         pimPanelSteps
                 .clickPanelSection()
                 .clickAddButton()
-                .setUploadImageButton("C:\\Users\\kubar\\avatar.jpg")
+                .setUploadImageButton(pageSetup.getAvatarPath())
                 .setFirstNameLabel(generatedFirstName)
                 .setMiddleNameLabel(UserDataGenerator.generateMiddleName())
                 .setLastNameLabel(generatedLastName)

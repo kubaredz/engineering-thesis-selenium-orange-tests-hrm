@@ -5,10 +5,10 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverPicker;
-import utils.RepeatedActions;
 
 import java.util.logging.Level;
 
+import static utils.RepeatedActions.deletingAndAddingContentToLabel;
 import static waits.Wait.waitTillElementIsClickableByWebElement;
 import static waits.Wait.waitTillElementIsPresent;
 import static waits.Wait.waitSleep;
@@ -83,7 +83,7 @@ public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, 
 
     @Step("Imie pracownika: {employeeName} zostalo wpisane")
     public AdminPanelSteps setEmployeeNameLabel(String employeeName) {
-        RepeatedActions.deletingAndAddingContentToLabel(employeeNameLabel, employeeName);
+        deletingAndAddingContentToLabel(employeeNameLabel, employeeName);
         logger.log(Level.INFO, "Wprowadzam imie pracownika: {0}", employeeName);
         return new AdminPanelSteps();
     }
@@ -97,14 +97,14 @@ public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, 
 
     @Step("Haslo pracownika: {password} zostalo wpisane")
     public AdminPanelSteps setEmployeePasswordLabel(String password) {
-        RepeatedActions.deletingAndAddingContentToLabel(passwordLabel, password);
+        deletingAndAddingContentToLabel(passwordLabel, password);
         logger.log(Level.INFO, "Wprowadzam haslo pracownika: {0}", password);
         return new AdminPanelSteps();
     }
 
     @Step("Potwierdzenie hasla: {confirmPassword} zostalo wpisane")
     public AdminPanelSteps setRepeatedPasswordLabel(String repeatedPassword) {
-        RepeatedActions.deletingAndAddingContentToLabel(confirmPasswordLabel, repeatedPassword);
+        deletingAndAddingContentToLabel(confirmPasswordLabel, repeatedPassword);
         logger.log(Level.INFO, "Wprowadzam potwierdzenie hasla pracownika: {0}", repeatedPassword);
         return new AdminPanelSteps();
     }
@@ -132,7 +132,7 @@ public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, 
 
     @Step("Nazwa uzytkownika: {username} zostala wpisana")
     public AdminPanelSteps setUsernameLabel(String username) {
-        RepeatedActions.deletingAndAddingContentToLabel(usernameLabel, username);
+        deletingAndAddingContentToLabel(usernameLabel, username);
         logger.log(Level.INFO, "Nazwa uzytkownika to: \"{0}\"", username);
         return new AdminPanelSteps();
     }

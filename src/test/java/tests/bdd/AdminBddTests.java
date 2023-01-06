@@ -9,3 +9,4 @@ import io.cucumber.testng.CucumberOptions;
 )
 public class AdminBddTests extends AbstractTestNGCucumberTests {
 }
+

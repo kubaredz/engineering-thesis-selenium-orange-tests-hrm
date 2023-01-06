@@ -26,8 +26,8 @@ public class HeaderTests extends TestBase {
 
         List<WebElement> listOfLinksElements = headerSteps.getDropdownMenu().findElements(By.tagName("li"));
         List<String> listOfElementsInUserDropDownList = new ArrayList<>();
-        for (int i = 0; i < listOfLinksElements.size(); i++) {
-            listOfElementsInUserDropDownList.add(listOfLinksElements.get(i).getText());
+        for (WebElement listOfLinksElement : listOfLinksElements) {
+            listOfElementsInUserDropDownList.add(listOfLinksElement.getText());
         }
         List<String> listOfExpectedOptions = new ArrayList<>();
         listOfExpectedOptions.add("About");
@@ -117,7 +117,7 @@ public class HeaderTests extends TestBase {
 
         List<WebElement> options = headerSteps.getUserDropdown().findElements(By.tagName("li"));
         for (WebElement option : options) {
-            if (option.getText().equals("Change Password")) {
+            if (option.getText().equals("Logout")) {
                 //TODO
                 option.click();
                 assertEquals(headerSteps.getPageUrl(), "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");

@@ -2,6 +2,7 @@ package builders;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 import java.util.logging.Logger;
 
@@ -22,11 +23,14 @@ public class CommonBuilder {
     public WebElement addText;
 
     @FindBy(css = "div[class='oxd-toast-icon-container']")
-    public WebElement infoAlert;
-
-    @FindBy(css = "div[class='oxd-toast-icon-container']")
     public WebElement positiveAlert;
 
     @FindBy(css = "p[class*='oxd-text oxd-text--p oxd-alert-content-text']")
     public WebElement invalidCredentialsAlert;
+
+    @FindBy(how = How.CSS)
+    public WebElement generatedSection;
+
+    @FindBy(how = How.XPATH)
+    public WebElement pickedButton;
 }

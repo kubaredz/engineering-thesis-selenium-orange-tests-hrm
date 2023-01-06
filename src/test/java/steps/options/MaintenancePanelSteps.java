@@ -4,9 +4,10 @@ import builders.options.MaintenancePanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverPicker;
-import utils.RepeatedActions;
 
 import java.util.logging.Level;
+
+import static utils.RepeatedActions.deletingAndAddingContentToLabel;
 
 public class MaintenancePanelSteps extends MaintenancePanelBuilder implements DefaultSteps, CommonSteps {
 
@@ -48,7 +49,7 @@ public class MaintenancePanelSteps extends MaintenancePanelBuilder implements De
 
     @Step("Haslo: {password} zostalo wpisane")
     public MaintenancePanelSteps setPasswordLabel(String password) {
-        RepeatedActions.deletingAndAddingContentToLabel(passwordLabel, password);
+        deletingAndAddingContentToLabel(passwordLabel, password);
         logger.log(Level.INFO, "Haslo: {0} zostalo ustawione", password);
         return new MaintenancePanelSteps();
     }

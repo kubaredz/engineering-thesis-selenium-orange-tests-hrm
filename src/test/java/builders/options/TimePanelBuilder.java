@@ -3,6 +3,7 @@ package builders.options;
 import builders.CommonBuilder;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 public class TimePanelBuilder extends CommonBuilder {
 
@@ -18,6 +19,9 @@ public class TimePanelBuilder extends CommonBuilder {
     @FindBy(css = "div[role='option'] span")
     public WebElement promptedEmployeeName;
 
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[1]/h6[1]")
+    public WebElement timesheetForLoggedUserText;
+
     @FindBy(xpath = "//input[@placeholder='Type for hints...']")
     public WebElement projectNameLabel;
 
@@ -29,4 +33,13 @@ public class TimePanelBuilder extends CommonBuilder {
 
     @FindBy(xpath = "//i[@class='oxd-icon bi-trash']")
     public WebElement deleteReportButton;
+
+    @FindBy(how = How.XPATH)
+    public WebElement buttonFromList;
+
+    @FindBy(how = How.XPATH)
+    public WebElement pickedOption;
+
+    @FindBy(how = How.XPATH)
+    public WebElement dayLabel;
 }

@@ -3,6 +3,7 @@ package builders.options;
 import builders.CommonBuilder;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 public class RecruitmentPanelBuilder extends CommonBuilder {
 
@@ -50,4 +51,10 @@ public class RecruitmentPanelBuilder extends CommonBuilder {
 
     @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/input[1]")
     public WebElement numberOfPositionLabel;
+
+    @FindBy(xpath = "//h6[normalize-space()='Edit Vacancy']")
+    public WebElement editVacancyText;
+
+    @FindBy(how = How.XPATH)
+    public WebElement pickedJob;
 }
