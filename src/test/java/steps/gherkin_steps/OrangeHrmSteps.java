@@ -337,7 +337,6 @@ public class OrangeHrmSteps {
 
     @Then("Zamkniecie przegladarki")
     public void closeBrowser() {
-        //TODO Tear down (np. after class?)
         DriverPicker.getDriver().close();
         DriverPicker.setDriver(null);
     }

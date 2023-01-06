@@ -35,9 +35,9 @@ public class Wait {
 
     public static void waitSleep() {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(4000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }

@@ -10,7 +10,7 @@ public class PimPanelBuilder extends CommonBuilder {
     @FindBy(css = "a[href='/web/index.php/pim/viewPimModule']")
     public WebElement pimPanelSection;
 
-    @FindBy(css = "button[class='oxd-icon-button employee-image-action']")
+    @FindBy(xpath = "//body/div[@id='app']/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[2]/div[1]/button[1]")
     public WebElement uploadImageButton;
 
     @FindBy(name = "firstName")

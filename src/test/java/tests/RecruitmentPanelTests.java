@@ -63,7 +63,6 @@ public class RecruitmentPanelTests extends TestBase {
                 .setEmailLabel(email)
                 .setContactNumberLabel(phoneNumber)
                 .clickSaveButton();
-//                .setResumeLabel("C:\\Users\\kubar\\OneDrive\\Pulpit\\praca-inzynierska\\resources\\pdf\\resume-cv.pdf");
 
         assertTrue(recruitmentPanelSteps.isPositiveAlertVisible());
         assertTrue(recruitmentPanelSteps.isHeaderTextDisplayed());
