@@ -3,10 +3,10 @@ package steps.options;
 import builders.options.AdminPanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverPicker;
 
 import java.util.logging.Level;
 
+import static setup.DriverPicker.driverSetup;
 import static utils.RepeatedActions.deletingAndAddingContentToLabel;
 import static utils.RepeatedActions.doubleClickElement;
 import static waits.Wait.waitTillElementIsClickableByWebElement;
@@ -16,7 +16,7 @@ import static waits.Wait.waitSleep;
 public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, CommonSteps {
 
     public AdminPanelSteps() {
-        PageFactory.initElements(DriverPicker.driverSetup(), this);
+        PageFactory.initElements(driverSetup(), this);
     }
 
     @Override

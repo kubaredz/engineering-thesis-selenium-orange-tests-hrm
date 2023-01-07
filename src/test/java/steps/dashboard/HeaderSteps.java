@@ -4,14 +4,15 @@ import builders.dashboard.HeaderBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverPicker;
 
 import java.util.logging.Level;
+
+import static setup.DriverPicker.driverSetup;
 
 public class HeaderSteps extends HeaderBuilder {
 
     public HeaderSteps() {
-        PageFactory.initElements(DriverPicker.driverSetup(), this);
+        PageFactory.initElements(driverSetup(), this);
     }
 
     @Step("'Dropdown' zostal wcisniety")
@@ -41,7 +42,7 @@ public class HeaderSteps extends HeaderBuilder {
 
     @Step("Pobranie adresu url strony")
     public String getPageUrl() {
-        String pageUrl = DriverPicker.driverSetup().getCurrentUrl();
+        String pageUrl = driverSetup().getCurrentUrl();
         logger.log(Level.INFO, "Adres otworzonej strony to: {0}", pageUrl);
         return pageUrl;
     }

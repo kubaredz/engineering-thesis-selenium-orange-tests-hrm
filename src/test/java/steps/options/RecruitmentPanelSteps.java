@@ -4,12 +4,12 @@ import builders.options.RecruitmentPanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverPicker;
 import steps.dashboard.HeaderSteps;
 
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.logging.Level;
 
+import static setup.DriverPicker.driverSetup;
 import static utils.RepeatedActions.deletingAndAddingContentToLabel;
 import static utils.RepeatedActions.scrollToElement;
 import static waits.Wait.waitTillElementIsPresent;
@@ -18,7 +18,7 @@ public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements De
     private int int_random = ThreadLocalRandom.current().nextInt();
 
     public RecruitmentPanelSteps() {
-        PageFactory.initElements(DriverPicker.driverSetup(), this);
+        PageFactory.initElements(driverSetup(), this);
     }
 
     @Override
@@ -131,7 +131,7 @@ public class RecruitmentPanelSteps extends RecruitmentPanelBuilder implements De
     @Step("Wybranie opisu stanowiska pracy: {jobTitle}")
     public RecruitmentPanelSteps setJobType(String jobTitle) {
         String selector = "//span[normalize-space()='jobTitle']";
-        pickedJob = DriverPicker.driverSetup().findElement(By.xpath(selector.replace("jobTitle", jobTitle)));
+        pickedJob = driverSetup().findElement(By.xpath(selector.replace("jobTitle", jobTitle)));
         scrollToElement(pickedJob);
         pickedJob.click();
         logger.log(Level.INFO, "Wybranie opisu stanowiska pracy: {0}", jobTitle);

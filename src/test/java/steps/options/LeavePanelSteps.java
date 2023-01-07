@@ -3,15 +3,15 @@ package steps.options;
 import builders.options.LeavePanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverPicker;
 
 import java.util.logging.Level;
 
+import static setup.DriverPicker.driverSetup;
 import static utils.RepeatedActions.deletingAndAddingContentToLabel;
 
 public class LeavePanelSteps extends LeavePanelBuilder implements DefaultSteps, CommonSteps {
     public LeavePanelSteps() {
-        PageFactory.initElements(DriverPicker.driverSetup(), this);
+        PageFactory.initElements(driverSetup(), this);
     }
 
     @Override

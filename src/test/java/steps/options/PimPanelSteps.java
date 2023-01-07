@@ -1,21 +1,20 @@
 package steps.options;
 
 import builders.options.PimPanelBuilder;
-
 import helpers.UserDataGenerator;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverPicker;
 
 import java.util.logging.Level;
 
+import static setup.DriverPicker.driverSetup;
 import static utils.RepeatedActions.deletingAndAddingContentToLabel;
 
 public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, CommonSteps {
 
     public PimPanelSteps() {
-        PageFactory.initElements(DriverPicker.driverSetup(), this);
+        PageFactory.initElements(driverSetup(), this);
     }
 
     @Override
@@ -159,7 +158,7 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
     @Step("Wybranie kryterium raportu {criteria}")
     public PimPanelSteps pickSelectionCriteria(String criteria) {
         String selector = "//span[contains(text(),'criteria')]";
-        selectionCriteria = DriverPicker.driverSetup().findElement(By.xpath(selector.replace("criteria", criteria)));
+        selectionCriteria = driverSetup().findElement(By.xpath(selector.replace("criteria", criteria)));
         selectionCriteria.click();
         logger.log(Level.INFO, "Wybranie kryterium raportu: {0}", criteria);
         return new PimPanelSteps();
@@ -189,7 +188,7 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
     @Step("Wybranie stopnia naukowego: {educationDegree}")
     public PimPanelSteps selectEducationDegree(String degree) {
         String selector = "//span[contains(text(),\"degree\")]";
-        degreeLabel = DriverPicker.driverSetup().findElement(By.xpath(selector.replace("degree", degree)));
+        degreeLabel = driverSetup().findElement(By.xpath(selector.replace("degree", degree)));
         logger.log(Level.INFO, "Wybranie stopnia naukowego: {0} ", degree);
         degreeLabel.click();
         logger.log(Level.INFO, "Wcisniecie stopnia naukowego: {0} ", degree);
@@ -206,7 +205,7 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
     @Step("Wybranie danych ktore maja zostac wyswietlone w raporcie")
     public PimPanelSteps selectPersonalDataGroup(String fieldGroup) {
         String selector = "//span[contains(text(),'fieldGroup')]";
-        fieldGroupSelect = DriverPicker.driverSetup().findElement(By.xpath(selector.replace("fieldGroup", fieldGroup)));
+        fieldGroupSelect = driverSetup().findElement(By.xpath(selector.replace("fieldGroup", fieldGroup)));
         fieldGroupSelect.click();
         logger.log(Level.INFO, "Wybranie danych ktore maja zostac wyswietlone: {0} ", fieldGroup);
         return new PimPanelSteps();

@@ -3,14 +3,15 @@ package steps.options;
 import builders.options.PerformancePanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverPicker;
 
 import java.util.logging.Level;
+
+import static setup.DriverPicker.driverSetup;
 
 public class PerformancePanelSteps extends PerformancePanelBuilder implements CommonSteps {
 
     public PerformancePanelSteps() {
-        PageFactory.initElements(DriverPicker.driverSetup(), this);
+        PageFactory.initElements(driverSetup(), this);
     }
 
     @Override

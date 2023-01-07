@@ -3,17 +3,17 @@ package steps.options;
 import builders.options.MyInfoPanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverPicker;
 
 import java.util.logging.Level;
 
+import static setup.DriverPicker.driverSetup;
 import static utils.RepeatedActions.deletingAndAddingContentToLabel;
 import static waits.Wait.waitSleep;
 
 public class MyInfoSteps extends MyInfoPanelBuilder implements DefaultSteps, CommonSteps {
 
     public MyInfoSteps() {
-        PageFactory.initElements(DriverPicker.driverSetup(), this);
+        PageFactory.initElements(driverSetup(), this);
     }
 
     @Override

@@ -4,16 +4,16 @@ import builders.dashboard.DashboardPageBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverPicker;
 
 import java.util.logging.Level;
 
+import static setup.DriverPicker.driverSetup;
 import static waits.Wait.waitTillElementIsClickableByWebElement;
 
 public class DashboardSteps extends DashboardPageBuilder {
 
     public DashboardSteps() {
-        PageFactory.initElements(DriverPicker.driverSetup(), this);
+        PageFactory.initElements(driverSetup(), this);
     }
 
     @Step("Logo strony Orange HRM zostalo wyswietlone")
@@ -61,7 +61,7 @@ public class DashboardSteps extends DashboardPageBuilder {
     @Step("Pobranie url-a dla danej sekcji z panelu quick launch: {section} i wcisniecie tej sekcji")
     public DashboardSteps clickQuickLaunchSectionOption(String section) {
         String selector = "button[title='section']";
-        quickLaunchButton = DriverPicker.driverSetup().findElement(By.cssSelector(selector.replace("section", section)));
+        quickLaunchButton = driverSetup().findElement(By.cssSelector(selector.replace("section", section)));
         waitTillElementIsClickableByWebElement(quickLaunchButton);
         quickLaunchButton.click();
         logger.log(Level.INFO, "Pobranie url-a dla danej sekcji z panelu quick launch: {0} i wcisniecie tej sekcji", section);

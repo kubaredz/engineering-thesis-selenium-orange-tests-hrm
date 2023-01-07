@@ -3,22 +3,22 @@ package steps.login_page;
 import builders.login_page.LoginPageBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverPicker;
 
 import java.util.*;
 import java.util.logging.Level;
 
+import static setup.DriverPicker.driverSetup;
 import static utils.RepeatedActions.deletingAndAddingContentToLabel;
 
 public class LoginPageSteps extends LoginPageBuilder {
 
     public LoginPageSteps() {
-        PageFactory.initElements(DriverPicker.driverSetup(), this);
+        PageFactory.initElements(driverSetup(), this);
     }
 
     @Step("Adres strony zostaje zaciagniety")
     public String getPageTitle() {
-        String pageTitle = DriverPicker.driverSetup().getTitle();
+        String pageTitle = driverSetup().getTitle();
         logger.log(Level.INFO, "Nazwa strony zostala zaciagnieta: {0} ", pageTitle);
         return pageTitle;
     }
@@ -79,7 +79,7 @@ public class LoginPageSteps extends LoginPageBuilder {
 
     @Step("Zaciagniecie aktualnego adresu strony")
     public String getCurrentPageUrl() {
-        String currentPageUrl = DriverPicker.driverSetup().getCurrentUrl();
+        String currentPageUrl = driverSetup().getCurrentUrl();
         logger.log(Level.INFO, "Strona o nazwie: {0} zostala zaladowana", currentPageUrl);
         return currentPageUrl;
     }
@@ -107,8 +107,8 @@ public class LoginPageSteps extends LoginPageBuilder {
 
     @Step("Nowa karta przegladarki o numerze: {tab} zostala otwarta")
     public LoginPageSteps switchHandledTab(int tab) {
-        List<String> browserTabs = new ArrayList<>(DriverPicker.driverSetup().getWindowHandles());
-        DriverPicker.driverSetup().switchTo().window(browserTabs.get(tab));
+        List<String> browserTabs = new ArrayList<>(driverSetup().getWindowHandles());
+        driverSetup().switchTo().window(browserTabs.get(tab));
         logger.log(Level.INFO, "Karta przegladarki zostala zmieniona");
         return new LoginPageSteps();
     }

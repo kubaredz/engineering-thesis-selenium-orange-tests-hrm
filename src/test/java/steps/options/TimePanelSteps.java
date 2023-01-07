@@ -4,17 +4,17 @@ import builders.options.TimePanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverPicker;
 
 import java.util.logging.Level;
 
+import static setup.DriverPicker.driverSetup;
 import static utils.RepeatedActions.deletingAndAddingContentToLabel;
 import static waits.Wait.waitTillElementIsPresent;
 
 public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, CommonSteps {
 
     public TimePanelSteps() {
-        PageFactory.initElements(DriverPicker.driverSetup(), this);
+        PageFactory.initElements(driverSetup(), this);
     }
 
     @Override
@@ -85,7 +85,7 @@ public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, Co
     @Step("Wybranie oraz wcisniecie przycisku z listy w sekcji Time: {listButton}")
     public TimePanelSteps clickButtonFromListInTimeSection(String listButton) {
         String selector = "//span[normalize-space()='listButton']";
-        buttonFromList = DriverPicker.driverSetup().findElement(By.xpath(selector.replace("listButton", listButton)));
+        buttonFromList = driverSetup().findElement(By.xpath(selector.replace("listButton", listButton)));
         logger.log(Level.INFO, "Wybranie przycisku z listy w sekcji Time: {0} ", listButton);
         buttonFromList.click();
         logger.log(Level.INFO, "Wcisniecie przycisku z listy: {0} ", listButton);
@@ -95,7 +95,7 @@ public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, Co
     @Step("Wybranie opcji z listy: {option}")
     public TimePanelSteps clickOptionFromList(String option) {
         String selector = "//a[contains(text(),'option')]";
-        pickedOption = DriverPicker.driverSetup().findElement(By.xpath(selector.replace("option", option)));
+        pickedOption = driverSetup().findElement(By.xpath(selector.replace("option", option)));
         logger.log(Level.INFO, "Wybranie opcji z listy: {0} ", option);
         pickedOption.click();
         logger.log(Level.INFO, "Wcisniecie opcji z listy: {0} ", option);
@@ -126,7 +126,7 @@ public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, Co
     @Step("Wybranie stanowiska pracy pracownika: {activityType}")
     public TimePanelSteps chooseActivity(String activityType) {
         String selector = "//span[normalize-space()='activityType']";
-        pickedOption = DriverPicker.driverSetup().findElement(By.xpath(selector.replace("activityType", activityType)));
+        pickedOption = driverSetup().findElement(By.xpath(selector.replace("activityType", activityType)));
         waitTillElementIsPresent(pickedOption);
         logger.log(Level.INFO, "Wybranie stanowiska pracy pracownika: {0} ", activityType);
         pickedOption.click();
@@ -138,7 +138,7 @@ public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, Co
     public TimePanelSteps setWorkedHours(String hours, int days) {
         for (int i = 3; i < 3 + days; i++) {
             String dayLabelSelector = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[2]/table[1]/tbody[1]/tr[1]/td[index]/div[1]/div[2]/input[1]";
-            dayLabel = DriverPicker.driverSetup().findElement((By.xpath(dayLabelSelector.replace("index", Integer.toString(i)))));
+            dayLabel = driverSetup().findElement((By.xpath(dayLabelSelector.replace("index", Integer.toString(i)))));
             deletingAndAddingContentToLabel(dayLabel, hours);
             logger.log(Level.INFO, "Dodanie godzin pracy: {0} ", hours);
             logger.log(Level.INFO, "Dodanie godzin pracy dla: {0} dni roboczych", days);

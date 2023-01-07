@@ -3,14 +3,15 @@ package steps.options;
 import builders.options.BuzzPanelBuilder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
-import setup.DriverPicker;
 
 import java.util.logging.Level;
+
+import static setup.DriverPicker.driverSetup;
 
 public class BuzzPanelSteps extends BuzzPanelBuilder implements DefaultSteps, CommonSteps {
 
     public BuzzPanelSteps() {
-        PageFactory.initElements(DriverPicker.driverSetup(), this);
+        PageFactory.initElements(driverSetup(), this);
     }
 
     @Override
