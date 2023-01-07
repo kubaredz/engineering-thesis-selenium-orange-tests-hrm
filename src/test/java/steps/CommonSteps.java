@@ -23,7 +23,7 @@ public class CommonSteps extends CommonBuilder {
     }
 
     @Step("Utworzenie selektora dla sekcji {section}")
-    public CommonSteps generateAndClickSelectorForAllSections(String section) {
+    public CommonSteps clickSelectorForAllSections(String section) {
         String selector = "a[href='/web/index.php/" + section.toLowerCase() + "/view" + section + "Module']";
         generatedSection = DriverPicker.driverSetup().findElement(By.cssSelector(selector));
         generatedSection.click();
@@ -32,7 +32,7 @@ public class CommonSteps extends CommonBuilder {
     }
 
     @Step("Wcisniecie przycisku: {button}'")
-    public TimePanelSteps clickButtonWithNormalizeSpace(String selectedButton) {
+    public TimePanelSteps clickButtonWithNormalizedSpace(String selectedButton) {
         String selector = "//button[normalize-space()='selectedButton']";
         pickedButton = DriverPicker.driverSetup().findElement(By.xpath(selector.replace("selectedButton", selectedButton)));
         logger.log(Level.INFO, "Wybranie przycisku do wcisniecia: {0} ", selectedButton);

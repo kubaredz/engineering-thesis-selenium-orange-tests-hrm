@@ -10,7 +10,7 @@ import steps.options.MaintenancePanelSteps;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class MaintenancePanelTests extends TestBase {
+public class MaintenancePanelTests extends TestNgSteps {
     private CommonTests commonTests;
     private MaintenancePanelSteps maintenancePanelSteps;
 
@@ -21,24 +21,23 @@ public class MaintenancePanelTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany administrator, weryfikacja czy panel 'Maintenance' przekierowywuje do strony 'purge employee'")
     @Severity(SeverityLevel.CRITICAL)
     @Story("PI-38")
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-38")
+    @Description("Jako zalogowany administrator, weryfikacja czy panel 'Maintenance' przekierowywuje do strony 'purge employee'")
     @Parameters({"login", "password"})
     public void asAdminMaintenanceScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         maintenancePanelSteps.clickPanelSection();
-
         assertEquals(maintenancePanelSteps.getMaintenancePageUrl(), "https://opensource-demo.orangehrmlive.com/web/index.php/maintenance/purgeEmployee");
     }
 
     @Test
-    @Description("Jako zalogowany administrator, weryfikacja czy administrator moze zalogowac sie do panelu 'Administrator Access'")
-    @Severity(SeverityLevel.NORMAL)
     @Story("PI-38")
+    @Severity(SeverityLevel.NORMAL)
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-38")
+    @Description("Jako zalogowany administrator, weryfikacja czy administrator moze zalogowac sie do panelu 'Administrator Access'")
     @Parameters({"login", "password"})
     public void asAdminLoginToMaintenanceAdministratorAccessPageTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);

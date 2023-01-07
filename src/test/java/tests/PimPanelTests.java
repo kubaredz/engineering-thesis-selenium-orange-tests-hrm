@@ -12,7 +12,7 @@ import steps.options.PimPanelSteps;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class PimPanelTests extends TestBase {
+public class PimPanelTests extends TestNgSteps {
     private LoginPageSteps loginPageSteps;
     private PimPanelSteps pimPanelSteps;
     private LoginPageTests loginPageTests;
@@ -26,11 +26,11 @@ public class PimPanelTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'PIM' przekierowuje do strony 'PIM' z lista pracownikow")
+    @Story("PI-41")
     @Severity(SeverityLevel.NORMAL)
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-41")
-    @Story("PI-41")
-    public void asUserICanGoToPimSectionTest() {
+    @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'PIM' przekierowuje do strony z lista pracownikow")
+    public void pimPanelRedirectsToEmployeeListTest() {
         loginPageSteps
                 .setUserNameField("Admin")
                 .setPasswordField("admin123")
@@ -42,10 +42,10 @@ public class PimPanelTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany uzytkownik, weryfikacja czy sekcja 'Dodawania nowego uzykownika' jest widoczna")
+    @Story("PI-41")
     @Severity(SeverityLevel.CRITICAL)
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-41")
-    @Story("PI-41")
+    @Description("Jako zalogowany uzytkownik, weryfikacja czy sekcja 'Dodawania nowego uzykownika' jest widoczna")
     public void asUserICanGoToAddNewUserSectionAndItIsPresentTest() {
         loginPageSteps
                 .setUserNameField("Admin")
@@ -61,10 +61,10 @@ public class PimPanelTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany uzytkownik, weryfikacja dodania nowego pracownika do systemu 'PIM'")
-    @Severity(SeverityLevel.CRITICAL)
     @Story("PI-41")
+    @Severity(SeverityLevel.CRITICAL)
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-41")
+    @Description("Jako zalogowany uzytkownik, weryfikacja dodania nowego pracownika do systemu 'PIM'")
     public void addNewUserInOrangeHrmApplicationTest() {
         loginPageTests.asAdministratorTryToLoginWithCorrectLoginAndPasswordTest();
         String password = PasswordGenerator.generatePassword(15);

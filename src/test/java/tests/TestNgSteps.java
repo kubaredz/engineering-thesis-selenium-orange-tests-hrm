@@ -4,32 +4,32 @@ import io.qameta.allure.Step;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import setup.DriverPicker;
-import setup.PageSetup;
 
-import static properties.PropertiesReader.setPropertiesFromFileInSystem;
+import static properties.PropertiesReader.setSystemFileProperties;
+import static setup.DriverPicker.*;
+import static setup.PageSetup.*;
 
-public class TestBase {
+public class TestNgSteps {
 
     @BeforeClass
     @Step("Metoda odpowiedzialna za zalodowanie konfiguracji z pliku configuration.properties")
     public void beforeClass() {
-        setPropertiesFromFileInSystem();
+        setSystemFileProperties();
     }
 
     @BeforeMethod
     @Step("Metoda odpowiedzialna za utworzenie drivera, ustawienie opoznienia oraz uruchomienia strony Orange HRM")
     public void beforeMethod() {
-        DriverPicker.driverSetup();
-        PageSetup.setMaximizeOfWindow();
-        PageSetup.setImplicitWait();
-        PageSetup.setPageUrl();
+        driverSetup();
+        setMaximizeOfWindow();
+        setImplicitWait();
+        setPageUrl();
     }
 
     @AfterMethod
     @Step("Metoda odpowiedzialna za zamkniecie przegladarki oraz wylaczenie drivera")
     public void afterMethod() {
-        DriverPicker.getDriver().close();
-        DriverPicker.setDriver(null);
+        getDriver().close();
+        setDriver(null);
     }
 }

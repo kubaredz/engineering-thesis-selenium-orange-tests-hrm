@@ -13,7 +13,7 @@ import steps.options.AdminPanelSteps;
 
 import static org.junit.Assert.assertTrue;
 
-public class AdminPanelTests extends TestBase {
+public class AdminPanelTests extends TestNgSteps {
     private CommonTests commonTests;
     private AdminPanelSteps adminPanelSteps;
     private HeaderSteps headerSteps;
@@ -27,10 +27,10 @@ public class AdminPanelTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany administrator, weryfikacja czy panel 'Admin' dziala prawidlowo oraz czy sekcja 'User Management' jest widoczna")
-    @Severity(SeverityLevel.CRITICAL)
     @Story("PI-30")
+    @Severity(SeverityLevel.CRITICAL)
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-30")
+    @Description("Jako zalogowany administrator, weryfikacja czy panel 'Admin' dziala prawidlowo oraz czy sekcja 'User Management' jest widoczna")
     public void asAdminUserManagementScreenIsPresentTest() {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(pageSetup.setLogin(), pageSetup.setPassword());
 
@@ -39,12 +39,12 @@ public class AdminPanelTests extends TestBase {
     }
 
     @Test
-    @Severity(SeverityLevel.CRITICAL)
-    @Description("Jako zalogowany administrator, weryfikacja dodania nowego konta administratora")
     @Story("PI-30")
+    @Severity(SeverityLevel.CRITICAL)
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-30")
+    @Description("Jako zalogowany administrator, weryfikacja dodania nowego konta administratora")
     @Parameters({"login", "password"})
-    public void asAdminAddNewAdministratorProfileTest(@Optional("Admin") String login, @Optional("admin123") String password) {
+    public void asAdminAddNewAdministratorAccountTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         String loggedUserData = headerSteps.getLoggedUser();

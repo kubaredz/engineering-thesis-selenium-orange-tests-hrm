@@ -33,14 +33,14 @@ public class LoginPageSteps extends LoginPageBuilder {
     @Step("Wprowadzony login uzytkownika to: {username}")
     public LoginPageSteps setUserNameField(String username) {
         deletingAndAddingContentToLabel(usernameField, username);
-        logger.log(Level.INFO, "Wprowadzam login użytkownika: {0}", username);
+        logger.log(Level.INFO, "Wprowadzam login uzytkownika: {0}", username);
         return new LoginPageSteps();
     }
 
     @Step("Wprowadzony login uzytkownika to: {password}")
     public LoginPageSteps setPasswordField(String password) {
         deletingAndAddingContentToLabel(passwordField, password);
-        logger.log(Level.INFO, "Wprowadzam haslo użytkownika: {0}", password);
+        logger.log(Level.INFO, "Wprowadzam haslo uzytkownika: {0}", password);
         return new LoginPageSteps();
     }
 

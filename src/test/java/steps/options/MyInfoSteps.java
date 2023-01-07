@@ -168,12 +168,12 @@ public class MyInfoSteps extends MyInfoPanelBuilder implements DefaultSteps, Com
     @Step("Pracownik byl w sluzbie wojskowej: {militaryService}")
     public MyInfoSteps setMilitaryServiceLabel(String militaryService) {
         deletingAndAddingContentToLabel(militaryServiceLabel, militaryService);
-        logger.log(Level.INFO, "Status służby wojskowej to: \"{0}\"", militaryService);
+        logger.log(Level.INFO, "Status sluzby wojskowej to: \"{0}\"", militaryService);
         return new MyInfoSteps();
     }
 
     @Step("Ustawienie statusu: palacz")
-    public MyInfoSteps isSmokerCheckBox() {
+    public MyInfoSteps clickSmokerCheckBox() {
         smokerCheckBox.click();
         logger.log(Level.INFO, "Ustawienie statusu: \"palacz\"");
         return new MyInfoSteps();

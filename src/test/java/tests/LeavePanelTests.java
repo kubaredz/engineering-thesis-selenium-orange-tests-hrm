@@ -11,7 +11,7 @@ import steps.options.LeavePanelSteps;
 
 import static org.testng.Assert.assertTrue;
 
-public class LeavePanelTests extends TestBase {
+public class LeavePanelTests extends TestNgSteps {
     private CommonTests commonTests;
     private LeavePanelSteps leavePanelSteps;
     private HeaderSteps headerSteps;
@@ -24,12 +24,12 @@ public class LeavePanelTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany administrator, weryfikacja czy panel 'Leave' dziala prawidlowo oraz czy sekcja 'Leave' jest widoczna")
-    @Severity(SeverityLevel.CRITICAL)
     @Story("PI-36")
+    @Severity(SeverityLevel.CRITICAL)
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-36")
+    @Description("Jako zalogowany administrator, weryfikacja czy panel 'Leave' dziala prawidlowo oraz czy sekcja 'Leave' jest widoczna")
     @Parameters({"login", "password"})
-    public void checkThatLeaveListIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
+    public void checkLeaveListIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         leavePanelSteps.clickPanelSection();
@@ -38,12 +38,12 @@ public class LeavePanelTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany administrator, dodanie urlopu dla zalogowanego uzytkownika")
-    @Severity(SeverityLevel.CRITICAL)
     @Story("PI-36")
+    @Severity(SeverityLevel.CRITICAL)
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-36")
+    @Description("Jako zalogowany administrator, dodanie urlopu dla zalogowanego uzytkownika")
     @Parameters({"login", "password"})
-    public void addVacationLeaveForLoggedEmployee(@Optional("Admin") String login, @Optional("admin123") String password) {
+    public void checkAddingVacationLeaveForLoggedEmployeeTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         String loggedUserData = headerSteps.getLoggedUser();
@@ -57,7 +57,7 @@ public class LeavePanelTests extends TestBase {
                 .pickVacationLeave()
                 .pickFromDate(DateGenerator.getTodayData())
                 .pickToDate(DateGenerator.getTodayData())
-                .writeComment("Dzień urlopu zaakceptowany przez przełożonego")
+                .writeComment("Dzien urlopu zaakceptowany przez przelozonego")
                 .clickAssignButton();
 
         assertTrue(leavePanelSteps.isConfirmLeaveAssignmentPopupDisplayed());

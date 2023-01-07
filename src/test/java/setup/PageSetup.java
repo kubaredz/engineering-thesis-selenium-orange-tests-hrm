@@ -5,7 +5,6 @@ import properties.PropertiesReader;
 import java.time.Duration;
 
 public class PageSetup {
-    private static String avatarPath = "resources/img/avatar.jpg";
     private static PropertiesReader propertiesReader;
 
     public static void setPageUrl() {
@@ -29,6 +28,7 @@ public class PageSetup {
     }
 
     public static String getAvatarPath() {
+        String avatarPath = "resources/img/avatar.jpg";
         return avatarPath;
     }
 }

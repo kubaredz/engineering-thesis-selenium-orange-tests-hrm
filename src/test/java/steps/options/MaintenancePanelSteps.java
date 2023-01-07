@@ -26,7 +26,7 @@ public class MaintenancePanelSteps extends MaintenancePanelBuilder implements De
     @Step("Sekcja: 'Maintenance' zostala otwarta")
     public MaintenancePanelSteps clickPanelSection() {
         maintenanceSection.click();
-        logger.log(Level.INFO, "Przycisk dla sekcji: \"Maintenance\" zostal wciśnięty");
+        logger.log(Level.INFO, "Przycisk dla sekcji: \"Maintenance\" zostal wciśniety");
         return new MaintenancePanelSteps();
     }
 
@@ -57,7 +57,7 @@ public class MaintenancePanelSteps extends MaintenancePanelBuilder implements De
     @Step("Przycisk: 'Confirm' zostal wcisniety")
     public MaintenancePanelSteps clickConfirmButton() {
         confirmButton.click();
-        logger.log(Level.INFO, "Przycisk: confirm zostal wciśnięty");
+        logger.log(Level.INFO, "Przycisk: confirm zostal wciśniety");
         return new MaintenancePanelSteps();
     }
 

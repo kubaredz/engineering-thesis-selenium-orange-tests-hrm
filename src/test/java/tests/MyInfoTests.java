@@ -11,7 +11,7 @@ import steps.options.MyInfoSteps;
 
 import static org.testng.Assert.assertTrue;
 
-public class MyInfoTests extends TestBase {
+public class MyInfoTests extends TestNgSteps {
     private CommonTests commonTests;
     private MyInfoSteps myInfoSteps;
 
@@ -22,26 +22,25 @@ public class MyInfoTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'My info' przekierowuje do strony 'PIM'")
-    @Severity(SeverityLevel.NORMAL)
     @Story("PI-39")
+    @Severity(SeverityLevel.NORMAL)
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-39")
+    @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'My info' przekierowuje do strony 'PIM'")
     @Parameters({"login", "password"})
     public void asAdminMyInfoScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         myInfoSteps.clickPanelSection();
-
         assertTrue(myInfoSteps.isHeaderTextDisplayed());
     }
 
     @Test
-    @Description("Jako zalogowany uzytkownik, weryfikacja czy moge zmodyfikowac swoje dane osobowe")
-    @Severity(SeverityLevel.NORMAL)
     @Story("PI-39")
+    @Severity(SeverityLevel.NORMAL)
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-39")
+    @Description("Jako zalogowany uzytkownik, weryfikacja czy modyfikacja swoich danych osobowych jest mozliwa")
     @Parameters({"login", "password"})
-    public void asAdminModifyDataOfLoggedUserTest(@Optional("Admin") String login, @Optional("admin123") String password) {
+    public void asAdminModifyPersonalDataOfLoggedUserTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         String firstName = UserDataGenerator.generateFirstName();
@@ -71,7 +70,7 @@ public class MyInfoTests extends TestBase {
                 .setDateOfBirthLabel("1997-10-21")
                 .clickFemaleGenderRadioButton()
                 .setMilitaryServiceLabel("yes")
-                .isSmokerCheckBox()
+                .clickSmokerCheckBox()
                 .clickNationalitySelect()
                 .clickNationality()
                 .setMaritalStatusList()
@@ -82,10 +81,10 @@ public class MyInfoTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany uzytkownik, weryfikacja czy moge zmodyfikowac pola w sekcji 'Custom Fields'")
-    @Severity(SeverityLevel.TRIVIAL)
     @Story("PI-39")
+    @Severity(SeverityLevel.TRIVIAL)
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-39")
+    @Description("Jako zalogowany uzytkownik, weryfikacja czy modyfikacja pola w sekcji 'Custom Fields' jest mozliwa")
     @Parameters({"login", "password"})
     public void asLoggedUserIWantToChangeCustomFields(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);

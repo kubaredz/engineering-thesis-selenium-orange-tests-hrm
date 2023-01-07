@@ -5,8 +5,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import setup.DriverPicker;
-import setup.PageSetup;
 import steps.CommonSteps;
 import steps.dashboard.DashboardSteps;
 import steps.dashboard.HeaderSteps;
@@ -20,16 +18,18 @@ import tests.CommonTests;
 import static org.junit.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static properties.PropertiesReader.*;
+import static setup.DriverPicker.*;
+import static setup.PageSetup.*;
 
 public class OrangeHrmSteps {
 
     @Given("Wejscie na strone OrangeHRM")
     public void stepEnterOrangeHrmPage() {
-        setPropertiesFromFileInSystem();
-        DriverPicker.driverSetup();
-        PageSetup.setMaximizeOfWindow();
-        PageSetup.setImplicitWait();
-        PageSetup.setPageUrl();
+        setSystemFileProperties();
+        driverSetup();
+        setMaximizeOfWindow();
+        setImplicitWait();
+        setPageUrl();
     }
 
     @Given("Zalogowanie uzytkownika do strony OrangeHRM")
@@ -92,7 +92,7 @@ public class OrangeHrmSteps {
         AdminPanelSteps adminPanelSteps = new AdminPanelSteps();
         adminPanelSteps
                 .clickStatusList()
-                .choseStatus(status);
+                .chooseStatus(status);
     }
 
     @Given("Podanie loginu uzytkownika: \"([^\"]*)\"$")
@@ -128,7 +128,7 @@ public class OrangeHrmSteps {
     public void stepSelectReportCriterion(String selectedCriteria) {
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
         pimPanelSteps
-                .setSelectionCriteria()
+                .clickSelectionCriteria()
                 .pickSelectionCriteria(selectedCriteria);
     }
 
@@ -140,10 +140,10 @@ public class OrangeHrmSteps {
     }
 
     @Given("Przycisk plus dla display fields zostal wcisniety")
-    public void stepClickPlusButtonForDisplayFields() {
+    public void stepClickPlusButtonForDisplayedFields() {
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
         pimPanelSteps
-                .clickPlusButtonForDisplayFields();
+                .clickPlusButtonForDisplayedFields();
     }
 
     @Given("Wybranie stopnia naukowego: ([^\"]*)$")
@@ -154,11 +154,11 @@ public class OrangeHrmSteps {
                 .selectEducationDegree(degree);
     }
 
-    @Given("Pola z sekcji które mają zostać wyświetlone w raporcie to: ([^\"]*)$")
+    @Given("Pola z sekcji ktore maja zostac wyswietlone w raporcie to: ([^\"]*)$")
     public void stepSetOptionDataGroup(String dataGroup) {
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
         pimPanelSteps
-                .clickDisplayFieldsLabel()
+                .clickDisplayedFieldsLabel()
                 .selectPersonalDataGroup(dataGroup);
     }
 
@@ -166,7 +166,7 @@ public class OrangeHrmSteps {
     public void stepSetDisplayedField(String displayedField) {
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
         pimPanelSteps
-                .clickDisplayField()
+                .clickDisplayedField()
                 .selectPersonalDataGroup(displayedField);
     }
 
@@ -174,20 +174,21 @@ public class OrangeHrmSteps {
     public void stepClickListFromTimeSection(String timeSectionList) {
         TimePanelSteps timePanelSteps = new TimePanelSteps();
         timePanelSteps
-                .selectButtonFromListInTimeAndClick(timeSectionList);
+                .clickButtonFromListInTimeSection(timeSectionList);
     }
 
     @Given("Wybranie opcji z listy: ([^\"]*)$")
     public void stepClickPickedOptionFromList(String pickedOption) {
         TimePanelSteps timePanelSteps = new TimePanelSteps();
-        timePanelSteps.pickOptionFromList(pickedOption);
+        timePanelSteps
+                .clickOptionFromList(pickedOption);
     }
 
     @Given("Wcisniecie przycisku: ([^\"]*)$")
     public void stepClickDecisionButton(String button) {
         CommonSteps commonSteps = new CommonSteps();
         commonSteps
-                .clickButtonWithNormalizeSpace(button);
+                .clickButtonWithNormalizedSpace(button);
     }
 
     @Given("Wybranie projektu: ([^\"]*)$")
@@ -195,7 +196,7 @@ public class OrangeHrmSteps {
         TimePanelSteps timePanelSteps = new TimePanelSteps();
         timePanelSteps
                 .setProjectName(projectName)
-                .chosePromptedProject();
+                .clickPromptedProject();
     }
 
     @Given("Wybranie rodzaju pracy: ([^\"]*)$")
@@ -203,7 +204,7 @@ public class OrangeHrmSteps {
         TimePanelSteps timePanelSteps = new TimePanelSteps();
         timePanelSteps
                 .clickEmployeeActivity()
-                .choseActivity(activityType);
+                .chooseActivity(activityType);
     }
 
     @Given("Dodanie ([^\"]*) godzin pracy dla ([^\"]*) dni roboczych$")
@@ -217,7 +218,7 @@ public class OrangeHrmSteps {
     public void stepResetTimeReport() {
         TimePanelSteps timePanelSteps = new TimePanelSteps();
         timePanelSteps
-                .resetHoursReport();
+                .clickResetHoursReportButton();
     }
 
     @Given("Wygenerowanie nazwy wakatu")
@@ -267,14 +268,14 @@ public class OrangeHrmSteps {
     public void whenClickingButtonFromSectionQuickLaunchRedirectTo(String section) {
         DashboardSteps dashboardSteps = new DashboardSteps();
         dashboardSteps
-                .quickLaunchSectionOptionClick(section);
+                .clickQuickLaunchSectionOption(section);
     }
 
     @When("Przejscie do sekcji: ([^\"]*)$")
     public void whenEnterToTheSection(String section) {
         CommonSteps commonSteps = new CommonSteps();
         commonSteps
-                .generateAndClickSelectorForAllSections(section);
+                .clickSelectorForAllSections(section);
     }
 
     @When("Przycisk save zostaje wcisniety")
@@ -327,7 +328,7 @@ public class OrangeHrmSteps {
     }
 
     @Then("Strona po przeladowaniu wyswietla informacje \"Invalid credentials\"")
-    public void assertPageAfterReloadIsDisplayingInformationInvalidCredentials() {
+    public void assertPageAfterReloadIsDisplayingInformationAboutInvalidCredentials() {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
 
         String invalidCredentialsAlert = loginPageSteps.getInvalidCredentialsAlertText();
@@ -336,7 +337,7 @@ public class OrangeHrmSteps {
 
     @Then("Zamkniecie przegladarki")
     public void closeBrowser() {
-        DriverPicker.getDriver().close();
-        DriverPicker.setDriver(null);
+        getDriver().close();
+        setDriver(null);
     }
 }

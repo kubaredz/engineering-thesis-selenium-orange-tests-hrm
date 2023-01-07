@@ -10,7 +10,7 @@ import steps.options.RecruitmentPanelSteps;
 
 import static org.testng.Assert.assertTrue;
 
-public class RecruitmentPanelTests extends TestBase {
+public class RecruitmentPanelTests extends TestNgSteps {
     private CommonTests commonTests;
     private RecruitmentPanelSteps recruitmentPanelSteps;
 
@@ -21,23 +21,22 @@ public class RecruitmentPanelTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'Recruitment' przekierowuje do strony 'Recrutiment' z lista osob w trakcie rekrutacji")
     @Story("PI-42")
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-42")
+    @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'Recruitment' przekierowuje do strony 'Recrutiment' z lista osob w trakcie rekrutacji")
     @Parameters({"login", "password"})
     public void asAdminRecruitmentScreenIsPresentTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
 
         recruitmentPanelSteps.clickPanelSection();
-
         assertTrue(recruitmentPanelSteps.isHeaderTextDisplayed());
     }
 
     @Test
-    @Description("Jako zalogowany uzytkownik, weryfikacja dodania nowego kandydata do systemu rekrutacyjnego")
+    @Story("PI-42")
     @Severity(SeverityLevel.CRITICAL)
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-42")
-    @Story("PI-42")
+    @Description("Jako zalogowany uzytkownik, weryfikacja dodania nowego kandydata do systemu rekrutacyjnego")
     @Parameters({"login", "password"})
     public void asAdminAddNewCandidate(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);

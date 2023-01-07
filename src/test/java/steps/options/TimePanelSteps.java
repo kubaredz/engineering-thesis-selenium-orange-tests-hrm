@@ -50,7 +50,7 @@ public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, Co
     }
 
     @Step("Wybranie wyswietlonego pracownika")
-    public TimePanelSteps pickPromptedEmployeeName() {
+    public TimePanelSteps clickPromptedEmployeeName() {
         promptedEmployeeName.click();
         logger.log(Level.INFO, "Wybranie wyswietlonego imienia");
         return new TimePanelSteps();
@@ -83,7 +83,7 @@ public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, Co
     }
 
     @Step("Wybranie oraz wcisniecie przycisku z listy w sekcji Time: {listButton}")
-    public TimePanelSteps selectButtonFromListInTimeAndClick(String listButton) {
+    public TimePanelSteps clickButtonFromListInTimeSection(String listButton) {
         String selector = "//span[normalize-space()='listButton']";
         buttonFromList = DriverPicker.driverSetup().findElement(By.xpath(selector.replace("listButton", listButton)));
         logger.log(Level.INFO, "Wybranie przycisku z listy w sekcji Time: {0} ", listButton);
@@ -93,7 +93,7 @@ public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, Co
     }
 
     @Step("Wybranie opcji z listy: {option}")
-    public TimePanelSteps pickOptionFromList(String option) {
+    public TimePanelSteps clickOptionFromList(String option) {
         String selector = "//a[contains(text(),'option')]";
         pickedOption = DriverPicker.driverSetup().findElement(By.xpath(selector.replace("option", option)));
         logger.log(Level.INFO, "Wybranie opcji z listy: {0} ", option);
@@ -110,7 +110,7 @@ public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, Co
     }
 
     @Step("Wcisniecie wyswietlonego projektu")
-    public TimePanelSteps chosePromptedProject() {
+    public TimePanelSteps clickPromptedProject() {
         pickedProject.click();
         logger.log(Level.INFO, "Wcisniecie wyswietlonego projektu");
         return new TimePanelSteps();
@@ -124,7 +124,7 @@ public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, Co
     }
 
     @Step("Wybranie stanowiska pracy pracownika: {activityType}")
-    public TimePanelSteps choseActivity(String activityType) {
+    public TimePanelSteps chooseActivity(String activityType) {
         String selector = "//span[normalize-space()='activityType']";
         pickedOption = DriverPicker.driverSetup().findElement(By.xpath(selector.replace("activityType", activityType)));
         waitTillElementIsPresent(pickedOption);
@@ -147,7 +147,7 @@ public class TimePanelSteps extends TimePanelBuilder implements DefaultSteps, Co
     }
 
     @Step("Zresetowanie raportu godzin")
-    public TimePanelSteps resetHoursReport() {
+    public TimePanelSteps clickResetHoursReportButton() {
         deleteReportButton.click();
         logger.log(Level.INFO, "Zresetowanie raportu godzin");
         return new TimePanelSteps();

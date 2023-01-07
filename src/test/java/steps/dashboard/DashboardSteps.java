@@ -59,7 +59,7 @@ public class DashboardSteps extends DashboardPageBuilder {
     }
 
     @Step("Pobranie url-a dla danej sekcji z panelu quick launch: {section} i wcisniecie tej sekcji")
-    public DashboardSteps quickLaunchSectionOptionClick(String section) {
+    public DashboardSteps clickQuickLaunchSectionOption(String section) {
         String selector = "button[title='section']";
         quickLaunchButton = DriverPicker.driverSetup().findElement(By.cssSelector(selector.replace("section", section)));
         waitTillElementIsClickableByWebElement(quickLaunchButton);

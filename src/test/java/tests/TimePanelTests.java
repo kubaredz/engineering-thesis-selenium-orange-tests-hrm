@@ -11,7 +11,7 @@ import steps.options.TimePanelSteps;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class TimePanelTests extends TestBase {
+public class TimePanelTests extends TestNgSteps {
     private CommonTests commonTests;
     private TimePanelSteps timePanelSteps;
     private HeaderSteps headerSteps;
@@ -24,23 +24,25 @@ public class TimePanelTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'Time' przekierowuje do strony 'Timesheets' z lista obecnosci")
     @Severity(SeverityLevel.NORMAL)
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-43")
+    @Description("Jako zalogowany uzytkownik, weryfikacja czy panel 'Time' przekierowuje do strony 'Timesheets' z lista obecnosci")
     @Story("PI-43")
     public void asAdminUserTimesheetScreenIsPresentTest() {
-        commonTests.loginAsAdministratorToOrangeHrmAppTest("Admin", "admin123");
+        commonTests
+                .loginAsAdministratorToOrangeHrmAppTest("Admin", "admin123");
 
-        timePanelSteps.clickPanelSection();
+        timePanelSteps
+                .clickPanelSection();
 
         assertTrue(timePanelSteps.isHeaderTextDisplayed());
     }
 
     @Test
-    @Description("Jako zalogowany uzytkownik, weryfikacja czy timesheet dla aktualnie zalogowanego uzytkownika jest widoczny")
+    @Story("PI-43")
     @Severity(SeverityLevel.NORMAL)
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-43")
-    @Story("PI-43")
+    @Description("Jako zalogowany uzytkownik, weryfikacja czy timesheet dla aktualnie zalogowanego uzytkownika jest widoczny")
     @Parameters({"login", "password"})
     public void asAdminCreateNewTimesheetTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         commonTests.loginAsAdministratorToOrangeHrmAppTest(login, password);
@@ -50,7 +52,7 @@ public class TimePanelTests extends TestBase {
         timePanelSteps
                 .clickPanelSection()
                 .setEmployeeName(loggedUserData)
-                .pickPromptedEmployeeName()
+                .clickPromptedEmployeeName()
                 .clickViewButton();
 
         assertTrue(timePanelSteps.isTimeSectionDisplayed());

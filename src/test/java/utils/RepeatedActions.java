@@ -14,9 +14,13 @@ public class RepeatedActions {
                 .pause(100).sendKeys(content).perform();
     }
 
-    public static void scrollToElement(WebElement element) {
+    public static void scrollToElement(WebElement webElement) {
         Actions actions = new Actions(DriverPicker.driverSetup());
-        actions.scrollToElement(element).perform();
+        actions.scrollToElement(webElement).perform();
     }
 
+    public static void doubleClickElement(WebElement webElement) {
+        Actions actions = new Actions(DriverPicker.driverSetup());
+        actions.moveToElement(webElement).doubleClick().build().perform();
+    }
 }

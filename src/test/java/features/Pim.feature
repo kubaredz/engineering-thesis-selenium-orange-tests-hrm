@@ -15,7 +15,7 @@ Feature: Testy weryfikujace panel PIM (Personeels Informatie Manager)
     And Wybranie kryterium raportu: Education
     And Przycisk plus dla selection criteria zostal wcisniety
     And Wybranie stopnia naukowego: <stopien>
-    And Pola z sekcji które mają zostać wyświetlone w raporcie to: Contact Details
+    And Pola z sekcji ktore maja zostac wyswietlone w raporcie to: Contact Details
     And Wybranie dokladnych danych jakie maja zostac wyswietlone: Address
     And Przycisk plus dla display fields zostal wcisniety
     When Przycisk save zostaje wcisniety

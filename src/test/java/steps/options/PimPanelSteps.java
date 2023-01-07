@@ -150,7 +150,7 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
     }
 
     @Step("Wcisniecie listy select: 'Selection Criteria'")
-    public PimPanelSteps setSelectionCriteria() {
+    public PimPanelSteps clickSelectionCriteria() {
         selectionCriteriaSelect.click();
         logger.log(Level.INFO, "Wcisniecie listy select: \"Criteria Criteria\"");
         return new PimPanelSteps();
@@ -173,7 +173,7 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
     }
 
     @Step("Wcisniecie przycisku plus dla wyswietlonego pola")
-    public PimPanelSteps clickPlusButtonForDisplayFields() {
+    public PimPanelSteps clickPlusButtonForDisplayedFields() {
         displayFieldsButton.click();
         logger.log(Level.INFO, "Wcisniecie przycisku 'plus' dla wyswietlonego pola");
         return new PimPanelSteps();
@@ -197,7 +197,7 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
     }
 
     @Step("Wybranie z listy select typu pol ktore zostana wyswietlone")
-    public PimPanelSteps clickDisplayFieldsLabel() {
+    public PimPanelSteps clickDisplayedFieldsLabel() {
         displayedFieldGroupSelect.click();
         logger.log(Level.INFO, "Wcisniecie listy select: 'Display fields'");
         return new PimPanelSteps();
@@ -213,7 +213,7 @@ public class PimPanelSteps extends PimPanelBuilder implements DefaultSteps, Comm
     }
 
     @Step("Wybranie pola ktore zostanie wyswietlone")
-    public PimPanelSteps clickDisplayField() {
+    public PimPanelSteps clickDisplayedField() {
         displayFieldSelect.click();
         logger.log(Level.INFO, "Wybranie pola ktore zostanie wyswietlone");
         return new PimPanelSteps();

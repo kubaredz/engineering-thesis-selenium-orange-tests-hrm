@@ -10,14 +10,14 @@ import java.util.*;
 
 import static org.testng.Assert.assertEquals;
 
-public class HeaderTests extends TestBase {
+public class HeaderTests extends TestNgSteps {
 
     @Test
-    @Description("Jako zalogowany administrator, weryfikacja czy na rozwijanym panelu uzytkownika wszystkie pola sa widoczne")
     @Story("PI-35")
-    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-35")
     @Severity(SeverityLevel.NORMAL)
-    public void verifyThatUserDropDownListHasAllNecessaryFieldsTest() {
+    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-35")
+    @Description("Jako zalogowany administrator, weryfikacja czy na rozwijanym panelu uzytkownika wszystkie pola sa widoczne")
+    public void verifyUserDropDownListHasAllNecessaryFieldsTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
         loginPageTests.asAdministratorTryToLoginWithCorrectLoginAndPasswordTest();
 
@@ -39,11 +39,11 @@ public class HeaderTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany administrator, weryfikacja czy po kliknieciu opcji 'About' przenosi ona do sekcji 'About")
     @Story("PI-35")
-    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-35")
     @Severity(SeverityLevel.TRIVIAL)
-    public void verifyThatAboutOptionHasAllNecessaryInformationTest() {
+    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-35")
+    @Description("Jako zalogowany administrator, weryfikacja czy po kliknieciu przycisku 'About' przenosi on do sekcji 'About")
+    public void verifyAboutOptionHasAllNecessaryInformationTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
         loginPageTests.asAdministratorTryToLoginWithCorrectLoginAndPasswordTest();
 
@@ -60,11 +60,11 @@ public class HeaderTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany administrator, weryfikacja czy po kliknieciu opcji 'Support' przenosi ona do do strony 'Support'")
     @Story("PI-35")
-    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-35")
     @Severity(SeverityLevel.MINOR)
-    public void verifyThatSupportOptionTransferToSupportPageTest() {
+    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-35")
+    @Description("Jako zalogowany administrator, weryfikacja czy po kliknieciu przycisku 'Support' przenosi on do strony 'Support'")
+    public void verifySupportButtonTransfersToSupportPageTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
         loginPageTests.asAdministratorTryToLoginWithCorrectLoginAndPasswordTest();
 
@@ -74,7 +74,6 @@ public class HeaderTests extends TestBase {
         List<WebElement> options = headerSteps.getUserDropdown().findElements(By.tagName("li"));
         for (WebElement option : options) {
             if (option.getText().equals("Support")) {
-                //TODO
                 option.click();
                 assertEquals(headerSteps.getPageUrl(), "https://opensource-demo.orangehrmlive.com/web/index.php/help/support");
             }
@@ -82,11 +81,11 @@ public class HeaderTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany administrator, weryfikacja czy po kliknieciu opcji 'Change Password' przenosi ona do do strony zmiany hasla")
     @Story("PI-35")
-    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-35")
     @Severity(SeverityLevel.NORMAL)
-    public void verifyThatChangePasswordOptionRedirectToChangePasswordPageTest() {
+    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-35")
+    @Description("Jako zalogowany administrator, weryfikacja czy po kliknieciu przycisku 'Change Password' przenosi on do strony zmiany hasla")
+    public void verifyChangePasswordButtonRedirectsToChangePasswordPageTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
         loginPageTests.asAdministratorTryToLoginWithCorrectLoginAndPasswordTest();
 
@@ -96,7 +95,6 @@ public class HeaderTests extends TestBase {
         List<WebElement> options = headerSteps.getUserDropdown().findElements(By.tagName("li"));
         for (WebElement option : options) {
             if (option.getText().equals("Change Password")) {
-                //TODO
                 option.click();
                 assertEquals(headerSteps.getPageUrl(), "https://opensource-demo.orangehrmlive.com/web/index.php/pim/updatePassword");
             }
@@ -104,11 +102,11 @@ public class HeaderTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany administrator, weryfikacja czy po kliknieciu opcji 'Logout' wylogowywuje uzytkownika oraz przechodzi do strony logowania")
     @Story("PI-35")
-    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-35")
     @Severity(SeverityLevel.CRITICAL)
-    public void verifyThatLogoutOptionLogsOutUserTest() {
+    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-35")
+    @Description("Jako zalogowany administrator, weryfikacja czy po kliknieciu przycisku 'Logout' wylogowywuje on uzytkownika oraz przechodzi do strony logowania")
+    public void verifyLogoutButtonLogsOutUserTest() {
         LoginPageTests loginPageTests = new LoginPageTests();
         loginPageTests.asAdministratorTryToLoginWithCorrectLoginAndPasswordTest();
 
@@ -118,7 +116,6 @@ public class HeaderTests extends TestBase {
         List<WebElement> options = headerSteps.getUserDropdown().findElements(By.tagName("li"));
         for (WebElement option : options) {
             if (option.getText().equals("Logout")) {
-                //TODO
                 option.click();
                 assertEquals(headerSteps.getPageUrl(), "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
             }

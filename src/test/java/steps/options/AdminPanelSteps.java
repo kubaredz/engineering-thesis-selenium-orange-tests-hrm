@@ -2,13 +2,13 @@ package steps.options;
 
 import builders.options.AdminPanelBuilder;
 import io.qameta.allure.Step;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import setup.DriverPicker;
 
 import java.util.logging.Level;
 
 import static utils.RepeatedActions.deletingAndAddingContentToLabel;
+import static utils.RepeatedActions.doubleClickElement;
 import static waits.Wait.waitTillElementIsClickableByWebElement;
 import static waits.Wait.waitTillElementIsPresent;
 import static waits.Wait.waitSleep;
@@ -46,8 +46,7 @@ public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, 
     @Step("Przycisk: 'Save' zostal wcisniety")
     public AdminPanelSteps clickSaveButton() {
         waitSleep();
-        Actions action = new Actions(DriverPicker.driverSetup());
-        action.moveToElement(saveButton).doubleClick().build().perform();
+        doubleClickElement(saveButton);
         logger.log(Level.INFO, "Wciskam przycisk: \"Save\"");
         return new AdminPanelSteps();
     }
@@ -142,7 +141,6 @@ public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, 
         positiveAlert.isDisplayed();
         logger.log(Level.INFO, "Alert: \"Positive\" zostal wyswietlony");
         return positiveAlert.isDisplayed();
-
     }
 
     @Step("Text: 'System Users' zostal wyswietlony")
@@ -163,7 +161,7 @@ public class AdminPanelSteps extends AdminPanelBuilder implements DefaultSteps, 
     }
 
     @Step("Wybranie statusu dla nowego uzytkownika")
-    public AdminPanelSteps choseStatus(String status) {
+    public AdminPanelSteps chooseStatus(String status) {
         if (status.equals("Enabled")) {
             clickEnabledStatus();
         }

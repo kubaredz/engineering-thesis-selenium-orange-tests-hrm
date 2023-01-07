@@ -17,12 +17,12 @@ import steps.options.PimPanelSteps;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class CommonTests extends TestBase {
+public class CommonTests extends TestNgSteps {
     private PageSetup pageSetup;
 
     @Test
-    @Description("Jako administrator zalogowanie sie na stronie: www.opensource-demo.orangehrmlive.com")
     @Severity(SeverityLevel.BLOCKER)
+    @Description("Jako administrator zalogowanie sie na stronie: www.opensource-demo.orangehrmlive.com")
     @Parameters({"login", "password"})
     public void loginAsAdministratorToOrangeHrmAppTest(@Optional("Admin") String login, @Optional("admin123") String password) {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
@@ -37,8 +37,8 @@ public class CommonTests extends TestBase {
     }
 
     @Test
-    @Description("Jako administrator weryfikacja dodania nowego uzytkownika do systemu Orange HRM")
     @Severity(SeverityLevel.BLOCKER)
+    @Description("Jako administrator weryfikacja dodania nowego uzytkownika do systemu Orange HRM")
     public void addNewUserToOrangeHrmAppTest() {
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
         LoginPageTests loginPageTests = new LoginPageTests();
@@ -64,8 +64,8 @@ public class CommonTests extends TestBase {
     }
 
     @Test
-    @Description("Jako administrator weryfikacja dodania nowego uzytkownika do systemu Orange HRM a nastepnie zalogowanie sie na niego")
     @Severity(SeverityLevel.BLOCKER)
+    @Description("Jako administrator weryfikacja dodania nowego uzytkownika do systemu Orange HRM a nastepnie zalogowanie sie na niego")
     public void addNewUserToSystemAndLoginOnHimTest() {
         PimPanelSteps pimPanelSteps = new PimPanelSteps();
         LoginPageTests loginPageTests = new LoginPageTests();
@@ -109,6 +109,5 @@ public class CommonTests extends TestBase {
         assertTrue(dashboardSteps.isHrmLogoAfterLoginDisplayed());
 
         assertEquals(headerSteps.getLoggedUser(), generatedFirstName + " " + generatedLastName);
-
     }
 }

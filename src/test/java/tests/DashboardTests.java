@@ -9,7 +9,7 @@ import steps.login_page.LoginPageSteps;
 
 import static org.testng.Assert.assertTrue;
 
-public class DashboardTests extends TestBase {
+public class DashboardTests extends TestNgSteps {
     private LoginPageSteps loginPageSteps;
     private DashboardSteps dashboardSteps;
 
@@ -19,12 +19,11 @@ public class DashboardTests extends TestBase {
         dashboardSteps = new DashboardSteps();
     }
 
-
     @Test
-    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Time at Work' jest widoczny")
-    @Severity(SeverityLevel.CRITICAL)
     @Story("PI-33")
+    @Severity(SeverityLevel.CRITICAL)
     @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-33")
+    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Time at Work' jest widoczny")
     @Parameters({"Admin", "admin123"})
     public void checkThatTimeAtWorkSectionIsPresentTest(String login, String password) {
         loginPageSteps
@@ -36,10 +35,10 @@ public class DashboardTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'My Actions' jest widoczna")
     @Story("PI-33")
-    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-33")
     @Severity(SeverityLevel.TRIVIAL)
+    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-33")
+    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'My Actions' jest widoczna")
     public void checkThatMyActionsSectionIsPresentTest() {
         loginPageSteps
                 .setUserNameField("Admin")
@@ -50,10 +49,10 @@ public class DashboardTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Quick Launch' jest widoczna")
     @Story("PI-33")
-    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-33")
     @Severity(SeverityLevel.TRIVIAL)
+    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-33")
+    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Quick Launch' jest widoczna")
     public void checkThatQuickLaunchSectionIsPresentTest() {
         loginPageSteps
                 .setUserNameField("Admin")
@@ -64,10 +63,10 @@ public class DashboardTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Employees On Leave Today' jest widoczna")
     @Story("PI-33")
-    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-33")
     @Severity(SeverityLevel.TRIVIAL)
+    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-33")
+    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Employees On Leave Today' jest widoczna")
     public void checkThatEmployeesOnLeaveTodaySectionIsPresentTest() {
         loginPageSteps
                 .setUserNameField("Admin")
@@ -78,10 +77,10 @@ public class DashboardTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Distribution By Sub Unit Today' jest widoczna")
     @Story("PI-33")
-    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-33")
     @Severity(SeverityLevel.TRIVIAL)
+    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-33")
+    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Distribution By Sub Unit Today' jest widoczna")
     public void checkThatEmployeeDistributionBySubUnitTodaySectionIsPresentTest() {
         loginPageSteps
                 .setUserNameField("Admin")
@@ -92,10 +91,10 @@ public class DashboardTests extends TestBase {
     }
 
     @Test
-    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Distribution By Location Today' jest widoczna")
     @Story("PI-33")
-    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-33")
     @Severity(SeverityLevel.TRIVIAL)
+    @Link("https://pracainzynierskapjatk.atlassian.net/browse/PI-33")
+    @Description("Jako zalogowany administrator, weryfikacja czy sekcja 'Distribution By Location Today' jest widoczna")
     public void checkThatEmployeeDistributionByLocationTodaySectionIsPresentTest() {
         loginPageSteps
                 .setUserNameField("Admin")

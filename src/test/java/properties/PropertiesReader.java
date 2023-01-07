@@ -15,15 +15,67 @@ public class PropertiesReader {
     private static Properties properties;
     private static BufferedReader bufferedReader;
 
-    public static void setProperties(Properties properties) {
-        PropertiesReader.properties = properties;
+    public Properties configurationFileReader() {
+        try {
+            bufferedReader = new BufferedReader(new FileReader(PROPERTY_FILE));
+            properties = new Properties();
+            try {
+                properties.load(bufferedReader);
+                bufferedReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Plik configuration.properties nie zostal znaleziony pod lokalizacja: " + PROPERTY_FILE);
+        }
+        return properties;
+    }
+
+    public static WebDriver selectTypeOfStartup(String browser) {
+        if (System.getProperty("browser") != null) {
+            if (System.getProperty("browser").equals("CHROME")) {
+                setPropertyOfSystem(getChromeDriver(), properties.getProperty("chromeDriver"));
+                return new ChromeDriver();
+            }
+            if (System.getProperty("browser").equals("FIREFOX")) {
+                setPropertyOfSystem(getFirefoxDriver(), properties.getProperty("firefoxDriver"));
+                return new FirefoxDriver();
+            } else {
+                throw new IllegalStateException("Przegladarka ktora zostala wybrana za pomoca get property (Jenkins), nie jest obslugiwana: " + System.getProperty("browser"));
+            }
+        } else {
+            if (browser.equalsIgnoreCase("CHROME")) {
+                setPropertyOfSystem(getChromeDriver(), properties.getProperty("chromeDriver"));
+                return new ChromeDriver();
+            }
+            if (browser.equalsIgnoreCase("FIREFOX")) {
+                setPropertyOfSystem(getFirefoxDriver(), properties.getProperty("firefoxDriver"));
+                return new FirefoxDriver();
+            } else
+                throw new IllegalStateException("Przegladarka ktora zostala wybrana, nie jest obslugiwana" + System.getProperty("typeOfBrowser"));
+        }
+    }
+
+    public static void setSystemFileProperties() {
+        PropertiesReader propertiesReader = new PropertiesReader();
+        Properties enrolledProperties = propertiesReader.configurationFileReader();
+        setProperties(enrolledProperties);
+    }
+
+    private static void setPropertyOfSystem(String driverType, String driverPath) {
+        System.setProperty(driverType, driverPath);
     }
 
     public static String getPageUrl() {
         return properties.getProperty("url");
     }
 
-    public static String getBrowserType() {
+    private static void setProperties(Properties properties) {
+        PropertiesReader.properties = properties;
+    }
+
+    public static String getTypeOfBrowser() {
         return properties.getProperty("typeOfBrowser");
     }
 
@@ -45,60 +97,5 @@ public class PropertiesReader {
 
     private static String getFirefoxDriver() {
         return properties.getProperty("firefoxPath");
-    }
-
-    public Properties configurationFileReader() {
-        try {
-            bufferedReader = new BufferedReader(new FileReader(PROPERTY_FILE));
-            properties = new Properties();
-            try {
-                properties.load(bufferedReader);
-                bufferedReader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Plik configuration.properties nie zostal znaleziony pod lokalizacja: " + PROPERTY_FILE);
-        }
-        return properties;
-    }
-
-    public static WebDriver selectTypeOfStartup(String browser) {
-        if (System.getProperty("browser") != null) {
-            System.out.println("best");
-            if (System.getProperty("browser").equals("CHROME")) {
-                System.out.println("best1");
-                setPropertyOfSystem(getChromeDriver(), properties.getProperty("chromeDriver"));
-                return new ChromeDriver();
-            }
-            if (System.getProperty("browser").equals("FIREFOX")) {
-                System.out.println("best2");
-                setPropertyOfSystem(getFirefoxDriver(), properties.getProperty("firefoxDriver"));
-                return new FirefoxDriver();
-            }else {
-                throw new IllegalStateException("Przegladarka ktora zostala wybrana za pomoca get property (Jenkins), nie jest obslugiwana: " + System.getProperty("browser"));
-            }
-        } else {
-            if (browser.equalsIgnoreCase("CHROME")) {
-                setPropertyOfSystem(getChromeDriver(), properties.getProperty("chromeDriver"));
-                return new ChromeDriver();
-            }
-            if (browser.equalsIgnoreCase("FIREFOX")) {
-                setPropertyOfSystem(getFirefoxDriver(), properties.getProperty("firefoxDriver"));
-                return new FirefoxDriver();
-            } else
-                throw new IllegalStateException("Przegladarka ktora zostala wybrana, nie jest obslugiwana" + System.getProperty("typeOfBrowser"));
-        }
-    }
-
-    private static void setPropertyOfSystem(String driverType, String driverPath) {
-        System.setProperty(driverType, driverPath);
-    }
-
-    public static void setPropertiesFromFileInSystem() {
-        PropertiesReader propertiesReader = new PropertiesReader();
-        Properties propertiesFromFile = propertiesReader.configurationFileReader();
-        setProperties(propertiesFromFile);
     }
 }

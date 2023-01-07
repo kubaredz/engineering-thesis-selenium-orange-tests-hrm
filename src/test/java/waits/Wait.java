@@ -13,11 +13,6 @@ public class Wait {
     private static WebDriverWait webDriverWait;
     private static PropertiesReader propertiesReader;
 
-    private static WebDriverWait setWaitDuration() {
-        webDriverWait = new WebDriverWait(DriverPicker.driverSetup(), Duration.ofSeconds(propertiesReader.getImplicitlyWait()));
-        return webDriverWait;
-    }
-
     public static void waitTillElementIsPresent(WebElement webElement) {
         webDriverWait = setWaitDuration();
         webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
@@ -39,5 +34,10 @@ public class Wait {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private static WebDriverWait setWaitDuration() {
+        webDriverWait = new WebDriverWait(DriverPicker.driverSetup(), Duration.ofSeconds(propertiesReader.getImplicitlyWait()));
+        return webDriverWait;
     }
 }
