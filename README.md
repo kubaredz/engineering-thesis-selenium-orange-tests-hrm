@@ -1,3 +1,5 @@
+PL![image](https://github.com/kubaredz/engineering-thesis-selenium-orange-tests-hrm/assets/82051368/eab271be-1680-4825-be00-5dc400f61493)
+
 <b> Praca inzynierska [praca-inzynierska-selenium-orange-hrm] instrukcja obsługi: </b> <br><br>
 
 <b> Instalacja: </b> <br>
@@ -48,3 +50,56 @@ W pliku: "src/test/resources/configuration.properties" mozna zmieniac parametry 
 - Nastepnie nalezy uruchomic "job-a" wraz z parametrami (mozliwy wybor przegladarki to CHROME lub FIREFOX), po wyborze przegladarki nalezy wcisnac przycisk: "Buduj"
 - W tym momencie zostana uruchomione testy i potrwa to ok. 15 min
 - Po zakonczeniu budowania, zostanie dodany raport w postaci Allure Report ktory to nalezy otworzyc.
+
+ENG![image](https://github.com/kubaredz/engineering-thesis-selenium-orange-tests-hrm/assets/82051368/bc0f2cc7-22bd-4cdc-853c-e9899d8b884f)
+
+<b> Engineering thesis [engineering-thesis-selenium-orange-hrm] manual: </b> <br><br>
+
+<b> Installation: </b> <br>
+The engineering work uses the following tools and software, for this you need to install: <br>
+- Development environment e.g. <b> IntelliJ IDEA</b> link: https://www.jetbrains.com/idea/download/#section=windows <br>
+- Java <b>JDK</b> version 19 - link: https://www.oracle.com/java/technologies/javase/jdk19-archive-downloads.html <br>
+- Browser <b>Google Chrome</b> version older than: 108.0.5359.125 link: https://www.google.com/intl/pl_pl/chrome/ <br>
+- Browser <b>Mozilla Firefox</b> older than: 108.0.2 link: https://www.mozilla.org/en-US/firefox/108.0.2/releasenotes/ <br><br>
+
+<b> Taking dependencies in Maven: </b> <br>
+Next, open the project and download the dependencies. The dependencies should puff in the background, however, if this is the case
+there would be no place, please go to the file: *pom.xml* and download the dependencies by running Maven in the background. <br><br>
+
+
+<b> Run tests: </b> <br>
+- To run tests <b> without generating a report</b> go to the folder: "src/test" and then click the folder "test" with the right mouse button and press: <b> Run 'All Features in: test' </ b>.
+The important aspect is that you need to run the tests with the TestNG tool (not Junit)
+At this point, all tests will run locally. Testing time is about 25 minutes. <br>
+- To run tests <b> with Allure</b> report generation, go to the terminal in the Intelij Idea program or to the terminal on the PC. Go to the location where the project was saved: praca-engineering and then run the command: <br><br>
+<a>mvn clean test</a> <br>
+At this point, all tests will be run from the location: "src/test" duration approx. 25 minutes. <br><br>
+<a>mvn allure:report</a> <br>
+At this point, a report of the tests performed using the Allure tool will be generated.
+
+The above report will be placed automatically under the location: <p> "target/site/allure-maven-plugin/index.html" </p> <br>
+To open the above report, open index.html, for example, in Intelij IDEA and then select the type of browser in which the report
+is to be opened. <br>
+
+In the file: "src/test/resources/configuration.properties" you can change parameters such as: <br>
+- typeOfBrowser = CHROME or FIREFOX
+- url - address of the tested website
+- implicitlyWaitTime - which defines the implicit wait for elements on the page in seconds
+- login - which will be used to log in to the OrangeHRM website
+- password - which will be used to log in to the OrangeHRM website
+
+<b>Run tests on Jenkins</b> <br>
+
+- To run tests using Jenkins, install the server from the website: https://www.jenkins.io/download/
+- After installation, go to the declared port on which the server will be launched, for example: http://localhost:8080/
+- You need to install the plugin: "Allure Jenkins Plugin"
+- Add a new project along with a new job.
+- Then go to the new project and add the Code Repository with the url: https://bitbucket.org/kuba_redzinski/praca-inzynierska-selenium-orange-hrm and select the branch: "*/master"
+- In the Build Steps section, set: Invoke top-level Maven targets with the setting: "clean install -DskipTests"
+- In the Build Steps section, add another: Invoke top-level Maven targets with the setting: "test -Dbrowser=${browserType}"
+- In the Actions after task section, add: "Allure Report" and set the "path" with the setting: "target/allure-results"
+- Checkbox: "This task is parameterized" from "Choicelist": name is: "browserType" and picklist is: "CHROME (and in a new line) FIREFOX"
+- Save and go to "job"
+- Then, run the "job" with parameters (possible choice of browser is CHROME or FIREFOX), after selecting the browser, press the button: "Build"
+- At this point, the tests will be launched and it will take about 15 minutes
+- After the build is finished, a report will be added in the form of Allure Report which should be opened.
