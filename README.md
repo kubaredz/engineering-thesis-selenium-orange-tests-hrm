@@ -68,7 +68,7 @@ there would be no place, please go to the file: *pom.xml* and download the depen
 
 
 <b> Run tests: </b> <br>
-- To run tests <b> without generating a report</b> go to the folder: "src/test" and then click the folder "test" with the right mouse button and press: <b> Run 'All Features in: test' </ b>.
+- To run tests <b> without generating a report</b> go to the folder: "src/test" and then click the folder "test" with the right mouse button and press: <b> Run 'All Features in: test' </b>.
 The important aspect is that you need to run the tests with the TestNG tool (not Junit)
 At this point, all tests will run locally. Testing time is about 25 minutes. <br>
 - To run tests <b> with Allure</b> report generation, go to the terminal in the Intelij Idea program or to the terminal on the PC. Go to the location where the project was saved: praca-engineering and then run the command: <br><br>
